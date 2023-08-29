@@ -1,8 +1,6 @@
 import { load } from "cheerio";
 
-const output = [];
-
-(async () => {
+export const crazyGames = async () => {
 	const games = {};
 
 	const tagsPage = await fetch("https://www.crazygames.com/tags");
@@ -29,5 +27,5 @@ const output = [];
 		}
 	});
 
-	console.log(games);
-})();
+	return Object.keys(games).map((key) => [obj[key], key]);
+};

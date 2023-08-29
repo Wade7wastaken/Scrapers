@@ -13,7 +13,9 @@ const getPropertyFromString = (string, name) => {
 	)[name];
 };
 
-(async () => {
+export const googleDoodles = async () => {
+	const output = [];
+
 	const response = await fetch(
 		"https://www.google.com/doodles/json/2023/7?hl=en"
 	);
@@ -34,8 +36,9 @@ const getPropertyFromString = (string, name) => {
 		const finalUrl = getPropertyFromString(scriptData, "standalone_html");
 
 		if (finalUrl.length !== 0) {
-			console.log(finalUrl);
-			console.log(getPropertyFromString(scriptData, "title"));
+			output.push([getPropertyFromString(scriptData, "title"), finalUrl]);
 		}
 	});
-})();
+
+	return output;
+};

@@ -1,8 +1,7 @@
 const url = "https://api.poki.com/search/query/3?q=";
 
-const output = [];
-
-(async () => {
+export const poki = async () => {
+	const output = [];
 	const games = {};
 
 	for (let i = 0; i < 26; i++) {
@@ -21,4 +20,6 @@ const output = [];
 		console.log(game.title, game.slug);
 		output.push([game.title, `https://poki.com/en/g/${game.slug}`]);
 	}
-})();
+
+	return output;
+};
