@@ -10,7 +10,7 @@ const getPropertyFromString = (inString: string, name: string): string => {
 			beginningIndex,
 			inString.indexOf(",", beginningIndex)
 		)}}`
-	) as unknown;
+	) as Record<string, string>;
 
 	return json[name];
 };
@@ -60,7 +60,7 @@ export const googleDoodles = async (): Promise<[string, string][]> => {
 				if (finalUrl.length > 0) {
 					output.push([
 						getPropertyFromString(scriptData, "title"),
-						finalUrl,
+						`https://www.google.com${finalUrl}`,
 					]);
 				}
 			})(doodle)
