@@ -1,17 +1,27 @@
 {
-  "name": "randomstuff",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "type": "module",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "axios": "^1.5.0",
-    "cheerio": "1.0.0-rc.12"
-  }
+	"name": "typescript",
+	"version": "1.0.0",
+	"description": "A TypeScript template.",
+	"main": "./out/index.js",
+	"type": "module",
+	"scripts": {
+		"start": "node out/app.js",
+		"prestart": "npm run build",
+		"build": "tsc",
+		"lint": "eslint .",
+		"prettier:write": "prettier --write ./src"
+	},
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@types/node": "^20.4.2",
+		"@typescript-eslint/eslint-plugin": "^6.0.0",
+		"@typescript-eslint/parser": "^6.0.0",
+		"eslint": "^8.45.0",
+		"eslint-config-prettier": "^8.8.0",
+		"eslint-plugin-import": "^2.27.5",
+		"eslint-plugin-unicorn": "^48.0.0",
+		"prettier": "^3.0.0",
+		"typescript": "^5.1.6"
+	}
 }
