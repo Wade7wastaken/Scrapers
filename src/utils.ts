@@ -1,10 +1,11 @@
 import axios, { AxiosResponse } from "axios";
+
 import { Game } from "./types.js";
 
 const sleep = (ms: number): Promise<void> =>
 	new Promise((r) => setTimeout(r, ms));
 
-const DELAY_TIME = 1000;
+const DELAY_TIME = 500;
 
 const domains = new Map();
 
@@ -17,7 +18,8 @@ export function logger(location: string) {
 export const globalLog = logger("Game Added");
 
 export async function smart_fetch<T>(
-	url: string
+	url: string,
+	params?: Record<string, string | number>
 ): Promise<T | undefined> {
 	const hostname = new URL(url).hostname;
 
@@ -39,7 +41,7 @@ export async function smart_fetch<T>(
 	let response: AxiosResponse<T>;
 
 	try {
-		response = await axios.get<T>(url);
+		response = await axios.get<T>(url, { params });
 	} catch (error) {
 		console.error("FETAL ERROR IN GET:");
 		console.error(error);
