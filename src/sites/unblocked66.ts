@@ -1,21 +1,18 @@
 import { load } from "cheerio";
 
-import { Game, GameList } from "./types.js";
-import {
-	ResultList,
-	addGame,
-	addGameFallback,
-	logger,
-	smart_fetch,
-} from "./utils.js";
+import { GameList, Game } from "../types.js";
+import { addGameFallback, addGame } from "../utils/addGame.js";
+import { logger } from "../utils/logger.js";
+import { ResultList } from "../utils/resultList.js";
+import { smartFetch } from "../utils/smartFetch.js";
 
 const IGNORED_GAMES = new Set(["All Unblocked Games 66 EZ", "Feedback"]);
 
 const log = logger("UnblockedGames66");
 
-export const googleSite = async (): Promise<GameList> => {
+export const unblocked66 = async (): Promise<GameList> => {
 	const url = "https://sites.google.com/site/unblockedgames66ez/";
-	const response = await smart_fetch<string>(url);
+	const response = await smartFetch<string>(url);
 
 	if (response === undefined) return [];
 
@@ -35,7 +32,7 @@ export const googleSite = async (): Promise<GameList> => {
 
 				if (IGNORED_GAMES.has(gameName)) return;
 
-				const gamePage = await smart_fetch<string>(gameUrl);
+				const gamePage = await smartFetch<string>(gameUrl);
 
 				if (gamePage === undefined) {
 					log(`Request to ${gameUrl} failed`);
@@ -137,5 +134,8 @@ export const googleSite = async (): Promise<GameList> => {
 	});
 
 	await Promise.all(promises);
+
+	log("DONE");
+
 	return results.retrieve();
 };

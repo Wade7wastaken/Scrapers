@@ -1,7 +1,10 @@
 import { load } from "cheerio";
 
-import { Game, GameList } from "./types.js";
-import { ResultList, addGame, logger, smart_fetch } from "./utils.js";
+import { Game, GameList } from "../types.js";
+import { addGame } from "../utils/addGame.js";
+import { logger } from "../utils/logger.js";
+import { ResultList } from "../utils/resultList.js";
+import { smartFetch } from "../utils/smartFetch.js";
 
 const log = logger("Doodles");
 
@@ -15,7 +18,8 @@ const getPropertyFromString = (inString: string, name: string): string => {
 		)}}`
 	) as Record<string, string>;
 
-	return json[name];
+	// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+	return json[name]!;
 };
 
 interface Doodle {
@@ -30,7 +34,7 @@ const getDoodlesFromMonth = async (
 ): Promise<void> => {
 	const url = `https://www.google.com/doodles/json/${year}/${month}?hl=en`;
 
-	const response = await smart_fetch<Doodle[]>(url);
+	const response = await smartFetch<Doodle[]>(url);
 
 	if (response === undefined) {
 		log(`Request to ${url} failed`);
@@ -42,7 +46,7 @@ const getDoodlesFromMonth = async (
 			(async (doodle) => {
 				const doodleUrl = `https://www.google.com/doodles/${doodle.name}`;
 
-				const doodlePage = await smart_fetch<string>(doodleUrl);
+				const doodlePage = await smartFetch<string>(doodleUrl);
 
 				if (doodlePage === undefined) {
 					log(`Request to ${doodleUrl} failed`);
@@ -96,6 +100,8 @@ export const googleDoodles = async (): Promise<GameList> => {
 	await Promise.all(promises2);
 
 	await Promise.all(promises);
+
+	log("DONE");
 
 	return results.retrieve();
 };

@@ -1,5 +1,8 @@
-import { Game, GameList } from "./types.js";
-import { ResultList, addGame, logger, smart_fetch } from "./utils.js";
+import { GameList, Game } from "../types.js";
+import { addGame } from "../utils/addGame.js";
+import { logger } from "../utils/logger.js";
+import { ResultList } from "../utils/resultList.js";
+import { smartFetch } from "../utils/smartFetch.js";
 
 const BASE_URL = "https://api.poki.com/search/query/3?q=";
 
@@ -24,12 +27,11 @@ export const poki = async (): Promise<GameList> => {
 
 	for (let i = 0; i < 26; i++) {
 		const letter = String.fromCodePoint(97 + i);
-		console.log(letter);
 
 		const url = BASE_URL + letter;
 
 		promises.push(
-			smart_fetch<PokiApi>(url).then((response) => {
+			smartFetch<PokiApi>(url).then((response) => {
 				if (response === undefined) {
 					log(`Request to ${url} failed`);
 					return;
@@ -52,6 +54,8 @@ export const poki = async (): Promise<GameList> => {
 			`https://poki.com/en/g/${value.slug}`
 		);
 	}
+
+	log("DONE");
 
 	return results.retrieve();
 };
