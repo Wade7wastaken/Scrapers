@@ -11,10 +11,10 @@ import { lowerCaseSort } from "./utils/misc.js";
 
 const main = async (): Promise<void> => {
 	const siteMap = {
-		//CoolmathGames: coolmath(),
-		//"Unblocked Games 66 EZ": unblocked66(),
-		//"Google Doodles": googleDoodles(),
-		//"Crazy Games": crazyGames(),
+		CoolmathGames: coolmath(),
+		"Unblocked Games 66 EZ": unblocked66(),
+		"Google Doodles": googleDoodles(),
+		"Crazy Games": crazyGames(),
 		Poki: poki(),
 	};
 
@@ -27,7 +27,7 @@ const main = async (): Promise<void> => {
 	}
 
 	writeFileSync(
-		"./output2.json",
+		"./output.json",
 		JSON.stringify(results, Object.keys(results).sort())
 	);
 

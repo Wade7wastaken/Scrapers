@@ -6,6 +6,10 @@ import { logger } from "../utils/logger.js";
 import { ResultList } from "../utils/resultList.js";
 import { smartFetch } from "../utils/smartFetch.js";
 
+/* use
+https://www.coolmathgames.com/sites/default/files/cmatgame_games_with_levels.json
+*/
+
 const log = logger("CoolmathGames");
 
 export const coolmath = async (): Promise<GameList> => {
