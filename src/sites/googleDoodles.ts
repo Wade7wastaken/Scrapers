@@ -8,18 +8,41 @@ import { smartFetch } from "../utils/smartFetch.js";
 
 const log = new Logger("Doodles");
 
-const getPropertyFromString = (input: string, name: string): string => {
-	debugger;
-	const isMyType = (o: unknown): o is Record<string, string> =>
-		typeof o === "object" && o !== null && name in o;
+function findPropertyValue(jsonString: string, propertyName: string): string {
+	let insideString = false;
+	let currentProperty = "";
+	let currentValue = "";
+	let foundProperty = false;
 
-	const parsed: unknown = JSON.parse(
-		input.slice(input.indexOf("(") + 1, input.lastIndexOf(")"))
-	);
-	if (isMyType(parsed)) return parsed[name] ?? "";
+	for (const char of jsonString) {
+		if (char === '"') {
+			insideString = !insideString;
+		} else if (insideString) {
+			if (foundProperty) {
+				currentValue += char;
+			} else {
+				currentProperty += char;
+			}
+		} else if (char === ":" && !foundProperty) {
+			foundProperty = true;
+			currentProperty = currentProperty.trim(); // Remove leading and trailing whitespace
+		} else if (char === "," && foundProperty) {
+			if (currentProperty === propertyName) {
+				return currentValue.trim(); // Remove leading and trailing whitespace
+			}
+			currentProperty = "";
+			currentValue = "";
+			foundProperty = false;
+		}
+	}
 
-	return "";
-};
+	// Check the last property in case it matches
+	if (foundProperty && currentProperty === propertyName) {
+		return currentValue.trim(); // Remove leading and trailing whitespace
+	}
+
+	return ""; // Property not found
+}
 
 interface Doodle {
 	name: string;
@@ -63,14 +86,14 @@ const getDoodlesFromMonth = async (
 					return;
 				}
 
-				const finalUrl = getPropertyFromString(
+				const finalUrl = findPropertyValue(
 					scriptData,
 					"standalone_html"
 				);
 
 				if (finalUrl === "") return;
 
-				const doodleName = getPropertyFromString(scriptData, "title");
+				const doodleName = findPropertyValue(scriptData, "title");
 
 				addGame(
 					log,
