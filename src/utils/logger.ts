@@ -8,24 +8,36 @@ const logFileStream = createWriteStream(LOG_LOCATION);
 const prepareLogLine = (line: unknown): string =>
 	inspect(line).slice(1, -1) + "\n";
 
-export const logInfo = (message: unknown): void => {
-	console.log(message);
-	logFileStream.write(prepareLogLine(message));
-};
-
-export const logError = (message: unknown): void => {
-	console.error(message);
-	logFileStream.write(prepareLogLine(message));
-};
-
-export const logger = (location: string) => {
-	return (message: string) => {
-		logInfo(`${location}: ${message}`);
-	};
-};
-
 export const closeFileStream = (): void => {
 	logFileStream.close();
 };
 
-export const gameAddLog = logger("Game Added");
+export class Logger {
+	private readonly prefix: string;
+
+	public constructor(prefix: string) {
+		this.prefix = prefix;
+	}
+
+	private log(m: unknown, logLevel: string): void {
+		const message = `${this.prefix}: ${prepareLogLine(m)}`;
+		console.log(message);
+		logFileStream.write(`[${logLevel.toUpperCase()}] ${message}`);
+	}
+
+	public info(m: unknown): void {
+		this.log(m, "info");
+	}
+
+	public warn(m: unknown): void {
+		this.log(m, "warn");
+	}
+
+	public error(m: unknown): void {
+		this.log(m, "error");
+	}
+
+	public closeFileStream(): void {
+		logFileStream.close();
+	}
+}

@@ -1,10 +1,11 @@
 import { inspect } from "node:util";
 
-import axios, { AxiosError, AxiosRequestConfig, isAxiosError } from "axios";
+import type { AxiosError, AxiosRequestConfig } from "axios";
+import axios, { isAxiosError } from "axios";
 
 import { DELAY_TIME, NO_RETRY_HTTP_CODES } from "../config.js";
 
-import { logInfo, logError } from "./logger.js";
+import type { Logger } from "./logger.js";
 import { capitalize, sleep } from "./misc.js";
 
 const domains = new Map();
@@ -18,6 +19,7 @@ const getDomain = (url: string): string => {
 const getRetryMS = (retry: number): number => 2 ** (retry + 1) * 1000;
 
 const fetchWrapper = async <T>(
+	log: Logger,
 	url: string,
 	options: AxiosRequestConfig,
 	retry = 0
@@ -25,7 +27,7 @@ const fetchWrapper = async <T>(
 	const requestName = `request to ${url} with options ${inspect(options)}`;
 
 	if (retry >= 5) {
-		logError(`${capitalize(requestName)} failed after ${retry} attempts.`);
+		log.error(`${capitalize(requestName)} failed after ${retry} attempts.`);
 		return undefined;
 	}
 
@@ -40,34 +42,35 @@ const fetchWrapper = async <T>(
 
 		if (error.response) {
 			if (NO_RETRY_HTTP_CODES.includes(error.response.status)) {
-				logError(
+				log.error(
 					`Unretriable HTTP code returned on request to ${requestName}: ${error.response.status}`
 				);
 				return undefined;
 			} else {
-				logError(
+				log.warn(
 					`Retriable error on request to ${requestName}. Retrying in ${retryDelay}ms. Error details:`
 				);
-				logError(error);
+				log.warn(error);
 
 				await sleep(retryDelay);
 
-				return fetchWrapper(url, options, retry + 1);
+				return fetchWrapper(log, url, options, retry + 1);
 			}
 		} else if (error.request) {
-			logError(
+			log.warn(
 				`No response received on request to ${requestName}. Retrying in ${retryDelay}ms. Error details:`
 			);
-			logError(error);
+			log.warn(error);
 
 			await sleep(retryDelay);
 
-			return fetchWrapper(url, options, retry + 1);
+			return fetchWrapper(log, url, options, retry + 1);
 		}
 	}
 };
 
 export async function smartFetch<T>(
+	log: Logger,
 	url: string,
 	params?: Record<string, string | number>
 ): Promise<T | undefined> {
@@ -86,7 +89,7 @@ export async function smartFetch<T>(
 		domains.set(domain, true);
 	}, DELAY_TIME);
 
-	logInfo(`request started: ${url}`);
+	log.info(`Request started: ${url}`);
 
-	return fetchWrapper<T>(url, { params });
+	return fetchWrapper<T>(log, url, { params });
 }

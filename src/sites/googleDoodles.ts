@@ -1,12 +1,12 @@
 import { load } from "cheerio";
 
-import { Game, GameList } from "../types.js";
+import type { Game, GameList } from "../types.js";
 import { addGame } from "../utils/addGame.js";
-import { logger } from "../utils/logger.js";
+import { Logger } from "../utils/logger.js";
 import { ResultList } from "../utils/resultList.js";
 import { smartFetch } from "../utils/smartFetch.js";
 
-const log = logger("Doodles");
+const log = new Logger("Doodles");
 
 const getPropertyFromString = (inString: string, name: string): string => {
 	const beginningIndex = inString.indexOf(`"${name}":`);
@@ -34,22 +34,22 @@ const getDoodlesFromMonth = async (
 ): Promise<void> => {
 	const url = `https://www.google.com/doodles/json/${year}/${month}?hl=en`;
 
-	const response = await smartFetch<Doodle[]>(url);
+	const response = await smartFetch<Doodle[]>(log, url);
 
 	if (response === undefined) {
-		log(`Request to ${url} failed`);
+		log.error(`Request to ${url} failed`);
 		return;
 	}
 
 	for (const doodle of response) {
 		promises.push(
-			(async (doodle) => {
+			(async (doodle): Promise<void> => {
 				const doodleUrl = `https://www.google.com/doodles/${doodle.name}`;
 
-				const doodlePage = await smartFetch<string>(doodleUrl);
+				const doodlePage = await smartFetch<string>(log, doodleUrl);
 
 				if (doodlePage === undefined) {
-					log(`Request to ${doodleUrl} failed`);
+					log.warn(`Request to ${doodleUrl} failed`);
 					return;
 				}
 
@@ -58,7 +58,7 @@ const getDoodlesFromMonth = async (
 				const scriptData = $("script").last().html();
 
 				if (scriptData === null) {
-					log(
+					log.warn(
 						`Couldn't find script tag in a Doodle url: ${doodleUrl}`
 					);
 					return;
@@ -101,7 +101,7 @@ export const googleDoodles = async (): Promise<GameList> => {
 
 	await Promise.all(promises);
 
-	log("DONE");
+	log.info("DONE");
 
 	return results.retrieve();
 };

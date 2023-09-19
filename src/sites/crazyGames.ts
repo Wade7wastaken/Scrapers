@@ -1,6 +1,6 @@
-import { GameList, Game } from "../types.js";
+import type { GameList, Game } from "../types.js";
 import { addGame } from "../utils/addGame.js";
-import { logger } from "../utils/logger.js";
+import { Logger } from "../utils/logger.js";
 import { ResultList } from "../utils/resultList.js";
 import { smartFetch } from "../utils/smartFetch.js";
 
@@ -22,7 +22,7 @@ interface GamesResponse {
 	};
 }
 
-const log = logger("CrazyGames");
+const log = new Logger("CrazyGames");
 
 export const crazyGames = async (): Promise<GameList> => {
 	const results = new ResultList<Game>();
@@ -33,26 +33,26 @@ export const crazyGames = async (): Promise<GameList> => {
 
 	const tagsUrl = "https://api.crazygames.com/v3/en_US/page/tags";
 
-	const tags = await smartFetch<TagsResponse>(tagsUrl);
+	const tags = await smartFetch<TagsResponse>(log, tagsUrl);
 
 	if (tags === undefined) {
-		log(`Request to ${tagsUrl} failed`);
+		log.error(`Request to ${tagsUrl} failed`);
 		return [];
 	}
 
 	const fetchPage = async (fetchUrl: string, page = 1): Promise<void> => {
-		const response = await smartFetch<GamesResponse>(fetchUrl, {
+		const response = await smartFetch<GamesResponse>(log, fetchUrl, {
 			paginationPage: page,
 			paginationSize: 100,
 		});
 
 		if (response === undefined) {
-			log(`Request to ${fetchUrl} failed`);
+			log.warn(`Request to ${fetchUrl} failed`);
 			return;
 		}
 
 		for (const game of response.games.data.items) {
-			log(`Processed game: ${game.name}`);
+			log.info(`Processed game: ${game.name}`);
 			games.set(game.name, game.slug);
 		}
 
@@ -73,7 +73,7 @@ export const crazyGames = async (): Promise<GameList> => {
 		addGame(log, results, name, `https://www.crazygames.com/game/${slug}`);
 	}
 
-	log("DONE");
+	log.info("DONE");
 
 	return results.retrieve();
 };

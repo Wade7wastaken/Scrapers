@@ -1,15 +1,15 @@
 export class ResultList<T> {
-	private results: T[];
+	private readonly results: T[];
 
-	constructor() {
+	public constructor() {
 		this.results = [];
 	}
 
-	add(item: T): void {
+	public add(item: T): void {
 		this.results.push(item);
 	}
 
-	retrieve(): T[] {
+	public retrieve(): T[] {
 		return this.results;
 	}
 }

@@ -1,6 +1,6 @@
-import { GameList, Game } from "../types.js";
+import type { GameList, Game } from "../types.js";
 import { addGame } from "../utils/addGame.js";
-import { logger } from "../utils/logger.js";
+import { Logger } from "../utils/logger.js";
 import { ResultList } from "../utils/resultList.js";
 import { smartFetch } from "../utils/smartFetch.js";
 
@@ -16,7 +16,7 @@ interface PokiApi {
 	games: PokiGame[];
 }
 
-const log = logger("Poki");
+const log = new Logger("Poki");
 
 export const poki = async (): Promise<GameList> => {
 	const results = new ResultList<Game>();
@@ -31,9 +31,9 @@ export const poki = async (): Promise<GameList> => {
 		const url = BASE_URL + letter;
 
 		promises.push(
-			smartFetch<PokiApi>(url).then((response) => {
+			smartFetch<PokiApi>(log, url).then((response) => {
 				if (response === undefined) {
-					log(`Request to ${url} failed`);
+					log.warn(`Request to ${url} failed`);
 					return;
 				}
 
@@ -55,7 +55,7 @@ export const poki = async (): Promise<GameList> => {
 		);
 	}
 
-	log("DONE");
+	log.info("DONE");
 
 	return results.retrieve();
 };
