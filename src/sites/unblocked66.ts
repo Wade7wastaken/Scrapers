@@ -1,141 +1,94 @@
 import { load } from "cheerio";
 
-import type { GameList, Game } from "../types.js";
+import { fetchAndParse } from "../segments/fetchAndParse.js";
+import { init } from "../segments/init.js";
+import { loopOverElements } from "../segments/loopOverElements.js";
+import type { GameList } from "../types.js";
 import { addGameFallback, addGame } from "../utils/addGame.js";
-import { Logger } from "../utils/logger.js";
-import { ResultList } from "../utils/resultList.js";
-import { smartFetch } from "../utils/smartFetch.js";
 
 const IGNORED_GAMES = new Set(["All Unblocked Games 66 EZ", "Feedback"]);
 
-const log = new Logger("UnblockedGames66");
-
 export const unblocked66 = async (): Promise<GameList> => {
-	const url = "https://sites.google.com/site/unblockedgames66ez/";
-	const response = await smartFetch<string>(log, url);
+	const { log, results } = init("UnblockedGames66");
 
-	if (response === undefined) return [];
+	const $ = await fetchAndParse(
+		log,
+		"https://sites.google.com/site/unblockedgames66ez/"
+	);
 
-	const $ = load(response);
+	if ($ === undefined) return [];
 
-	const promises: Promise<void>[] = [];
+	const selector = ".aJHbb.dk90Ob.hDrhEe.HlqNPb";
 
-	const results = new ResultList<Game>();
+	await loopOverElements($(selector), async (_, elem) => {
+		const gameName = $(elem).text();
+		const gameUrl = `https://sites.google.com${$(elem).attr("href")}`;
 
-	$(".aJHbb.dk90Ob.hDrhEe.HlqNPb").each((_, elem) => {
-		promises.push(
-			(async (elem): Promise<void> => {
-				const gameName = $(elem).text();
-				const gameUrl = `https://sites.google.com${$(elem).attr(
-					"href"
-				)}`;
+		const fallback = (message: string): void => {
+			addGameFallback(
+				log,
+				results,
+				gameName,
+				gameUrl,
+				message,
+				"full page"
+			);
+		};
 
-				if (IGNORED_GAMES.has(gameName)) return;
+		if (IGNORED_GAMES.has(gameName)) return;
 
-				const gamePage = await smartFetch<string>(log, gameUrl);
+		const $2 = await fetchAndParse(log, gameUrl);
 
-				if (gamePage === undefined) {
-					log.warn(`Request to ${gameUrl} failed`);
-					return;
-				}
+		if ($2 === undefined) return;
 
-				const $2 = load(gamePage);
+		const embed = $2(".w536ob")[0];
 
-				const embed = $2(".w536ob")[0];
+		if (embed === undefined) {
+			fallback(`Couldn't find an embed element on ${gameUrl}`);
+			return;
+		}
 
-				if (embed === undefined) {
-					addGameFallback(
-						log,
-						results,
-						gameName,
-						gameUrl,
-						`Couldn't find an embed element on ${gameUrl}`,
-						"full page"
-					);
-					return;
-				}
+		const data_code = embed.attribs["data-code"];
 
-				const data_code = embed.attribs["data-code"];
+		if (data_code === undefined) {
+			fallback(`Couldn't find data-code attribute on ${gameUrl}`);
+			return;
+		}
 
-				if (data_code === undefined) {
-					addGameFallback(
-						log,
-						results,
-						gameName,
-						gameUrl,
-						`Couldn't find data-code attribute on ${gameUrl}`,
-						"full page"
-					);
-					return;
-				}
+		const $3 = load(data_code);
+		const fr = $3("#fr")[0];
 
-				const $3 = load(data_code);
-				const fr = $3("#fr")[0];
+		if (fr === undefined) {
+			fallback(`Couldn't find an fr element on ${gameUrl}`);
+			return;
+		}
 
-				if (fr === undefined) {
-					addGameFallback(
-						log,
-						results,
-						gameName,
-						gameUrl,
-						`Couldn't find an fr element on ${gameUrl}`,
-						"full page"
-					);
-					return;
-				}
+		const data = fr.attribs.data;
 
-				const data = fr.attribs.data;
+		if (data === undefined) {
+			fallback(`Couldn't find data attribute on ${gameUrl}`);
+			return;
+		}
 
-				if (data === undefined) {
-					addGameFallback(
-						log,
-						results,
-						gameName,
-						gameUrl,
-						`Couldn't find data attribute on ${gameUrl}`,
-						"full page"
-					);
-					return;
-				}
+		const $4 = load(data);
 
-				const $4 = load(data);
+		const iframe = $4("iframe")[0];
 
-				const iframe = $4("iframe")[0];
+		if (iframe === undefined) {
+			fallback(`Couldn't find an iframe element on ${gameUrl}`);
+			return;
+		}
 
-				if (iframe === undefined) {
-					addGameFallback(
-						log,
-						results,
-						gameName,
-						gameUrl,
-						`Couldn't find an iframe element on ${gameUrl}`,
-						"full page"
-					);
-					return;
-				}
+		const src = iframe.attribs.src;
 
-				const src = iframe.attribs.src;
+		if (src === undefined) {
+			fallback(`Couldn't find src attribute on iframe on ${gameUrl}`);
+			return;
+		}
 
-				if (src === undefined) {
-					addGameFallback(
-						log,
-						results,
-						gameName,
-						gameUrl,
-						`Couldn't find src attribute on iframe on ${gameUrl}`,
-						"full page"
-					);
-					return;
-				}
-
-				addGame(log, results, gameName, src);
-			})(elem)
-		);
+		addGame(log, results, gameName, src);
 	});
 
-	await Promise.all(promises);
-
 	log.info("DONE");
-
 	return results.retrieve();
 };

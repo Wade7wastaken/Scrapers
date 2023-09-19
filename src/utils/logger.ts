@@ -3,10 +3,12 @@ import { inspect } from "node:util";
 
 import { LOG_LOCATION } from "../config.js";
 
+import { validateDirectory } from "./misc.js";
+
+validateDirectory(LOG_LOCATION);
 const logFileStream = createWriteStream(LOG_LOCATION);
 
-const prepareLogLine = (line: unknown): string =>
-	inspect(line).slice(1, -1) + "\n";
+const prepareLogLine = (line: unknown): string => inspect(line).slice(1, -1);
 
 export const closeFileStream = (): void => {
 	logFileStream.close();
@@ -22,7 +24,7 @@ export class Logger {
 	private log(m: unknown, logLevel: string): void {
 		const message = `${this.prefix}: ${prepareLogLine(m)}`;
 		console.log(message);
-		logFileStream.write(`[${logLevel.toUpperCase()}] ${message}`);
+		logFileStream.write(`[${logLevel.toUpperCase()}] ${message}\n`);
 	}
 
 	public info(m: unknown): void {
@@ -35,9 +37,5 @@ export class Logger {
 
 	public error(m: unknown): void {
 		this.log(m, "error");
-	}
-
-	public closeFileStream(): void {
-		logFileStream.close();
 	}
 }

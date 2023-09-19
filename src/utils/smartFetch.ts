@@ -72,7 +72,8 @@ const fetchWrapper = async <T>(
 export async function smartFetch<T>(
 	log: Logger,
 	url: string,
-	params?: Record<string, string | number>
+	params?: Record<string, string | number>,
+	silent = false
 ): Promise<T | undefined> {
 	const domain = getDomain(url);
 
@@ -91,5 +92,9 @@ export async function smartFetch<T>(
 
 	log.info(`Request started: ${url}`);
 
-	return fetchWrapper<T>(log, url, { params });
+	const response = await fetchWrapper<T>(log, url, { params });
+
+	if (!silent && response === undefined) log.warn(`Request to ${url} failed`);
+
+	return response;
 }

@@ -12,11 +12,11 @@ import { lowerCaseSort } from "./utils/misc.js";
 
 const main = async (): Promise<void> => {
 	const siteMap = {
-		"Coolmath Games": coolmath(),
-		"Unblocked Games 66 EZ": unblocked66(),
+		//"Coolmath Games": coolmath(),
+		//"Unblocked Games 66 EZ": unblocked66(),
 		"Google Doodles": googleDoodles(),
-		"Crazy Games": crazyGames(),
-		Poki: poki(),
+		//"Crazy Games": crazyGames(),
+		//Poki: poki(),
 	};
 
 	const results: Record<string, GameList> = {};

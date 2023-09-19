@@ -8,18 +8,17 @@ import { smartFetch } from "../utils/smartFetch.js";
 
 const log = new Logger("Doodles");
 
-const getPropertyFromString = (inString: string, name: string): string => {
-	const beginningIndex = inString.indexOf(`"${name}":`);
+const getPropertyFromString = (input: string, name: string): string => {
+	debugger;
+	const isMyType = (o: unknown): o is Record<string, string> =>
+		typeof o === "object" && o !== null && name in o;
 
-	const json = JSON.parse(
-		`{${inString.slice(
-			beginningIndex,
-			inString.indexOf(",", beginningIndex)
-		)}}`
-	) as Record<string, string>;
+	const parsed: unknown = JSON.parse(
+		input.slice(input.indexOf("(") + 1, input.lastIndexOf(")"))
+	);
+	if (isMyType(parsed)) return parsed[name] ?? "";
 
-	// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-	return json[name]!;
+	return "";
 };
 
 interface Doodle {

@@ -1,7 +1,7 @@
-import type { GameList, Game } from "../types.js";
+import { asyncLoop } from "../segments/asyncLoop.js";
+import { init } from "../segments/init.js";
+import type { GameList } from "../types.js";
 import { addGame } from "../utils/addGame.js";
-import { Logger } from "../utils/logger.js";
-import { ResultList } from "../utils/resultList.js";
 import { smartFetch } from "../utils/smartFetch.js";
 
 interface TagsResponse {
@@ -22,23 +22,16 @@ interface GamesResponse {
 	};
 }
 
-const log = new Logger("CrazyGames");
-
 export const crazyGames = async (): Promise<GameList> => {
-	const results = new ResultList<Game>();
+	const { log, results } = init("CrazyGames");
 
 	const games = new Map<string, string>();
-
-	const promises: Promise<void>[] = [];
 
 	const tagsUrl = "https://api.crazygames.com/v3/en_US/page/tags";
 
 	const tags = await smartFetch<TagsResponse>(log, tagsUrl);
 
-	if (tags === undefined) {
-		log.error(`Request to ${tagsUrl} failed`);
-		return [];
-	}
+	if (tags === undefined) return [];
 
 	const fetchPage = async (fetchUrl: string, page = 1): Promise<void> => {
 		const response = await smartFetch<GamesResponse>(log, fetchUrl, {
@@ -46,32 +39,25 @@ export const crazyGames = async (): Promise<GameList> => {
 			paginationSize: 100,
 		});
 
-		if (response === undefined) {
-			log.warn(`Request to ${fetchUrl} failed`);
-			return;
-		}
+		if (response === undefined) return;
 
 		for (const game of response.games.data.items) {
 			log.info(`Processed game: ${game.name}`);
 			games.set(game.name, game.slug);
 		}
 
-		if (page * 100 < response.games.data.total) {
+		// there's something broken here i have to fix
+		if (page * 100 < response.games.data.total)
 			await fetchPage(fetchUrl, page + 1);
-		}
 	};
 
-	for (const tag of tags.tags) {
+	await asyncLoop(tags.tags, async (tag) => {
 		const url = `https://api.crazygames.com/v3/en_US/page/tagCategory/${tag.slug}`;
+		await fetchPage(url);
+	});
 
-		promises.push(fetchPage(url));
-	}
-
-	await Promise.all(promises);
-
-	for (const [name, slug] of games.entries()) {
+	for (const [name, slug] of games.entries())
 		addGame(log, results, name, `https://www.crazygames.com/game/${slug}`);
-	}
 
 	log.info("DONE");
 
