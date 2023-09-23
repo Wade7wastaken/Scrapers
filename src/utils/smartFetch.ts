@@ -3,7 +3,11 @@ import { inspect } from "node:util";
 import type { AxiosError, AxiosRequestConfig } from "axios";
 import axios, { isAxiosError } from "axios";
 
-import { DELAY_TIME, NO_RETRY_HTTP_CODES } from "../config.js";
+import {
+	DELAY_TIME,
+	DELAY_TIME_WAIT_MULTIPLIER,
+	NO_RETRY_HTTP_CODES,
+} from "../config.js";
 
 import type { Logger } from "./logger.js";
 import { capitalize, sleep } from "./misc.js";
@@ -40,32 +44,24 @@ const fetchWrapper = async <T>(
 
 		const retryDelay = getRetryMS(retry);
 
-		if (error.response) {
-			if (NO_RETRY_HTTP_CODES.includes(error.response.status)) {
-				log.error(
-					`Unretriable HTTP code returned on request to ${requestName}: ${error.response.status}`
-				);
-				return undefined;
-			} else {
-				log.warn(
-					`Retriable error on request to ${requestName}. Retrying in ${retryDelay}ms. Error details:`
-				);
-				log.warn(error);
-
-				await sleep(retryDelay);
-
-				return fetchWrapper(log, url, options, retry + 1);
-			}
-		} else if (error.request) {
-			log.warn(
-				`No response received on request to ${requestName}. Retrying in ${retryDelay}ms. Error details:`
+		if (
+			error.response &&
+			NO_RETRY_HTTP_CODES.includes(error.response.status)
+		) {
+			log.error(
+				`Unretriable HTTP code returned on request to ${requestName}: ${error.response.status}`
 			);
-			log.warn(error);
-
-			await sleep(retryDelay);
-
-			return fetchWrapper(log, url, options, retry + 1);
+			return undefined;
 		}
+
+		log.warn(
+			`Retriable error on request to ${requestName}. Retrying in ${retryDelay}ms. Error details:`
+		);
+		log.warn(error);
+
+		await sleep(retryDelay);
+
+		return fetchWrapper(log, url, options, retry + 1);
 	}
 };
 
@@ -82,7 +78,7 @@ export async function smartFetch<T>(
 	}
 
 	while (!domains.get(domain)) {
-		await sleep(DELAY_TIME / 2);
+		await sleep(DELAY_TIME * DELAY_TIME_WAIT_MULTIPLIER);
 	}
 
 	domains.set(domain, false);

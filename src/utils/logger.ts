@@ -14,11 +14,16 @@ export const closeFileStream = (): void => {
 	logFileStream.close();
 };
 
+// Functions as a logger, but is also used as an identifier as to which site
+// function a call came from using the prefix member
 export class Logger {
-	private readonly prefix: string;
+	public readonly prefix: string;
+
+	public static readonly allSiteNames: string[];
 
 	public constructor(prefix: string) {
 		this.prefix = prefix;
+		Logger.allSiteNames.push(prefix);
 	}
 
 	private log(m: unknown, logLevel: string): void {

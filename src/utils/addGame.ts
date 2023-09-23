@@ -24,7 +24,7 @@ export function addGame(
 	gameName: string,
 	gameUrl: string
 ): void {
-	const result: Game = [gameName, gameUrl];
+	const result: Game = { name: gameName, url: gameUrl, site: log.prefix };
 	log.info(`Game added: ${inspect(result)}`);
 	results.add(result);
 }

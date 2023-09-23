@@ -4,4 +4,6 @@ export const OUTPUT_LOCATION = "./output.json";
 
 export const DELAY_TIME = 500;
 
+export const DELAY_TIME_WAIT_MULTIPLIER = 0.5;
+
 export const NO_RETRY_HTTP_CODES = [404];

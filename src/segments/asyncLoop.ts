@@ -1,5 +1,5 @@
 export const asyncLoop = async <T>(
-	array: T[],
+	array: Iterable<T>,
 	process: (elem: T) => Promise<void>
 ): Promise<void> => {
 	const promises: Promise<void>[] = [];

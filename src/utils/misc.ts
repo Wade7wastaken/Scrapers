@@ -1,13 +1,13 @@
 import { existsSync, mkdirSync, readdirSync, rmSync } from "node:fs";
 import { dirname } from "node:path";
 
+import type { Game } from "../types.js";
+
 export const sleep = (ms: number): Promise<void> =>
 	new Promise((r) => setTimeout(r, ms));
 
-export const lowerCaseSort = (
-	a: [string, string],
-	b: [string, string]
-): number => a[0].toLowerCase().localeCompare(b[0].toLowerCase());
+export const lowerCaseSort = (a: Game, b: Game): number =>
+	a.name.toLowerCase().localeCompare(b.name.toLowerCase());
 
 export const capitalize = (s: string): string =>
 	s[0]?.toUpperCase() + s.slice(1);
