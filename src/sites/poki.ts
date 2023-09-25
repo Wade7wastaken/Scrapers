@@ -1,3 +1,4 @@
+import { cleanUp } from "../segments/cleanUp.js";
 import type { GameList, Game } from "../types.js";
 import { addGame } from "../utils/addGame.js";
 import { Logger } from "../utils/logger.js";
@@ -55,7 +56,5 @@ export const poki = async (): Promise<GameList> => {
 		);
 	}
 
-	log.info("DONE");
-
-	return results.retrieve();
+	return cleanUp(log, results);
 };

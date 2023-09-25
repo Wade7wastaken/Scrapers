@@ -1,62 +1,54 @@
-import { load } from "cheerio";
-
-import type { Game, GameList } from "../types.js";
+import { asyncLoop } from "../segments/asyncLoop.js";
+import { cleanUp } from "../segments/cleanUp.js";
+import { init } from "../segments/init.js";
+import type { GameList } from "../types.js";
 import { addGame } from "../utils/addGame.js";
-import { Logger } from "../utils/logger.js";
-import { ResultList } from "../utils/resultList.js";
-import { smartFetch } from "../utils/smartFetch.js";
+import type { Logger } from "../utils/logger.js";
+import { exists, smartFetch } from "../utils/smartFetch.js";
 
 /* use
 https://www.coolmathgames.com/sites/default/files/cmatgame_games_with_levels.json
 */
 
-const log = new Logger("Coolmath Games");
+interface GamesResponse {
+	alias: string;
+	title: string;
+	type: string;
+}
+
+const findBestUrl = async (
+	log: Logger,
+	game: GamesResponse
+): Promise<string | undefined> => {
+	const gameUrl = `https://www.coolmathgames.com${game.alias}/play`;
+	if (await exists(log, gameUrl)) return gameUrl;
+
+	log.warn(`Falling back to page url on ${game.title}`);
+
+	const pageUrl = `https://www.coolmathgames.com${game.alias}`;
+	if (await exists(log, pageUrl)) return pageUrl;
+
+	log.error(`Couldn't find any existing pages for ${game.alias}`);
+
+	return undefined;
+};
 
 export const coolmath = async (): Promise<GameList> => {
-	const url = "https://www.coolmathgames.com/1-complete-game-list/view-all";
-	const response = await smartFetch<string>(log, url);
+	const { log, results } = init("Coolmath Games");
 
-	if (response === undefined) {
-		log.error(`Request to ${url} failed`);
-		return [];
-	}
+	const jsonUrl =
+		"https://www.coolmathgames.com/sites/default/files/cmatgame_games_with_levels.json";
 
-	const promises: Promise<void>[] = [];
+	const games = await smartFetch<GamesResponse[]>(log, jsonUrl);
 
-	const $ = load(response);
+	if (games === undefined) return [];
 
-	const results = new ResultList<Game>();
+	await asyncLoop(games, async (game) => {
+		const gameUrl = await findBestUrl(log, game);
+		if (gameUrl === undefined) return;
 
-	$(".view-all-games > .views-row").each((_, elem) => {
-		promises.push(
-			(async (e): Promise<void> => {
-				const elem = $(e);
-
-				if (elem.find(".icon-gamethumbnail-all-game-pg").length > 0)
-					return;
-
-				const anchor = elem.find(".game-title > a");
-
-				const gameName = anchor.text();
-				const gameUrl =
-					"https://www.coolmathgames.com" + anchor.attr("href");
-				const playUrl = gameUrl + "/play";
-
-				addGame(
-					log,
-					results,
-					gameName,
-					(await smartFetch<string>(log, playUrl)) === undefined
-						? gameUrl
-						: playUrl
-				);
-			})(elem)
-		);
+		addGame(log, results, game.title, gameUrl);
 	});
 
-	await Promise.all(promises);
-
-	log.info("DONE");
-
-	return results.retrieve();
+	return cleanUp(log, results);
 };

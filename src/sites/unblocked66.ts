@@ -1,5 +1,6 @@
 import { load } from "cheerio";
 
+import { cleanUp } from "../segments/cleanUp.js";
 import { fetchAndParse } from "../segments/fetchAndParse.js";
 import { init } from "../segments/init.js";
 import { loopOverElements } from "../segments/loopOverElements.js";
@@ -89,6 +90,5 @@ export const unblocked66 = async (): Promise<GameList> => {
 		addGame(log, results, gameName, src);
 	});
 
-	log.info("DONE");
-	return results.retrieve();
+	return cleanUp(log, results);
 };

@@ -76,6 +76,9 @@ export const googleDoodles = async (): Promise<GameList> => {
 
 	const now = new Date();
 
+
+	// I couldn't figure out how to get regular for loops working with
+	// asyncLoop, so its back to the basics for now
 	const promises: Promise<void>[] = [];
 
 	for (

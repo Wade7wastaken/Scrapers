@@ -1,4 +1,5 @@
 import { asyncLoop } from "../segments/asyncLoop.js";
+import { cleanUp } from "../segments/cleanUp.js";
 import { init } from "../segments/init.js";
 import type { GameList } from "../types.js";
 import { addGame } from "../utils/addGame.js";
@@ -59,7 +60,5 @@ export const crazyGames = async (): Promise<GameList> => {
 	for (const [name, slug] of games.entries())
 		addGame(log, results, name, `https://www.crazygames.com/game/${slug}`);
 
-	log.info("DONE");
-
-	return results.retrieve();
+	return cleanUp(log, results);
 };

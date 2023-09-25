@@ -8,7 +8,8 @@ import { validateDirectory } from "./misc.js";
 validateDirectory(LOG_LOCATION);
 const logFileStream = createWriteStream(LOG_LOCATION);
 
-const prepareLogLine = (line: unknown): string => inspect(line).slice(1, -1);
+const prepareLogLine = (line: unknown): string =>
+	typeof line === "string" ? line : inspect(line);
 
 export const closeFileStream = (): void => {
 	logFileStream.close();
@@ -19,28 +20,34 @@ export const closeFileStream = (): void => {
 export class Logger {
 	public readonly prefix: string;
 
-	public static readonly allSiteNames: string[];
+	public static readonly allSiteNames: string[] = [];
 
 	public constructor(prefix: string) {
 		this.prefix = prefix;
 		Logger.allSiteNames.push(prefix);
 	}
 
-	private log(m: unknown, logLevel: string): void {
-		const message = `${this.prefix}: ${prepareLogLine(m)}`;
-		console.log(message);
-		logFileStream.write(`[${logLevel.toUpperCase()}] ${message}\n`);
+	private log(
+		m: unknown,
+		logLevel: string,
+		consoleLogLevel: "log" | "warn" | "error"
+	): void {
+		console[consoleLogLevel](`${this.prefix}:`, m);
+
+		logFileStream.write(
+			`[${logLevel.toUpperCase()}] ${this.prefix}: ${prepareLogLine(m)}\n`
+		);
 	}
 
 	public info(m: unknown): void {
-		this.log(m, "info");
+		this.log(m, "info", "log");
 	}
 
 	public warn(m: unknown): void {
-		this.log(m, "warn");
+		this.log(m, "warn", "warn");
 	}
 
 	public error(m: unknown): void {
-		this.log(m, "error");
+		this.log(m, "error", "error");
 	}
 }

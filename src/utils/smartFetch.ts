@@ -12,7 +12,7 @@ import {
 import type { Logger } from "./logger.js";
 import { capitalize, sleep } from "./misc.js";
 
-const domains = new Map();
+const domains = new Map<string, boolean>();
 
 const getDomain = (url: string): string => {
 	const hostname = new URL(url).hostname;
@@ -65,12 +65,7 @@ const fetchWrapper = async <T>(
 	}
 };
 
-export async function smartFetch<T>(
-	log: Logger,
-	url: string,
-	params?: Record<string, string | number>,
-	silent = false
-): Promise<T | undefined> {
+const waitForNetwork = async (url: string): Promise<void> => {
 	const domain = getDomain(url);
 
 	if (!domains.has(domain)) {
@@ -85,12 +80,47 @@ export async function smartFetch<T>(
 	setTimeout(() => {
 		domains.set(domain, true);
 	}, DELAY_TIME);
+};
+
+export const smartFetch = async <T>(
+	log: Logger,
+	url: string,
+	params?: Record<string, string | number>,
+	silent = false
+): Promise<T | undefined> => {
+	await waitForNetwork(url);
 
 	log.info(`Request started: ${url}`);
 
 	const response = await fetchWrapper<T>(log, url, { params });
 
+	// use silent if you want to make your own error message
 	if (!silent && response === undefined) log.warn(`Request to ${url} failed`);
 
+	log.info(`Request to ${url} succeeded`);
+
 	return response;
-}
+};
+
+export const exists = async (log: Logger, url: string): Promise<boolean> => {
+	await waitForNetwork(url);
+
+	try {
+		const response = await axios.head(url);
+		// Check if the status code is in the 200-399 range, indicating a successful request.
+		const doesExist = response.status >= 200 && response.status < 400;
+		log.warn(
+			doesExist
+				? `${url} exists: returned ${response.status}`
+				: `${url} doesn't exist: returned ${response.status}`
+		);
+		return doesExist;
+	} catch (error) {
+		if (!isAxiosError(error)) throw error;
+		error as AxiosError;
+		// Axios will throw an error for non-2xx status codes.
+		log.error(`Axios error when checking if ${url} exists. Error details:`);
+		log.error(error);
+		return false;
+	}
+};

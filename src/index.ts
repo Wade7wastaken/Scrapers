@@ -8,14 +8,16 @@ import { poki } from "./sites/poki.js";
 import { unblocked66 } from "./sites/unblocked66.js";
 import { Logger, closeFileStream } from "./utils/logger.js";
 import { lowerCaseSort } from "./utils/misc.js";
+import { unblockedPremium } from "./sites/unblockedPremium.js";
 
 const main = async (): Promise<void> => {
 	const sites = [
-		coolmath(),
-		unblocked66(),
-		googleDoodles(),
-		crazyGames(),
-		poki(),
+		//coolmath2(),
+		//unblocked66(),
+		//googleDoodles(),
+		//crazyGames(),
+		//poki(),
+		unblockedPremium()
 	];
 
 	const results = await Promise.all(sites);
