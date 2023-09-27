@@ -1,7 +1,11 @@
+import type { Game, GameMap } from "../types.js";
 import type { Logger } from "../utils/logger.js";
-import type { ResultList } from "../utils/resultList.js";
 
-export const cleanUp = <T>(log: Logger, results: ResultList<T>): T[] => {
+export const cleanUp = (log: Logger, results: GameMap): Game[] => {
 	log.info("DONE");
-	return results.retrieve();
+	return [...results.entries()].map(([name, url]) => ({
+		name,
+		url,
+		site: log.prefix,
+	}));
 };

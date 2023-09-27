@@ -6,18 +6,19 @@ import { crazyGames } from "./sites/crazyGames.js";
 import { googleDoodles } from "./sites/googleDoodles.js";
 import { poki } from "./sites/poki.js";
 import { unblocked66 } from "./sites/unblocked66.js";
-import { Logger, closeFileStream } from "./utils/logger.js";
-import { lowerCaseSort } from "./utils/misc.js";
 import { unblockedPremium } from "./sites/unblockedPremium.js";
+import type { GameList } from "./types.js";
+import { Logger } from "./utils/logger.js";
+import { lowerCaseSort } from "./utils/misc.js";
 
 const main = async (): Promise<void> => {
-	const sites = [
-		//coolmath2(),
+	const sites: Promise<GameList>[] = [
+		//coolmath(),
 		//unblocked66(),
 		//googleDoodles(),
 		//crazyGames(),
 		//poki(),
-		unblockedPremium()
+		unblockedPremium(),
 	];
 
 	const results = await Promise.all(sites);
@@ -28,7 +29,7 @@ const main = async (): Promise<void> => {
 		JSON.stringify({ games: resultsFlattened, sites: Logger.allSiteNames })
 	);
 
-	closeFileStream();
+	Logger.logFileStream.close();
 
 	debugger;
 };

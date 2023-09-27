@@ -1,8 +1,8 @@
 import { asyncLoop } from "../segments/asyncLoop.js";
 import { cleanUp } from "../segments/cleanUp.js";
 import { init } from "../segments/init.js";
-import type { GameList } from "../types.js";
-import { addGame } from "../utils/addGame.js";
+import type { GameList, GameMap } from "../types.js";
+import type { Logger } from "../utils/logger.js";
 import { smartFetch } from "../utils/smartFetch.js";
 
 interface TagsResponse {
@@ -23,10 +23,34 @@ interface GamesResponse {
 	};
 }
 
+const MAX_PAGE_SIZE = 100;
+
+const fetchPage = async (
+	log: Logger,
+	results: GameMap,
+	fetchUrl: string,
+	page = 1
+): Promise<void> => {
+	const response = await smartFetch<GamesResponse>(log, fetchUrl, {
+		paginationPage: page,
+		paginationSize: MAX_PAGE_SIZE,
+	});
+
+	if (response === undefined) return;
+
+	const items = response.games.data.items;
+
+	for (const { name, slug } of items)
+		results.set(name, `https://www.crazygames.com/game/${slug}`);
+
+	// if the api returned the max number of games (meaning there's probably
+	// more on the next page)
+	if (items.length === MAX_PAGE_SIZE)
+		await fetchPage(log, results, fetchUrl, page + 1);
+};
+
 export const crazyGames = async (): Promise<GameList> => {
 	const { log, results } = init("CrazyGames");
-
-	const games = new Map<string, string>();
 
 	const tagsUrl = "https://api.crazygames.com/v3/en_US/page/tags";
 
@@ -34,31 +58,10 @@ export const crazyGames = async (): Promise<GameList> => {
 
 	if (tags === undefined) return [];
 
-	const fetchPage = async (fetchUrl: string, page = 1): Promise<void> => {
-		const response = await smartFetch<GamesResponse>(log, fetchUrl, {
-			paginationPage: page,
-			paginationSize: 100,
-		});
-
-		if (response === undefined) return;
-
-		for (const game of response.games.data.items) {
-			log.info(`Processed game: ${game.name}`);
-			games.set(game.name, game.slug);
-		}
-
-		// there's something broken here i have to fix
-		if (page * 100 < response.games.data.total)
-			await fetchPage(fetchUrl, page + 1);
-	};
-
 	await asyncLoop(tags.tags, async (tag) => {
 		const url = `https://api.crazygames.com/v3/en_US/page/tagCategory/${tag.slug}`;
-		await fetchPage(url);
+		await fetchPage(log, results, url);
 	});
-
-	for (const [name, slug] of games.entries())
-		addGame(log, results, name, `https://www.crazygames.com/game/${slug}`);
 
 	return cleanUp(log, results);
 };

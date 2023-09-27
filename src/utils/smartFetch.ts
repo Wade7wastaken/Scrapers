@@ -22,6 +22,23 @@ const getDomain = (url: string): string => {
 
 const getRetryMS = (retry: number): number => 2 ** (retry + 1) * 1000;
 
+const waitForNetwork = async (url: string): Promise<void> => {
+	const domain = getDomain(url);
+
+	if (!domains.has(domain)) {
+		domains.set(domain, true);
+	}
+
+	while (!domains.get(domain)) {
+		await sleep(DELAY_TIME * DELAY_TIME_WAIT_MULTIPLIER);
+	}
+
+	domains.set(domain, false);
+	setTimeout(() => {
+		domains.set(domain, true);
+	}, DELAY_TIME);
+};
+
 const fetchWrapper = async <T>(
 	log: Logger,
 	url: string,
@@ -39,8 +56,7 @@ const fetchWrapper = async <T>(
 		const response = await axios.get<T>(url, options);
 		return response.data;
 	} catch (error) {
-		if (!isAxiosError(error)) throw error;
-		error as AxiosError;
+		if (!isAxiosError<T>(error)) throw error;
 
 		const retryDelay = getRetryMS(retry);
 
@@ -63,23 +79,6 @@ const fetchWrapper = async <T>(
 
 		return fetchWrapper(log, url, options, retry + 1);
 	}
-};
-
-const waitForNetwork = async (url: string): Promise<void> => {
-	const domain = getDomain(url);
-
-	if (!domains.has(domain)) {
-		domains.set(domain, true);
-	}
-
-	while (!domains.get(domain)) {
-		await sleep(DELAY_TIME * DELAY_TIME_WAIT_MULTIPLIER);
-	}
-
-	domains.set(domain, false);
-	setTimeout(() => {
-		domains.set(domain, true);
-	}, DELAY_TIME);
 };
 
 export const smartFetch = async <T>(

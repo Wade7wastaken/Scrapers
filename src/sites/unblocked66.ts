@@ -5,7 +5,7 @@ import { fetchAndParse } from "../segments/fetchAndParse.js";
 import { init } from "../segments/init.js";
 import { loopOverElements } from "../segments/loopOverElements.js";
 import type { GameList } from "../types.js";
-import { addGameFallback, addGame } from "../utils/addGame.js";
+import { addGame } from "../utils/addGame.js";
 
 const IGNORED_GAMES = new Set(["All Unblocked Games 66 EZ", "Feedback"]);
 
@@ -26,14 +26,9 @@ export const unblocked66 = async (): Promise<GameList> => {
 		const gameUrl = `https://sites.google.com${$(elem).attr("href")}`;
 
 		const fallback = (message: string): void => {
-			addGameFallback(
-				log,
-				results,
-				gameName,
-				gameUrl,
-				message,
-				"full page"
-			);
+			log.warn(message);
+			log.warn("Falling back to full page");
+			addGame(log, results, gameName, gameUrl);
 		};
 
 		if (IGNORED_GAMES.has(gameName)) return;

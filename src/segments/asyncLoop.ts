@@ -4,9 +4,7 @@ export const asyncLoop = async <T>(
 ): Promise<void> => {
 	const promises: Promise<void>[] = [];
 
-	for (const e of array) {
-		promises.push(process(e));
-	}
+	for (const e of array) promises.push(process(e));
 
 	await Promise.all(promises);
 };

@@ -42,7 +42,7 @@ export const unblockedPremium = async (): Promise<GameList> => {
 
 		const embeds = $2(".w536ob");
 
-		let bestUrl = "";
+		//let bestUrl = "";
 
 		log.info(
 			`There ${embeds.length === 1 ? "is" : "are"} ${
@@ -54,7 +54,16 @@ export const unblockedPremium = async (): Promise<GameList> => {
 			const data_code = $(embed).attr("data-code");
 			if (data_code === undefined) {
 				const data_url = $(embed).attr("data-url");
+				if (data_url === undefined) {
+					log.error(
+						`Couldn't find data-code or data-url in embed on ${gameName}`
+					);
+					return;
+				}
+				log.info(`data-url on page ${gameName} is ${data_url}`);
+				//addGame(log, results, gameName, data_url);
 			}
+			log.info(data_code);
 		}
 	});
 

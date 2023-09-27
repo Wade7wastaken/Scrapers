@@ -1,11 +1,20 @@
 import { asyncLoop } from "../segments/asyncLoop.js";
+import { cleanUp } from "../segments/cleanUp.js";
 import { fetchAndParse } from "../segments/fetchAndParse.js";
 import { init } from "../segments/init.js";
-import type { Game, GameList } from "../types.js";
+import type { GameList, GameMap } from "../types.js";
 import { addGame } from "../utils/addGame.js";
 import type { Logger } from "../utils/logger.js";
-import type { ResultList } from "../utils/resultList.js";
 import { smartFetch } from "../utils/smartFetch.js";
+
+interface Doodle {
+	name: string;
+}
+
+interface Month {
+	year: number;
+	month: number;
+}
 
 const getPropertyFromString = (input: string, name: string): string => {
 	const begin = input.indexOf(`"${name}":`);
@@ -18,20 +27,11 @@ const getPropertyFromString = (input: string, name: string): string => {
 	return value.slice(1, -1);
 };
 
-interface Doodle {
-	name: string;
-}
-
-interface Month {
-	year: number;
-	month: number;
-}
-
 const getDoodlesFromMonth = async (
 	log: Logger,
 	year: number,
 	month: number,
-	results: ResultList<Game>
+	results: GameMap
 ): Promise<void> => {
 	const url = `https://www.google.com/doodles/json/${year}/${month}?hl=en`;
 
@@ -76,7 +76,6 @@ export const googleDoodles = async (): Promise<GameList> => {
 
 	const now = new Date();
 
-
 	// I couldn't figure out how to get regular for loops working with
 	// asyncLoop, so its back to the basics for now
 	const promises: Promise<void>[] = [];
@@ -92,7 +91,5 @@ export const googleDoodles = async (): Promise<GameList> => {
 
 	await Promise.all(promises);
 
-	log.info("DONE");
-
-	return results.retrieve();
+	return cleanUp(log, results);
 };

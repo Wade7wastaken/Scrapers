@@ -6,10 +6,6 @@ import { addGame } from "../utils/addGame.js";
 import type { Logger } from "../utils/logger.js";
 import { exists, smartFetch } from "../utils/smartFetch.js";
 
-/* use
-https://www.coolmathgames.com/sites/default/files/cmatgame_games_with_levels.json
-*/
-
 interface GamesResponse {
 	alias: string;
 	title: string;
@@ -18,17 +14,17 @@ interface GamesResponse {
 
 const findBestUrl = async (
 	log: Logger,
-	game: GamesResponse
+	{ alias: name, title }: GamesResponse
 ): Promise<string | undefined> => {
-	const gameUrl = `https://www.coolmathgames.com${game.alias}/play`;
+	const gameUrl = `https://www.coolmathgames.com${name}/play`;
 	if (await exists(log, gameUrl)) return gameUrl;
 
-	log.warn(`Falling back to page url on ${game.title}`);
+	log.warn(`Falling back to page url on ${title}`);
 
-	const pageUrl = `https://www.coolmathgames.com${game.alias}`;
+	const pageUrl = `https://www.coolmathgames.com${name}`;
 	if (await exists(log, pageUrl)) return pageUrl;
 
-	log.error(`Couldn't find any existing pages for ${game.alias}`);
+	log.error(`Couldn't find any existing pages for ${title}`);
 
 	return undefined;
 };

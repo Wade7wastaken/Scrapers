@@ -1,8 +1,7 @@
 import { cleanUp } from "../segments/cleanUp.js";
-import type { GameList, Game } from "../types.js";
+import { init } from "../segments/init.js";
+import type { GameList } from "../types.js";
 import { addGame } from "../utils/addGame.js";
-import { Logger } from "../utils/logger.js";
-import { ResultList } from "../utils/resultList.js";
 import { smartFetch } from "../utils/smartFetch.js";
 
 const BASE_URL = "https://api.poki.com/search/query/3?q=";
@@ -17,12 +16,8 @@ interface PokiApi {
 	games: PokiGame[];
 }
 
-const log = new Logger("Poki");
-
 export const poki = async (): Promise<GameList> => {
-	const results = new ResultList<Game>();
-
-	const games = new Map<number, PokiGame>();
+	const { log, results } = init("Poki");
 
 	const promises: Promise<void>[] = [];
 
@@ -38,23 +33,18 @@ export const poki = async (): Promise<GameList> => {
 					return;
 				}
 
-				for (const game of response.games) {
-					games.set(game.id, game);
-				}
+				for (const { title, slug: location } of response.games)
+					addGame(
+						log,
+						results,
+						title,
+						`https://poki.com/en/g/${location}`
+					);
 			})
 		);
 	}
 
 	await Promise.all(promises);
-
-	for (const [, value] of games.entries()) {
-		addGame(
-			log,
-			results,
-			value.title,
-			`https://poki.com/en/g/${value.slug}`
-		);
-	}
 
 	return cleanUp(log, results);
 };
