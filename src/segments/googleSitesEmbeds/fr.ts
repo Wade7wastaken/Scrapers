@@ -1,8 +1,8 @@
 import { load } from "cheerio";
 
-import type { EmbedTestCase } from "../googleSitesEmbeds.js";
+import type { EmbedTestCaseResult } from "../googleSitesEmbeds.js";
 
-export const testFr: EmbedTestCase = (input) => {
+export const testFr: EmbedTestCaseResult = (input) => {
 	const $ = load(input);
 
 	// should add some error reporting here but id have to pass log all the way down here

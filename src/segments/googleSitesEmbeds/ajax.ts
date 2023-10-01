@@ -1,6 +1,4 @@
-import type { EmbedTestCase } from "../googleSitesEmbeds.js";
+import type { EmbedTestCaseResult } from "../googleSitesEmbeds.js";
 
-export const testAjax: EmbedTestCase = (input) =>
+export const testAjax: EmbedTestCaseResult = (input) =>
 	input.includes("$.ajax({") ? undefined : "";
-	
-	
