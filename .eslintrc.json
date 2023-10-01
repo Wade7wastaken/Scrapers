@@ -18,8 +18,9 @@
 		"prettier"
 	],
 	"rules": {
-		// TypeScript Rules
+		/* TEMPLATE RULES */
 
+		// TypeScript Rules
 		"@typescript-eslint/consistent-type-exports": "warn",
 		"@typescript-eslint/consistent-type-imports": "warn",
 		"@typescript-eslint/explicit-function-return-type": "warn",
@@ -52,8 +53,8 @@
 				}
 			}
 		],
-		"unicorn/prevent-abbreviations": "off",
+		"unicorn/prevent-abbreviations": "off"
 
-		"no-debugger": "off"
+		/* CUSTOM RULES */
 	}
 }
