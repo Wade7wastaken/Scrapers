@@ -53,8 +53,9 @@
 				}
 			}
 		],
-		"unicorn/prevent-abbreviations": "off"
+		"unicorn/prevent-abbreviations": "off",
 
 		/* CUSTOM RULES */
+		"no-debugger": "off"
 	}
 }
