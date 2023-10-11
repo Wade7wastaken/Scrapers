@@ -5,11 +5,15 @@ export class ResultList<T> {
 		this.results = [];
 	}
 
-	public add(item: T): void {
-		this.results.push(item);
+	public add(...items: T[]): void {
+		this.results.push(...items);
 	}
 
 	public retrieve(): T[] {
 		return this.results;
+	}
+
+	public length(): number {
+		return this.results.length;
 	}
 }

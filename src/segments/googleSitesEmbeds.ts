@@ -1,22 +1,88 @@
-import { testAjax } from "./googleSitesEmbeds/ajax.js";
-import { testFr } from "./googleSitesEmbeds/fr.js";
+import type { Logger } from "../utils/logger.js";
+import { ResultList } from "../utils/resultList.js";
 
-export type EmbedTestCaseResult = (input: string) => string | undefined;
+import { embedTestCases } from "./googleSitesEmbedsTestCases.js";
 
-type EmbedTestCase = (string | RegExp)[];
+type TestCaseResult = string[] | undefined;
 
-export const parseGoogleSitesEmbeds = (embed: string): string[] => {
-	// returning empty string means didn't match. returning undefined means
-	// impossible to match, so stop trying
+interface ArrayTestCase {
+	testSegments: (string | RegExp)[];
+	outputIndices: number[] | undefined;
+}
+type FunctionalTestCase = (
+	log: Logger,
+	gameName: string,
+	embed: string
+) => TestCaseResult;
 
-	const tests: EmbedTestCaseResult[] = [testAjax, testFr];
-	const results: string[] = [];
+export interface EmbedTestCase {
+	name: string;
+	test: ArrayTestCase | FunctionalTestCase;
+}
 
-	for (const test of tests) {
-		const result = test(embed);
-		if (result === undefined) break;
-		if (result !== "") results.push(result);
+const runArrayTestCase = (
+	embed: string,
+	arrayTestCase: ArrayTestCase
+): TestCaseResult => {
+	if (arrayTestCase.outputIndices === undefined) return undefined;
+
+	const results = new ResultList<string>();
+
+	for (const [index, segment] of arrayTestCase.testSegments.entries()) {
+		if (typeof segment === "string") {
+			if (embed.startsWith(segment)) embed = embed.slice(segment.length);
+			else return [];
+
+			continue;
+		}
+
+		const regexResult = segment.exec(embed);
+
+		if (regexResult === null) return [];
+
+		const matchedString = regexResult[0];
+		embed = embed.slice(matchedString.length);
+		if (arrayTestCase.outputIndices.includes(index))
+			results.add(matchedString);
+	}
+	return results.retrieve();
+};
+
+const runFunctionalTestCase = (
+	log: Logger,
+	gameName: string,
+	embed: string,
+	functionalTestCase: FunctionalTestCase
+): TestCaseResult => functionalTestCase(log, gameName, embed);
+
+export const runEmbedTestCases = (
+	log: Logger,
+	gameName: string,
+	embed: string
+): string[] => {
+	const results = new ResultList<string>();
+
+	for (const testCase of embedTestCases) {
+		const testCaseResult =
+			typeof testCase.test === "function"
+				? runFunctionalTestCase(log, gameName, embed, testCase.test)
+				: runArrayTestCase(embed, testCase.test);
+
+		if (testCaseResult === undefined) {
+			log.info(
+				`Giving up on embeds on ${gameName} because ${testCase.name} returned undefined`
+			);
+			return [];
+		}
+
+		results.add(...testCaseResult);
 	}
 
-	return results;
+	if (results.length() === 0) {
+		log.warn(
+			`Couldn't find a match for an embed on ${gameName}. Embed: ${embed}`
+		);
+	}
+
+	return results.retrieve();
 };

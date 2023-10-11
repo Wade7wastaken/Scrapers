@@ -2,6 +2,7 @@ import { asyncLoop } from "../segments/asyncLoop.js";
 import { cleanUp } from "../segments/cleanUp.js";
 import { init } from "../segments/init.js";
 import type { GameList, GameMap } from "../types.js";
+import { addGame } from "../utils/addGame.js";
 import type { Logger } from "../utils/logger.js";
 import { smartFetch } from "../utils/smartFetch.js";
 
@@ -41,7 +42,7 @@ const fetchPage = async (
 	const items = response.games.data.items;
 
 	for (const { name, slug } of items)
-		results.set(name, `https://www.crazygames.com/game/${slug}`);
+		addGame(log, results, name, `https://www.crazygames.com/game/${slug}`);
 
 	// if the api returned the max number of games (meaning there's probably
 	// more on the next page)

@@ -49,7 +49,7 @@ export class Logger {
 		this.log(m, "error", "error");
 	};
 
-	public closeFileStream = (): void => {
+	public static closeFileStream = (): void => {
 		Logger.logFileStream.close();
 	};
 }

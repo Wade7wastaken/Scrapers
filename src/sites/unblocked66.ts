@@ -1,7 +1,6 @@
-import { load } from "cheerio";
-
 import { cleanUp } from "../segments/cleanUp.js";
 import { fetchAndParse } from "../segments/fetchAndParse.js";
+import { runEmbedTestCases } from "../segments/googleSitesEmbeds.js";
 import { init } from "../segments/init.js";
 import { loopOverElements } from "../segments/loopOverElements.js";
 import type { GameList } from "../types.js";
@@ -25,64 +24,23 @@ export const unblocked66 = async (): Promise<GameList> => {
 		const gameName = $(elem).text();
 		const gameUrl = `https://sites.google.com${$(elem).attr("href")}`;
 
-		const fallback = (message: string): void => {
-			log.warn(message);
-			log.warn("Falling back to full page");
-			addGame(log, results, gameName, gameUrl);
-		};
-
 		if (IGNORED_GAMES.has(gameName)) return;
 
 		const $2 = await fetchAndParse(log, gameUrl);
 
 		if ($2 === undefined) return;
 
-		const embed = $2(".w536ob")[0];
+		const embeds = $2(".w536ob");
 
-		if (embed === undefined) {
-			fallback(`Couldn't find an embed element on ${gameUrl}`);
-			return;
-		}
+		//debugger;
 
-		const data_code = embed.attribs["data-code"];
+		if (embeds.length === 0) log.warn(`No embeds on ${gameName}`);
 
-		if (data_code === undefined) {
-			fallback(`Couldn't find data-code attribute on ${gameUrl}`);
-			return;
-		}
+		const links = [...embeds].flatMap((embed) =>
+			runEmbedTestCases(log, gameName, $(embed).parent().html() ?? "")
+		);
 
-		const $3 = load(data_code);
-		const fr = $3("#fr")[0];
-
-		if (fr === undefined) {
-			fallback(`Couldn't find an fr element on ${gameUrl}`);
-			return;
-		}
-
-		const data = fr.attribs.data;
-
-		if (data === undefined) {
-			fallback(`Couldn't find data attribute on ${gameUrl}`);
-			return;
-		}
-
-		const $4 = load(data);
-
-		const iframe = $4("iframe")[0];
-
-		if (iframe === undefined) {
-			fallback(`Couldn't find an iframe element on ${gameUrl}`);
-			return;
-		}
-
-		const src = iframe.attribs.src;
-
-		if (src === undefined) {
-			fallback(`Couldn't find src attribute on iframe on ${gameUrl}`);
-			return;
-		}
-
-		addGame(log, results, gameName, src);
+		addGame(log, results, gameName, links);
 	});
 
 	return cleanUp(log, results);

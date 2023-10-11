@@ -3,9 +3,9 @@ import type { Logger } from "../utils/logger.js";
 
 export const cleanUp = (log: Logger, results: GameMap): Game[] => {
 	log.info("DONE");
-	return [...results.entries()].map(([name, url]) => ({
+	return [...results.entries()].map(([name, urls]) => ({
 		name,
-		url,
+		urls,
 		site: log.prefix,
 	}));
 };
