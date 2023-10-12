@@ -1,7 +1,7 @@
+import { asyncIterator } from "../segments/asyncIterator.js";
 import { cleanUp } from "../segments/cleanUp.js";
 import { fetchAndParse } from "../segments/fetchAndParse.js";
 import { init } from "../segments/init.js";
-import { loopOverElements } from "../segments/loopOverElements.js";
 import type { GameList } from "../types.js";
 
 const IGNORED_GAMES = new Set([
@@ -29,7 +29,7 @@ export const unblockedPremium = async (): Promise<GameList> => {
 
 	const selector = "[data-type]";
 
-	await loopOverElements($(selector), async (_, elem) => {
+	await asyncIterator($(selector).toArray(), async (elem) => {
 		const gameName = $(elem).text();
 
 		if (IGNORED_GAMES.has(gameName)) return;

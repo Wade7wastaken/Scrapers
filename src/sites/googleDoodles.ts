@@ -1,95 +1,68 @@
-import { asyncLoop } from "../segments/asyncLoop.js";
+import { asyncIterator } from "../segments/asyncIterator.js";
 import { cleanUp } from "../segments/cleanUp.js";
 import { fetchAndParse } from "../segments/fetchAndParse.js";
 import { init } from "../segments/init.js";
-import type { GameList, GameMap } from "../types.js";
+import type { GameList } from "../types.js";
 import { addGame } from "../utils/addGame.js";
-import type { Logger } from "../utils/logger.js";
-import { smartFetch } from "../utils/smartFetch.js";
 
-interface Doodle {
-	name: string;
-}
+const IGNORED_GAMES = new Set([
+	"Google Doodle Games",
+	"More Games",
+	"Which Google Doodle is most fun?",
+	"What is Google Doodle used for?",
+	"What is the hardest Google Doodle game?",
+	"How can I do Google Doodle?",
+	"Where can I play the Google Doodle?",
+	"2023",
+	"2024",
+	"Contact",
+]);
 
-interface Month {
-	year: number;
-	month: number;
-}
+export const googleDoodles = async (): Promise<GameList> => {
+	const { log, results } = init("Google Doodles");
 
-const getPropertyFromString = (input: string, name: string): string => {
-	const begin = input.indexOf(`"${name}":`);
-	const end = input.indexOf(",", begin);
+	const $ = await fetchAndParse(
+		log,
+		"https://sites.google.com/site/populardoodlegames/"
+	);
 
-	const property = input.slice(begin, end);
+	if ($ === undefined) return [];
 
-	const value = property.slice(property.indexOf(":") + 1).trim();
+	const selector = "a[data-level]";
 
-	return value.slice(1, -1);
-};
+	await asyncIterator($(selector).toArray(), async (elem) => {
+		const gameName = $(elem).text();
+		const gameUrl = `https://sites.google.com${$(elem).attr("href")}`;
 
-const getDoodlesFromMonth = async (
-	log: Logger,
-	year: number,
-	month: number,
-	results: GameMap
-): Promise<void> => {
-	const url = `https://www.google.com/doodles/json/${year}/${month}?hl=en`;
+		if (IGNORED_GAMES.has(gameName)) return;
 
-	const response = await smartFetch<Doodle[]>(log, url);
+		const $2 = await fetchAndParse(log, gameUrl);
 
-	if (response === undefined) return;
+		if ($2 === undefined) return;
 
-	await asyncLoop(response, async (doodle) => {
-		const doodleUrl = `https://www.google.com/doodles/${doodle.name}`;
+		const embed = $2(".w536ob")[0];
 
-		const $ = await fetchAndParse(log, doodleUrl);
-
-		if ($ === undefined) return;
-
-		const scriptData = $("script").last().html();
-
-		if (scriptData === null) {
-			log.warn(`Couldn't find script tag in a Doodle url: ${doodleUrl}`);
+		if (embed === undefined) {
+			log.warn(`Couldn't find an embed for ${gameName}`);
 			return;
 		}
 
-		const finalUrl = getPropertyFromString(scriptData, "standalone_html");
+		if (embed.attribs["data-code"]) {
+			log.warn(`Page ${gameName} has data-code attribute. Skipping...`);
+			return;
+		}
 
-		if (finalUrl === "") return;
+		const url = embed.attribs["data-url"];
 
-		const doodleName = getPropertyFromString(scriptData, "title");
+		if (url === undefined) {
+			log.error(
+				`Couldn't find data-url on page ${gameName}. Skipping...`
+			);
+			return;
+		}
 
-		addGame(log, results, doodleName, `https://www.google.com${finalUrl}`);
+		addGame(log, results, gameName, url);
 	});
-};
-
-const monthToIndex = (month: Month): number => month.year * 12 + month.month;
-
-const indexToMonth = (index: number): Month => {
-	const year = Math.floor(index / 12);
-
-	return { month: index - year * 12, year };
-};
-
-export const googleDoodles = async (): Promise<GameList> => {
-	const { log, results } = init("Doodles");
-
-	const now = new Date();
-
-	// I couldn't figure out how to get regular for loops working with
-	// asyncLoop, so its back to the basics for now
-	const promises: Promise<void>[] = [];
-
-	for (
-		let i = monthToIndex({ year: 2010, month: 5 });
-		i <= monthToIndex({ year: now.getFullYear(), month: now.getMonth() });
-		i++
-	) {
-		const { year, month } = indexToMonth(i);
-		promises.push(getDoodlesFromMonth(log, year, month, results));
-	}
-
-	await Promise.all(promises);
 
 	return cleanUp(log, results);
 };

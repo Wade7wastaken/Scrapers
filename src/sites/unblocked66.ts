@@ -1,8 +1,8 @@
+import { asyncIterator } from "../segments/asyncIterator.js";
 import { cleanUp } from "../segments/cleanUp.js";
 import { fetchAndParse } from "../segments/fetchAndParse.js";
 import { runEmbedTestCases } from "../segments/googleSitesEmbeds.js";
 import { init } from "../segments/init.js";
-import { loopOverElements } from "../segments/loopOverElements.js";
 import type { GameList } from "../types.js";
 import { addGame } from "../utils/addGame.js";
 
@@ -20,7 +20,7 @@ export const unblocked66 = async (): Promise<GameList> => {
 
 	const selector = ".aJHbb.dk90Ob.hDrhEe.HlqNPb";
 
-	await loopOverElements($(selector), async (_, elem) => {
+	await asyncIterator($(selector).toArray(), async (elem) => {
 		const gameName = $(elem).text();
 		const gameUrl = `https://sites.google.com${$(elem).attr("href")}`;
 

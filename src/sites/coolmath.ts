@@ -1,4 +1,4 @@
-import { asyncLoop } from "../segments/asyncLoop.js";
+import { asyncIterator } from "../segments/asyncIterator.js";
 import { cleanUp } from "../segments/cleanUp.js";
 import { init } from "../segments/init.js";
 import type { GameList } from "../types.js";
@@ -16,12 +16,13 @@ const findBestUrl = async (
 	log: Logger,
 	{ alias: name, title }: GamesResponse
 ): Promise<string | undefined> => {
-	const gameUrl = `https://www.coolmathgames.com${name}/play`;
+	const pageUrl = `https://www.coolmathgames.com${name}`;
+
+	const gameUrl = `${pageUrl}/play`;
 	if (await exists(log, gameUrl)) return gameUrl;
 
 	log.warn(`Falling back to page url on ${title}`);
 
-	const pageUrl = `https://www.coolmathgames.com${name}`;
 	if (await exists(log, pageUrl)) return pageUrl;
 
 	log.error(`Couldn't find any existing pages for ${title}`);
@@ -39,7 +40,7 @@ export const coolmath = async (): Promise<GameList> => {
 
 	if (games === undefined) return [];
 
-	await asyncLoop(games, async (game) => {
+	await asyncIterator(games, async (game) => {
 		const gameUrl = await findBestUrl(log, game);
 		if (gameUrl === undefined) return;
 

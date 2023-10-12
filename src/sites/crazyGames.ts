@@ -1,4 +1,4 @@
-import { asyncLoop } from "../segments/asyncLoop.js";
+import { asyncIterator } from "../segments/asyncIterator.js";
 import { cleanUp } from "../segments/cleanUp.js";
 import { init } from "../segments/init.js";
 import type { GameList, GameMap } from "../types.js";
@@ -24,6 +24,7 @@ interface GamesResponse {
 	};
 }
 
+// seems to be a hard limit for the crazy games api
 const MAX_PAGE_SIZE = 100;
 
 const fetchPage = async (
@@ -59,7 +60,7 @@ export const crazyGames = async (): Promise<GameList> => {
 
 	if (tags === undefined) return [];
 
-	await asyncLoop(tags.tags, async (tag) => {
+	await asyncIterator(tags.tags, async (tag) => {
 		const url = `https://api.crazygames.com/v3/en_US/page/tagCategory/${tag.slug}`;
 		await fetchPage(log, results, url);
 	});

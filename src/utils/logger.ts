@@ -15,19 +15,20 @@ export class Logger {
 	public static readonly allSiteNames: string[] = [];
 	public static readonly logFileStream = createWriteStream(LOG_LOCATION);
 
-	private static readonly prepareLogLine = (line: unknown): string =>
-		typeof line === "string" ? line : inspect(line);
+	private static prepareLogLine(line: unknown): string {
+		return typeof line === "string" ? line : inspect(line);
+	}
 
 	public constructor(prefix: string) {
 		this.prefix = prefix;
 		Logger.allSiteNames.push(prefix);
 	}
 
-	private readonly log = (
+	private log(
 		m: unknown,
 		logLevel: string,
 		consoleLogLevel: "log" | "warn" | "error"
-	): void => {
+	): void {
 		console[consoleLogLevel](`${this.prefix}:`, m);
 
 		Logger.logFileStream.write(
@@ -35,21 +36,21 @@ export class Logger {
 				this.prefix
 			}: ${Logger.prepareLogLine(m)}\n`
 		);
-	};
+	}
 
-	public info = (m: unknown): void => {
+	public info(m: unknown): void {
 		this.log(m, "info", "log");
-	};
+	}
 
-	public warn = (m: unknown): void => {
+	public warn(m: unknown): void {
 		this.log(m, "warn", "warn");
-	};
+	}
 
-	public error = (m: unknown): void => {
+	public error(m: unknown): void {
 		this.log(m, "error", "error");
-	};
+	}
 
-	public static closeFileStream = (): void => {
+	public static closeFileStream(): void {
 		Logger.logFileStream.close();
-	};
+	}
 }

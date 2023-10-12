@@ -1,10 +1,12 @@
-export const asyncLoop = async <T>(
-	array: Iterable<T>,
-	process: (elem: T) => Promise<void>
+export const asyncLoop = async (
+	start: number,
+	end: number,
+	increment: number,
+	process: (i: number) => Promise<void>
 ): Promise<void> => {
 	const promises: Promise<void>[] = [];
 
-	for (const e of array) promises.push(process(e));
+	for (let i = start; i > end; i += increment) promises.push(process(i));
 
 	await Promise.all(promises);
 };

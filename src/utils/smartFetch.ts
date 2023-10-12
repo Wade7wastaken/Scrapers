@@ -1,11 +1,12 @@
 import { inspect } from "node:util";
 
-import type { AxiosError, AxiosRequestConfig } from "axios";
+import type { AxiosRequestConfig } from "axios";
 import axios, { isAxiosError } from "axios";
 
 import {
 	DELAY_TIME,
 	DELAY_TIME_WAIT_MULTIPLIER,
+	MAX_RETRIES,
 	NO_RETRY_HTTP_CODES,
 } from "../config.js";
 
@@ -14,17 +15,22 @@ import { capitalize, sleep } from "./misc.js";
 
 const domains = new Map<string, boolean>();
 
+// gets just the domain name of a url. "https://www.google.com/page" => "google"
 const getDomain = (url: string): string => {
 	const hostname = new URL(url).hostname;
 	const noEnding = hostname.slice(0, hostname.lastIndexOf("."));
 	return noEnding.slice(noEnding.lastIndexOf(".") + 1);
 };
 
-const getRetryMS = (retry: number): number => 2 ** (retry + 1) * 1000;
+// how long to wait given how many retries there have been
+const getRetryMS = (retries: number): number => 2 ** (retries + 1) * 1000;
 
+// waits until there has been at least DELAY_TIME_WAIT_MULTIPLIER ms between the
+// last request to the same domain name
 const waitForNetwork = async (url: string): Promise<void> => {
 	const domain = getDomain(url);
 
+	// make sure the domain exists in the map
 	if (!domains.has(domain)) {
 		domains.set(domain, true);
 	}
@@ -33,12 +39,14 @@ const waitForNetwork = async (url: string): Promise<void> => {
 		await sleep(DELAY_TIME * DELAY_TIME_WAIT_MULTIPLIER);
 	}
 
+	// set it to false and after DELAY_TIME ms, set it back to true
 	domains.set(domain, false);
 	setTimeout(() => {
 		domains.set(domain, true);
 	}, DELAY_TIME);
 };
 
+// a wrapper of the main fetch function to allow for retries
 const fetchWrapper = async <T>(
 	log: Logger,
 	url: string,
@@ -47,12 +55,13 @@ const fetchWrapper = async <T>(
 ): Promise<T | undefined> => {
 	const requestName = `request to ${url} with options ${inspect(options)}`;
 
-	if (retry >= 5) {
+	if (retry >= MAX_RETRIES) {
 		log.error(`${capitalize(requestName)} failed after ${retry} attempts.`);
 		return undefined;
 	}
 
 	try {
+		// need to implement type checking
 		const response = await axios.get<T>(url, options);
 		return response.data;
 	} catch (error) {
@@ -60,6 +69,7 @@ const fetchWrapper = async <T>(
 
 		const retryDelay = getRetryMS(retry);
 
+		// PR if you can clean up this error handling pls
 		if (
 			error.response &&
 			NO_RETRY_HTTP_CODES.includes(error.response.status)
@@ -116,7 +126,7 @@ export const exists = async (log: Logger, url: string): Promise<boolean> => {
 		return doesExist;
 	} catch (error) {
 		if (!isAxiosError(error)) throw error;
-		error as AxiosError;
+
 		// Axios will throw an error for non-2xx status codes.
 		log.error(`Axios error when checking if ${url} exists. Error details:`);
 		log.error(error);

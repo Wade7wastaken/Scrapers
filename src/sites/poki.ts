@@ -1,3 +1,4 @@
+import { asyncLoop } from "../segments/asyncLoop.js";
 import { cleanUp } from "../segments/cleanUp.js";
 import { init } from "../segments/init.js";
 import type { GameList } from "../types.js";
@@ -19,32 +20,20 @@ interface PokiApi {
 export const poki = async (): Promise<GameList> => {
 	const { log, results } = init("Poki");
 
-	const promises: Promise<void>[] = [];
-
-	for (let i = 0; i < 26; i++) {
+	await asyncLoop(0, 26, 1, async (i) => {
 		const letter = String.fromCodePoint(97 + i);
 
 		const url = BASE_URL + letter;
 
-		promises.push(
-			smartFetch<PokiApi>(log, url).then((response) => {
-				if (response === undefined) {
-					log.warn(`Request to ${url} failed`);
-					return;
-				}
+		const response = await smartFetch<PokiApi>(log, url);
 
-				for (const { title, slug: location } of response.games)
-					addGame(
-						log,
-						results,
-						title,
-						`https://poki.com/en/g/${location}`
-					);
-			})
-		);
-	}
+		if (response === undefined) return;
 
-	await Promise.all(promises);
+		// we currently don't check if the location actually exists, but the
+		// poki seems stable enough
+		for (const { title, slug: location } of response.games)
+			addGame(log, results, title, `https://poki.com/en/g/${location}`);
+	});
 
 	return cleanUp(log, results);
 };
