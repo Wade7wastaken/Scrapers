@@ -14,8 +14,10 @@ const narrow = (value: unknown): GoalType | undefined => {
 
 	if (value === null) return undefined;
 
-	if (!("first" in value) || typeof value.first !== "number") return undefined;
-	if (!("second" in value) || typeof value.second !== "string") return undefined;
+	if (!("first" in value) || typeof value.first !== "number")
+		return undefined;
+	if (!("second" in value) || typeof value.second !== "string")
+		return undefined;
 
 	const newVal = {
 		first: value.first,

@@ -1,15 +1,21 @@
-import type { Logger } from "../utils/logger.js";
-import { ResultList } from "../utils/resultList.js";
+import type { Logger } from "../../utils/logger.js";
+import { ResultList } from "../../utils/resultList.js";
 
-import { embedTestCases } from "./googleSitesEmbedsTestCases.js";
+import { tests } from "./tests/index.js";
 
-type TestCaseResult = string[] | undefined;
+// the possible values returned by a test case. Array includes matched links.
+// Empty array means didn't match, undefined means stop looking
+export type TestCaseResult = string[] | undefined;
 
-interface ArrayTestCase {
-	testSegments: (string | RegExp)[];
+export type ArrayTestCaseSegment = string | RegExp;
+
+// A test case for an array
+export interface ArrayTestCase {
+	testSegments: ArrayTestCaseSegment[];
 	outputIndices: number[] | undefined;
 }
-type FunctionalTestCase = (
+
+export type FunctionalTestCase = (
 	log: Logger,
 	gameName: string,
 	embed: string
@@ -21,11 +27,12 @@ export interface EmbedTestCase {
 }
 
 const runArrayTestCase = (
+	log: Logger,
 	embed: string,
-	arrayTestCase: ArrayTestCase
+	arrayTestCase: ArrayTestCase,
+	testName: string,
+	gameName: string
 ): TestCaseResult => {
-	if (arrayTestCase.outputIndices === undefined) return undefined;
-
 	const results = new ResultList<string>();
 
 	for (const [index, segment] of arrayTestCase.testSegments.entries()) {
@@ -42,9 +49,15 @@ const runArrayTestCase = (
 
 		const matchedString = regexResult[0];
 		embed = embed.slice(matchedString.length);
-		if (arrayTestCase.outputIndices.includes(index))
+		if (arrayTestCase.outputIndices?.includes(index))
 			results.add(matchedString);
 	}
+
+	// we haven't returned in the loop, so there is a match
+	log.info(`Match found! Game name: ${gameName}, match name: ${testName}`);
+
+	if (arrayTestCase.outputIndices === undefined) return undefined;
+
 	return results.retrieve();
 };
 
@@ -55,18 +68,24 @@ const runFunctionalTestCase = (
 	functionalTestCase: FunctionalTestCase
 ): TestCaseResult => functionalTestCase(log, gameName, embed);
 
-export const runEmbedTestCases = (
+export const processEmbed = (
 	log: Logger,
-	gameName: string,
+	gameName: string, // used for error messages
 	embed: string
 ): string[] => {
 	const results = new ResultList<string>();
 
-	for (const testCase of embedTestCases) {
+	for (const testCase of tests) {
 		const testCaseResult =
 			typeof testCase.test === "function"
 				? runFunctionalTestCase(log, gameName, embed, testCase.test)
-				: runArrayTestCase(embed, testCase.test);
+				: runArrayTestCase(
+						log,
+						embed,
+						testCase.test,
+						testCase.name,
+						gameName
+				  );
 
 		if (testCaseResult === undefined) {
 			log.info(

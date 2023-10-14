@@ -18,3 +18,9 @@ export const validateDirectory = (dir: string): void => {
 	for (const item of readdirSync(dirName))
 		rmSync(`${dirName}/${item}`, { recursive: true });
 };
+
+export const getRegexContents = (regex: RegExp): string =>
+	String(regex).slice(1, -1);
+
+export const removeAllWhitespace = (input: string): string =>
+	input.replaceAll(/\s+/g, "");
