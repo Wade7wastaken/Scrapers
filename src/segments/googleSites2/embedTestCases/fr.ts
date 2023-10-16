@@ -4,7 +4,7 @@ import { url } from "../regex.js";
 export const fr: EmbedTestCase = {
 	name: "fr",
 	testCaseSegments: [
-        // these might be other values
+		// these might be other values
 		`<div id=fr data='<iframe width="100%" height="100%" src="`,
 		[url],
 		`" frameborder="0" allowfullscreen></iframe>'>

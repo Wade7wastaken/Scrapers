@@ -4,7 +4,7 @@ const combine = (a: RegExp, b: RegExp): RegExp =>
 export const url =
 	/^https?:\/\/(www\.)?[\w#%+.:=@~-]{1,256}\.[\d()A-Za-z]{1,24}\b([\w#%&()+./:=?@~-]*)/;
 
-export const number = /\d+/;
+export const number = /^\d+/;
 
 export const alphaNumeric = /^\w*/;
 

@@ -5,6 +5,7 @@
 	"main": "./out/index.js",
 	"type": "module",
 	"scripts": {
+		"test": "vitest",
 		"start": "node out/app.js",
 		"prestart": "npm run build",
 		"build": "tsc",
@@ -26,6 +27,8 @@
 	},
 	"dependencies": {
 		"axios": "1.5.1",
-		"cheerio": "1.0.0-rc.12"
+		"cheerio": "1.0.0-rc.12",
+		"eslint-plugin-vitest": "^0.3.2",
+		"vitest": "^0.34.6"
 	}
 }

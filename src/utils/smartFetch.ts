@@ -16,7 +16,7 @@ import { capitalize, sleep } from "./misc.js";
 const domains = new Map<string, boolean>();
 
 // gets just the domain name of a url. "https://www.google.com/page" => "google"
-const getDomain = (url: string): string => {
+export const getDomain = (url: string): string => {
 	const hostname = new URL(url).hostname;
 	const noEnding = hostname.slice(0, hostname.lastIndexOf("."));
 	return noEnding.slice(noEnding.lastIndexOf(".") + 1);

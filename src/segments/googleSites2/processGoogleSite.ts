@@ -16,7 +16,6 @@ export const processGoogleSite = async (
 	IGNORED_GAMES: Set<string>
 ): Promise<void> => {
 	const $ = await fetchAndParse(log, mainPageLink);
-
 	if ($ === undefined) return;
 
 	await asyncIterator($(SIDEBAR_SELECTOR).toArray(), async (e) => {

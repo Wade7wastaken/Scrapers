@@ -1,11 +1,14 @@
-import { createWriteStream } from "node:fs";
+import {
+	createWriteStream,
+	existsSync,
+	mkdirSync,
+	readdirSync,
+	rmSync,
+} from "node:fs";
+import { dirname } from "node:path";
 import { inspect } from "node:util";
 
 import { LOG_LOCATION } from "../config.js";
-
-import { validateDirectory } from "./misc.js";
-
-validateDirectory(LOG_LOCATION);
 
 // Functions as a logger, but is also used as an identifier as to which site
 // function a call came from using the prefix member
@@ -52,5 +55,12 @@ export class Logger {
 
 	public static closeFileStream(): void {
 		Logger.logFileStream.close();
+	}
+
+	public static validateLogDirectory(dir: string): void {
+		const dirName = dirname(dir);
+		if (!existsSync(dirName)) mkdirSync(dirName, { recursive: true });
+		for (const item of readdirSync(dirName))
+			rmSync(`${dirName}/${item}`, { recursive: true });
 	}
 }

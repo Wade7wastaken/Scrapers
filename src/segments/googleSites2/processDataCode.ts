@@ -1,5 +1,5 @@
 import type { Logger } from "../../utils/logger.js";
-import { removeAllWhitespace } from "../../utils/misc.js";
+import { capitalize, removeAllWhitespace } from "../../utils/misc.js";
 import { ResultList } from "../../utils/resultList.js";
 
 import { embedTestCases } from "./embedTestCases/_index.js";
@@ -12,26 +12,41 @@ export interface EmbedTestCase {
 	testCaseSegments: TestCaseSegment[];
 }
 
+interface TestCaseResult {
+	matched: boolean;
+	urls?: string[];
+}
+
 const runTestCase = (
 	log: Logger,
 	embed: string,
 	embedIndex: number,
 	testCase: EmbedTestCase,
 	gameName: string
-): string[] => {
-	const results = new ResultList<string>();
+): TestCaseResult => {
+	const matchLocation = (): string =>
+		`game: ${gameName}, embed index: ${embedIndex}, match name: ${testCase.name}`;
+
+	const noMatch = (
+		location: "string" | "regex",
+		index: number
+	): TestCaseResult => {
+		log.info(
+			`${capitalize(
+				location
+			)} didn't match. ${matchLocation()}, segment: ${index}`
+		);
+		return { matched: false };
+	};
+
+	const results = new ResultList<string>(true);
 
 	for (const [index, segment] of testCase.testCaseSegments.entries()) {
 		if (typeof segment === "string") {
 			const trimmedSegment = removeAllWhitespace(segment);
 			if (embed.startsWith(trimmedSegment))
 				embed = embed.slice(trimmedSegment.length);
-			else {
-				log.info(
-					`String didn't match. game: ${gameName}, embed index: ${embedIndex}, match name: ${testCase.name}, segment: ${index}`
-				);
-				return [];
-			}
+			else return noMatch("string", index);
 
 			continue;
 		}
@@ -39,12 +54,7 @@ const runTestCase = (
 		const regex = isOutputtedRegex ? segment[0] : segment;
 
 		const execResult = regex.exec(embed);
-		if (execResult === null) {
-			log.info(
-				`Regex didn't match. game: ${gameName}, embed index: ${embedIndex}, match name: ${testCase.name}, segment: ${index}`
-			);
-			return [];
-		}
+		if (execResult === null) return noMatch("regex", index);
 
 		const matchedString = execResult[0];
 		embed = embed.slice(matchedString.length);
@@ -52,11 +62,12 @@ const runTestCase = (
 	}
 
 	// we haven't returned in the loop, so there is a match
-	log.info(
-		`Match found! game: ${gameName}, embed index: ${embedIndex}, match name: ${testCase.name}`
-	);
+	log.info(`Match found! ${matchLocation()}`);
 
-	return results.retrieve();
+	return {
+		matched: true,
+		urls: results.retrieve(),
+	};
 };
 
 export const processDataCode = (
@@ -76,7 +87,7 @@ export const processDataCode = (
 			gameName
 		);
 
-		if (testCaseResult.length > 0) return testCaseResult;
+		if (testCaseResult.matched) return testCaseResult.urls ?? [];
 	}
 
 	log.warn(

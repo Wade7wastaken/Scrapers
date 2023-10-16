@@ -55,7 +55,7 @@ border-color: #fff;
                 } else {
                     win = window.open();
                     win.document.body.style.margin = '0`,
-		/( \d+%)?/,
+		/^( \d+%)?/,
 		`';
                     win.document.body.style.height = '100vh';
                     var iframe = win.document.createElement('iframe');
