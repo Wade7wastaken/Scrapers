@@ -10,9 +10,16 @@ import { inspect } from "node:util";
 
 import { LOG_LOCATION } from "../config.js";
 
+export interface Logger {
+	prefix: string;
+	info(m: unknown): void;
+	warn(m: unknown): void;
+	error(m: unknown): void;
+}
+
 // Functions as a logger, but is also used as an identifier as to which site
 // function a call came from using the prefix member
-export class Logger {
+export class MainLogger implements Logger {
 	public readonly prefix: string;
 
 	public static readonly allSiteNames: string[] = [];
@@ -24,7 +31,7 @@ export class Logger {
 
 	public constructor(prefix: string) {
 		this.prefix = prefix;
-		Logger.allSiteNames.push(prefix);
+		MainLogger.allSiteNames.push(prefix);
 	}
 
 	private log(
@@ -34,10 +41,10 @@ export class Logger {
 	): void {
 		console[consoleLogLevel](`${this.prefix}:`, m);
 
-		Logger.logFileStream.write(
+		MainLogger.logFileStream.write(
 			`[${logLevel.toUpperCase()}] ${
 				this.prefix
-			}: ${Logger.prepareLogLine(m)}\n`
+			}: ${MainLogger.prepareLogLine(m)}\n`
 		);
 	}
 
@@ -54,13 +61,29 @@ export class Logger {
 	}
 
 	public static closeFileStream(): void {
-		Logger.logFileStream.close();
+		MainLogger.logFileStream.close();
 	}
 
-	public static validateLogDirectory(dir: string): void {
-		const dirName = dirname(dir);
+	public static validateLogDirectory(): void {
+		const dirName = dirname(LOG_LOCATION);
 		if (!existsSync(dirName)) mkdirSync(dirName, { recursive: true });
 		for (const item of readdirSync(dirName))
 			rmSync(`${dirName}/${item}`, { recursive: true });
+	}
+}
+
+export class TestLogger implements Logger {
+	public prefix = "Test Logger";
+
+	public info(m: unknown): void {
+		console.log(m);
+	}
+
+	public warn(m: unknown): void {
+		console.log(m);
+	}
+
+	public error(m: unknown): void {
+		console.log(m);
 	}
 }

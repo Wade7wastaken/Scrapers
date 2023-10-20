@@ -2,7 +2,7 @@ import { asyncIterator } from "../segments/asyncIterator.js";
 import { cleanUp } from "../segments/cleanUp.js";
 import { fetchAndParse } from "../segments/fetchAndParse.js";
 import { init } from "../segments/init.js";
-import type { GameList } from "../types.js";
+import type { SiteFunction } from "../types.js";
 
 const IGNORED_GAMES = new Set([
 	"home",
@@ -17,7 +17,7 @@ const IGNORED_GAMES = new Set([
 	"Copyright",
 ]);
 
-export const unblockedPremium = async (): Promise<GameList> => {
+export const unblockedPremium: SiteFunction = async () => {
 	const { log, results } = init("Unblocked Premium");
 
 	const $ = await fetchAndParse(

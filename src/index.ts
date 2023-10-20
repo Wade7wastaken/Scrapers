@@ -1,20 +1,15 @@
 import { writeFileSync } from "node:fs";
 
-import { LOG_LOCATION, OUTPUT_LOCATION } from "./config.js";
-import { coolmath } from "./sites/coolmath.js";
-import { crazyGames } from "./sites/crazyGames.js";
-import { googleDoodles } from "./sites/googleDoodles.js";
-import { poki } from "./sites/poki.js";
+import { OUTPUT_LOCATION } from "./config.js";
 import { unblocked66 } from "./sites/unblocked66.js";
-import { unblockedPremium } from "./sites/unblockedPremium.js";
 import type { GameList } from "./types.js";
-import { Logger } from "./utils/logger.js";
+import { MainLogger } from "./utils/logger.js";
 import { lowerCaseSort } from "./utils/misc.js";
+import { resultStatistics } from "./utils/resultStatistics.js";
 
 /**
  * TODO:
  * Easy way to test regex (tests!)
- * Show some sort of results at the end
  * Logic to check if test was unused
  * Logic to check if regex always matched the same value (it can be replaced by a string)
  * addGame should use spread operator instead of string|string[]
@@ -22,7 +17,7 @@ import { lowerCaseSort } from "./utils/misc.js";
  */
 
 const main = async (): Promise<void> => {
-	Logger.validateLogDirectory(LOG_LOCATION);
+	MainLogger.validateLogDirectory();
 
 	const sites: Promise<GameList>[] = [
 		//coolmath(),
@@ -42,11 +37,17 @@ const main = async (): Promise<void> => {
 	// them
 	writeFileSync(
 		OUTPUT_LOCATION,
-		JSON.stringify({ games: resultsFlattened, sites: Logger.allSiteNames })
+		JSON.stringify({
+			games: resultsFlattened,
+			sites: MainLogger.allSiteNames,
+		})
 	);
 
+	for (const [site, size] of resultStatistics.entries())
+		console.log(`${site} had ${size} entries`);
+
 	// important to do last
-	Logger.logFileStream.close();
+	MainLogger.logFileStream.close();
 
 	// this is here so i can view the final variables in VSCode.
 	debugger;

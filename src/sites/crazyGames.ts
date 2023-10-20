@@ -1,7 +1,7 @@
 import { asyncIterator } from "../segments/asyncIterator.js";
 import { cleanUp } from "../segments/cleanUp.js";
 import { init } from "../segments/init.js";
-import type { GameList, GameMap } from "../types.js";
+import type { GameMap, SiteFunction } from "../types.js";
 import { addGame } from "../utils/addGame.js";
 import type { Logger } from "../utils/logger.js";
 import { smartFetch } from "../utils/smartFetch.js";
@@ -51,7 +51,7 @@ const fetchPage = async (
 		await fetchPage(log, results, fetchUrl, page + 1);
 };
 
-export const crazyGames = async (): Promise<GameList> => {
+export const crazyGames: SiteFunction = async () => {
 	const { log, results } = init("CrazyGames");
 
 	const tagsUrl = "https://api.crazygames.com/v3/en_US/page/tags";

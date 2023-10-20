@@ -1,7 +1,7 @@
 import { asyncLoop } from "../segments/asyncLoop.js";
 import { cleanUp } from "../segments/cleanUp.js";
 import { init } from "../segments/init.js";
-import type { GameList } from "../types.js";
+import type { SiteFunction } from "../types.js";
 import { addGame } from "../utils/addGame.js";
 import { smartFetch } from "../utils/smartFetch.js";
 
@@ -17,7 +17,7 @@ interface PokiApi {
 	games: PokiGame[];
 }
 
-export const poki = async (): Promise<GameList> => {
+export const poki: SiteFunction = async () => {
 	const { log, results } = init("Poki");
 
 	await asyncLoop(0, 26, 1, async (i) => {

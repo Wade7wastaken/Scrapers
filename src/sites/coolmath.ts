@@ -1,7 +1,7 @@
 import { asyncIterator } from "../segments/asyncIterator.js";
 import { cleanUp } from "../segments/cleanUp.js";
 import { init } from "../segments/init.js";
-import type { GameList } from "../types.js";
+import type { SiteFunction } from "../types.js";
 import { addGame } from "../utils/addGame.js";
 import type { Logger } from "../utils/logger.js";
 import { exists, smartFetch } from "../utils/smartFetch.js";
@@ -30,7 +30,7 @@ const findBestUrl = async (
 	return undefined;
 };
 
-export const coolmath = async (): Promise<GameList> => {
+export const coolmath: SiteFunction = async () => {
 	const { log, results } = init("Coolmath Games");
 
 	const jsonUrl =

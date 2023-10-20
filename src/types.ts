@@ -1,10 +1,16 @@
+export type NameType = string;
+export type UrlType = string[];
+export type SiteType = string;
+
 export interface Game {
-	name: string;
-	urls: string[];
-	site: string;
+	name: NameType;
+	urls: UrlType;
+	site: SiteType;
 }
 
 export type GameList = Game[];
 
 // a mapping between game names and urls
-export type GameMap = Map<string, string[]>;
+export type GameMap = Map<NameType, UrlType>;
+
+export type SiteFunction = () => Promise<GameList>;

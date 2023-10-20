@@ -2,7 +2,7 @@ import { asyncIterator } from "../segments/asyncIterator.js";
 import { cleanUp } from "../segments/cleanUp.js";
 import { fetchAndParse } from "../segments/fetchAndParse.js";
 import { init } from "../segments/init.js";
-import type { GameList } from "../types.js";
+import type { SiteFunction } from "../types.js";
 import { addGame } from "../utils/addGame.js";
 
 const IGNORED_GAMES = new Set([
@@ -18,7 +18,7 @@ const IGNORED_GAMES = new Set([
 	"Contact",
 ]);
 
-export const googleDoodles = async (): Promise<GameList> => {
+export const googleDoodles: SiteFunction = async () => {
 	const { log, results } = init("Google Doodles");
 
 	const $ = await fetchAndParse(
