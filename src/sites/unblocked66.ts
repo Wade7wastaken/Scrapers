@@ -1,5 +1,5 @@
 import { cleanUp } from "../segments/cleanUp.js";
-import { processGoogleSite } from "../segments/googleSites2/processGoogleSite.js";
+import { processGoogleSite } from "../segments/googleSites/processGoogleSite.js";
 import { init } from "../segments/init.js";
 import type { SiteFunction } from "../types.js";
 
