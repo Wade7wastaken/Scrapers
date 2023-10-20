@@ -10,7 +10,7 @@
 		"prestart": "npm run build",
 		"build": "tsc",
 		"lint": "eslint .",
-		"prettier:write": "prettier --write ./src"
+		"prettier:write": "prettier --write ."
 	},
 	"author": "",
 	"license": "ISC",
