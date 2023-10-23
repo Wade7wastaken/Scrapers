@@ -17,15 +17,14 @@ interface TestCaseResult {
 	urls?: string[];
 }
 
-const runTestCase = (
+export const runTestCase = (
 	log: Logger,
 	embed: string,
 	embedIndex: number,
 	testCase: EmbedTestCase,
 	gameName: string
 ): TestCaseResult => {
-	const matchLocation = (): string =>
-		`game: ${gameName}, embed index: ${embedIndex}, match name: ${testCase.name}`;
+	const matchLocation = `game: ${gameName}, embed index: ${embedIndex}, match name: ${testCase.name}`;
 
 	const noMatch = (
 		location: "string" | "regex",
@@ -34,7 +33,7 @@ const runTestCase = (
 		log.info(
 			`${capitalize(
 				location
-			)} didn't match. ${matchLocation()}, segment: ${index}`
+			)} didn't match. ${matchLocation}, segment: ${index}`
 		);
 		return { matched: false };
 	};
@@ -62,7 +61,7 @@ const runTestCase = (
 	}
 
 	// we haven't returned in the loop, so there is a match
-	log.info(`Match found! ${matchLocation()}`);
+	log.info(`Match found! ${matchLocation}`);
 
 	return {
 		matched: true,

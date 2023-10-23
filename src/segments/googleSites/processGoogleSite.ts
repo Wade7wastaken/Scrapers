@@ -33,7 +33,7 @@ export const processGoogleSite = async (
 		if (embeds.length <= 0) log.warn(`No embeds on ${gameName}`);
 
 		const links = embeds.toArray().flatMap((e, i): string[] => {
-			const embed = $(e);
+			const embed = $2(e);
 
 			const dataUrl = embed.attr("data-url");
 			const dataCode = embed.attr("data-code");
