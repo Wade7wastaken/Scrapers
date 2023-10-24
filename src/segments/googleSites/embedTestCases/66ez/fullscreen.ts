@@ -4,7 +4,7 @@ import type { EmbedTestCase } from "@googleSites/processDataCode.js";
 
 export const fullscreen: EmbedTestCase = {
 	name: "fullscreen",
-	testCaseSegments: [
+	segments: [
 		`<button class="c-button">`,
 		text,
 		`</button>

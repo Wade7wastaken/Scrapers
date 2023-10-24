@@ -9,7 +9,7 @@ import type { EmbedTestCase } from "../processDataCode.js";
 export const embedTestCases: EmbedTestCase[] = [fr, fullscreen, ruffle];
 
 for (const testCase of embedTestCases)
-	for (const [index, testCaseSegment] of testCase.testCaseSegments.entries())
+	for (const [index, testCaseSegment] of testCase.segments.entries())
 		if (
 			testCaseSegment instanceof RegExp &&
 			!getRegexContents(testCaseSegment).startsWith("^")

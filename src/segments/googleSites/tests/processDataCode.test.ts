@@ -31,7 +31,7 @@ const testCaseWrapper = (
 		-1,
 		{
 			name: "Test embed case",
-			testCaseSegments: segments,
+			segments: segments,
 		},
 		"Testing"
 	);
@@ -56,19 +56,17 @@ describe("tests an embed against test cases", () => {
 
 	describe("matches 66ez cases", () => {
 		it("matches fr", () => {
-			expect(testCaseWrapper(frEmbed, fr.testCaseSegments)).toStrictEqual(
-				{
-					matched: true,
-					urls: [
-						"https://gg-opensocial.googleusercontent.com/gadgets/ifr?url=https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/1ee20621-61bc-4ec8-a8ec-5e839c2e6edc%2F1-on-1-basketball.xml",
-					],
-				}
-			);
+			expect(testCaseWrapper(frEmbed, fr.segments)).toStrictEqual({
+				matched: true,
+				urls: [
+					"https://gg-opensocial.googleusercontent.com/gadgets/ifr?url=https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/1ee20621-61bc-4ec8-a8ec-5e839c2e6edc%2F1-on-1-basketball.xml",
+				],
+			});
 		});
 
 		it("matches fullscreen", () => {
 			expect(
-				testCaseWrapper(fullscreenEmbed, fullscreen.testCaseSegments)
+				testCaseWrapper(fullscreenEmbed, fullscreen.segments)
 			).toStrictEqual({
 				matched: true,
 				urls: [
@@ -78,22 +76,20 @@ describe("tests an embed against test cases", () => {
 		});
 
 		it("matches ruffle", () => {
-			expect(
-				testCaseWrapper(ruffleEmbed, ruffle.testCaseSegments)
-			).toStrictEqual({
-				matched: true,
-				urls: [
-					"https://cdn.jsdelivr.net/gh/UndercoverMoose/flashgames@6a11175e9c021f8359d626300aa73e16ef9c6ebd/games/sift-renegade.swf",
-				],
-			});
+			expect(testCaseWrapper(ruffleEmbed, ruffle.segments)).toStrictEqual(
+				{
+					matched: true,
+					urls: [
+						"https://cdn.jsdelivr.net/gh/UndercoverMoose/flashgames@6a11175e9c021f8359d626300aa73e16ef9c6ebd/games/sift-renegade.swf",
+					],
+				}
+			);
 		});
 	});
 
 	describe("matches premium cases", () => {
 		it("matches premium fr", () => {
-			expect(
-				testCaseWrapper(premiumFrEmbed, fr.testCaseSegments)
-			).toStrictEqual({
+			expect(testCaseWrapper(premiumFrEmbed, fr.segments)).toStrictEqual({
 				matched: true,
 				urls: [
 					"https://images-docs-opensocial.googleusercontent.com/gadgets/ifr?url=https://sites.google.com/site/drunkenduel/12minibattles.xml",
@@ -102,9 +98,7 @@ describe("tests an embed against test cases", () => {
 		});
 
 		it("matches premium ajax", () => {
-			expect(
-				testCaseWrapper(ajaxEmbed, ajax.testCaseSegments)
-			).toStrictEqual({
+			expect(testCaseWrapper(ajaxEmbed, ajax.segments)).toStrictEqual({
 				matched: true,
 				urls: [],
 			});
@@ -112,7 +106,7 @@ describe("tests an embed against test cases", () => {
 
 		it("matches wrapped premium fr", () => {
 			expect(
-				testCaseWrapper(premiumWrappedFrEmbed, fr.testCaseSegments)
+				testCaseWrapper(premiumWrappedFrEmbed, fr.segments)
 			).toStrictEqual({
 				matched: true,
 				urls: [

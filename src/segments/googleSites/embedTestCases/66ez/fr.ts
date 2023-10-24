@@ -4,7 +4,7 @@ import type { EmbedTestCase } from "@googleSites/processDataCode.js";
 
 export const fr: EmbedTestCase = {
 	name: "fr",
-	testCaseSegments: [
+	segments: [
 		`<div id=fr data='<iframe width="100%" height="100%" src="`,
 		[url],
 		`" frameborder="0" allowfullscreen></iframe>'>

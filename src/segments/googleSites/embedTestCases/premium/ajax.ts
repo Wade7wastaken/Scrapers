@@ -4,7 +4,7 @@ import type { EmbedTestCase } from "../../processDataCode.js";
 
 export const ajax: EmbedTestCase = {
 	name: "ajax",
-	testCaseSegments: [
+	segments: [
 		`<!DOCTYPE html>
 <html>
 <head>

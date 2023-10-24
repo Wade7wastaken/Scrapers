@@ -14,7 +14,7 @@ export type TestCaseSegment = string | RegExp | [RegExp];
 
 export interface EmbedTestCase {
 	name: string;
-	testCaseSegments: TestCaseSegment[];
+	segments: TestCaseSegment[];
 }
 
 export interface TestCaseResult {
@@ -51,7 +51,7 @@ export const runTestCase = (
 
 	const results = new ResultList<string>(true);
 
-	if (testCase.testCaseSegments.length === 0)
+	if (testCase.segments.length === 0)
 		return embed === ""
 			? {
 					matched: true,
@@ -59,7 +59,7 @@ export const runTestCase = (
 			  }
 			: noMatch("string", -1);
 
-	for (const [index, segment] of testCase.testCaseSegments.entries()) {
+	for (const [index, segment] of testCase.segments.entries()) {
 		if (typeof segment === "string") {
 			const trimmedSegment = removeAllWhitespace(segment);
 			if (embed.startsWith(trimmedSegment))
