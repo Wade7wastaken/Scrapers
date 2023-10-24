@@ -1,10 +1,10 @@
 import { getRegexContents } from "@utils/misc.js";
 
-import type { EmbedTestCase } from "../processDataCode.js";
-
 import { fr } from "./fr.js";
 import { fullscreen } from "./fullscreen.js";
 import { ruffle } from "./ruffle.js";
+
+import type { EmbedTestCase } from "../processDataCode.js";
 
 export const embedTestCases: EmbedTestCase[] = [fr, fullscreen, ruffle];
 

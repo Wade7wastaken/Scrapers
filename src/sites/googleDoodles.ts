@@ -4,7 +4,7 @@ import { fetchAndParse } from "@segments/fetchAndParse.js";
 import { init } from "@segments/init.js";
 import { addGame } from "@utils/addGame.js";
 
-import type { SiteFunction } from "../types.js";
+import type { SiteFunction } from "@types";
 
 const IGNORED_GAMES = new Set([
 	"Google Doodle Games",

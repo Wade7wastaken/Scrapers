@@ -1,6 +1,5 @@
 import { inspect } from "node:util";
 
-import type { AxiosRequestConfig } from "axios";
 import axios, { isAxiosError } from "axios";
 
 import {
@@ -10,8 +9,10 @@ import {
 	NO_RETRY_HTTP_CODES,
 } from "../config.js";
 
-import type { Logger } from "./logger.js";
 import { capitalize, sleep } from "./misc.js";
+
+import type { Logger } from "./logger.js";
+import type { AxiosRequestConfig } from "axios";
 
 const domains = new Map<string, boolean>();
 

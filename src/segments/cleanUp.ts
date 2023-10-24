@@ -1,7 +1,7 @@
-import type { Logger } from "@utils/logger.js";
 import { resultStatistics } from "@utils/resultStatistics.js";
 
 import type { GameList, GameMap } from "../types.js";
+import type { Logger } from "@utils/logger.js";
 
 const processResults = (results: GameMap, site: string): GameList =>
 	[...results.entries()].map(([name, urls]) => ({

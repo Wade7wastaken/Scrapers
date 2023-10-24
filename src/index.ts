@@ -6,6 +6,7 @@ import { lowerCaseSort } from "@utils/misc.js";
 import { resultStatistics } from "@utils/resultStatistics.js";
 
 import { OUTPUT_LOCATION } from "./config.js";
+
 import type { GameList } from "./types.js";
 
 /**

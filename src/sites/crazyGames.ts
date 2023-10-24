@@ -2,10 +2,10 @@ import { asyncIterator } from "@segments/asyncIterator.js";
 import { cleanUp } from "@segments/cleanUp.js";
 import { init } from "@segments/init.js";
 import { addGame } from "@utils/addGame.js";
-import type { Logger } from "@utils/logger.js";
 import { smartFetch } from "@utils/smartFetch.js";
 
-import type { GameMap, SiteFunction } from "../types.js";
+import type { GameMap, SiteFunction } from "@types";
+import type { Logger } from "@utils/logger.js";
 
 interface TagsResponse {
 	tags: {

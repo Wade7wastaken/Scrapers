@@ -1,5 +1,6 @@
-import type { EmbedTestCase } from "../processDataCode.js";
 import { alphaNumeric, url } from "../regex.js";
+
+import type { EmbedTestCase } from "../processDataCode.js";
 
 export const fr: EmbedTestCase = {
 	name: "fr",

@@ -1,4 +1,3 @@
-import type { Logger } from "@utils/logger.js";
 import {
 	capitalize,
 	removeAllWhitespace,
@@ -7,6 +6,8 @@ import {
 import { ResultList } from "@utils/resultList.js";
 
 import { embedTestCases } from "./embedTestCases/_index.js";
+
+import type { Logger } from "@utils/logger.js";
 
 // regex's that are the result of the match are an array of 1 regex
 export type TestCaseSegment = string | RegExp | [RegExp];

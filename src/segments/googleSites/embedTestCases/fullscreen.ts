@@ -1,5 +1,6 @@
-import type { EmbedTestCase } from "../processDataCode.js";
 import { number, text, url } from "../regex.js";
+
+import type { EmbedTestCase } from "../processDataCode.js";
 
 export const fullscreen: EmbedTestCase = {
 	name: "fullscreen",

@@ -1,5 +1,6 @@
-import type { EmbedTestCase } from "../processDataCode.js";
 import { url } from "../regex.js";
+
+import type { EmbedTestCase } from "../processDataCode.js";
 
 export const ajax: EmbedTestCase = {
 	name: "ajax",
