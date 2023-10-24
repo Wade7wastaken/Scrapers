@@ -14,3 +14,6 @@ export const getRegexContents = (regex: RegExp): string =>
 
 export const removeAllWhitespace = (input: string): string =>
 	input.replaceAll(/\s+/g, "");
+
+export const removeDuplicates = <T>(arr: T[]): T[] =>
+	arr.filter((value, index, self) => self.indexOf(value) === index);

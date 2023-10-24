@@ -1,5 +1,9 @@
 import type { Logger } from "../../utils/logger.js";
-import { capitalize, removeAllWhitespace } from "../../utils/misc.js";
+import {
+	capitalize,
+	removeAllWhitespace,
+	removeDuplicates,
+} from "../../utils/misc.js";
 import { ResultList } from "../../utils/resultList.js";
 
 import { embedTestCases } from "./embedTestCases/_index.js";
@@ -26,7 +30,7 @@ export const runTestCase = (
 ): TestCaseResult => {
 	const matchLocation = `game: ${gameName}, embed index: ${embedIndex}, match name: ${testCase.name}`;
 
-	const noMatch = ( 
+	const noMatch = (
 		location: "string" | "regex",
 		index: number
 	): TestCaseResult => {
@@ -73,7 +77,7 @@ export const runTestCase = (
 
 	return {
 		matched: true,
-		urls: results.retrieve(),
+		urls: removeDuplicates(results.retrieve()),
 	};
 };
 
