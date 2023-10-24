@@ -1,8 +1,5 @@
-export {
-  
-}
-
-export const frEmbed = `<div id=fr data='<iframe width="100%" height="100%" src="https://gg-opensocial.googleusercontent.com/gadgets/ifr?url=https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/1ee20621-61bc-4ec8-a8ec-5e839c2e6edc%2F1-on-1-basketball.xml" frameborder="0" allowfullscreen></iframe>'>
+export const sixSixEz = {
+	fr: `<div id=fr data='<iframe width="100%" height="100%" src="https://gg-opensocial.googleusercontent.com/gadgets/ifr?url=https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/1ee20621-61bc-4ec8-a8ec-5e839c2e6edc%2F1-on-1-basketball.xml" frameborder="0" allowfullscreen></iframe>'>
 </div><button class="c-button" type="button" onclick="PlayTo(this)">PLAY GAME</button>
 <style>
 .c-button {
@@ -43,9 +40,9 @@ function PlayTo(sel){
   div.innerHTML=div.getAttribute('data');
   sel.style.display = "none";
 }
-</script>`;
+</script>`,
 
-export const fullscreenEmbed = `<button class="c-button">PLAY FULLSCREEN</button>
+	fullscreen: `<button class="c-button">PLAY FULLSCREEN</button>
 <style>
 .c-button {
   min-width: 100%;
@@ -114,14 +111,16 @@ border-color: #fff;
                 }
             };
         }
-    </script>`;
+    </script>`,
 
-export const ruffleEmbed = `<object xmlns="http://www.w3.org/1999/xhtml" 
+	ruffle: `<object xmlns="http://www.w3.org/1999/xhtml" 
 data="https://cdn.jsdelivr.net/gh/UndercoverMoose/flashgames@6a11175e9c021f8359d626300aa73e16ef9c6ebd/games/sift-renegade.swf" 
 height="100%" type="application/x-shockwave-flash" width="100%"><param name="movie" value="" />
-</object><script src="https://cdn.jsdelivr.net/gh/h3sj7v2f6k/ruffle@e51038cf55e61bb46ea4d39ed05169ff69f8795b/ruffle.js"></script>`;
+</object><script src="https://cdn.jsdelivr.net/gh/h3sj7v2f6k/ruffle@e51038cf55e61bb46ea4d39ed05169ff69f8795b/ruffle.js"></script>`,
+};
 
-export const premiumFrEmbed = `<div id=fr data='<iframe width="100%" height="100%" src="https://images-docs-opensocial.googleusercontent.com/gadgets/ifr?url=https://sites.google.com/site/drunkenduel/12minibattles.xml" frameborder="0" allowfullscreen></iframe>'>
+export const premium = {
+	fr: `<div id=fr data='<iframe width="100%" height="100%" src="https://images-docs-opensocial.googleusercontent.com/gadgets/ifr?url=https://sites.google.com/site/drunkenduel/12minibattles.xml" frameborder="0" allowfullscreen></iframe>'>
 </div><button class="c-button" type="button" onclick="PlayTo(this)">CLICK TO PLAY NOW</button>
 
 <style>
@@ -162,9 +161,9 @@ function PlayTo(sel){
   div.innerHTML=div.getAttribute('data');
   sel.style.display = "none";
 }
-</script>`;
+</script>`,
 
-export const premiumWrappedFrEmbed = `<div id="container">
+	frWrapped: `<div id="container">
 <div id="fr" data='<iframe width="100%" height="100%" src="https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://cdn.jsdelivr.net/gh/classroom-googl/85@main/classroombot346346.xml" frameborder="0" allowfullscreen></iframe>'></div>
 <button class="c-button" type="button" onclick="PlayTo(this)">CLICK TO PLAY</button>
 <p id="unblocked-text">Google > Unblocked Games Premium :)</p>
@@ -224,9 +223,9 @@ function PlayTo(button) {
   iframe.innerHTML = iframe.getAttribute("data");
   button.style.display = "none";
 }
-</script>`;
+</script>`,
 
-export const ajaxEmbed = `<!DOCTYPE html>
+	ajax: `<!DOCTYPE html>
 <html>
 <head>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -318,4 +317,5 @@ export const ajaxEmbed = `<!DOCTYPE html>
         });
     </script>
 </body>
-</html>`;
+</html>`,
+};

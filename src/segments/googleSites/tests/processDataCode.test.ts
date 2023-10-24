@@ -12,14 +12,7 @@ import {
 	type EmbedMatchSegment,
 } from "../processDataCode.js";
 
-import {
-	ajaxEmbed,
-	frEmbed,
-	fullscreenEmbed,
-	premiumFrEmbed,
-	premiumWrappedFrEmbed,
-	ruffleEmbed,
-} from "./processDataCode.testData.js";
+import { premium, sixSixEz } from "./processDataCode.testData.js";
 
 const testCaseWrapper = (
 	embed: string,
@@ -56,7 +49,7 @@ describe("tests an embed against test cases", () => {
 
 	describe("matches 66ez cases", () => {
 		it("matches fr", () => {
-			expect(testCaseWrapper(frEmbed, fr.segments)).toStrictEqual({
+			expect(testCaseWrapper(sixSixEz.fr, fr.segments)).toStrictEqual({
 				matched: true,
 				urls: [
 					"https://gg-opensocial.googleusercontent.com/gadgets/ifr?url=https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/1ee20621-61bc-4ec8-a8ec-5e839c2e6edc%2F1-on-1-basketball.xml",
@@ -66,7 +59,7 @@ describe("tests an embed against test cases", () => {
 
 		it("matches fullscreen", () => {
 			expect(
-				testCaseWrapper(fullscreenEmbed, fullscreen.segments)
+				testCaseWrapper(sixSixEz.fullscreen, fullscreen.segments)
 			).toStrictEqual({
 				matched: true,
 				urls: [
@@ -76,20 +69,20 @@ describe("tests an embed against test cases", () => {
 		});
 
 		it("matches ruffle", () => {
-			expect(testCaseWrapper(ruffleEmbed, ruffle.segments)).toStrictEqual(
-				{
-					matched: true,
-					urls: [
-						"https://cdn.jsdelivr.net/gh/UndercoverMoose/flashgames@6a11175e9c021f8359d626300aa73e16ef9c6ebd/games/sift-renegade.swf",
-					],
-				}
-			);
+			expect(
+				testCaseWrapper(sixSixEz.ruffle, ruffle.segments)
+			).toStrictEqual({
+				matched: true,
+				urls: [
+					"https://cdn.jsdelivr.net/gh/UndercoverMoose/flashgames@6a11175e9c021f8359d626300aa73e16ef9c6ebd/games/sift-renegade.swf",
+				],
+			});
 		});
 	});
 
 	describe("matches premium cases", () => {
-		it("matches premium fr", () => {
-			expect(testCaseWrapper(premiumFrEmbed, fr.segments)).toStrictEqual({
+		it("matches fr", () => {
+			expect(testCaseWrapper(premium.fr, fr.segments)).toStrictEqual({
 				matched: true,
 				urls: [
 					"https://images-docs-opensocial.googleusercontent.com/gadgets/ifr?url=https://sites.google.com/site/drunkenduel/12minibattles.xml",
@@ -97,21 +90,21 @@ describe("tests an embed against test cases", () => {
 			});
 		});
 
-		it("matches premium ajax", () => {
-			expect(testCaseWrapper(ajaxEmbed, ajax.segments)).toStrictEqual({
-				matched: true,
-				urls: [],
-			});
-		});
-
-		it("matches wrapped premium fr", () => {
+		it("matches wrapped fr", () => {
 			expect(
-				testCaseWrapper(premiumWrappedFrEmbed, fr.segments)
+				testCaseWrapper(premium.frWrapped, fr.segments)
 			).toStrictEqual({
 				matched: true,
 				urls: [
 					"https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://cdn.jsdelivr.net/gh/classroom-googl/85@main/classroombot346346.xml",
 				],
+			});
+		});
+
+		it("matches ajax", () => {
+			expect(testCaseWrapper(premium.ajax, ajax.segments)).toStrictEqual({
+				matched: true,
+				urls: [],
 			});
 		});
 	});
