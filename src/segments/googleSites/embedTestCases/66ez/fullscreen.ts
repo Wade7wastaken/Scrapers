@@ -1,6 +1,6 @@
-import { number, text, url } from "../regex.js";
+import { number, text, url } from "@googleSites/regex.js";
 
-import type { EmbedTestCase } from "../processDataCode.js";
+import type { EmbedTestCase } from "@googleSites/processDataCode.js";
 
 export const fullscreen: EmbedTestCase = {
 	name: "fullscreen",

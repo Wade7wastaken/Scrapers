@@ -1,6 +1,6 @@
-import { url } from "../regex.js";
+import { url } from "../../regex.js";
 
-import type { EmbedTestCase } from "../processDataCode.js";
+import type { EmbedTestCase } from "../../processDataCode.js";
 
 // currently don't know how to handle these
 export const ruffle: EmbedTestCase = {

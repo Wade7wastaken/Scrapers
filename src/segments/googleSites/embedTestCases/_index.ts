@@ -1,8 +1,8 @@
 import { getRegexContents } from "@utils/misc.js";
 
-import { fr } from "./fr.js";
-import { fullscreen } from "./fullscreen.js";
-import { ruffle } from "./ruffle.js";
+import { fr } from "./66ez/fr.js";
+import { fullscreen } from "./66ez/fullscreen.js";
+import { ruffle } from "./66ez/ruffle.js";
 
 import type { EmbedTestCase } from "../processDataCode.js";
 
