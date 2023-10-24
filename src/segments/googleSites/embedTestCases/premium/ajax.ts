@@ -1,4 +1,4 @@
-import { url } from "../../regex.js";
+import { regex } from "../../regex.js";
 
 import type { EmbedTestCase } from "../../processDataCode.js";
 
@@ -82,7 +82,7 @@ export const ajax: EmbedTestCase = {
             $.ajax({
                 type: "GET",
                 url: "`,
-		url,
+		regex.url,
 		`",
                 dataType: "xml",
                 success: function(xml) {

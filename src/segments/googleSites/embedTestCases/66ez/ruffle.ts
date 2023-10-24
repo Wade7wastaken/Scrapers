@@ -1,4 +1,4 @@
-import { url } from "../../regex.js";
+import { regex } from "../../regex.js";
 
 import type { EmbedTestCase } from "../../processDataCode.js";
 
@@ -8,11 +8,11 @@ export const ruffle: EmbedTestCase = {
 	segments: [
 		`<object xmlns="http://www.w3.org/1999/xhtml" 
 data="`,
-		[url],
+		[regex.url],
 		`" 
 height="100%" type="application/x-shockwave-flash" width="100%"><param name="movie" value="" />
 </object><script src="`,
-		url,
+		regex.url,
 		`"></script>`,
 	],
 };

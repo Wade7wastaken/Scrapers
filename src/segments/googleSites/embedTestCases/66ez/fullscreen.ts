@@ -1,4 +1,4 @@
-import { number, text, url } from "@googleSites/regex.js";
+import { regex } from "@googleSites/regex.js";
 
 import type { EmbedTestCase } from "@googleSites/processDataCode.js";
 
@@ -6,7 +6,7 @@ export const fullscreen: EmbedTestCase = {
 	name: "fullscreen",
 	segments: [
 		`<button class="c-button">`,
-		text,
+		regex.text,
 		`</button>
 <style>
 .c-button {
@@ -44,7 +44,7 @@ border-color: #fff;
 <script>
         var urlObj = new window.URL(window.location.href);
         var url = "`,
-		[url],
+		[regex.url],
 		`";
 
         if (url) {
@@ -62,7 +62,7 @@ border-color: #fff;
                     var iframe = win.document.createElement('iframe');
                     iframe.style.border = 'none';
                     iframe.style.width = '`,
-		number,
+		regex.number,
 		`%';
                     iframe.style.height = '100%';
                     iframe.style.margin = '0';
