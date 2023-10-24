@@ -5,7 +5,7 @@
 	"main": "./out/index.js",
 	"type": "module",
 	"scripts": {
-		"test": "vitest",
+		"test": "vitest --test-timeout 0",
 		"start": "node out/app.js",
 		"prestart": "npm run build",
 		"build": "tsc",

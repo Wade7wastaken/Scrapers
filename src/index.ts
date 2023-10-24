@@ -10,6 +10,11 @@ import { resultStatistics } from "./utils/resultStatistics.js";
 /**
  * TODO:
  * Easy way to test regex (tests!)
+ * Format output to ts file
+ * Show how a test case failed (give the actual and expected)
+ * Function to process test regex match (maybe second in array?)
+ * FINISH BEFORE PUBLISH
+ * Use a Set instead of array for links to avoid duplicates without additional logic
  * Logic to check if test was unused
  * Logic to check if regex always matched the same value (it can be replaced by a string)
  * addGame should use spread operator instead of string|string[]

@@ -12,7 +12,7 @@ export interface EmbedTestCase {
 	testCaseSegments: TestCaseSegment[];
 }
 
-interface TestCaseResult {
+export interface TestCaseResult {
 	matched: boolean;
 	urls?: string[];
 }
@@ -26,7 +26,7 @@ export const runTestCase = (
 ): TestCaseResult => {
 	const matchLocation = `game: ${gameName}, embed index: ${embedIndex}, match name: ${testCase.name}`;
 
-	const noMatch = (
+	const noMatch = ( 
 		location: "string" | "regex",
 		index: number
 	): TestCaseResult => {
@@ -39,6 +39,14 @@ export const runTestCase = (
 	};
 
 	const results = new ResultList<string>(true);
+
+	if (testCase.testCaseSegments.length === 0)
+		return embed === ""
+			? {
+					matched: true,
+					urls: [],
+			  }
+			: noMatch("string", -1);
 
 	for (const [index, segment] of testCase.testCaseSegments.entries()) {
 		if (typeof segment === "string") {
