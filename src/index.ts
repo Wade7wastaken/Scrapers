@@ -1,7 +1,7 @@
 import { writeFileSync } from "node:fs";
 
 import { OUTPUT_LOCATION } from "./config.js";
-import { unblocked66 } from "./sites/unblocked66.js";
+import { unblockedPremium } from "./sites/unblockedPremium.js";
 import type { GameList } from "./types.js";
 import { MainLogger } from "./utils/logger.js";
 import { lowerCaseSort } from "./utils/misc.js";
@@ -26,11 +26,11 @@ const main = async (): Promise<void> => {
 
 	const sites: Promise<GameList>[] = [
 		//coolmath(),
-		unblocked66(),
+		//unblocked66(),
 		//googleDoodles(),
 		//crazyGames(),
 		//poki(),
-		//unblockedPremium(),
+		unblockedPremium(),
 	];
 
 	const results = await Promise.all(sites);

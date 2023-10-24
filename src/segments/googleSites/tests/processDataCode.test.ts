@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import { TestLogger } from "../../../utils/logger.js";
 import { removeAllWhitespace } from "../../../utils/misc.js";
+import { ajax } from "../embedTestCases/ajax.js";
 import { fr } from "../embedTestCases/fr.js";
 import { fullscreen } from "../embedTestCases/fullscreen.js";
 import { ruffle } from "../embedTestCases/ruffle.js";
@@ -12,8 +13,11 @@ import {
 } from "../processDataCode.js";
 
 import {
+	ajaxEmbed,
 	frEmbed,
 	fullscreenEmbed,
+	premiumFrEmbed,
+	premiumWrappedFrEmbed,
 	ruffleEmbed,
 } from "./processDataCode.testData.js";
 
@@ -78,4 +82,36 @@ describe("tests an embed against test cases", () => {
 			],
 		});
 	});
+
+	it("matches premium fr", () => {
+		expect(
+			testCaseWrapper(premiumFrEmbed, fr.testCaseSegments)
+		).toStrictEqual({
+			matched: true,
+			urls: [
+				"https://images-docs-opensocial.googleusercontent.com/gadgets/ifr?url=https://sites.google.com/site/drunkenduel/12minibattles.xml",
+			],
+		});
+	});
+
+	it("matches premium ajax", () => {
+		expect(testCaseWrapper(ajaxEmbed, ajax.testCaseSegments)).toStrictEqual(
+			{
+				matched: true,
+				urls: [],
+			}
+		);
+	});
+
+	it("matches wrapped premium fr", () => {
+		expect(
+			testCaseWrapper(premiumWrappedFrEmbed, fr.testCaseSegments)
+		).toStrictEqual({
+			matched: true,
+			urls: [
+				"https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://cdn.jsdelivr.net/gh/classroom-googl/85@main/classroombot346346.xml",
+			],
+		});
+	});
 });
+ 
