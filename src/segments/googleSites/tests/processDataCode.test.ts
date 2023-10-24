@@ -2,10 +2,10 @@ import { TestLogger } from "@utils/logger.js";
 import { removeAllWhitespace } from "@utils/misc.js";
 import { describe, expect, it } from "vitest";
 
-import { fr } from "../embedMatches/66ez/fr.js";
-import { fullscreen } from "../embedMatches/66ez/fullscreen.js";
-import { ruffle } from "../embedMatches/66ez/ruffle.js";
 import { ajax } from "../embedMatches/premium/ajax.js";
+import { fr } from "../embedMatches/sixSixEz/fr.js";
+import { fullscreen } from "../embedMatches/sixSixEz/fullscreen.js";
+import { ruffle } from "../embedMatches/sixSixEz/ruffle.js";
 import {
 	runMatch,
 	type EmbedMatchResult,
