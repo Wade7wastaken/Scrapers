@@ -1,11 +1,10 @@
-import { describe, expect, it } from "vitest";
-
 import {
 	capitalize,
 	getRegexContents,
 	lowerCaseSort,
 	removeAllWhitespace,
-} from "../misc.js";
+} from "@utils/misc.js";
+import { describe, expect, it } from "vitest";
 
 describe("various miscellaneous functions", () => {
 	it("sorts an array of games", () => {

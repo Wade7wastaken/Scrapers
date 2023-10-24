@@ -1,4 +1,5 @@
-import { getRegexContents } from "../../../utils/misc.js";
+import { getRegexContents } from "@utils/misc.js";
+
 import type { EmbedTestCase } from "../processDataCode.js";
 
 import { fr } from "./fr.js";

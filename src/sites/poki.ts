@@ -1,9 +1,10 @@
-import { asyncLoop } from "../segments/asyncLoop.js";
-import { cleanUp } from "../segments/cleanUp.js";
-import { init } from "../segments/init.js";
+import { asyncLoop } from "@segments/asyncLoop.js";
+import { cleanUp } from "@segments/cleanUp.js";
+import { init } from "@segments/init.js";
+import { addGame } from "@utils/addGame.js";
+import { smartFetch } from "@utils/smartFetch.js";
+
 import type { SiteFunction } from "../types.js";
-import { addGame } from "../utils/addGame.js";
-import { smartFetch } from "../utils/smartFetch.js";
 
 const BASE_URL = "https://api.poki.com/search/query/3?q=";
 

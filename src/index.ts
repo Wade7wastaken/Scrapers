@@ -1,11 +1,12 @@
 import { writeFileSync } from "node:fs";
 
+import { unblockedPremium } from "@sites/unblockedPremium.js";
+import { MainLogger } from "@utils/logger.js";
+import { lowerCaseSort } from "@utils/misc.js";
+import { resultStatistics } from "@utils/resultStatistics.js";
+
 import { OUTPUT_LOCATION } from "./config.js";
-import { unblockedPremium } from "./sites/unblockedPremium.js";
 import type { GameList } from "./types.js";
-import { MainLogger } from "./utils/logger.js";
-import { lowerCaseSort } from "./utils/misc.js";
-import { resultStatistics } from "./utils/resultStatistics.js";
 
 /**
  * TODO:

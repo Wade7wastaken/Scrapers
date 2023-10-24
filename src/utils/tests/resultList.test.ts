@@ -1,6 +1,5 @@
+import { ResultList } from "@utils/resultList.js";
 import { describe, expect, it } from "vitest";
-
-import { ResultList } from "../resultList.js";
 
 describe("an array wrapper class", () => {
 	it("adds elements one at a time", () => {

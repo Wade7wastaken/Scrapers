@@ -1,7 +1,7 @@
+import { TestLogger } from "@utils/logger.js";
+import { removeAllWhitespace } from "@utils/misc.js";
 import { describe, expect, it } from "vitest";
 
-import { TestLogger } from "../../../utils/logger.js";
-import { removeAllWhitespace } from "../../../utils/misc.js";
 import { ajax } from "../embedTestCases/ajax.js";
 import { fr } from "../embedTestCases/fr.js";
 import { fullscreen } from "../embedTestCases/fullscreen.js";
@@ -114,4 +114,3 @@ describe("tests an embed against test cases", () => {
 		});
 	});
 });
- 

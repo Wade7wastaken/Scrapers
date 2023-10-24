@@ -1,10 +1,10 @@
-import type { Logger } from "../../utils/logger.js";
+import type { Logger } from "@utils/logger.js";
 import {
 	capitalize,
 	removeAllWhitespace,
 	removeDuplicates,
-} from "../../utils/misc.js";
-import { ResultList } from "../../utils/resultList.js";
+} from "@utils/misc.js";
+import { ResultList } from "@utils/resultList.js";
 
 import { embedTestCases } from "./embedTestCases/_index.js";
 

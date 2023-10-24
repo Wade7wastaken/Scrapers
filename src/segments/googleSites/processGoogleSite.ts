@@ -1,7 +1,8 @@
+import { addGame } from "@utils/addGame.js";
+import type { Logger } from "@utils/logger.js";
+import { removeDuplicates } from "@utils/misc.js";
+
 import type { GameMap } from "../../types.js";
-import { addGame } from "../../utils/addGame.js";
-import type { Logger } from "../../utils/logger.js";
-import { removeDuplicates } from "../../utils/misc.js";
 import { asyncIterator } from "../asyncIterator.js";
 import { fetchAndParse } from "../fetchAndParse.js";
 
