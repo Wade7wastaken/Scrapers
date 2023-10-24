@@ -2,14 +2,14 @@ import { TestLogger } from "@utils/logger.js";
 import { removeAllWhitespace } from "@utils/misc.js";
 import { describe, expect, it } from "vitest";
 
-import { fr } from "../embedTestCases/66ez/fr.js";
-import { fullscreen } from "../embedTestCases/66ez/fullscreen.js";
-import { ruffle } from "../embedTestCases/66ez/ruffle.js";
-import { ajax } from "../embedTestCases/premium/ajax.js";
+import { fr } from "../embedMatches/66ez/fr.js";
+import { fullscreen } from "../embedMatches/66ez/fullscreen.js";
+import { ruffle } from "../embedMatches/66ez/ruffle.js";
+import { ajax } from "../embedMatches/premium/ajax.js";
 import {
-	runTestCase,
-	type TestCaseResult,
-	type TestCaseSegment,
+	runMatch,
+	type EmbedMatchResult,
+	type EmbedMatchSegment,
 } from "../processDataCode.js";
 
 import {
@@ -23,9 +23,9 @@ import {
 
 const testCaseWrapper = (
 	embed: string,
-	segments: TestCaseSegment[]
-): TestCaseResult =>
-	runTestCase(
+	segments: EmbedMatchSegment[]
+): EmbedMatchResult =>
+	runMatch(
 		new TestLogger(),
 		removeAllWhitespace(embed),
 		-1,

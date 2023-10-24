@@ -1,8 +1,8 @@
 import { regex } from "@googleSites/regex.js";
 
-import type { EmbedTestCase } from "@googleSites/processDataCode.js";
+import type { EmbedMatch } from "@googleSites/processDataCode.js";
 
-export const fr: EmbedTestCase = {
+export const fr: EmbedMatch = {
 	name: "fr",
 	segments: [
 		`<div id=fr data='<iframe width="100%" height="100%" src="`,

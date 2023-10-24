@@ -1,8 +1,8 @@
 import { regex } from "../../regex.js";
 
-import type { EmbedTestCase } from "../../processDataCode.js";
+import type { EmbedMatch } from "../../processDataCode.js";
 
-export const ajax: EmbedTestCase = {
+export const ajax: EmbedMatch = {
 	name: "ajax",
 	segments: [
 		`<!DOCTYPE html>

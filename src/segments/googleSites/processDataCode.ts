@@ -5,38 +5,38 @@ import {
 } from "@utils/misc.js";
 import { ResultList } from "@utils/resultList.js";
 
-import { embedTestCases } from "./embedTestCases/_index.js";
+import { embedMatches } from "./embedMatches/_index.js";
 
 import type { Logger } from "@utils/logger.js";
 
 // regex's that are the result of the match are an array of 1 regex
-export type TestCaseSegment = string | RegExp | [RegExp];
+export type EmbedMatchSegment = string | RegExp | [RegExp];
 
-export interface EmbedTestCase {
+export interface EmbedMatch {
 	name: string;
-	segments: TestCaseSegment[];
+	segments: EmbedMatchSegment[];
 }
 
-export interface TestCaseResult {
+export interface EmbedMatchResult {
 	matched: boolean;
 	urls?: string[];
 }
 
-export const runTestCase = (
+export const runMatch = (
 	log: Logger,
 	embed: string,
 	embedIndex: number,
-	testCase: EmbedTestCase,
+	embedMatch: EmbedMatch,
 	gameName: string
-): TestCaseResult => {
-	const matchLocation = `game: ${gameName}, embed index: ${embedIndex}, match name: ${testCase.name}`;
+): EmbedMatchResult => {
+	const matchLocation = `game: ${gameName}, embed index: ${embedIndex}, match name: ${embedMatch.name}`;
 
 	const noMatch = (
 		location: "string" | "regex",
 		index: number,
 		wanted?: string,
 		got?: string
-	): TestCaseResult => {
+	): EmbedMatchResult => {
 		log.info(
 			`${capitalize(
 				location
@@ -51,7 +51,7 @@ export const runTestCase = (
 
 	const results = new ResultList<string>(true);
 
-	if (testCase.segments.length === 0)
+	if (embedMatch.segments.length === 0)
 		return embed === ""
 			? {
 					matched: true,
@@ -59,7 +59,7 @@ export const runTestCase = (
 			  }
 			: noMatch("string", -1);
 
-	for (const [index, segment] of testCase.segments.entries()) {
+	for (const [index, segment] of embedMatch.segments.entries()) {
 		if (typeof segment === "string") {
 			const trimmedSegment = removeAllWhitespace(segment);
 			if (embed.startsWith(trimmedSegment))
@@ -102,8 +102,8 @@ export const processDataCode = (
 ): string[] => {
 	const trimmedEmbed = removeAllWhitespace(embed);
 
-	for (const testCase of embedTestCases) {
-		const testCaseResult = runTestCase(
+	for (const testCase of embedMatches) {
+		const testCaseResult = runMatch(
 			log,
 			trimmedEmbed,
 			embedIndex,

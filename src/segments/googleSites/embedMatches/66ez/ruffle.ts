@@ -1,9 +1,9 @@
 import { regex } from "../../regex.js";
 
-import type { EmbedTestCase } from "../../processDataCode.js";
+import type { EmbedMatch } from "../../processDataCode.js";
 
 // currently don't know how to handle these
-export const ruffle: EmbedTestCase = {
+export const ruffle: EmbedMatch = {
 	name: "ruffle",
 	segments: [
 		`<object xmlns="http://www.w3.org/1999/xhtml" 

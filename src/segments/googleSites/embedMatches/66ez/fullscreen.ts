@@ -1,8 +1,8 @@
 import { regex } from "@googleSites/regex.js";
 
-import type { EmbedTestCase } from "@googleSites/processDataCode.js";
+import type { EmbedMatch } from "@googleSites/processDataCode.js";
 
-export const fullscreen: EmbedTestCase = {
+export const fullscreen: EmbedMatch = {
 	name: "fullscreen",
 	segments: [
 		`<button class="c-button">`,

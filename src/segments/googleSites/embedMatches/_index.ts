@@ -4,11 +4,11 @@ import { fr } from "./66ez/fr.js";
 import { fullscreen } from "./66ez/fullscreen.js";
 import { ruffle } from "./66ez/ruffle.js";
 
-import type { EmbedTestCase } from "../processDataCode.js";
+import type { EmbedMatch } from "../processDataCode.js";
 
-export const embedTestCases: EmbedTestCase[] = [fr, fullscreen, ruffle];
+export const embedMatches: EmbedMatch[] = [fr, fullscreen, ruffle];
 
-for (const testCase of embedTestCases)
+for (const testCase of embedMatches)
 	for (const [index, testCaseSegment] of testCase.segments.entries())
 		if (
 			testCaseSegment instanceof RegExp &&
