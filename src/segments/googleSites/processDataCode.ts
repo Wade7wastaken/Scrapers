@@ -32,12 +32,18 @@ export const runTestCase = (
 
 	const noMatch = (
 		location: "string" | "regex",
-		index: number
+		index: number,
+		wanted?: string,
+		got?: string
 	): TestCaseResult => {
 		log.info(
 			`${capitalize(
 				location
-			)} didn't match. ${matchLocation}, segment: ${index}`
+			)} didn't match. ${matchLocation}, segment: ${index}${
+				wanted !== undefined &&
+				got !== undefined &&
+				`, wanted: ${wanted}, got: ${got}`
+			}`
 		);
 		return { matched: false };
 	};
@@ -57,7 +63,13 @@ export const runTestCase = (
 			const trimmedSegment = removeAllWhitespace(segment);
 			if (embed.startsWith(trimmedSegment))
 				embed = embed.slice(trimmedSegment.length);
-			else return noMatch("string", index);
+			else
+				return noMatch(
+					"string",
+					index,
+					trimmedSegment,
+					embed.slice(0, trimmedSegment.length + 10)
+				);
 
 			continue;
 		}
@@ -65,7 +77,7 @@ export const runTestCase = (
 		const regex = isOutputtedRegex ? segment[0] : segment;
 
 		const execResult = regex.exec(embed);
-		if (execResult === null) return noMatch("regex", index);
+		if (execResult === null) return noMatch("regex", index, embed, "");
 
 		const matchedString = execResult[0];
 		embed = embed.slice(matchedString.length);
