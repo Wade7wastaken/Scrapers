@@ -1,18 +1,16 @@
+import { premium } from "@googleSites/embedMatches/premium/_index.js";
+import { sixSixEz } from "@googleSites/embedMatches/sixSixEz/_index.js";
 import { TestLogger } from "@utils/logger.js";
 import { removeAllWhitespace } from "@utils/misc.js";
 import { describe, expect, it } from "vitest";
 
-import { ajax } from "../embedMatches/premium/ajax.js";
-import { fr } from "../embedMatches/sixSixEz/fr.js";
-import { fullscreen } from "../embedMatches/sixSixEz/fullscreen.js";
-import { ruffle } from "../embedMatches/sixSixEz/ruffle.js";
 import {
 	runMatch,
 	type EmbedMatchResult,
 	type EmbedMatchSegment,
 } from "../processDataCode.js";
 
-import { premium, sixSixEz } from "./processDataCode.testData.js";
+import { premiumData, sixSixEzData } from "./processDataCode.testData.js";
 
 const testCaseWrapper = (
 	embed: string,
@@ -48,18 +46,22 @@ describe("tests an embed against test cases", () => {
 	});
 
 	describe("matches 66ez cases", () => {
+		const { fr, fullscreen, ruffle } = sixSixEz;
+
 		it("matches fr", () => {
-			expect(testCaseWrapper(sixSixEz.fr, fr.segments)).toStrictEqual({
-				matched: true,
-				urls: [
-					"https://gg-opensocial.googleusercontent.com/gadgets/ifr?url=https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/1ee20621-61bc-4ec8-a8ec-5e839c2e6edc%2F1-on-1-basketball.xml",
-				],
-			});
+			expect(testCaseWrapper(sixSixEzData.fr, fr.segments)).toStrictEqual(
+				{
+					matched: true,
+					urls: [
+						"https://gg-opensocial.googleusercontent.com/gadgets/ifr?url=https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/1ee20621-61bc-4ec8-a8ec-5e839c2e6edc%2F1-on-1-basketball.xml",
+					],
+				}
+			);
 		});
 
 		it("matches fullscreen", () => {
 			expect(
-				testCaseWrapper(sixSixEz.fullscreen, fullscreen.segments)
+				testCaseWrapper(sixSixEzData.fullscreen, fullscreen.segments)
 			).toStrictEqual({
 				matched: true,
 				urls: [
@@ -70,7 +72,7 @@ describe("tests an embed against test cases", () => {
 
 		it("matches ruffle", () => {
 			expect(
-				testCaseWrapper(sixSixEz.ruffle, ruffle.segments)
+				testCaseWrapper(sixSixEzData.ruffle, ruffle.segments)
 			).toStrictEqual({
 				matched: true,
 				urls: [
@@ -81,8 +83,10 @@ describe("tests an embed against test cases", () => {
 	});
 
 	describe("matches premium cases", () => {
+		const { fr, ajax } = premium;
+
 		it("matches fr", () => {
-			expect(testCaseWrapper(premium.fr, fr.segments)).toStrictEqual({
+			expect(testCaseWrapper(premiumData.fr, fr.segments)).toStrictEqual({
 				matched: true,
 				urls: [
 					"https://images-docs-opensocial.googleusercontent.com/gadgets/ifr?url=https://sites.google.com/site/drunkenduel/12minibattles.xml",
@@ -92,7 +96,7 @@ describe("tests an embed against test cases", () => {
 
 		it("matches wrapped fr", () => {
 			expect(
-				testCaseWrapper(premium.frWrapped, fr.segments)
+				testCaseWrapper(premiumData.frWrapped, fr.segments)
 			).toStrictEqual({
 				matched: true,
 				urls: [
@@ -102,7 +106,9 @@ describe("tests an embed against test cases", () => {
 		});
 
 		it("matches ajax", () => {
-			expect(testCaseWrapper(premium.ajax, ajax.segments)).toStrictEqual({
+			expect(
+				testCaseWrapper(premiumData.ajax, ajax.segments)
+			).toStrictEqual({
 				matched: true,
 				urls: [],
 			});

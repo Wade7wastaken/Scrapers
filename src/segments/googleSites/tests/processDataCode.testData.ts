@@ -1,4 +1,4 @@
-export const sixSixEz = {
+export const sixSixEzData = {
 	fr: `<div id=fr data='<iframe width="100%" height="100%" src="https://gg-opensocial.googleusercontent.com/gadgets/ifr?url=https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/1ee20621-61bc-4ec8-a8ec-5e839c2e6edc%2F1-on-1-basketball.xml" frameborder="0" allowfullscreen></iframe>'>
 </div><button class="c-button" type="button" onclick="PlayTo(this)">PLAY GAME</button>
 <style>
@@ -119,7 +119,7 @@ height="100%" type="application/x-shockwave-flash" width="100%"><param name="mov
 </object><script src="https://cdn.jsdelivr.net/gh/h3sj7v2f6k/ruffle@e51038cf55e61bb46ea4d39ed05169ff69f8795b/ruffle.js"></script>`,
 };
 
-export const premium = {
+export const premiumData = {
 	fr: `<div id=fr data='<iframe width="100%" height="100%" src="https://images-docs-opensocial.googleusercontent.com/gadgets/ifr?url=https://sites.google.com/site/drunkenduel/12minibattles.xml" frameborder="0" allowfullscreen></iframe>'>
 </div><button class="c-button" type="button" onclick="PlayTo(this)">CLICK TO PLAY NOW</button>
 

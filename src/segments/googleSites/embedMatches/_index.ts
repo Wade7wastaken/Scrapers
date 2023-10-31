@@ -1,12 +1,17 @@
 import { getRegexContents } from "@utils/misc.js";
 
-import { fr } from "./sixSixEz/fr.js";
-import { fullscreen } from "./sixSixEz/fullscreen.js";
-import { ruffle } from "./sixSixEz/ruffle.js";
+import { premium } from "./premium/_index.js";
+import { sixSixEz } from "./sixSixEz/_index.js";
 
 import type { EmbedMatch } from "../processDataCode.js";
 
-export const embedMatches: EmbedMatch[] = [fr, fullscreen, ruffle];
+export const embedMatches: EmbedMatch[] = [
+	sixSixEz.fr,
+	sixSixEz.fullscreen,
+	sixSixEz.ruffle,
+	premium.fr,
+	premium.ajax,
+];
 
 for (const testCase of embedMatches)
 	for (const [index, testCaseSegment] of testCase.segments.entries())
