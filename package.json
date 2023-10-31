@@ -8,7 +8,7 @@
 		"test": "vitest --test-timeout 0",
 		"start": "node out/app.js",
 		"prestart": "npm run build",
-		"build": "tsc",
+		"build": "webpack",
 		"lint": "eslint .",
 		"prettier:write": "prettier --write ."
 	},
@@ -16,6 +16,7 @@
 	"license": "ISC",
 	"devDependencies": {
 		"@types/node": "20.8.10",
+		"@types/webpack": "^5.28.4",
 		"@typescript-eslint/eslint-plugin": "6.9.1",
 		"@typescript-eslint/parser": "6.9.1",
 		"eslint": "8.52.0",
@@ -24,9 +25,13 @@
 		"eslint-plugin-unicorn": "49.0.0",
 		"eslint-plugin-vitest": "^0.3.8",
 		"prettier": "3.0.3",
+		"ts-loader": "^9.5.0",
+		"tsconfig-paths-webpack-plugin": "^4.1.0",
 		"typescript": "5.2.2",
 		"vite-tsconfig-paths": "^4.2.1",
-		"vitest": "^0.34.6"
+		"vitest": "^0.34.6",
+		"webpack": "^5.89.0",
+		"webpack-cli": "^5.1.4"
 	},
 	"dependencies": {
 		"axios": "1.6.0",
