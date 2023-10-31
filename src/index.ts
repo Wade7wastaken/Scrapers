@@ -11,6 +11,7 @@ import type { GameList } from "./types.js";
 
 /**
  * TODO:
+ * Bundler
  * Easy way to test regex (tests!)
  * Format output to ts file
  * Show how a test case failed (give the actual and expected)
