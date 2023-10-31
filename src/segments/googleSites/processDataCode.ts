@@ -1,13 +1,9 @@
-import {
-	capitalize,
-	removeAllWhitespace,
-	removeDuplicates,
-} from "@utils/misc.js";
-import { ResultList } from "@utils/resultList.js";
+import { capitalize, removeAllWhitespace, removeDuplicates } from "@utils/misc";
+import { ResultList } from "@utils/resultList";
 
-import { embedMatches } from "./embedMatches/_index.js";
+import { embedMatches } from "./embedMatches/_index";
 
-import type { Logger } from "@utils/logger.js";
+import type { Logger } from "@utils/logger";
 
 // regex's that are the result of the match are an array of 1 regex
 export type EmbedMatchSegment = string | RegExp | [RegExp];

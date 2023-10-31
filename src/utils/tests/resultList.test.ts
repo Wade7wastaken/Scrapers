@@ -1,4 +1,4 @@
-import { ResultList } from "@utils/resultList.js";
+import { ResultList } from "@utils/resultList";
 import { describe, expect, it } from "vitest";
 
 describe("an array wrapper class", () => {

@@ -1,13 +1,13 @@
 import { writeFileSync } from "node:fs";
 
-import { unblockedPremium } from "@sites/unblockedPremium.js";
-import { MainLogger } from "@utils/logger.js";
-import { lowerCaseSort } from "@utils/misc.js";
-import { resultStatistics } from "@utils/resultStatistics.js";
+import { unblockedPremium } from "@sites/unblockedPremium";
+import { MainLogger } from "@utils/logger";
+import { lowerCaseSort } from "@utils/misc";
+import { resultStatistics } from "@utils/resultStatistics";
 
-import { OUTPUT_LOCATION } from "./config.js";
+import { OUTPUT_LOCATION } from "./config";
 
-import type { GameList } from "./types.js";
+import type { GameList } from "./types";
 
 /**
  * TODO:

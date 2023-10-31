@@ -7,12 +7,12 @@ import {
 	DELAY_TIME_WAIT_MULTIPLIER,
 	MAX_RETRIES,
 	NO_RETRY_HTTP_CODES,
-} from "../config.js";
+} from "../config";
 
-import { capitalize, sleep } from "./misc.js";
+import { capitalize, sleep } from "./misc";
 
-import type { Logger } from "./logger.js";
 import type { AxiosRequestConfig } from "axios";
+import type { Logger } from "./logger";
 
 const domains = new Map<string, boolean>();
 

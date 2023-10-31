@@ -1,4 +1,4 @@
-import { getDomain } from "@utils/smartFetch.js";
+import { getDomain } from "@utils/smartFetch";
 import { describe, expect, it } from "vitest";
 
 describe("fetch wrappers that delay between requests", () => {
