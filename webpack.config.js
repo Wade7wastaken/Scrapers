@@ -8,9 +8,10 @@ const config = {
 	mode: "development",
 	devtool: false,
 	entry: "./src/index.ts",
+	target: "node",
 	output: {
 		path: resolve(dirname(fileURLToPath(import.meta.url)), "dist"),
-		filename: "bundle.js",
+		filename: "bundle.cjs",
 	},
 	module: {
 		rules: [

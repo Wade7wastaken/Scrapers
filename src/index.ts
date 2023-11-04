@@ -9,6 +9,8 @@ import { OUTPUT_LOCATION } from "./config";
 
 import type { GameList } from "./types";
 
+debugger;
+
 /**
  * TODO:
  * Bundler
