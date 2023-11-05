@@ -1,17 +1,19 @@
-import { writeFileSync } from "node:fs";
-
+import { coolmath } from "@sites/coolmath";
+import { crazyGames } from "@sites/crazyGames";
+import { googleDoodles } from "@sites/googleDoodles";
+import { poki } from "@sites/poki";
 import { unblockedPremium } from "@sites/unblockedPremium";
+import { unblockedSixSixEz } from "@sites/unblockedSixSixEz";
 import { MainLogger } from "@utils/logger";
 import { lowerCaseSort } from "@utils/misc";
+import { processOutput } from "@utils/processOutput";
 import { resultStatistics } from "@utils/resultStatistics";
 
-import { OUTPUT_LOCATION } from "./config";
 import type { GameList } from "./types";
 
 /**
  * TODO:
- * Format output to ts file
- * FINISH BEFORE PUBLISH
+ * Running tests should touch log folder or have any side effects
  * Function to process test regex match (maybe second in array?)
  * Add stats to show how many urls for each page
  * Use a Set instead of array for links to avoid duplicates without additional logic
@@ -25,11 +27,11 @@ const main = async (): Promise<void> => {
 	MainLogger.validateLogDirectory();
 
 	const sites: Promise<GameList>[] = [
-		//coolmath(),
-		//unblocked66(),
-		//googleDoodles(),
-		//crazyGames(),
-		//poki(),
+		coolmath(),
+		unblockedSixSixEz(),
+		googleDoodles(),
+		crazyGames(),
+		poki(),
 		unblockedPremium(),
 	];
 
@@ -40,13 +42,7 @@ const main = async (): Promise<void> => {
 
 	// include the list of all sites so the frontend doesn't have to search for
 	// them
-	writeFileSync(
-		OUTPUT_LOCATION,
-		JSON.stringify({
-			games: resultsFlattened,
-			sites: MainLogger.allSiteNames,
-		})
-	);
+	processOutput(resultsFlattened, MainLogger.allSiteNames);
 
 	for (const [site, size] of resultStatistics.entries())
 		console.log(`${site} had ${size} entries`);

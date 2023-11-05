@@ -1,0 +1,4 @@
+//prettier-ignore
+const data = /*CODE HERE*/ as const;
+
+export default data;
