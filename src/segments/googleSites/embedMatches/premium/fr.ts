@@ -11,45 +11,9 @@ export const fr: EmbedMatch = {
 		regex.alphaNumeric,
 		`</button>
 
-<style>
-.c-button {
-  min-width: 100%;
-  font-family: inherit;
-  appearance: none;
-  border: 0;
-  border-radius: 5px;
-  background: `,
-		regex.cssColor,
-		`;
-  color: `,
-		regex.cssColor,
-		`;
-  padding: 18px 46px;
-  font-size: 28px;
-  cursor: pointer;
-}
-
-.c-button:hover {
-  background: `,
-		regex.cssColor,
-		`;
-}
-
-.c-button:focus {
-  outline: none;
-  box-shadow: 0 0 0 4px `,
-		regex.cssColor,
-		`;
-}
-  
- .c-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-}
-
-</style>
+`,
+		regex.css,
+		`
 
 <script>
 function PlayTo(sel){
