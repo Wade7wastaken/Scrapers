@@ -19,6 +19,9 @@ devDependencies:
   '@types/webpack':
     specifier: ^5.28.4
     version: 5.28.4(webpack-cli@5.1.4)
+  '@types/webpack-node-externals':
+    specifier: ^3.0.3
+    version: 3.0.3(webpack-cli@5.1.4)
   '@typescript-eslint/eslint-plugin':
     specifier: 6.9.1
     version: 6.9.1(@typescript-eslint/parser@6.9.1)(eslint@8.52.0)(typescript@5.2.2)
@@ -64,6 +67,9 @@ devDependencies:
   webpack-cli:
     specifier: ^5.1.4
     version: 5.1.4(webpack@5.89.0)
+  webpack-node-externals:
+    specifier: ^3.0.0
+    version: 3.0.0
 
 packages:
 
@@ -471,6 +477,18 @@ packages:
 
   /@types/semver@7.5.4:
     resolution: {integrity: sha512-MMzuxN3GdFwskAnb6fz0orFvhfqi752yjaXylr0Rp4oDg5H0Zn1IuyRhDVvYOwAXoJirx2xuS16I3WjxnAIHiQ==}
+    dev: true
+
+  /@types/webpack-node-externals@3.0.3(webpack-cli@5.1.4):
+    resolution: {integrity: sha512-cH/xq6uYUoBQpPM2k5qFgrVYa+qsusrw+XKdvmbZ4kf3iVl5D2ERx3w1yghVQZNy/OFRQsiQJbzJQmJU+nRp9g==}
+    dependencies:
+      '@types/node': 20.8.10
+      webpack: 5.89.0(webpack-cli@5.1.4)
+    transitivePeerDependencies:
+      - '@swc/core'
+      - esbuild
+      - uglify-js
+      - webpack-cli
     dev: true
 
   /@types/webpack@5.28.4(webpack-cli@5.1.4):
@@ -3421,6 +3439,11 @@ packages:
       clone-deep: 4.0.1
       flat: 5.0.2
       wildcard: 2.0.1
+    dev: true
+
+  /webpack-node-externals@3.0.0:
+    resolution: {integrity: sha512-LnL6Z3GGDPht/AigwRh2dvL9PQPFQ8skEpVrWZXLWBYmqcaojHNN0onvHzie6rq7EWKrrBfPYqNEzTJgiwEQDQ==}
+    engines: {node: '>=6'}
     dev: true
 
   /webpack-sources@3.2.3:
