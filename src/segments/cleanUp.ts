@@ -1,6 +1,6 @@
+import type { Logger } from "@utils/logger";
 import { resultStatistics } from "@utils/resultStatistics";
 
-import type { Logger } from "@utils/logger";
 import type { GameList, GameMap } from "../types";
 
 const processResults = (results: GameMap, site: string): GameList =>

@@ -1,6 +1,6 @@
+import type { EmbedMatch } from "@googleSites/processDataCode";
 import { regex } from "@googleSites/regex";
 
-import type { EmbedMatch } from "@googleSites/processDataCode";
 
 export const fr: EmbedMatch = {
 	name: "fr",

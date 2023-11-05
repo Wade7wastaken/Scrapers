@@ -1,11 +1,11 @@
 import { asyncIterator } from "@segments/asyncIterator";
 import { cleanUp } from "@segments/cleanUp";
 import { init } from "@segments/init";
+import type { SiteFunction } from "@types";
 import { addGame } from "@utils/addGame";
+import type { Logger } from "@utils/logger";
 import { exists, smartFetch } from "@utils/smartFetch";
 
-import type { SiteFunction } from "@types";
-import type { Logger } from "@utils/logger";
 
 interface GamesResponse {
 	alias: string;

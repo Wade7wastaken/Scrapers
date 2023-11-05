@@ -6,7 +6,6 @@ import { lowerCaseSort } from "@utils/misc";
 import { resultStatistics } from "@utils/resultStatistics";
 
 import { OUTPUT_LOCATION } from "./config";
-
 import type { GameList } from "./types";
 
 debugger;
