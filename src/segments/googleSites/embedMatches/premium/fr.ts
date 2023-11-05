@@ -4,7 +4,11 @@ import { regex } from "@googleSites/regex";
 export const fr: EmbedMatch = {
 	name: "fr",
 	segments: [
-		`<div id=fr data='<iframe width="100%" height="100%" src="`,
+		`<div id=`,
+		/^"?/,
+		`fr`,
+		/^"?/,
+		` data='<iframe width="100%" height="100%" src="`,
 		[regex.url],
 		`" frameborder="0" allowfullscreen></iframe>'>
 </div><button class="c-button" type="button" onclick="PlayTo(this)">`,

@@ -83,13 +83,33 @@ describe("tests an embed against test cases", () => {
 	});
 
 	describe("matches premium cases", () => {
-		const { fr, ajax, frWrapped } = premium;
+		const { ajax, fr, frShort, frWrapped, iframe } = premium;
+
+		it("matches ajax", () => {
+			expect(
+				testCaseWrapper(premiumData.ajax, ajax.segments)
+			).toStrictEqual({
+				matched: true,
+				urls: [],
+			});
+		});
 
 		it("matches fr", () => {
 			expect(testCaseWrapper(premiumData.fr, fr.segments)).toStrictEqual({
 				matched: true,
 				urls: [
 					"https://images-docs-opensocial.googleusercontent.com/gadgets/ifr?url=https://sites.google.com/site/drunkenduel/12minibattles.xml",
+				],
+			});
+		});
+
+		it("matches fr short", () => {
+			expect(
+				testCaseWrapper(premiumData.frShort, frShort.segments)
+			).toStrictEqual({
+				matched: true,
+				urls: [
+					"https://unblocked-games.s3.amazonaws.com/games/2022/unity3/fort-drifter/unblocked.html",
 				],
 			});
 		});
@@ -105,12 +125,14 @@ describe("tests an embed against test cases", () => {
 			});
 		});
 
-		it("matches ajax", () => {
+		it("matches iframe", () => {
 			expect(
-				testCaseWrapper(premiumData.ajax, ajax.segments)
+				testCaseWrapper(premiumData.iframe, iframe.segments)
 			).toStrictEqual({
 				matched: true,
-				urls: [],
+				urls: [
+					"//hc8qnd0v6h8opcjc06ug6rheebqsk2me-a-sites-opensocial.googleusercontent.com/gadgets/ifr?url=https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/1ee20621-61bc-4ec8-a8ec-5e839c2e6edc%252Fcat-burglar.xml&amp;container=enterprise&amp;view=default&amp;lang=en&amp;country=ALL&amp;sanitize=0&amp;v=df2618a2c4dc688c&amp;libs=core&amp;mid=59&amp;parent=https://sites.google.com/site/unblockedgame76/cat-burglar-the-magic-museum#st=e%3DAIHE3cCbMm40CpscdcbOR%252FuV%252BJWFZpZcIqWYiTO2zEWr7o5bhi2QiruMouPqyAxymS7Z8xTAe2lLxPatWWimNeHkeq2YhSL2030WQYmeBHktuLQ4VqFwJcZySdGqkzWea5Dwek3S%252F1gT%26c%3Denterprise&amp;rpctoken=-6996335742321257804",
+				],
 			});
 		});
 	});

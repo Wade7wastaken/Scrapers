@@ -9,9 +9,11 @@ export const embedMatches: EmbedMatch[] = [
 	sixSixEz.fr,
 	sixSixEz.fullscreen,
 	sixSixEz.ruffle,
-	premium.fr,
-	premium.frWrapped,
 	premium.ajax,
+	premium.fr,
+	premium.frShort,
+	premium.frWrapped,
+	premium.iframe,
 ];
 
 for (const testCase of embedMatches)

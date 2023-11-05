@@ -5,7 +5,7 @@ export const frShort: EmbedMatch = {
 	name: "frShort",
 	segments: [
 		`<div id="fr" data='<iframe width="100%" height="100%" src="`,
-		regex.url,
+		[regex.url],
 		`" frameborder="0" allowfullscreen></iframe>'></div><button class="c-button" type="button" onclick="PlayTo(this)">`,
 		regex.alphaNumeric,
 		`</button>`,
