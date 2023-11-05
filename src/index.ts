@@ -8,16 +8,14 @@ import { resultStatistics } from "@utils/resultStatistics";
 import { OUTPUT_LOCATION } from "./config";
 import type { GameList } from "./types";
 
-debugger;
-
 /**
  * TODO:
- * Bundler
  * Easy way to test regex (tests!)
  * Format output to ts file
  * Show how a test case failed (give the actual and expected)
  * Function to process test regex match (maybe second in array?)
  * FINISH BEFORE PUBLISH
+ * Add stats to show how many urls for each page
  * Use a Set instead of array for links to avoid duplicates without additional logic
  * Logic to check if test was unused
  * Logic to check if regex always matched the same value (it can be replaced by a string)

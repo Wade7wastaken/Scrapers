@@ -10,9 +10,12 @@ const alphaNumeric = /^\w*/;
 
 const text = /^[\s\w]*/;
 
+const cssColor = /^#[\dA-Fa-f]{3,6}/;
+
 export const regex = {
 	url,
 	number,
 	alphaNumeric,
 	text,
+	cssColor,
 };

@@ -83,7 +83,7 @@ describe("tests an embed against test cases", () => {
 	});
 
 	describe("matches premium cases", () => {
-		const { fr, ajax } = premium;
+		const { fr, ajax, frWrapped } = premium;
 
 		it("matches fr", () => {
 			expect(testCaseWrapper(premiumData.fr, fr.segments)).toStrictEqual({
@@ -96,7 +96,7 @@ describe("tests an embed against test cases", () => {
 
 		it("matches wrapped fr", () => {
 			expect(
-				testCaseWrapper(premiumData.frWrapped, fr.segments)
+				testCaseWrapper(premiumData.frWrapped, frWrapped.segments)
 			).toStrictEqual({
 				matched: true,
 				urls: [

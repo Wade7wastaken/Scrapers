@@ -1,7 +1,6 @@
 import type { EmbedMatch } from "@googleSites/processDataCode";
 import { regex } from "@googleSites/regex";
 
-
 export const fr: EmbedMatch = {
 	name: "fr",
 	segments: [
@@ -19,20 +18,28 @@ export const fr: EmbedMatch = {
   appearance: none;
   border: 0;
   border-radius: 5px;
-  background: #2c2c2c;
-  color: #fff;
+  background: `,
+		regex.cssColor,
+		`;
+  color: `,
+		regex.cssColor,
+		`;
   padding: 18px 46px;
   font-size: 28px;
   cursor: pointer;
 }
 
 .c-button:hover {
-  background: #3f3f3f;
+  background: `,
+		regex.cssColor,
+		`;
 }
 
 .c-button:focus {
   outline: none;
-  box-shadow: 0 0 0 4px #cbd6ee;
+  box-shadow: 0 0 0 4px `,
+		regex.cssColor,
+		`;
 }
   
  .c-button {

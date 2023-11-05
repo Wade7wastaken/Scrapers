@@ -5,12 +5,12 @@ import type { EmbedMatch } from "../processDataCode";
 import { premium } from "./premium/_index";
 import { sixSixEz } from "./sixSixEz/_index";
 
-
 export const embedMatches: EmbedMatch[] = [
 	sixSixEz.fr,
 	sixSixEz.fullscreen,
 	sixSixEz.ruffle,
 	premium.fr,
+	premium.frWrapped,
 	premium.ajax,
 ];
 

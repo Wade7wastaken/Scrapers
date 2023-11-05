@@ -4,7 +4,6 @@ import { ResultList } from "@utils/resultList";
 
 import { embedMatches } from "./embedMatches/_index";
 
-
 // regex's that are the result of the match are an array of 1 regex
 export type EmbedMatchSegment = string | RegExp | [RegExp];
 
@@ -37,9 +36,9 @@ export const runMatch = (
 			`${capitalize(
 				location
 			)} didn't match. ${matchLocation}, segment: ${index}${
-				wanted !== undefined &&
-				got !== undefined &&
-				`, wanted: ${wanted}, got: ${got}`
+				wanted !== undefined && got !== undefined
+					? `, wanted: ${wanted}, got: ${got}`
+					: ""
 			}`
 		);
 		return { matched: false };
