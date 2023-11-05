@@ -3,7 +3,7 @@ import {
 	getRegexContents,
 	lowerCaseSort,
 	removeAllWhitespace,
-} from "@utils/misc.js";
+} from "@utils/misc";
 import { describe, expect, it } from "vitest";
 
 describe("various miscellaneous functions", () => {

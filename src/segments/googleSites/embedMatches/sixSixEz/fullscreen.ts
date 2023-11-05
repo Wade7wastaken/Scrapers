@@ -1,6 +1,6 @@
-import { regex } from "@googleSites/regex.js";
+import { regex } from "@googleSites/regex";
 
-import type { EmbedMatch } from "@googleSites/processDataCode.js";
+import type { EmbedMatch } from "@googleSites/processDataCode";
 
 export const fullscreen: EmbedMatch = {
 	name: "fullscreen",

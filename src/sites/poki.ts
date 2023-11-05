@@ -1,8 +1,8 @@
-import { asyncLoop } from "@segments/asyncLoop.js";
-import { cleanUp } from "@segments/cleanUp.js";
-import { init } from "@segments/init.js";
-import { addGame } from "@utils/addGame.js";
-import { smartFetch } from "@utils/smartFetch.js";
+import { asyncLoop } from "@segments/asyncLoop";
+import { cleanUp } from "@segments/cleanUp";
+import { init } from "@segments/init";
+import { addGame } from "@utils/addGame";
+import { smartFetch } from "@utils/smartFetch";
 
 import type { SiteFunction } from "@types";
 

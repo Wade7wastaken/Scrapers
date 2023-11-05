@@ -1,9 +1,8 @@
-import { smartFetch } from "@utils/smartFetch.js";
+import { smartFetch } from "@utils/smartFetch";
 import { load } from "cheerio";
 
-import type { Logger } from "@utils/logger.js";
+import type { Logger } from "@utils/logger";
 import type { CheerioAPI } from "cheerio";
-
 
 export const fetchAndParse = async (
 	log: Logger,

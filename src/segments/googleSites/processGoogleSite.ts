@@ -1,13 +1,13 @@
-import { addGame } from "@utils/addGame.js";
-import { removeDuplicates } from "@utils/misc.js";
+import { addGame } from "@utils/addGame";
+import { removeDuplicates } from "@utils/misc";
 
-import { asyncIterator } from "../asyncIterator.js";
-import { fetchAndParse } from "../fetchAndParse.js";
+import { asyncIterator } from "../asyncIterator";
+import { fetchAndParse } from "../fetchAndParse";
 
-import { processDataCode } from "./processDataCode.js";
+import { processDataCode } from "./processDataCode";
 
 import type { GameMap } from "@types";
-import type { Logger } from "@utils/logger.js";
+import type { Logger } from "@utils/logger";
 
 const SIDEBAR_SELECTOR = "a[data-level]";
 const EMBED_SELECTOR = ".w536ob";

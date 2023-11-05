@@ -1,6 +1,6 @@
-import { regex } from "../../regex.js";
+import { regex } from "../../regex";
 
-import type { EmbedMatch } from "../../processDataCode.js";
+import type { EmbedMatch } from "../../processDataCode";
 
 export const ajax: EmbedMatch = {
 	name: "ajax",

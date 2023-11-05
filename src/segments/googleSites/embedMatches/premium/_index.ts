@@ -1,5 +1,5 @@
-import { ajax } from "./ajax.js";
-import { fr } from "./fr.js";
+import { ajax } from "./ajax";
+import { fr } from "./fr";
 
 export const premium = {
 	fr,

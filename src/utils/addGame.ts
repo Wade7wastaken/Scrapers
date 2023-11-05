@@ -1,6 +1,5 @@
-import type { Logger } from "./logger.js";
-import type { GameMap } from "../types.js";
-
+import type { GameMap } from "../types";
+import type { Logger } from "./logger";
 
 export function addGame(
 	log: Logger,

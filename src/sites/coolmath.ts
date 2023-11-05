@@ -1,11 +1,11 @@
-import { asyncIterator } from "@segments/asyncIterator.js";
-import { cleanUp } from "@segments/cleanUp.js";
-import { init } from "@segments/init.js";
-import { addGame } from "@utils/addGame.js";
-import { exists, smartFetch } from "@utils/smartFetch.js";
+import { asyncIterator } from "@segments/asyncIterator";
+import { cleanUp } from "@segments/cleanUp";
+import { init } from "@segments/init";
+import { addGame } from "@utils/addGame";
+import { exists, smartFetch } from "@utils/smartFetch";
 
 import type { SiteFunction } from "@types";
-import type { Logger } from "@utils/logger.js";
+import type { Logger } from "@utils/logger";
 
 interface GamesResponse {
 	alias: string;

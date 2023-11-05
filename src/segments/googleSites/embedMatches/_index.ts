@@ -1,9 +1,9 @@
-import { getRegexContents } from "@utils/misc.js";
+import { getRegexContents } from "@utils/misc";
 
-import { premium } from "./premium/_index.js";
-import { sixSixEz } from "./sixSixEz/_index.js";
+import { premium } from "./premium/_index";
+import { sixSixEz } from "./sixSixEz/_index";
 
-import type { EmbedMatch } from "../processDataCode.js";
+import type { EmbedMatch } from "../processDataCode";
 
 export const embedMatches: EmbedMatch[] = [
 	sixSixEz.fr,

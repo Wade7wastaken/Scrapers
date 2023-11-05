@@ -1,4 +1,4 @@
-import type { Game } from "../types.js";
+import type { Game } from "../types";
 
 export const sleep = (ms: number): Promise<void> =>
 	new Promise((r) => setTimeout(r, ms));
