@@ -1,19 +1,19 @@
 import { inspect } from "node:util";
 
-import axios, { isAxiosError } from "axios";
 import type { AxiosRequestConfig } from "axios";
+import axios, { isAxiosError } from "axios";
 
 import {
-	DELAY_TIME,
-	DELAY_TIME_WAIT_MULTIPLIER,
 	MAX_RETRIES,
 	NO_RETRY_HTTP_CODES,
+	REQUEST_DELAY_MS,
+	REQUEST_DELAY_WAIT_MULTIPLIER,
 } from "../config";
 
 import type { Logger } from "./logger";
 import { capitalize, sleep } from "./misc";
 
-
+// a mapping between domains and if they're ready for another request
 const domains = new Map<string, boolean>();
 
 // gets just the domain name of a url. "https://www.google.com/page" => "google"
@@ -26,25 +26,22 @@ export const getDomain = (url: string): string => {
 // how long to wait given how many retries there have been
 const getRetryMS = (retries: number): number => 2 ** (retries + 1) * 1000;
 
-// waits until there has been at least DELAY_TIME_WAIT_MULTIPLIER ms between the
+// waits until there has been at least REQUEST_DELAY_MS milliseconds between the
 // last request to the same domain name
 const waitForNetwork = async (url: string): Promise<void> => {
 	const domain = getDomain(url);
 
 	// make sure the domain exists in the map
-	if (!domains.has(domain)) {
-		domains.set(domain, true);
-	}
+	if (!domains.has(domain)) domains.set(domain, true);
 
-	while (!domains.get(domain)) {
-		await sleep(DELAY_TIME * DELAY_TIME_WAIT_MULTIPLIER);
-	}
+	while (!domains.get(domain))
+		await sleep(REQUEST_DELAY_MS * REQUEST_DELAY_WAIT_MULTIPLIER);
 
 	// set it to false and after DELAY_TIME ms, set it back to true
 	domains.set(domain, false);
 	setTimeout(() => {
 		domains.set(domain, true);
-	}, DELAY_TIME);
+	}, REQUEST_DELAY_MS);
 };
 
 // a wrapper of the main fetch function to allow for retries
@@ -57,7 +54,7 @@ const fetchWrapper = async <T>(
 	const requestName = `request to ${url} with options ${inspect(options)}`;
 
 	if (retry >= MAX_RETRIES) {
-		log.error(`${capitalize(requestName)} failed after ${retry} attempts.`);
+		log.error(capitalize(requestName) + "failed after ${retry} attempts.");
 		return undefined;
 	}
 

@@ -1,16 +1,15 @@
+import type { Game, GameMap } from "@types";
 import type { Logger } from "@utils/logger";
 import { resultStatistics } from "@utils/resultStatistics";
 
-import type { GameList, GameMap } from "../types";
-
-const processResults = (results: GameMap, site: string): GameList =>
+const processResults = (results: GameMap, site: string): Game[] =>
 	[...results.entries()].map(([name, urls]) => ({
 		name,
 		urls,
 		site,
 	}));
 
-export const cleanUp = (log: Logger, results: GameMap): GameList => {
+export const cleanUp = (log: Logger, results: GameMap): Game[] => {
 	log.info("DONE");
 	log.info(results);
 	resultStatistics.set(log.prefix, results.size);
