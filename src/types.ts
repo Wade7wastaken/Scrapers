@@ -8,9 +8,7 @@ export interface Game {
 	site: SiteType;
 }
 
-export type GameList = Game[];
-
 // a mapping between game names and urls
 export type GameMap = Map<NameType, UrlType>;
 
-export type SiteFunction = () => Promise<GameList>;
+export type SiteFunction = () => Promise<Game[]>;

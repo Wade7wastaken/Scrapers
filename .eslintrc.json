@@ -13,7 +13,6 @@
 		"plugin:@typescript-eslint/eslint-recommended",
 		"plugin:@typescript-eslint/strict-type-checked",
 		"plugin:@typescript-eslint/stylistic-type-checked",
-		"plugin:@typescript-eslint/eslint-recommended",
 		"plugin:unicorn/recommended",
 		"plugin:vitest/all",
 		"plugin:vitest/recommended",

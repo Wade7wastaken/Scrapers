@@ -9,24 +9,35 @@ import { lowerCaseSort } from "@utils/misc";
 import { processOutput } from "@utils/processOutput";
 import { resultStatistics } from "@utils/resultStatistics";
 
-import type { GameList } from "./types";
+import type { Game } from "./types";
 
 /**
  * TODO:
- * Running tests should touch log folder or have any side effects
+ * 
+ * Features:
  * Function to process test regex match (maybe second in array?)
- * Add stats to show how many urls for each page
- * Use a Set instead of array for links to avoid duplicates without additional logic
  * Logic to check if test was unused
+ * Add stats to show how many urls for each page (kinda done)
+ * Use a Set instead of array for links to avoid duplicates without additional logic
  * Logic to check if regex always matched the same value (it can be replaced by a string)
- * addGame should use spread operator instead of string|string[]
+ * Research prettier plugins
+ * Response type checking
+ * 
+ * Bugfixes:
  * deal with all the types scattered everywhere
+ * fix file outputs
+ * Running tests should touch log folder or have any side effects
+ * addGame should use spread operator instead of string|string[]
+ * rename "log" everywhere to "ctx". Context makes more sense now because it is actually used as the context
+ * 
+ * Config:
+ * Full eslint import support
  */
 
 const main = async (): Promise<void> => {
 	MainLogger.validateLogDirectory();
 
-	const sites: Promise<GameList>[] = [
+	const sites: Promise<Game[]>[] = [
 		coolmath(),
 		unblockedSixSixEz(),
 		googleDoodles(),
