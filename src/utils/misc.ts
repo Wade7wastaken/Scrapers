@@ -1,4 +1,4 @@
-import type { Game } from "../types.js";
+import type { Game } from "../types";
 
 export const sleep = (ms: number): Promise<void> =>
 	new Promise((r) => setTimeout(r, ms));
@@ -14,3 +14,6 @@ export const getRegexContents = (regex: RegExp): string =>
 
 export const removeAllWhitespace = (input: string): string =>
 	input.replaceAll(/\s+/g, "");
+
+export const removeDuplicates = <T>(arr: T[]): T[] =>
+	arr.filter((value, index, self) => self.indexOf(value) === index);

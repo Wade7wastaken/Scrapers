@@ -1,15 +1,20 @@
 import { writeFileSync } from "node:fs";
 
-import { OUTPUT_LOCATION } from "./config.js";
-import { unblocked66 } from "./sites/unblocked66.js";
-import type { GameList } from "./types.js";
-import { MainLogger } from "./utils/logger.js";
-import { lowerCaseSort } from "./utils/misc.js";
-import { resultStatistics } from "./utils/resultStatistics.js";
+import { unblockedPremium } from "@sites/unblockedPremium";
+import { MainLogger } from "@utils/logger";
+import { lowerCaseSort } from "@utils/misc";
+import { resultStatistics } from "@utils/resultStatistics";
+
+import { OUTPUT_LOCATION } from "./config";
+import type { GameList } from "./types";
 
 /**
  * TODO:
- * Easy way to test regex (tests!)
+ * Format output to ts file
+ * FINISH BEFORE PUBLISH
+ * Function to process test regex match (maybe second in array?)
+ * Add stats to show how many urls for each page
+ * Use a Set instead of array for links to avoid duplicates without additional logic
  * Logic to check if test was unused
  * Logic to check if regex always matched the same value (it can be replaced by a string)
  * addGame should use spread operator instead of string|string[]
@@ -21,11 +26,11 @@ const main = async (): Promise<void> => {
 
 	const sites: Promise<GameList>[] = [
 		//coolmath(),
-		unblocked66(),
+		//unblocked66(),
 		//googleDoodles(),
 		//crazyGames(),
 		//poki(),
-		//unblockedPremium(),
+		unblockedPremium(),
 	];
 
 	const results = await Promise.all(sites);

@@ -1,10 +1,13 @@
-import type { GameMap } from "../../types.js";
-import { addGame } from "../../utils/addGame.js";
-import type { Logger } from "../../utils/logger.js";
-import { asyncIterator } from "../asyncIterator.js";
-import { fetchAndParse } from "../fetchAndParse.js";
+import type { GameMap } from "@types";
+import { addGame } from "@utils/addGame";
+import type { Logger } from "@utils/logger";
+import { removeDuplicates } from "@utils/misc";
 
-import { processDataCode } from "./processDataCode.js";
+import { asyncIterator } from "../asyncIterator";
+import { fetchAndParse } from "../fetchAndParse";
+
+import { processDataCode } from "./processDataCode";
+
 
 const SIDEBAR_SELECTOR = "a[data-level]";
 const EMBED_SELECTOR = ".w536ob";
@@ -33,7 +36,7 @@ export const processGoogleSite = async (
 		if (embeds.length <= 0) log.warn(`No embeds on ${gameName}`);
 
 		const links = embeds.toArray().flatMap((e, i): string[] => {
-			const embed = $(e);
+			const embed = $2(e);
 
 			const dataUrl = embed.attr("data-url");
 			const dataCode = embed.attr("data-code");
@@ -48,6 +51,8 @@ export const processGoogleSite = async (
 				: processDataCode(log, dataCode, i, gameName);
 		});
 
-		addGame(log, results, gameName, links);
+		links.unshift(gameUrl);
+
+		addGame(log, results, gameName, removeDuplicates(links));
 	});
 };

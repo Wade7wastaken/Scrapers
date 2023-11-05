@@ -1,52 +1,71 @@
-import type { Logger } from "../../utils/logger.js";
-import { capitalize, removeAllWhitespace } from "../../utils/misc.js";
-import { ResultList } from "../../utils/resultList.js";
+import type { Logger } from "@utils/logger";
+import { capitalize, removeAllWhitespace, removeDuplicates } from "@utils/misc";
+import { ResultList } from "@utils/resultList";
 
-import { embedTestCases } from "./embedTestCases/_index.js";
+import { embedMatches } from "./embedMatches/_index";
 
 // regex's that are the result of the match are an array of 1 regex
-export type TestCaseSegment = string | RegExp | [RegExp];
+export type EmbedMatchSegment = string | RegExp | [RegExp];
 
-export interface EmbedTestCase {
+export interface EmbedMatch {
 	name: string;
-	testCaseSegments: TestCaseSegment[];
+	segments: EmbedMatchSegment[];
 }
 
-interface TestCaseResult {
+export interface EmbedMatchResult {
 	matched: boolean;
 	urls?: string[];
 }
 
-const runTestCase = (
+export const runMatch = (
 	log: Logger,
 	embed: string,
 	embedIndex: number,
-	testCase: EmbedTestCase,
+	embedMatch: EmbedMatch,
 	gameName: string
-): TestCaseResult => {
-	const matchLocation = (): string =>
-		`game: ${gameName}, embed index: ${embedIndex}, match name: ${testCase.name}`;
+): EmbedMatchResult => {
+	const matchLocation = `game: ${gameName}, embed index: ${embedIndex}, match name: ${embedMatch.name}`;
 
 	const noMatch = (
 		location: "string" | "regex",
-		index: number
-	): TestCaseResult => {
+		index: number,
+		wanted?: string,
+		got?: string
+	): EmbedMatchResult => {
 		log.info(
 			`${capitalize(
 				location
-			)} didn't match. ${matchLocation()}, segment: ${index}`
+			)} didn't match. ${matchLocation}, segment: ${index}${
+				wanted !== undefined && got !== undefined
+					? `, wanted: ${wanted}, got: ${got}`
+					: ""
+			}`
 		);
 		return { matched: false };
 	};
 
 	const results = new ResultList<string>(true);
 
-	for (const [index, segment] of testCase.testCaseSegments.entries()) {
+	if (embedMatch.segments.length === 0)
+		return embed === ""
+			? {
+					matched: true,
+					urls: [],
+			  }
+			: noMatch("string", -1);
+
+	for (const [index, segment] of embedMatch.segments.entries()) {
 		if (typeof segment === "string") {
 			const trimmedSegment = removeAllWhitespace(segment);
 			if (embed.startsWith(trimmedSegment))
 				embed = embed.slice(trimmedSegment.length);
-			else return noMatch("string", index);
+			else
+				return noMatch(
+					"string",
+					index,
+					trimmedSegment,
+					embed.slice(0, trimmedSegment.length + 10)
+				);
 
 			continue;
 		}
@@ -54,7 +73,7 @@ const runTestCase = (
 		const regex = isOutputtedRegex ? segment[0] : segment;
 
 		const execResult = regex.exec(embed);
-		if (execResult === null) return noMatch("regex", index);
+		if (execResult === null) return noMatch("regex", index, embed, "");
 
 		const matchedString = execResult[0];
 		embed = embed.slice(matchedString.length);
@@ -62,11 +81,11 @@ const runTestCase = (
 	}
 
 	// we haven't returned in the loop, so there is a match
-	log.info(`Match found! ${matchLocation()}`);
+	log.info(`Match found! ${matchLocation}`);
 
 	return {
 		matched: true,
-		urls: results.retrieve(),
+		urls: removeDuplicates(results.retrieve()),
 	};
 };
 
@@ -78,8 +97,8 @@ export const processDataCode = (
 ): string[] => {
 	const trimmedEmbed = removeAllWhitespace(embed);
 
-	for (const testCase of embedTestCases) {
-		const testCaseResult = runTestCase(
+	for (const testCase of embedMatches) {
+		const testCaseResult = runMatch(
 			log,
 			trimmedEmbed,
 			embedIndex,

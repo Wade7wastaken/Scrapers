@@ -1,17 +1,18 @@
 import { inspect } from "node:util";
 
-import type { AxiosRequestConfig } from "axios";
 import axios, { isAxiosError } from "axios";
+import type { AxiosRequestConfig } from "axios";
 
 import {
 	DELAY_TIME,
 	DELAY_TIME_WAIT_MULTIPLIER,
 	MAX_RETRIES,
 	NO_RETRY_HTTP_CODES,
-} from "../config.js";
+} from "../config";
 
-import type { Logger } from "./logger.js";
-import { capitalize, sleep } from "./misc.js";
+import type { Logger } from "./logger";
+import { capitalize, sleep } from "./misc";
+
 
 const domains = new Map<string, boolean>();
 

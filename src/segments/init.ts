@@ -1,6 +1,7 @@
-import type { GameMap } from "../types.js";
-import type { Logger } from "../utils/logger.js";
-import { MainLogger } from "../utils/logger.js";
+import { MainLogger } from "@utils/logger";
+import type { Logger } from "@utils/logger";
+
+import type { GameMap } from "../types";
 
 export const init = (
 	loggerPrefix: string

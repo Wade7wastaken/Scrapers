@@ -1,9 +1,10 @@
-import { asyncIterator } from "../segments/asyncIterator.js";
-import { cleanUp } from "../segments/cleanUp.js";
-import { fetchAndParse } from "../segments/fetchAndParse.js";
-import { init } from "../segments/init.js";
-import type { SiteFunction } from "../types.js";
-import { addGame } from "../utils/addGame.js";
+import { asyncIterator } from "@segments/asyncIterator";
+import { cleanUp } from "@segments/cleanUp";
+import { fetchAndParse } from "@segments/fetchAndParse";
+import { init } from "@segments/init";
+import type { SiteFunction } from "@types";
+import { addGame } from "@utils/addGame";
+
 
 const IGNORED_GAMES = new Set([
 	"Google Doodle Games",

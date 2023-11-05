@@ -1,11 +1,12 @@
-import { cleanUp } from "../segments/cleanUp.js";
-import { processGoogleSite } from "../segments/googleSites/processGoogleSite.js";
-import { init } from "../segments/init.js";
-import type { SiteFunction } from "../types.js";
+import { cleanUp } from "@segments/cleanUp";
+import { processGoogleSite } from "@segments/googleSites/processGoogleSite";
+import { init } from "@segments/init";
+
+import type { SiteFunction } from "../types";
 
 const IGNORED_GAMES = new Set(["All Unblocked Games 66 EZ", "Feedback"]);
 
-export const unblocked66: SiteFunction = async () => {
+export const unblockedSixSixEz: SiteFunction = async () => {
 	const { log, results } = init("UnblockedGames66");
 
 	await processGoogleSite(

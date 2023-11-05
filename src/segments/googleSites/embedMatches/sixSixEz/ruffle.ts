@@ -1,17 +1,18 @@
-import type { EmbedTestCase } from "../processDataCode.js";
-import { url } from "../regex.js";
+import type { EmbedMatch } from "../../processDataCode";
+import { regex } from "../../regex";
+
 
 // currently don't know how to handle these
-export const ruffle: EmbedTestCase = {
+export const ruffle: EmbedMatch = {
 	name: "ruffle",
-	testCaseSegments: [
+	segments: [
 		`<object xmlns="http://www.w3.org/1999/xhtml" 
 data="`,
-		[url],
+		[regex.url],
 		`" 
 height="100%" type="application/x-shockwave-flash" width="100%"><param name="movie" value="" />
 </object><script src="`,
-		url,
+		regex.url,
 		`"></script>`,
 	],
 };
