@@ -39,11 +39,11 @@ const main = async (): Promise<void> => {
 
 	const sites: Promise<Game[]>[] = [
 		coolmath(),
-		unblockedSixSixEz(),
-		googleDoodles(),
-		crazyGames(),
-		poki(),
-		unblockedPremium(),
+		//unblockedSixSixEz(),
+		//googleDoodles(),
+		//crazyGames(),
+		//poki(),
+		//unblockedPremium(),
 	];
 
 	const results = await Promise.all(sites);

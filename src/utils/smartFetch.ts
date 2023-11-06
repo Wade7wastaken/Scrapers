@@ -116,11 +116,10 @@ export const exists = async (log: Logger, url: string): Promise<boolean> => {
 		const response = await axios.head(url);
 		// Check if the status code is in the 200-399 range, indicating a successful request.
 		const doesExist = response.status >= 200 && response.status < 400;
-		log.warn(
-			doesExist
-				? `${url} exists: returned ${response.status}`
-				: `${url} doesn't exist: returned ${response.status}`
-		);
+
+		if (doesExist) log.info(`${url} exists: returned ${response.status}`);
+		else log.warn(`${url} doesn't exist: returned ${response.status}`);
+
 		return doesExist;
 	} catch (error) {
 		if (!isAxiosError(error)) throw error;
