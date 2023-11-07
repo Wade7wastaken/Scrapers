@@ -4,12 +4,11 @@ import { googleDoodles } from "@sites/googleDoodles";
 import { poki } from "@sites/poki";
 import { unblockedPremium } from "@sites/unblockedPremium";
 import { unblockedSixSixEz } from "@sites/unblockedSixSixEz";
-import { MainLogger } from "@utils/logger";
-import { lowerCaseSort } from "@utils/misc";
+import { mainCleanUp } from "@utils/mainCleanup";
+import { mainInit } from "@utils/mainInit";
 import { processOutput } from "@utils/processOutput";
-import { resultStatistics } from "@utils/resultStatistics";
-
-import type { Game } from "@types";
+import { processSites } from "@utils/processSites";
+import { reportStats } from "@utils/reportStats";
 
 /**
  * TODO:
@@ -35,7 +34,7 @@ import type { Game } from "@types";
  */
 
 const main = async (): Promise<void> => {
-	init();
+	mainInit();
 
 	const results = await processSites([
 		coolmath(),
@@ -48,36 +47,12 @@ const main = async (): Promise<void> => {
 
 	// include the list of all sites so the frontend doesn't have to search for
 	// them
-	processOutput(results, MainLogger.allSiteNames);
+	processOutput(results);
 	reportStats();
-	cleanUp();
+	mainCleanUp();
 
 	// this is here so i can view the final variables in VSCode.
 	debugger;
-};
-
-const init = (): void => {
-	MainLogger.validateLogDirectory();
-};
-
-const processSites = async (sites: Promise<Game[]>[]): Promise<Game[]> => {
-	const results = await Promise.all(sites);
-
-	// [[1, 2], [3, 4]].flat(1) => [1, 2, 3, 4]
-	const resultsFlattened = results.flat(1).sort(lowerCaseSort);
-	return resultsFlattened;
-};
-
-const reportStats = (): void => {
-	const log = new MainLogger("Stats");
-
-	for (const [site, size] of resultStatistics.entries())
-		log.info(`${site} had ${size} entries`);
-};
-
-const cleanUp = (): void => {
-	// anything after this can't use the logger
-	MainLogger.logFileStream.close();
 };
 
 void main();
