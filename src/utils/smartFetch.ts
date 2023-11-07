@@ -54,7 +54,7 @@ const fetchWrapper = async <T>(
 	const requestName = `request to ${url} with options ${inspect(options)}`;
 
 	if (retry >= MAX_RETRIES) {
-		log.error(capitalize(requestName) + "failed after ${retry} attempts.");
+		log.error(`${capitalize(requestName)} failed after ${retry} attempts.`);
 		return undefined;
 	}
 

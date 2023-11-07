@@ -34,7 +34,8 @@
       "@sites/*": ["./src/sites/*"],
       "@googleSites/*": ["./src/segments/googleSites/*"],
       "@segments/*": ["./src/segments/*"],
-      "@types": ["./src/types.js"]
+      "@types": ["./src/types"],
+      "@config": ["./src/config"]
     },
     // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
     // "typeRoots": [],                                  /* Specify multiple folders that act like './node_modules/@types'. */

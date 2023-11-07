@@ -1,7 +1,7 @@
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
-import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
+import { TsconfigPathsPlugin } from "tsconfig-paths-webpack-plugin";
 import nodeExternals from "webpack-node-externals";
 
 /** @type {import("webpack").Configuration} */
