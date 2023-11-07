@@ -1,10 +1,11 @@
 
+import { getRegexContents } from "@utils/misc";
+
 import type { EmbedMatch } from "../processDataCode";
 
 import { premium } from "./premium/_index";
 import { sixSixEz } from "./sixSixEz/_index";
 
-import { getRegexContents } from "@utils/misc";
 
 export const embedMatches: EmbedMatch[] = [
 	sixSixEz.fr,

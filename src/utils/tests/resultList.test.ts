@@ -1,6 +1,6 @@
+import { ResultList } from "@utils/resultList";
 import { describe, expect, it } from "vitest";
 
-import { ResultList } from "@utils/resultList";
 
 describe("an array wrapper class", () => {
 	it("adds elements one at a time", () => {

@@ -1,14 +1,13 @@
 import { inspect } from "node:util";
 
-import type { AxiosRequestConfig } from "axios";
-import axios, { isAxiosError } from "axios";
-
 import {
 	MAX_RETRIES,
 	NO_RETRY_HTTP_CODES,
 	REQUEST_DELAY_MS,
 	REQUEST_DELAY_WAIT_MULTIPLIER,
-} from "../config";
+} from "@config";
+import type { AxiosRequestConfig } from "axios";
+import axios, { isAxiosError } from "axios";
 
 import type { Logger } from "./logger";
 import { capitalize, sleep } from "./misc";

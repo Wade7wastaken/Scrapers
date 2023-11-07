@@ -1,8 +1,9 @@
-import { embedMatches } from "./embedMatches/_index";
 
 import type { Logger } from "@utils/logger";
 import { capitalize, removeAllWhitespace, removeDuplicates } from "@utils/misc";
 import { ResultList } from "@utils/resultList";
+
+import { embedMatches } from "./embedMatches/_index";
 
 
 // regex's that are the result of the match are an array of 1 regex

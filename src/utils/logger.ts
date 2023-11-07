@@ -8,7 +8,7 @@ import {
 import { dirname } from "node:path";
 import { inspect } from "node:util";
 
-import { LOG_LOCATION } from "../config";
+import { LOG_LOCATION } from "@config";
 
 export interface Logger {
 	prefix: string;
