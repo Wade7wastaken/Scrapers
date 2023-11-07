@@ -1,12 +1,14 @@
+import { asyncIterator } from "../asyncIterator";
+import { fetchAndParse } from "../fetchAndParse";
+
+import { processDataCode } from "./processDataCode";
+
 import type { GameMap } from "@types";
 import { addGame } from "@utils/addGame";
 import type { Logger } from "@utils/logger";
 import { removeDuplicates } from "@utils/misc";
 
-import { asyncIterator } from "../asyncIterator";
-import { fetchAndParse } from "../fetchAndParse";
 
-import { processDataCode } from "./processDataCode";
 
 
 const SIDEBAR_SELECTOR = "a[data-level]";

@@ -1,7 +1,3 @@
-import { premium } from "@googleSites/embedMatches/premium/_index";
-import { sixSixEz } from "@googleSites/embedMatches/sixSixEz/_index";
-import { TestLogger } from "@utils/logger";
-import { removeAllWhitespace } from "@utils/misc";
 import { describe, expect, it } from "vitest";
 
 import {
@@ -11,6 +7,13 @@ import {
 } from "../processDataCode";
 
 import { premiumData, sixSixEzData } from "./processDataCode.testData";
+
+import { premium } from "@googleSites/embedMatches/premium/_index";
+import { sixSixEz } from "@googleSites/embedMatches/sixSixEz/_index";
+import { TestLogger } from "@utils/logger";
+import { removeAllWhitespace } from "@utils/misc";
+
+
 
 const testCaseWrapper = (
 	embed: string,
