@@ -31,7 +31,6 @@ import { resultStatistics } from "@utils/resultStatistics";
  * directory generation for output
  *
  * Config:
- * Full eslint import support
  */
 
 const main = async (): Promise<void> => {
@@ -58,7 +57,7 @@ const main = async (): Promise<void> => {
 
 const init = (): void => {
 	MainLogger.validateLogDirectory();
-}
+};
 
 const processSites = async (sites: Promise<Game[]>[]): Promise<Game[]> => {
 	const results = await Promise.all(sites);

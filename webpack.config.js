@@ -6,9 +6,7 @@ import nodeExternals from "webpack-node-externals";
 
 /** @type {import("webpack").Configuration} */
 const config = {
-	// production makes building a little longer, but there's actually a
-	// noticeable speedup
-	mode: "production",
+	mode: "development",
 	// source-map is the slowest but idrc
 	devtool: "source-map",
 	entry: "./src/index.ts",
