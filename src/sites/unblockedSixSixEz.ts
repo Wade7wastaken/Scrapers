@@ -1,7 +1,7 @@
-
 import { cleanUp } from "@segments/cleanUp";
 import { processGoogleSite } from "@segments/googleSites/processGoogleSite";
 import { init } from "@segments/init";
+
 import type { SiteFunction } from "@types";
 
 const IGNORED_GAMES = new Set(["All Unblocked Games 66 EZ", "Feedback"]);

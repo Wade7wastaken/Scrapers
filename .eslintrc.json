@@ -41,7 +41,15 @@
 			"warn",
 			{
 				"newlines-between": "always",
-				"alphabetize": { "order": "asc", "caseInsensitive": true }
+				"alphabetize": { "order": "asc", "caseInsensitive": true },
+				"groups": [
+					"builtin",
+					"external",
+					"parent",
+					"sibling",
+					"index",
+					"type"
+				]
 			}
 		],
 

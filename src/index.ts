@@ -4,11 +4,12 @@ import { googleDoodles } from "@sites/googleDoodles";
 import { poki } from "@sites/poki";
 import { unblockedPremium } from "@sites/unblockedPremium";
 import { unblockedSixSixEz } from "@sites/unblockedSixSixEz";
-import type { Game } from "@types";
 import { MainLogger } from "@utils/logger";
 import { lowerCaseSort } from "@utils/misc";
 import { processOutput } from "@utils/processOutput";
 import { resultStatistics } from "@utils/resultStatistics";
+
+import type { Game } from "@types";
 
 /**
  * TODO:

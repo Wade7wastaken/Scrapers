@@ -1,6 +1,7 @@
 import { readFileSync, writeFileSync } from "node:fs";
 
 import { OUTPUT_LOCATION } from "@config";
+
 import type { Game } from "@types";
 
 export const processOutput = (games: Game[], sites: string[]): void => {

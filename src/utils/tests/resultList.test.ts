@@ -1,7 +1,6 @@
 import { ResultList } from "@utils/resultList";
 import { describe, expect, it } from "vitest";
 
-
 describe("an array wrapper class", () => {
 	it("adds elements one at a time", () => {
 		const results = new ResultList<string>();

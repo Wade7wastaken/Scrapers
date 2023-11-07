@@ -1,6 +1,7 @@
+import { resultStatistics } from "@utils/resultStatistics";
+
 import type { Game, GameMap } from "@types";
 import type { Logger } from "@utils/logger";
-import { resultStatistics } from "@utils/resultStatistics";
 
 const processResults = (results: GameMap, site: string): Game[] =>
 	[...results.entries()].map(([name, urls]) => ({

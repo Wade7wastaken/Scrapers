@@ -6,7 +6,6 @@ import {
 } from "@utils/misc";
 import { describe, expect, it } from "vitest";
 
-
 describe("various miscellaneous functions", () => {
 	it("sorts an array of games", () => {
 		expect(
