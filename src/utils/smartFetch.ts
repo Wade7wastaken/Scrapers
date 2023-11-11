@@ -1,17 +1,17 @@
 import { inspect } from "node:util";
 
-import type { AxiosRequestConfig } from "axios";
-import axios, { isAxiosError } from "axios";
-
 import {
 	MAX_RETRIES,
 	NO_RETRY_HTTP_CODES,
 	REQUEST_DELAY_MS,
 	REQUEST_DELAY_WAIT_MULTIPLIER,
-} from "../config";
+} from "@config";
+import axios, { isAxiosError } from "axios";
+
+import { capitalize, sleep } from "./misc";
 
 import type { Logger } from "./logger";
-import { capitalize, sleep } from "./misc";
+import type { AxiosRequestConfig } from "axios";
 
 // a mapping between domains and if they're ready for another request
 const domains = new Map<string, boolean>();
@@ -54,7 +54,7 @@ const fetchWrapper = async <T>(
 	const requestName = `request to ${url} with options ${inspect(options)}`;
 
 	if (retry >= MAX_RETRIES) {
-		log.error(capitalize(requestName) + "failed after ${retry} attempts.");
+		log.error(`${capitalize(requestName)} failed after ${retry} attempts.`);
 		return undefined;
 	}
 

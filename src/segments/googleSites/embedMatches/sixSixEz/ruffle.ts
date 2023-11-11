@@ -1,6 +1,6 @@
-import type { EmbedMatch } from "../../processDataCode";
 import { regex } from "../../regex";
 
+import type { EmbedMatch } from "../../processDataCode";
 
 // currently don't know how to handle these
 export const ruffle: EmbedMatch = {

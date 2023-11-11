@@ -4,16 +4,16 @@ import { googleDoodles } from "@sites/googleDoodles";
 import { poki } from "@sites/poki";
 import { unblockedPremium } from "@sites/unblockedPremium";
 import { unblockedSixSixEz } from "@sites/unblockedSixSixEz";
-import { MainLogger } from "@utils/logger";
-import { lowerCaseSort } from "@utils/misc";
-import { processOutput } from "@utils/processOutput";
-import { resultStatistics } from "@utils/resultStatistics";
 
-import type { Game } from "./types";
+import { mainCleanUp } from "./tools/mainCleanup";
+import { mainInit } from "./tools/mainInit";
+import { processOutput } from "./tools/processOutput";
+import { processSites } from "./tools/processSites";
+import { reportStats } from "./tools/reportStats";
 
 /**
  * TODO:
- * 
+ *
  * Features:
  * Function to process test regex match (maybe second in array?)
  * Logic to check if test was unused
@@ -22,44 +22,41 @@ import type { Game } from "./types";
  * Logic to check if regex always matched the same value (it can be replaced by a string)
  * Research prettier plugins
  * Response type checking
- * 
+ *
  * Bugfixes:
  * deal with all the types scattered everywhere
  * fix file outputs
  * Running tests should touch log folder or have any side effects
  * addGame should use spread operator instead of string|string[]
  * rename "log" everywhere to "ctx". Context makes more sense now because it is actually used as the context
- * 
+ * directory generation for output
+ *
  * Config:
- * Full eslint import support
+ */
+
+/**
+ * Utils contains small utility functions/classes that are typically used more
+ * than once in site functions. Tools contains functions that are only called
+ * once in init/takedown of the program.
  */
 
 const main = async (): Promise<void> => {
-	MainLogger.validateLogDirectory();
+	mainInit();
 
-	const sites: Promise<Game[]>[] = [
+	const results = await processSites([
 		coolmath(),
-		//unblockedSixSixEz(),
-		//googleDoodles(),
-		//crazyGames(),
-		//poki(),
-		//unblockedPremium(),
-	];
-
-	const results = await Promise.all(sites);
-
-	// [[1, 2], [3, 4]].flat(1) => [1, 2, 3, 4]
-	const resultsFlattened = results.flat(1).sort(lowerCaseSort);
+		unblockedSixSixEz(),
+		googleDoodles(),
+		crazyGames(),
+		poki(),
+		unblockedPremium(),
+	]);
 
 	// include the list of all sites so the frontend doesn't have to search for
 	// them
-	processOutput(resultsFlattened, MainLogger.allSiteNames);
-
-	for (const [site, size] of resultStatistics.entries())
-		console.log(`${site} had ${size} entries`);
-
-	// important to do last
-	MainLogger.logFileStream.close();
+	processOutput(results);
+	reportStats();
+	mainCleanUp();
 
 	// this is here so i can view the final variables in VSCode.
 	debugger;

@@ -8,13 +8,14 @@ import {
 import { dirname } from "node:path";
 import { inspect } from "node:util";
 
-import { LOG_LOCATION } from "../config";
+import { LOG_LOCATION } from "@config";
 
 export interface Logger {
 	prefix: string;
 	info(m: unknown): void;
 	warn(m: unknown): void;
 	error(m: unknown): void;
+	setResultsLength(length: number): void;
 }
 
 // Functions as a logger, but is also used as an identifier as to which site
@@ -24,6 +25,8 @@ export class MainLogger implements Logger {
 
 	public static readonly allSiteNames: string[] = [];
 	public static readonly logFileStream = createWriteStream(LOG_LOCATION);
+
+	public static readonly resultLengths = new Map<string, number>();
 
 	private static prepareLogLine(line: unknown): string {
 		return typeof line === "string" ? line : inspect(line);
@@ -60,6 +63,10 @@ export class MainLogger implements Logger {
 		this.log(m, "error", "error");
 	}
 
+	public setResultsLength(length: number): void {
+		MainLogger.resultLengths.set(this.prefix, length);
+	}
+
 	public static closeFileStream(): void {
 		MainLogger.logFileStream.close();
 	}
@@ -85,5 +92,9 @@ export class TestLogger implements Logger {
 
 	public error(m: unknown): void {
 		console.log(m);
+	}
+
+	public setResultsLength(length: number): void {
+		console.log(`Test Logger was set with result length of ${length}`);
 	}
 }
