@@ -1,5 +1,6 @@
 import { asyncIterator } from "@segments/asyncIterator";
 import { cleanUp } from "@segments/cleanUp";
+import { fetchAndParse } from "@segments/fetchAndParse";
 import { init } from "@segments/init";
 import { addGame } from "@utils/addGame";
 import { exists, smartFetch } from "@utils/smartFetch";
@@ -13,6 +14,25 @@ interface GamesResponse {
 	type: string;
 }
 
+const findIframeUrl = async (
+	log: Logger,
+	url: string,
+	gameName: string
+): Promise<string | undefined> => {
+	const $ = await fetchAndParse(log, url);
+	if ($ === undefined) return undefined;
+
+	const iframe = $("iframe1");
+
+	const gameUrl = iframe.attr("src");
+	if (gameUrl === undefined) {
+		log.warn(`Couldn't find iframe on page ${gameName}`);
+		return undefined;
+	}
+
+	return gameUrl;
+};
+
 const findBestUrl = async (
 	log: Logger,
 	{ alias: name, title }: GamesResponse
@@ -22,11 +42,12 @@ const findBestUrl = async (
 	const gameUrl = `${pageUrl}/play`;
 	if (await exists(log, gameUrl)) return gameUrl;
 
-	log.warn(`Falling back to page url on ${title}`);
+	log.warn(`Need to find iframe url manually on ${title}`);
 
-	if (await exists(log, pageUrl)) return pageUrl;
+	const iframeUrl = await findIframeUrl(log, pageUrl, title);
+	if (iframeUrl !== undefined) return iframeUrl;
 
-	log.error(`Couldn't find any existing pages for ${title}`);
+	log.error(`Couldn't find iframe url on ${title}`);
 
 	return undefined;
 };
