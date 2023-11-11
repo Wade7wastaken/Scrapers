@@ -1,4 +1,4 @@
-import { MainLogger } from "./logger";
+import { MainLogger } from "../utils/logger";
 
 export const mainInit = (): void => {
 	MainLogger.validateLogDirectory();

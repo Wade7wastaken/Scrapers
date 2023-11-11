@@ -1,5 +1,5 @@
-import { MainLogger } from "./logger";
-import { resultStatistics } from "./resultStatistics";
+import { MainLogger } from "../utils/logger";
+import { resultStatistics } from "../utils/resultStatistics";
 
 export const reportStats = (): void => {
 	const log = new MainLogger("Stats");

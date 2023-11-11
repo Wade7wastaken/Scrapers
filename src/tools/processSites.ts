@@ -1,4 +1,4 @@
-import { lowerCaseSort } from "./misc";
+import { lowerCaseSort } from "../utils/misc";
 
 import type { Game } from "@types";
 

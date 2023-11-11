@@ -4,11 +4,12 @@ import { googleDoodles } from "@sites/googleDoodles";
 import { poki } from "@sites/poki";
 import { unblockedPremium } from "@sites/unblockedPremium";
 import { unblockedSixSixEz } from "@sites/unblockedSixSixEz";
-import { mainCleanUp } from "@utils/mainCleanup";
-import { mainInit } from "@utils/mainInit";
-import { processOutput } from "@utils/processOutput";
-import { processSites } from "@utils/processSites";
-import { reportStats } from "@utils/reportStats";
+
+import { mainCleanUp } from "./tools/mainCleanup";
+import { mainInit } from "./tools/mainInit";
+import { processOutput } from "./tools/processOutput";
+import { processSites } from "./tools/processSites";
+import { reportStats } from "./tools/reportStats";
 
 /**
  * TODO:
@@ -31,6 +32,12 @@ import { reportStats } from "@utils/reportStats";
  * directory generation for output
  *
  * Config:
+ */
+
+/**
+ * Utils contains small utility functions/classes that are typically used more
+ * than once in site functions. Tools contains functions that are only called
+ * once in init/takedown of the program.
  */
 
 const main = async (): Promise<void> => {

@@ -2,7 +2,7 @@ import { readFileSync, writeFileSync } from "node:fs";
 
 import { OUTPUT_LOCATION } from "@config";
 
-import { MainLogger } from "./logger";
+import { MainLogger } from "../utils/logger";
 
 import type { Game } from "@types";
 

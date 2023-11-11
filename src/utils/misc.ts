@@ -1,5 +1,7 @@
 import type { Game } from "@types";
 
+// one liner function that could be used anywhere
+
 export const sleep = (ms: number): Promise<void> =>
 	new Promise((r) => setTimeout(r, ms));
 

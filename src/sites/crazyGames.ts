@@ -43,13 +43,10 @@ const fetchPage = async (
 
 	const items = response.games.data.items;
 
+	if (items.length === 0) return;
+
 	for (const { name, slug } of items)
 		addGame(log, results, name, `https://www.crazygames.com/game/${slug}`);
-
-	// if the api returned the max number of games (meaning there's probably
-	// more on the next page)
-	if (items.length === MAX_PAGE_SIZE)
-		await fetchPage(log, results, fetchUrl, page + 1);
 };
 
 export const crazyGames: SiteFunction = async () => {
