@@ -8,9 +8,10 @@
 		"build": "webpack",
 		"export": "webpack --mode production",
 		"lint": "eslint .",
+		"lint:fix": "eslint . --fix",
 		"test": "vitest --test-timeout 0",
-		"prettier": "prettier",
-		"prettier:write": "prettier --write ."
+		"prettier": "prettier -c .",
+		"prettier:write": "prettier -w ."
 	},
 	"author": "",
 	"license": "ISC",
