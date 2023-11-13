@@ -33,31 +33,32 @@ const findIframeUrl = async (
 	return gameUrl;
 };
 
+// broken need to refactor
 const findBestUrl = async (
 	log: Logger,
 	{ alias: name, title }: GamesResponse
 ): Promise<string[] | undefined> => {
-	const results = [];
+	const results: string[] = [];
 
 	const pageUrl = `https://www.coolmathgames.com${name}`;
 
 	if (await exists(log, pageUrl)) results.push(pageUrl);
 	else {
 		log.error(`Couldn't find main page for ${title}`);
-		return [];
+		return results;
 	}
 
 	const gameUrl = `${pageUrl}/play`;
 	if (await exists(log, gameUrl)) results.push(gameUrl);
 	else {
 		log.warn(`Play page doesn't exist for ${title}`);
-		return 
+		return results
 	}
 
 	log.warn(`Need to find iframe url manually on ${title}`);
 
 	const iframeUrl = await findIframeUrl(log, pageUrl, title);
-	if (iframeUrl !== undefined) return iframeUrl;
+	if (iframeUrl !== undefined) return results;
 
 	log.error(`Couldn't find iframe url on ${title}`);
 
@@ -78,7 +79,7 @@ export const coolmath: SiteFunction = async () => {
 		const gameUrl = await findBestUrl(log, game);
 		if (gameUrl === undefined) return;
 
-		addGame(log, results, game.title, gameUrl);
+		addGame(log, results, game.title, ...gameUrl);
 	});
 
 	return cleanUp(log, results);

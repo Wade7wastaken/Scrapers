@@ -43,10 +43,10 @@ import { reportStats } from "./procedures/reportStats";
  */
 
 const main = async (): Promise<void> => {
-	mainInit();
+	await mainInit();
 
 	const results = await processSites([
-		coolmath(),
+		//coolmath(),
 		//unblockedSixSixEz(),
 		//googleDoodles(),
 		//crazyGames(),
@@ -54,8 +54,6 @@ const main = async (): Promise<void> => {
 		//unblockedPremium(),
 	]);
 
-	// include the list of all sites so the frontend doesn't have to search for
-	// them
 	await processOutput(results);
 	reportStats();
 	mainCleanUp();

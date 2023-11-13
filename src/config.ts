@@ -1,5 +1,5 @@
 export const LOG_LOCATION = "./log/latest.log";
-export const OUTPUT_LOCATION = "./results/output.json";
+export const OUTPUT_LOCATION = "./results/output.ts";
 
 export const REQUEST_DELAY_MS = 500;
 export const REQUEST_DELAY_WAIT_MULTIPLIER = 0.25;
