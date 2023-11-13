@@ -24,6 +24,8 @@ import { reportStats } from "./tools/reportStats";
  * Response type checking
  *
  * Bugfixes:
+ * rename tools to something better
+ * all fs things should be done first
  * deal with all the types scattered everywhere
  * fix file outputs
  * Running tests should touch log folder or have any side effects
@@ -45,16 +47,16 @@ const main = async (): Promise<void> => {
 
 	const results = await processSites([
 		coolmath(),
-		unblockedSixSixEz(),
-		googleDoodles(),
-		crazyGames(),
-		poki(),
-		unblockedPremium(),
+		//unblockedSixSixEz(),
+		//googleDoodles(),
+		//crazyGames(),
+		//poki(),
+		//unblockedPremium(),
 	]);
 
 	// include the list of all sites so the frontend doesn't have to search for
 	// them
-	processOutput(results);
+	await processOutput(results);
 	reportStats();
 	mainCleanUp();
 

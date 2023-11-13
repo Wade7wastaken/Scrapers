@@ -36,11 +36,23 @@ const findIframeUrl = async (
 const findBestUrl = async (
 	log: Logger,
 	{ alias: name, title }: GamesResponse
-): Promise<string | undefined> => {
+): Promise<string[] | undefined> => {
+	const results = [];
+
 	const pageUrl = `https://www.coolmathgames.com${name}`;
 
+	if (await exists(log, pageUrl)) results.push(pageUrl);
+	else {
+		log.error(`Couldn't find main page for ${title}`);
+		return [];
+	}
+
 	const gameUrl = `${pageUrl}/play`;
-	if (await exists(log, gameUrl)) return gameUrl;
+	if (await exists(log, gameUrl)) results.push(gameUrl);
+	else {
+		log.warn(`Play page doesn't exist for ${title}`);
+		return 
+	}
 
 	log.warn(`Need to find iframe url manually on ${title}`);
 

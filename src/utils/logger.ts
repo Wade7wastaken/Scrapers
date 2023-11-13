@@ -1,14 +1,10 @@
-import {
-	createWriteStream,
-	existsSync,
-	mkdirSync,
-	readdirSync,
-	rmSync,
-} from "node:fs";
+import { createWriteStream } from "node:fs";
 import { dirname } from "node:path";
 import { inspect } from "node:util";
 
 import { LOG_LOCATION } from "@config";
+
+import { emptyDirectory, validateDirectory } from "./filesystem";
 
 export interface Logger {
 	prefix: string;
@@ -71,11 +67,10 @@ export class MainLogger implements Logger {
 		MainLogger.logFileStream.close();
 	}
 
-	public static validateLogDirectory(): void {
+	public static async validateLogDirectory(): Promise<void> {
 		const dirName = dirname(LOG_LOCATION);
-		if (!existsSync(dirName)) mkdirSync(dirName, { recursive: true });
-		for (const item of readdirSync(dirName))
-			rmSync(`${dirName}/${item}`, { recursive: true });
+		await validateDirectory(dirName);
+		await emptyDirectory(dirName);
 	}
 }
 

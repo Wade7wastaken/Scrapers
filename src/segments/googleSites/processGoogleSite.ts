@@ -53,6 +53,6 @@ export const processGoogleSite = async (
 
 		links.unshift(gameUrl);
 
-		addGame(log, results, gameName, removeDuplicates(links));
+		addGame(log, results, gameName, ...removeDuplicates(links));
 	});
 };
