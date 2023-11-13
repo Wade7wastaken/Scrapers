@@ -5,11 +5,11 @@ import { poki } from "@sites/poki";
 import { unblockedPremium } from "@sites/unblockedPremium";
 import { unblockedSixSixEz } from "@sites/unblockedSixSixEz";
 
-import { mainCleanUp } from "./tools/mainCleanup";
-import { mainInit } from "./tools/mainInit";
-import { processOutput } from "./tools/processOutput";
-import { processSites } from "./tools/processSites";
-import { reportStats } from "./tools/reportStats";
+import { mainCleanUp } from "./procedures/mainCleanup";
+import { mainInit } from "./procedures/mainInit";
+import { processOutput } from "./procedures/processOutput";
+import { processSites } from "./procedures/processSites";
+import { reportStats } from "./procedures/reportStats";
 
 /**
  * TODO:
