@@ -18,7 +18,7 @@ interface PokiApi {
 	games: PokiGame[];
 }
 
-export const poki: SiteFunction = async () => {
+export const run: SiteFunction = async () => {
 	const { log, results } = init("Poki");
 
 	await asyncLoop(0, 26, 1, async (i) => {

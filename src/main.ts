@@ -5,14 +5,7 @@ import {
 	processSites,
 	reportStats,
 } from "./procedures";
-import {
-	coolmath,
-	crazyGames,
-	googleDoodles,
-	poki,
-	unblockedPremium,
-	unblockedSixSixEz,
-} from "./sites";
+import * as sites from "./sites";
 
 /**
  * TODO:
@@ -48,14 +41,9 @@ import {
 const main = async (): Promise<void> => {
 	await mainInit();
 
-	const results = await processSites([
-		coolmath(),
-		unblockedSixSixEz(),
-		googleDoodles(),
-		crazyGames(),
-		poki(),
-		unblockedPremium(),
-	]);
+	const results = await processSites(
+		Object.values(sites).map((item) => item.run())
+	);
 
 	await processOutput(results);
 	reportStats();

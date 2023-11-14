@@ -49,7 +49,7 @@ const fetchPage = async (
 		addGame(log, results, name, `https://www.crazygames.com/game/${slug}`);
 };
 
-export const crazyGames: SiteFunction = async () => {
+export const run: SiteFunction = async () => {
 	const { log, results } = init("CrazyGames");
 
 	const tagsUrl = "https://api.crazygames.com/v3/en_US/page/tags";

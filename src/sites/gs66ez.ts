@@ -6,7 +6,7 @@ import type { SiteFunction } from "@types";
 
 const IGNORED_GAMES = new Set(["All Unblocked Games 66 EZ", "Feedback"]);
 
-export const unblockedSixSixEz: SiteFunction = async () => {
+export const run: SiteFunction = async () => {
 	const { log, results } = init("UnblockedGames66");
 
 	await processGoogleSite(

@@ -65,7 +65,7 @@ const findBestUrl = async (
 	return undefined;
 };
 
-export const coolmath: SiteFunction = async () => {
+export const run: SiteFunction = async () => {
 	const { log, results } = init("Coolmath Games");
 
 	const jsonUrl =
