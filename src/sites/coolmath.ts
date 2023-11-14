@@ -52,7 +52,7 @@ const findBestUrl = async (
 	if (await exists(log, gameUrl)) results.push(gameUrl);
 	else {
 		log.warn(`Play page doesn't exist for ${title}`);
-		return results
+		return results;
 	}
 
 	log.warn(`Need to find iframe url manually on ${title}`);
