@@ -1,5 +1,5 @@
-import type { Logger } from "./logger";
 import type { GameMap, NameType, UrlType } from "@types";
+import type { Logger } from "@utils";
 
 export function addGame(
 	log: Logger,
