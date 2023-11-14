@@ -42,7 +42,7 @@ const main = async (): Promise<void> => {
 	await mainInit();
 
 	const results = await processSites(
-		Object.values(sites).map((item) => item.run())
+		Object.values(sites).map((site) => site.run())
 	);
 
 	await processOutput(results);
