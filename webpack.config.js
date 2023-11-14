@@ -9,7 +9,7 @@ const config = {
 	mode: "development",
 	// source-map is the slowest but idrc
 	devtool: "source-map",
-	entry: "./src/index.ts",
+	entry: "./src/main.ts",
 	target: "node",
 	output: {
 		path: resolve(dirname(fileURLToPath(import.meta.url)), "dist"),

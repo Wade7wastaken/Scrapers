@@ -1,15 +1,18 @@
-import { coolmath } from "@sites/coolmath";
-import { crazyGames } from "@sites/crazyGames";
-import { googleDoodles } from "@sites/googleDoodles";
-import { poki } from "@sites/poki";
-import { unblockedPremium } from "@sites/unblockedPremium";
-import { unblockedSixSixEz } from "@sites/unblockedSixSixEz";
-
-import { mainCleanUp } from "./procedures/mainCleanup";
-import { mainInit } from "./procedures/mainInit";
-import { processOutput } from "./procedures/processOutput";
-import { processSites } from "./procedures/processSites";
-import { reportStats } from "./procedures/reportStats";
+import {
+	mainCleanUp,
+	mainInit,
+	processOutput,
+	processSites,
+	reportStats,
+} from "./procedures";
+import {
+	coolmath,
+	crazyGames,
+	googleDoodles,
+	poki,
+	unblockedPremium,
+	unblockedSixSixEz,
+} from "./sites";
 
 /**
  * TODO:
@@ -46,12 +49,12 @@ const main = async (): Promise<void> => {
 	await mainInit();
 
 	const results = await processSites([
-		//coolmath(),
-		//unblockedSixSixEz(),
-		//googleDoodles(),
-		//crazyGames(),
-		//poki(),
-		//unblockedPremium(),
+		coolmath(),
+		unblockedSixSixEz(),
+		googleDoodles(),
+		crazyGames(),
+		poki(),
+		unblockedPremium(),
 	]);
 
 	await processOutput(results);
