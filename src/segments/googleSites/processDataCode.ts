@@ -1,8 +1,6 @@
 import { capitalize, removeAllWhitespace, removeDuplicates } from "@utils/misc";
 import { ResultList } from "@utils/resultList";
 
-import { embedMatches } from "./embedMatches/_index";
-
 import type { Logger } from "@utils/logger";
 
 // regex's that are the result of the match are an array of 1 regex
@@ -23,7 +21,7 @@ export const runMatch = (
 	embed: string,
 	embedIndex: number,
 	embedMatch: EmbedMatch,
-	gameName: string
+	gameName: string,
 ): EmbedMatchResult => {
 	const matchLocation = `game: ${gameName}, embed index: ${embedIndex}, match name: ${embedMatch.name}`;
 
@@ -94,16 +92,17 @@ export const processDataCode = (
 	log: Logger,
 	embed: string,
 	embedIndex: number,
-	gameName: string
+	gameName: string,
+	matches: EmbedMatch[]
 ): string[] => {
 	const trimmedEmbed = removeAllWhitespace(embed);
 
-	for (const testCase of embedMatches) {
+	for (const matchCase of matches) {
 		const testCaseResult = runMatch(
 			log,
 			trimmedEmbed,
 			embedIndex,
-			testCase,
+			matchCase,
 			gameName
 		);
 

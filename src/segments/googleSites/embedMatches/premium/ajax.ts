@@ -1,4 +1,4 @@
-import { regex } from "../../regex";
+import { regex } from "../../../../utils/regex";
 
 import type { EmbedMatch } from "../../processDataCode";
 

@@ -1,4 +1,4 @@
-import { regex } from "@googleSites/regex";
+import { regex } from "@utils/regex";
 
 import type { EmbedMatch } from "@googleSites/processDataCode";
 

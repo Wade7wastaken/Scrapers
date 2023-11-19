@@ -4,7 +4,7 @@ import { removeDuplicates } from "@utils/misc";
 import { asyncIterator } from "../asyncIterator";
 import { fetchAndParse } from "../fetchAndParse";
 
-import { processDataCode } from "./processDataCode";
+import { processDataCode, type EmbedMatch } from "./processDataCode";
 
 import type { GameMap } from "@types";
 import type { Logger } from "@utils/logger";
@@ -16,7 +16,8 @@ export const processGoogleSite = async (
 	log: Logger,
 	results: GameMap,
 	mainPageLink: string,
-	IGNORED_GAMES: Set<string>
+	IGNORED_GAMES: Set<string>,
+	matches: EmbedMatch[]
 ): Promise<void> => {
 	const $ = await fetchAndParse(log, mainPageLink);
 	if ($ === undefined) return;
@@ -48,7 +49,7 @@ export const processGoogleSite = async (
 
 			return dataCode === undefined
 				? [dataUrl]
-				: processDataCode(log, dataCode, i, gameName);
+				: processDataCode(log, dataCode, i, gameName, matches);
 		});
 
 		links.unshift(gameUrl);
