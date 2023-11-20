@@ -49,7 +49,8 @@ const fetchWrapper = async <T>(
 	log: Logger,
 	url: string,
 	options: AxiosRequestConfig,
-	retry = 0
+	retry = 0,
+	typeChecker?: (data: unknown) => T
 ): Promise<T | undefined> => {
 	const requestName = `request to ${url} with options ${inspect(options)}`;
 
@@ -58,10 +59,15 @@ const fetchWrapper = async <T>(
 		return undefined;
 	}
 
-	try {
-		// need to implement type checking
+	const makeRequest = async <T>(): Promise<T> => {
 		const response = await axios.get<T>(url, options);
 		return response.data;
+	};
+
+	try {
+		return typeChecker === undefined
+			? await makeRequest<T>()
+			: typeChecker(await makeRequest<unknown>());
 	} catch (error) {
 		if (!isAxiosError<T>(error)) throw error;
 
