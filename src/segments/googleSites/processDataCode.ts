@@ -11,17 +11,28 @@ export interface EmbedMatch {
 	segments: EmbedMatchSegment[];
 }
 
+export interface EmbedMatchWithTest {
+	embedMatch: EmbedMatch;
+	test: {
+		data: string;
+		result: string[];
+	};
+}
+
 export interface EmbedMatchResult {
 	matched: boolean;
 	urls?: string[];
 }
+
+export const removeTest = (matches: EmbedMatchWithTest[]): EmbedMatch[] =>
+	matches.map((match) => match.embedMatch);
 
 export const runMatch = (
 	log: Logger,
 	embed: string,
 	embedIndex: number,
 	embedMatch: EmbedMatch,
-	gameName: string,
+	gameName: string
 ): EmbedMatchResult => {
 	const matchLocation = `game: ${gameName}, embed index: ${embedIndex}, match name: ${embedMatch.name}`;
 

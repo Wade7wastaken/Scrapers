@@ -33,6 +33,7 @@
       "@utils/*": ["./src/utils/*"],
       "@utils": ["./src/utils"],
       "@sites/*": ["./src/sites/*"],
+      "@sites": ["./src/sites"],
       "@googleSites/*": ["./src/segments/googleSites/*"],
       "@segments/*": ["./src/segments/*"],
       "@types": ["./src/types"],
