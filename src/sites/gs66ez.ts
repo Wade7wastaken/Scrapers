@@ -90,7 +90,9 @@ function PlayTo(sel){
   sel.style.display = "none";
 }
 </script>`,
-			result: ["https://gg-opensocial.googleusercontent.com/gadgets/ifr?url=https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/1ee20621-61bc-4ec8-a8ec-5e839c2e6edc%2F1-on-1-basketball.xml"],
+			result: [
+				"https://gg-opensocial.googleusercontent.com/gadgets/ifr?url=https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/1ee20621-61bc-4ec8-a8ec-5e839c2e6edc%2F1-on-1-basketball.xml",
+			],
 		},
 	},
 	{
@@ -219,7 +221,9 @@ border-color: #fff;
             };
         }
     </script>`,
-			result: ["https://gg-opensocial.googleusercontent.com/gadgets/ifr?url=https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/1ee20621-61bc-4ec8-a8ec-5e839c2e6edc%2F1-on-1-basketball.xml"],
+			result: [
+				"https://gg-opensocial.googleusercontent.com/gadgets/ifr?url=https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/1ee20621-61bc-4ec8-a8ec-5e839c2e6edc%2F1-on-1-basketball.xml",
+			],
 		},
 	},
 	{
@@ -241,7 +245,9 @@ height="100%" type="application/x-shockwave-flash" width="100%"><param name="mov
 data="https://cdn.jsdelivr.net/gh/UndercoverMoose/flashgames@6a11175e9c021f8359d626300aa73e16ef9c6ebd/games/sift-renegade.swf" 
 height="100%" type="application/x-shockwave-flash" width="100%"><param name="movie" value="" />
 </object><script src="https://cdn.jsdelivr.net/gh/h3sj7v2f6k/ruffle@e51038cf55e61bb46ea4d39ed05169ff69f8795b/ruffle.js"></script>`,
-			result: ["https://cdn.jsdelivr.net/gh/UndercoverMoose/flashgames@6a11175e9c021f8359d626300aa73e16ef9c6ebd/games/sift-renegade.swf"],
+			result: [
+				"https://cdn.jsdelivr.net/gh/UndercoverMoose/flashgames@6a11175e9c021f8359d626300aa73e16ef9c6ebd/games/sift-renegade.swf",
+			],
 		},
 	},
 ];
