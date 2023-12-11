@@ -12,11 +12,11 @@ type PokiGame = {
 	id: number;
 	title: string;
 	slug: string;
-}
+};
 
 type PokiApi = {
 	games: PokiGame[];
-}
+};
 
 export const run: SiteFunction = async () => {
 	const { log, results } = init("Poki");

@@ -9,7 +9,7 @@ export type EmbedMatchSegment = string | RegExp | [RegExp];
 export type EmbedMatch = {
 	name: string;
 	segments: EmbedMatchSegment[];
-}
+};
 
 export type EmbedMatchWithTest = {
 	embedMatch: EmbedMatch;
@@ -17,12 +17,12 @@ export type EmbedMatchWithTest = {
 		data: string;
 		result: string[];
 	};
-}
+};
 
 export type EmbedMatchResult = {
 	matched: boolean;
 	urls?: string[];
-}
+};
 
 export const removeTest = (matches: EmbedMatchWithTest[]): EmbedMatch[] =>
 	matches.map((match) => match.embedMatch);
@@ -61,7 +61,7 @@ export const runMatch = (
 			? {
 					matched: true,
 					urls: [],
-			  }
+				}
 			: noMatch("string", -1);
 
 	for (const [index, segment] of embedMatch.segments.entries()) {

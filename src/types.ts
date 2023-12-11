@@ -6,7 +6,7 @@ export type Game = {
 	name: NameType;
 	urls: UrlType;
 	site: SiteType;
-}
+};
 
 // a mapping between game names and urls
 export type GameMap = Map<NameType, UrlType>;

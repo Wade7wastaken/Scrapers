@@ -11,7 +11,7 @@ type TagsResponse = {
 	tags: {
 		slug: string;
 	}[];
-}
+};
 
 type GamesResponse = {
 	games: {
@@ -23,7 +23,7 @@ type GamesResponse = {
 			total: number;
 		};
 	};
-}
+};
 
 // seems to be a hard limit for the crazy games api
 const MAX_PAGE_SIZE = 100;

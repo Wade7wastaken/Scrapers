@@ -12,7 +12,7 @@ type GamesResponse = {
 	alias: string;
 	title: string;
 	type: string;
-}
+};
 
 const findIframeUrl = async (
 	log: Logger,
