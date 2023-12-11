@@ -8,7 +8,7 @@ import { exists, smartFetch } from "@utils/smartFetch";
 import type { SiteFunction } from "@types";
 import type { Logger } from "@utils/logger";
 
-interface GamesResponse {
+type GamesResponse = {
 	alias: string;
 	title: string;
 	type: string;

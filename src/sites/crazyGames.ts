@@ -7,13 +7,13 @@ import { smartFetch } from "@utils/smartFetch";
 import type { GameMap, SiteFunction } from "@types";
 import type { Logger } from "@utils/logger";
 
-interface TagsResponse {
+type TagsResponse = {
 	tags: {
 		slug: string;
 	}[];
 }
 
-interface GamesResponse {
+type GamesResponse = {
 	games: {
 		data: {
 			items: {

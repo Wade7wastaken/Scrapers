@@ -2,7 +2,7 @@ export type NameType = string;
 export type UrlType = string[];
 export type SiteType = string;
 
-export interface Game {
+export type Game = {
 	name: NameType;
 	urls: UrlType;
 	site: SiteType;
