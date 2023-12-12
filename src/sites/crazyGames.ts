@@ -7,13 +7,13 @@ import { smartFetch } from "@utils/smartFetch";
 import type { GameMap, SiteFunction } from "@types";
 import type { Logger } from "@utils/logger";
 
-interface TagsResponse {
+type TagsResponse = {
 	tags: {
 		slug: string;
 	}[];
-}
+};
 
-interface GamesResponse {
+type GamesResponse = {
 	games: {
 		data: {
 			items: {
@@ -23,7 +23,7 @@ interface GamesResponse {
 			total: number;
 		};
 	};
-}
+};
 
 // seems to be a hard limit for the crazy games api
 const MAX_PAGE_SIZE = 100;

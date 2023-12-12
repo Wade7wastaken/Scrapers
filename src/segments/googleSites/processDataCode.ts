@@ -6,23 +6,23 @@ import type { Logger } from "@utils/logger";
 // regex's that are the result of the match are an array of 1 regex
 export type EmbedMatchSegment = string | RegExp | [RegExp];
 
-export interface EmbedMatch {
+export type EmbedMatch = {
 	name: string;
 	segments: EmbedMatchSegment[];
-}
+};
 
-export interface EmbedMatchWithTest {
+export type EmbedMatchWithTest = {
 	embedMatch: EmbedMatch;
 	test: {
 		data: string;
 		result: string[];
 	};
-}
+};
 
-export interface EmbedMatchResult {
+export type EmbedMatchResult = {
 	matched: boolean;
 	urls?: string[];
-}
+};
 
 export const removeTest = (matches: EmbedMatchWithTest[]): EmbedMatch[] =>
 	matches.map((match) => match.embedMatch);
@@ -61,7 +61,7 @@ export const runMatch = (
 			? {
 					matched: true,
 					urls: [],
-			  }
+				}
 			: noMatch("string", -1);
 
 	for (const [index, segment] of embedMatch.segments.entries()) {

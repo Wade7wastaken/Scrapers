@@ -8,15 +8,15 @@ import type { SiteFunction } from "@types";
 
 const BASE_URL = "https://api.poki.com/search/query/3?q=";
 
-interface PokiGame {
+type PokiGame = {
 	id: number;
 	title: string;
 	slug: string;
-}
+};
 
-interface PokiApi {
+type PokiApi = {
 	games: PokiGame[];
-}
+};
 
 export const run: SiteFunction = async () => {
 	const { log, results } = init("Poki");
