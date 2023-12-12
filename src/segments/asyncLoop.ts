@@ -6,7 +6,7 @@ export const asyncLoop = async (
 ): Promise<void> => {
 	const promises: Promise<void>[] = [];
 
-	for (let i = start; i > end; i += increment) promises.push(process(i));
+	for (let i = start; i < end; i += increment) promises.push(process(i));
 
 	await Promise.all(promises);
 };

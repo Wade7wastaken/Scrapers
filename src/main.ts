@@ -16,16 +16,13 @@ import * as sites from "./sites";
  * Add stats to show how many urls for each page (kinda done)
  * Use a Set instead of array for links to avoid duplicates without additional logic
  * Logic to check if regex always matched the same value (it can be replaced by a string)
- * Research prettier plugins
  * Response type checking
  *
  * Bugfixes:
- * rename tools to something better
  * all fs things should be done first
  * deal with all the types scattered everywhere
  * fix file outputs
  * Running tests should touch log folder or have any side effects
- * addGame should use spread operator instead of string|string[]
  * rename "log" everywhere to "ctx". Context makes more sense now because it is actually used as the context
  * directory generation for output
  *
