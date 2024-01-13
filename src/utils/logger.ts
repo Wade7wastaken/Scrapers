@@ -1,10 +1,9 @@
 import { createWriteStream, readdirSync, rmSync } from "node:fs";
-import { dirname } from "node:path";
 import { inspect } from "node:util";
 
 import { LOG_LOCATION, OUTPUT_LOCATION } from "@config";
 
-import { emptyDirectory, validateDirectory } from "./filesystem";
+import { validateDirectory } from "./filesystem";
 
 import { formatTime } from ".";
 
@@ -24,7 +23,6 @@ export class MainLogger implements Logger {
 	public readonly prefix: string;
 
 	public static readonly allSiteNames: string[] = [];
-	private static initialized = false;
 	public static logFileStream: WriteStream;
 
 	public static readonly resultLengths = new Map<string, number>();
@@ -36,14 +34,6 @@ export class MainLogger implements Logger {
 	public constructor(prefix: string) {
 		this.prefix = prefix;
 		MainLogger.allSiteNames.push(prefix);
-		if (!MainLogger.initialized) {
-			MainLogger.initialized = true;
-			const dirName = dirname(LOG_LOCATION);
-			validateDirectory(dirName);
-			emptyDirectory(dirName);
-
-			MainLogger.logFileStream = createWriteStream(LOG_LOCATION);
-		}
 	}
 
 	public static initLogger(): void {
