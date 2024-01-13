@@ -1,7 +1,7 @@
 import { createWriteStream, readdirSync, rmSync } from "node:fs";
 import { inspect } from "node:util";
 
-import { LOG_LOCATION, OUTPUT_LOCATION } from "@config";
+import { LOG_LOCATION } from "@config";
 
 import { validateDirectory } from "./filesystem";
 
@@ -48,12 +48,12 @@ export class MainLogger implements Logger {
 						).valueOf() >=
 						8.64e8
 			)
-			.map((file) => OUTPUT_LOCATION + file.name);
+			.map((file) => LOG_LOCATION + "/" + file.name);
 
 		for (const file of files) rmSync(file);
 
 		MainLogger.logFileStream = createWriteStream(
-			LOG_LOCATION + new Date().toDateString() + ".log"
+			`${LOG_LOCATION}/${new Date().toDateString()}.log`
 		);
 	}
 
