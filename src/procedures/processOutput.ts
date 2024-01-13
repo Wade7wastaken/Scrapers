@@ -7,9 +7,10 @@ import { MainLogger } from "@utils/logger";
 
 import type { Game } from "@types";
 
-export const processOutput = async (games: Game[]): Promise<void> => {
-	await validateDirectory(dirname(OUTPUT_LOCATION));
-	await emptyDirectory(dirname(OUTPUT_LOCATION));
+export const processOutput = (games: Game[]): void => {
+	const outputDir = dirname(OUTPUT_LOCATION);
+	validateDirectory(outputDir);
+	emptyDirectory(outputDir);
 	writeFileSync(
 		OUTPUT_LOCATION,
 		readFileSync("./src/data/outputTemplate.txt")

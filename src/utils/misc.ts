@@ -19,3 +19,11 @@ export const removeAllWhitespace = (input: string): string =>
 
 export const removeDuplicates = <T>(arr: T[]): T[] =>
 	arr.filter((value, index, self) => self.indexOf(value) === index);
+
+export const padNumber = (time: number, len = 2): string =>
+	time.toString().padStart(len, "0");
+
+export const formatTime = (now: Date): string =>
+	`${padNumber(now.getHours())}:${padNumber(now.getMinutes())}:${padNumber(
+		now.getSeconds()
+	)}.${padNumber(now.getMilliseconds(), 3)}`;

@@ -21,7 +21,7 @@ type PokiApi = {
 export const run: SiteFunction = async () => {
 	const { log, results } = init("Poki");
 
-	await asyncLoop(0, 26, 1, async (i) => {
+	await asyncLoop(0, 10, 1, async (i) => {
 		const letter = String.fromCodePoint(97 + i);
 
 		const url = BASE_URL + letter;

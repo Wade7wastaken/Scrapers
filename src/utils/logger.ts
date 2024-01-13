@@ -1,10 +1,14 @@
-import { createWriteStream } from "node:fs";
+import { createWriteStream, readdirSync, rmSync } from "node:fs";
 import { dirname } from "node:path";
 import { inspect } from "node:util";
 
-import { LOG_LOCATION } from "@config";
+import { LOG_LOCATION, OUTPUT_LOCATION } from "@config";
 
 import { emptyDirectory, validateDirectory } from "./filesystem";
+
+import { formatTime } from ".";
+
+import type { WriteStream } from "node:fs";
 
 export type Logger = {
 	prefix: string;
@@ -20,7 +24,8 @@ export class MainLogger implements Logger {
 	public readonly prefix: string;
 
 	public static readonly allSiteNames: string[] = [];
-	public static readonly logFileStream = createWriteStream(LOG_LOCATION);
+	private static initialized = false;
+	public static logFileStream: WriteStream;
 
 	public static readonly resultLengths = new Map<string, number>();
 
@@ -31,6 +36,35 @@ export class MainLogger implements Logger {
 	public constructor(prefix: string) {
 		this.prefix = prefix;
 		MainLogger.allSiteNames.push(prefix);
+		if (!MainLogger.initialized) {
+			MainLogger.initialized = true;
+			const dirName = dirname(LOG_LOCATION);
+			validateDirectory(dirName);
+			emptyDirectory(dirName);
+
+			MainLogger.logFileStream = createWriteStream(LOG_LOCATION);
+		}
+	}
+
+	public static initLogger(): void {
+		validateDirectory(LOG_LOCATION);
+		const files = readdirSync(LOG_LOCATION, { withFileTypes: true })
+			.filter(
+				(item) =>
+					item.isFile() &&
+					Date.now() -
+						new Date(
+							item.name.split(".").slice(0, -1).join("")
+						).valueOf() >=
+						8.64e8
+			)
+			.map((file) => OUTPUT_LOCATION + file.name);
+
+		for (const file of files) rmSync(file);
+
+		MainLogger.logFileStream = createWriteStream(
+			LOG_LOCATION + new Date().toDateString() + ".log"
+		);
 	}
 
 	private log(
@@ -41,7 +75,7 @@ export class MainLogger implements Logger {
 		console[consoleLogLevel](`${this.prefix}:`, m);
 
 		MainLogger.logFileStream.write(
-			`[${logLevel.toUpperCase()}] ${
+			`[${logLevel.toUpperCase()}] [${formatTime(new Date())}] ${
 				this.prefix
 			}: ${MainLogger.prepareLogLine(m)}\n`
 		);
@@ -65,12 +99,6 @@ export class MainLogger implements Logger {
 
 	public static closeFileStream(): void {
 		MainLogger.logFileStream.close();
-	}
-
-	public static async validateLogDirectory(): Promise<void> {
-		const dirName = dirname(LOG_LOCATION);
-		await validateDirectory(dirName);
-		await emptyDirectory(dirName);
 	}
 }
 

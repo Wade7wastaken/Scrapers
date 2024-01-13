@@ -1,6 +1,5 @@
 import {
 	mainCleanUp,
-	mainInit,
 	processOutput,
 	processSites,
 	reportStats,
@@ -36,13 +35,11 @@ import * as sites from "./sites";
  */
 
 const main = async (): Promise<void> => {
-	await mainInit();
-
 	const results = await processSites(
 		Object.values(sites).map((site) => site.run())
 	);
 
-	await processOutput(results);
+	processOutput(results);
 	reportStats();
 	mainCleanUp();
 

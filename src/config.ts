@@ -1,4 +1,4 @@
-export const LOG_LOCATION = "./log/latest.log";
+export const LOG_LOCATION = "./logs";
 export const OUTPUT_LOCATION = "./results/output.ts";
 
 export const REQUEST_DELAY_MS = 500;
