@@ -4,6 +4,7 @@ import { fetchAndParse } from "@segments/fetchAndParse";
 import { init } from "@segments/init";
 import { addGame } from "@utils/addGame";
 import { exists, smartFetch } from "@utils/smartFetch";
+import { z } from "zod";
 
 import type { SiteFunction } from "@types";
 import type { Logger } from "@utils/logger";
@@ -22,7 +23,7 @@ const findIframeUrl = async (
 	const $ = await fetchAndParse(log, url);
 	if ($ === undefined) return undefined;
 
-	const iframe = $("iframe1");
+	const iframe = $("iframe");
 
 	const gameUrl = iframe.attr("src");
 	if (gameUrl === undefined) {
@@ -33,36 +34,24 @@ const findIframeUrl = async (
 	return gameUrl;
 };
 
-// broken need to refactor
 const findBestUrl = async (
 	log: Logger,
 	{ alias: name, title }: GamesResponse
 ): Promise<string[] | undefined> => {
-	const results: string[] = [];
-
-	const pageUrl = `https://www.coolmathgames.com${name}`;
-
-	if (await exists(log, pageUrl)) results.push(pageUrl);
-	else {
-		log.error(`Couldn't find main page for ${title}`);
-		return results;
-	}
-
+	const pageUrl = `https://www.coolmathgames.com/0-${name}`;
 	const gameUrl = `${pageUrl}/play`;
-	if (await exists(log, gameUrl)) results.push(gameUrl);
-	else {
-		log.warn(`Play page doesn't exist for ${title}`);
-		return results;
-	}
 
-	log.warn(`Need to find iframe url manually on ${title}`);
+	if (await exists(log, gameUrl)) return [pageUrl, gameUrl];
+
+	log.warn(`Play page didn't exist for ${title}, trying game page`);
+
+	if (!(await exists(log, pageUrl))) {
+		log.error(`Game page didn't exist for ${title}, aborting`);
+		return;
+	}
 
 	const iframeUrl = await findIframeUrl(log, pageUrl, title);
-	if (iframeUrl !== undefined) return results;
-
-	log.error(`Couldn't find iframe url on ${title}`);
-
-	return undefined;
+	return iframeUrl === undefined ? [pageUrl] : [pageUrl, iframeUrl];
 };
 
 export const run: SiteFunction = async () => {
@@ -71,11 +60,28 @@ export const run: SiteFunction = async () => {
 	const jsonUrl =
 		"https://www.coolmathgames.com/sites/default/files/cmatgame_games_with_levels.json";
 
-	const games = await smartFetch<GamesResponse[]>(log, jsonUrl);
+	const response = await smartFetch<unknown>(log, jsonUrl);
+	if (response === undefined) return [];
 
-	if (games === undefined) return [];
+	const schema = z.object({
+		game: z.array(
+			z.object({
+				alias: z.string(), // internal name
+				title: z.string(), // common name
+				type: z.union([
+					z.literal("html5"),
+					z.literal("flash"),
+					z.literal("ruffle"),
+				]),
+			})
+		),
+	});
 
-	await asyncIterator(games, async (game) => {
+	const games = schema.parse(response);
+
+	const nonFlashGames = games.game.filter((game) => game.type !== "flash");
+
+	await asyncIterator(nonFlashGames, async (game) => {
 		const gameUrl = await findBestUrl(log, game);
 		if (gameUrl === undefined) return;
 

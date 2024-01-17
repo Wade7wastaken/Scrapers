@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync } from "node:fs";
+import { writeFileSync } from "node:fs";
 import { dirname } from "node:path";
 
 import { OUTPUT_LOCATION } from "@config";
@@ -13,11 +13,6 @@ export const processOutput = (games: Game[]): void => {
 	emptyDirectory(outputDir);
 	writeFileSync(
 		OUTPUT_LOCATION,
-		readFileSync("./src/data/outputTemplate.txt")
-			.toString("utf8")
-			.replace(
-				"/*CODE HERE*/",
-				JSON.stringify({ games, sites: MainLogger.allSiteNames })
-			)
+		JSON.stringify({ games, sites: MainLogger.allSiteNames})
 	);
 };

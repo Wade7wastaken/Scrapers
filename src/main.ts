@@ -5,7 +5,6 @@ import {
 	processSites,
 	reportStats,
 } from "./procedures";
-import * as sites from "./sites";
 
 /**
  * TODO:
@@ -19,12 +18,9 @@ import * as sites from "./sites";
  * Response type checking
  *
  * Bugfixes:
- * all fs things should be done first
  * deal with all the types scattered everywhere
- * fix file outputs
  * Running tests should touch log folder or have any side effects
  * rename "log" everywhere to "ctx". Context makes more sense now because it is actually used as the context
- * directory generation for output
  *
  * Config:
  */
@@ -36,12 +32,9 @@ import * as sites from "./sites";
  */
 
 const main = async (): Promise<void> => {
-	
 	mainInit();
 
-	const results = await processSites(
-		Object.values(sites).map((site) => site.run())
-	);
+	const results = await processSites();
 
 	processOutput(results);
 	reportStats();

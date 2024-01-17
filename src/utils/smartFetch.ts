@@ -49,8 +49,7 @@ const fetchWrapper = async <T>(
 	log: Logger,
 	url: string,
 	options: AxiosRequestConfig,
-	retry = 0,
-	typeChecker?: (data: unknown) => T
+	retry = 0
 ): Promise<T | undefined> => {
 	const requestName = `request to ${url} with options ${inspect(options)}`;
 
@@ -65,9 +64,7 @@ const fetchWrapper = async <T>(
 	};
 
 	try {
-		return typeChecker === undefined
-			? await makeRequest<T>()
-			: typeChecker(await makeRequest<unknown>());
+		return await makeRequest<T>();
 	} catch (error) {
 		if (!isAxiosError<T>(error)) throw error;
 

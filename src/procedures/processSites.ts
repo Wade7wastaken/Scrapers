@@ -1,13 +1,18 @@
+import * as sites from "@sites";
+
+import { enabledSites } from "../siteToggle";
 import { lowerCaseSort } from "../utils/misc";
+import { objectEntriesTyped } from "../utils/misc";
 
 import type { Game } from "@types";
 
-export const processSites = async (
-	sites: Promise<Game[]>[]
-): Promise<Game[]> => {
-	const results = await Promise.all(sites);
+export const processSites = async (): Promise<Game[]> => {
+	const sitePromises = objectEntriesTyped(sites)
+		.filter(([siteName]) => enabledSites.includes(siteName))
+		.map(([_, site]) => site.run());
+
+	const results = await Promise.all(sitePromises);
 
 	// [[1, 2], [3, 4]].flat(1) => [1, 2, 3, 4]
-	const resultsFlattened = results.flat(1).sort(lowerCaseSort);
-	return resultsFlattened;
+	return results.flat().sort(lowerCaseSort);
 };

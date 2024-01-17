@@ -27,3 +27,11 @@ export const formatTime = (now: Date): string =>
 	`${padNumber(now.getHours())}:${padNumber(now.getMinutes())}:${padNumber(
 		now.getSeconds()
 	)}.${padNumber(now.getMilliseconds(), 3)}`;
+
+export type Entries<T> = {
+	[K in keyof T]: [K, T[K]];
+}[keyof T][];
+
+// https://stackoverflow.com/questions/60141960/typescript-key-value-relation-preserving-object-entries-type
+export const objectEntriesTyped = <T extends object>(obj: T): Entries<T> =>
+	Object.entries(obj) as Entries<T>;

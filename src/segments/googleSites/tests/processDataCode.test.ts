@@ -27,6 +27,7 @@ const testCaseWrapper = (
 describe("tests an embed against test cases", () => {
 	describe("edge case behavior", () => {
 		it("matches but returns nothing when the segments and embed are", () => {
+			expect.hasAssertions();
 			const embed = ``;
 			expect(testCaseWrapper(embed, [])).toStrictEqual({
 				matched: true,
@@ -35,6 +36,7 @@ describe("tests an embed against test cases", () => {
 		});
 
 		it("doesn't match when the segments are empty and the embed isn't empty", () => {
+			expect.hasAssertions();
 			const embed = `abc`;
 			expect(testCaseWrapper(embed, [])).toStrictEqual({
 				matched: false,
@@ -49,6 +51,7 @@ describe("tests an embed against test cases", () => {
 				it.each(site.matches)(
 					"matches $embedMatch.name",
 					(siteMatch) => {
+						expect.hasAssertions();
 						expect(
 							testCaseWrapper(
 								siteMatch.test.data,
