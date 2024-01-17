@@ -1,6 +1,3 @@
-import { addGame } from "@utils/addGame";
-import { removeDuplicates } from "@utils/misc";
-
 import { asyncIterator } from "../asyncIterator";
 import { fetchAndParse } from "../fetchAndParse";
 
@@ -8,6 +5,9 @@ import { processDataCode, type EmbedMatch } from "./processDataCode";
 
 import type { GameMap } from "@types";
 import type { Logger } from "@utils/logger";
+
+import { addGame } from "@utils/addGame";
+import { removeDuplicates } from "@utils/misc";
 
 const SIDEBAR_SELECTOR = "a[data-level]";
 const EMBED_SELECTOR = ".w536ob";

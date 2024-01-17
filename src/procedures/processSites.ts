@@ -1,10 +1,9 @@
-import * as sites from "@sites";
-
 import { enabledSites } from "../siteToggle";
-import { lowerCaseSort } from "../utils/misc";
-import { objectEntriesTyped } from "../utils/misc";
+import { lowerCaseSort, objectEntriesTyped } from "../utils/misc";
 
 import type { Game } from "@types";
+
+import * as sites from "@sites";
 
 export const processSites = async (): Promise<Game[]> => {
 	const sitePromises = objectEntriesTyped(sites)

@@ -1,6 +1,3 @@
-import * as sites from "@sites";
-import { TestLogger } from "@utils/logger";
-import { removeAllWhitespace } from "@utils/misc";
 import { describe, expect, it } from "vitest";
 
 import {
@@ -8,6 +5,10 @@ import {
 	type EmbedMatchResult,
 	type EmbedMatchSegment,
 } from "../processDataCode";
+
+import * as sites from "@sites";
+import { TestLogger } from "@utils/logger";
+import { removeAllWhitespace } from "@utils/misc";
 
 const testCaseWrapper = (
 	embed: string,

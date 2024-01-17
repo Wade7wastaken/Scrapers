@@ -1,13 +1,14 @@
+import { z } from "zod";
+
+import type { SiteFunction } from "@types";
+import type { Logger } from "@utils/logger";
+
 import { asyncIterator } from "@segments/asyncIterator";
 import { cleanUp } from "@segments/cleanUp";
 import { fetchAndParse } from "@segments/fetchAndParse";
 import { init } from "@segments/init";
 import { addGame } from "@utils/addGame";
 import { exists, smartFetch } from "@utils/smartFetch";
-import { z } from "zod";
-
-import type { SiteFunction } from "@types";
-import type { Logger } from "@utils/logger";
 
 type GamesResponse = {
 	alias: string;

@@ -1,12 +1,11 @@
 import { createWriteStream, readdirSync, rmSync } from "node:fs";
 import { inspect } from "node:util";
 
-import { LOG_LOCATION } from "@config";
-
-import { getFilename, validateDirectory } from ".";
-import { formatTime } from ".";
+import { getFilename, validateDirectory, formatTime } from ".";
 
 import type { Dirent, WriteStream } from "node:fs";
+
+import { LOG_LOCATION } from "@config";
 
 export type Logger = {
 	prefix: string;

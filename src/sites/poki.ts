@@ -1,11 +1,12 @@
+import { z } from "zod";
+
+import type { SiteFunction } from "@types";
+
 import { asyncLoop } from "@segments/asyncLoop";
 import { cleanUp } from "@segments/cleanUp";
 import { init } from "@segments/init";
 import { addGame } from "@utils/addGame";
 import { smartFetch } from "@utils/smartFetch";
-import { z } from "zod";
-
-import type { SiteFunction } from "@types";
 
 const BASE_URL = "https://api.poki.com/search/query/3?q=";
 

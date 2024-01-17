@@ -1,10 +1,10 @@
+import type { SiteFunction } from "@types";
+
 import { asyncIterator } from "@segments/asyncIterator";
 import { cleanUp } from "@segments/cleanUp";
 import { fetchAndParse } from "@segments/fetchAndParse";
 import { init } from "@segments/init";
 import { addGame } from "@utils/addGame";
-
-import type { SiteFunction } from "@types";
 
 const IGNORED_GAMES = new Set([
 	"Google Doodle Games",

@@ -1,12 +1,13 @@
+import { z } from "zod";
+
+import type { GameMap, SiteFunction } from "@types";
+import type { Logger } from "@utils/logger";
+
 import { asyncIterator } from "@segments/asyncIterator";
 import { cleanUp } from "@segments/cleanUp";
 import { init } from "@segments/init";
 import { addGame } from "@utils/addGame";
 import { smartFetch } from "@utils/smartFetch";
-import { z } from "zod";
-
-import type { GameMap, SiteFunction } from "@types";
-import type { Logger } from "@utils/logger";
 
 type TagsResponse = {
 	tags: {

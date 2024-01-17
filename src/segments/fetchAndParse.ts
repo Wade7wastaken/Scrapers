@@ -1,9 +1,10 @@
-import { smartFetch } from "@utils/smartFetch";
 import { load } from "cheerio";
 import { z } from "zod";
 
 import type { Logger } from "@utils/logger";
 import type { CheerioAPI } from "cheerio";
+
+import { smartFetch } from "@utils/smartFetch";
 
 export const fetchAndParse = async (
 	log: Logger,

@@ -13,11 +13,22 @@
 		"plugin:@typescript-eslint/eslint-recommended",
 		"plugin:@typescript-eslint/strict-type-checked",
 		"plugin:@typescript-eslint/stylistic-type-checked",
+		"plugin:import/recommended",
+		"plugin:import/typescript",
 		"plugin:unicorn/recommended",
 		"plugin:vitest/all",
 		"plugin:vitest/recommended",
 		"prettier"
 	],
+	"settings": {
+		"import/parsers": {
+			"@typescript-eslint/parser": [".ts"]
+		},
+		"import/resolver": {
+			"typescript": true,
+			"node": true
+		}
+	},
 	"rules": {
 		/* TEMPLATE RULES */
 

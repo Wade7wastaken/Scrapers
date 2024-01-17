@@ -1,3 +1,5 @@
+import type { SiteFunction } from "@types";
+
 import {
 	removeTest,
 	type EmbedMatchWithTest,
@@ -5,9 +7,7 @@ import {
 import { cleanUp } from "@segments/cleanUp";
 import { processGoogleSite } from "@segments/googleSites/processGoogleSite";
 import { init } from "@segments/init";
-import { regex } from "@utils/regex";
-
-import type { SiteFunction } from "@types";
+import { regex } from "@utils";
 
 const IGNORED_GAMES = new Set([
 	"home",

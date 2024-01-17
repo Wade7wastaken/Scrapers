@@ -1,17 +1,18 @@
 import { inspect } from "node:util";
 
-import {
-	MAX_RETRIES,
-	NO_RETRY_HTTP_CODES,
-	REQUEST_DELAY_MS,
-	REQUEST_DELAY_WAIT_MULTIPLIER,
-} from "@config";
 import axios, { isAxiosError } from "axios";
 
 import { capitalize, sleep } from "./misc";
 
 import type { Logger } from "./logger";
 import type { AxiosRequestConfig } from "axios";
+
+import {
+	MAX_RETRIES,
+	NO_RETRY_HTTP_CODES,
+	REQUEST_DELAY_MS,
+	REQUEST_DELAY_WAIT_MULTIPLIER,
+} from "@config";
 
 // a mapping between domains and if they're ready for another request
 const domains = new Map<string, boolean>();
