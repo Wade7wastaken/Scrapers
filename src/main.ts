@@ -16,6 +16,7 @@ import {
  * Use a Set instead of array for links to avoid duplicates without additional logic
  * Logic to check if regex always matched the same value (it can be replaced by a string)
  * Response type checking
+ * Rust-like errors (maybe just use rust)
  *
  * Bugfixes:
  * deal with all the types scattered everywhere

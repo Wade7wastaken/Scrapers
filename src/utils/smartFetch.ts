@@ -58,13 +58,9 @@ const fetchWrapper = async <T>(
 		return undefined;
 	}
 
-	const makeRequest = async <T>(): Promise<T> => {
-		const response = await axios.get<T>(url, options);
-		return response.data;
-	};
-
 	try {
-		return await makeRequest<T>();
+		const response = await axios.get<undefined>(url, options);
+		return response.data;
 	} catch (error) {
 		if (!isAxiosError<T>(error)) throw error;
 

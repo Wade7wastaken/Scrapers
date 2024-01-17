@@ -3,6 +3,7 @@ import { cleanUp } from "@segments/cleanUp";
 import { init } from "@segments/init";
 import { addGame } from "@utils/addGame";
 import { smartFetch } from "@utils/smartFetch";
+import { z } from "zod";
 
 import type { GameMap, SiteFunction } from "@types";
 import type { Logger } from "@utils/logger";
@@ -11,18 +12,6 @@ type TagsResponse = {
 	tags: {
 		slug: string;
 	}[];
-};
-
-type GamesResponse = {
-	games: {
-		data: {
-			items: {
-				name: string;
-				slug: string;
-			}[];
-			total: number;
-		};
-	};
 };
 
 // seems to be a hard limit for the crazy games api
@@ -34,14 +23,30 @@ const fetchPage = async (
 	fetchUrl: string,
 	page = 1
 ): Promise<void> => {
-	const response = await smartFetch<GamesResponse>(log, fetchUrl, {
+	const response = await smartFetch<unknown>(log, fetchUrl, {
 		paginationPage: page,
 		paginationSize: MAX_PAGE_SIZE,
 	});
 
 	if (response === undefined) return;
 
-	const items = response.games.data.items;
+	const schema = z.object({
+		games: z.object({
+			data: z.object({
+				items: z.array(
+					z.object({
+						name: z.string(),
+						slug: z.string(),
+					})
+				),
+				total: z.number(),
+			}),
+		}),
+	});
+
+	const parse = schema.parse(response);
+
+	const items = parse.games.data.items;
 
 	if (items.length === 0) return;
 
@@ -57,8 +62,17 @@ export const run: SiteFunction = async () => {
 	const tags = await smartFetch<TagsResponse>(log, tagsUrl);
 
 	if (tags === undefined) return [];
+	const schema = z.object({
+		tags: z.array(
+			z.object({
+				slug: z.string(),
+			})
+		),
+	});
 
-	await asyncIterator(tags.tags, async (tag) => {
+	const parsed = schema.parse(tags);
+
+	await asyncIterator(parsed.tags, async (tag) => {
 		const url = `https://api.crazygames.com/v3/en_US/page/tagCategory/${tag.slug}`;
 		await fetchPage(log, results, url);
 	});
