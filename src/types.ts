@@ -12,3 +12,7 @@ export type Game = {
 export type GameMap = Map<NameType, UrlType>;
 
 export type SiteFunction = () => Promise<Game[]>;
+
+export type Entries<T> = {
+	[K in keyof T]: [K, T[K]];
+}[keyof T][];

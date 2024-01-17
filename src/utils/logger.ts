@@ -3,11 +3,10 @@ import { inspect } from "node:util";
 
 import { LOG_LOCATION } from "@config";
 
-import { validateDirectory } from "./filesystem";
-
+import { getFilename, validateDirectory } from ".";
 import { formatTime } from ".";
 
-import type { WriteStream } from "node:fs";
+import type { Dirent, WriteStream } from "node:fs";
 
 export type Logger = {
 	prefix: string;
@@ -22,7 +21,6 @@ export type Logger = {
 export class MainLogger implements Logger {
 	public readonly prefix: string;
 
-	public static readonly allSiteNames: string[] = [];
 	public static logFileStream: WriteStream;
 
 	public static readonly resultLengths = new Map<string, number>();
@@ -33,21 +31,12 @@ export class MainLogger implements Logger {
 
 	public constructor(prefix: string) {
 		this.prefix = prefix;
-		MainLogger.allSiteNames.push(prefix);
 	}
 
 	public static initLogger(): void {
 		validateDirectory(LOG_LOCATION);
 		const files = readdirSync(LOG_LOCATION, { withFileTypes: true })
-			.filter(
-				(item) =>
-					item.isFile() &&
-					Date.now() -
-						new Date(
-							item.name.split(".").slice(0, -1).join("")
-						).valueOf() >=
-						8.64e8
-			)
+			.filter((item) => this.shouldDeleteLogFile(item))
 			.map((file) => LOG_LOCATION + "/" + file.name);
 
 		for (const file of files) rmSync(file);
@@ -55,6 +44,17 @@ export class MainLogger implements Logger {
 		MainLogger.logFileStream = createWriteStream(
 			`${LOG_LOCATION}/${new Date().toDateString()}.log`
 		);
+	}
+
+	private static shouldDeleteLogFile(item: Dirent): boolean {
+		return (
+			item.isFile() &&
+			this.getDateDifference(getFilename(item.name)) >= 8.64e8
+		);
+	}
+
+	private static getDateDifference(dateStr: string): number {
+		return Date.now() - new Date(dateStr).valueOf();
 	}
 
 	private log(

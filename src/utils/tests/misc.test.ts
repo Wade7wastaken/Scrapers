@@ -8,6 +8,7 @@ import { describe, expect, it } from "vitest";
 
 describe("various miscellaneous functions", () => {
 	it("sorts an array of games", () => {
+		expect.hasAssertions();
 		expect(
 			[
 				{ name: "def", urls: [], site: "" },
@@ -20,14 +21,17 @@ describe("various miscellaneous functions", () => {
 	});
 
 	it("capitalizes the first letter of a string.", () => {
+		expect.hasAssertions();
 		expect(capitalize("a string")).toBe("A string");
 	});
 
 	it("gets the contents of a regex", () => {
+		expect.hasAssertions();
 		expect(getRegexContents(/abcdefg/)).toBe("abcdefg");
 	});
 
 	it("removes all whitespace from a string", () => {
+		expect.hasAssertions();
 		expect(
 			removeAllWhitespace(`a string    with 	a lot 
 			of 			whitespace `)

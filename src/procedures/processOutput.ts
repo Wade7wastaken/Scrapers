@@ -3,7 +3,8 @@ import { dirname } from "node:path";
 
 import { OUTPUT_LOCATION } from "@config";
 import { emptyDirectory, validateDirectory } from "@utils/filesystem";
-import { MainLogger } from "@utils/logger";
+
+import { enabledSites } from "../siteToggle";
 
 import type { Game } from "@types";
 
@@ -13,6 +14,6 @@ export const processOutput = (games: Game[]): void => {
 	emptyDirectory(outputDir);
 	writeFileSync(
 		OUTPUT_LOCATION,
-		JSON.stringify({ games, sites: MainLogger.allSiteNames})
+		JSON.stringify({ games, sites: enabledSites })
 	);
 };

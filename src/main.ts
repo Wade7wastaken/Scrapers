@@ -27,8 +27,10 @@ import {
 
 /**
  * Utils contains small utility functions/classes that are typically used more
- * than once in site functions. Tools contains functions that are only called
- * once in init/takedown of the program.
+ * than once in site functions. Procedures contains functions that are only
+ * called once in init/takedown of the program. Segments are used in site
+ * programs and are also mostly used procedurally. Segments are the Procedures
+ * for site functions.
  */
 
 const main = async (): Promise<void> => {

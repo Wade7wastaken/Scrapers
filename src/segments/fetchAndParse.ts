@@ -9,7 +9,7 @@ export const fetchAndParse = async (
 	url: string
 ): Promise<CheerioAPI | undefined> => {
 	const response = await smartFetch<string>(log, url);
-	if (response === undefined) return;
+	if (response === undefined) return undefined;
 	const $ = load(response);
 	return $;
 };
