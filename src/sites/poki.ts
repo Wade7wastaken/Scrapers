@@ -13,7 +13,7 @@ const BASE_URL = "https://api.poki.com/search/query/3?q=";
 export const run: SiteFunction = async () => {
 	const { log, results } = init("Poki");
 
-	await asyncLoop(0, 10, 1, async (i) => {
+	await asyncLoop(0, 26, 1, async (i) => {
 		const letter = String.fromCodePoint(97 + i);
 
 		const url = BASE_URL + letter;
@@ -35,7 +35,7 @@ export const run: SiteFunction = async () => {
 		const parsed = schema.parse(response);
 
 		// we currently don't check if the location actually exists, but the
-		// poki seems stable enough
+		// poki api seems stable enough
 		for (const { title, slug: location } of parsed.games)
 			addGame(log, results, title, `https://poki.com/en/g/${location}`);
 	});

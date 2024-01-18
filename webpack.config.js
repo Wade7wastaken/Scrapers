@@ -16,6 +16,7 @@ const config = {
 		filename: "bundle.js",
 		module: true,
 		chunkFormat: "module",
+		clean: true,
 	},
 	module: {
 		rules: [
