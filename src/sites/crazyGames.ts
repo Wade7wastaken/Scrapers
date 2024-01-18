@@ -14,8 +14,8 @@ const MAX_PAGE_SIZE = 100;
 const fetchPage = async (
 	log: Logger,
 	results: GameMap,
-	page = 1
-): Promise<void> => {
+	page: number
+): Promise<boolean> => {
 	const response = await smartFetch<string>(
 		log,
 		"https://api.crazygames.com/v3/en_US/page/allGames",
@@ -25,7 +25,7 @@ const fetchPage = async (
 		}
 	);
 
-	if (response === undefined) return;
+	if (response === undefined) return false;
 
 	const schema = z.object({
 		games: z.object({
@@ -42,7 +42,7 @@ const fetchPage = async (
 		games: { items },
 	} = schema.parse(response);
 
-	if (items.length === 0) return;
+	if (items.length === 0) return false;
 
 	for (const { name, slug } of items) {
 		addGame(
@@ -54,13 +54,13 @@ const fetchPage = async (
 		);
 	}
 
-	await fetchPage(log, results, page + 1);
+	return true;
 };
 
 export const run: SiteFunction = async () => {
 	const { log, results } = init("CrazyGames");
 
-	await fetchPage(log, results);
+	for (let i = 1; ; i++) if (!(await fetchPage(log, results, i))) break;
 
 	return cleanUp(log, results);
 };
