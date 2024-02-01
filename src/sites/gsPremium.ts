@@ -1,5 +1,6 @@
 import type { SiteFunction } from "@types";
 
+import { fr } from "@googleSites/gsShared";
 import {
 	removeTest,
 	type EmbedMatchWithTest,
@@ -38,33 +39,7 @@ export const run: SiteFunction = async () => {
 
 export const matches: EmbedMatchWithTest[] = [
 	{
-		embedMatch: {
-			name: "fr",
-			segments: [
-				`<div id=`,
-				/^"?/,
-				`fr`,
-				/^"?/,
-				` data='<iframe width="100%" height="100%" src="`,
-				[regex.url],
-				`" frameborder="0" allowfullscreen></iframe>'>
-</div><button class="c-button" type="button" onclick="PlayTo(this)">`,
-				regex.alphaNumeric,
-				`</button>
-
-`,
-				regex.css,
-				`
-
-<script>
-function PlayTo(sel){
-  var div = sel.previousSibling;
-  div.innerHTML=div.getAttribute('data');
-  sel.style.display = "none";
-}
-</script>`,
-			],
-		},
+		embedMatch: fr,
 		test: {
 			data: `<div id=fr data='<iframe width="100%" height="100%" src="https://images-docs-opensocial.googleusercontent.com/gadgets/ifr?url=https://sites.google.com/site/drunkenduel/12minibattles.xml" frameborder="0" allowfullscreen></iframe>'>
 </div><button class="c-button" type="button" onclick="PlayTo(this)">CLICK TO PLAY NOW</button>
@@ -400,6 +375,236 @@ function PlayTo(button) {
 </body>
 </html>`,
 			result: [],
+		},
+	},
+	{
+		embedMatch: {
+			name: "unity",
+			segments: [
+				`<link rel="stylesheet" href="`,
+				regex.url,
+				`">
+<script src="`,
+				regex.url,
+				`"></script>
+    <script src="`,
+				regex.url,
+				`"></script>
+
+    <script type="text/javascript">
+      var gameInstance;
+      window.onload = function () {
+        let  bttn = document.createElement( "button" );
+        bttn.appendChild(document.createTextNode( "`,
+				regex.text,
+				`" ));
+        bttn.setAttribute('id', 'run_game');
+        bttn.style.display = 'none';
+        bttn.style.position = 'absolute';
+        document.body.appendChild(bttn);
+        bttn.style.display = 'block';
+        bttn.style.left = ((document.body.clientWidth - bttn.offsetWidth)/2) + 'px';
+        bttn.style.top = ((document.body.clientHeight - bttn.offsetHeight)/2) + 'px';
+        bttn.onclick = function () {
+          gameInstance = UnityLoader.instantiate("gameContainer", "`,
+				regex.url,
+				`", {onProgress: UnityProgress,Module:{onRuntimeInitialized: function() {UnityProgress(gameInstance, "complete")}}});
+          this.remove();
+        }
+      }
+    </script>
+    <div class="webgl-content">
+      <div id="gameContainer" style="width: 100%; height: 100%; margin: auto"></div>
+    </div>
+`,
+				regex.css,
+			],
+		},
+		test: {
+			data: `<link rel="stylesheet" href="https://sites.google.com/site/v113ks4k/style.css">
+    <script src="https://sites.google.com/site/v113ks4k/UnityProgress.js"></script>
+    <script src="https://sites.google.com/site/s016y7u/ducklife-3.js"></script>
+
+    <script type="text/javascript">
+      var gameInstance;
+      window.onload = function () {
+        let  bttn = document.createElement( "button" );
+        bttn.appendChild(document.createTextNode( "PLAY NOW" ));
+        bttn.setAttribute('id', 'run_game');
+        bttn.style.display = 'none';
+        bttn.style.position = 'absolute';
+        document.body.appendChild(bttn);
+        bttn.style.display = 'block';
+        bttn.style.left = ((document.body.clientWidth - bttn.offsetWidth)/2) + 'px';
+        bttn.style.top = ((document.body.clientHeight - bttn.offsetHeight)/2) + 'px';
+        bttn.onclick = function () {
+          gameInstance = UnityLoader.instantiate("gameContainer", "https://images-docs-opensocial.googleusercontent.com/gadgets/proxy?container=fbk&url=https://sites.google.com/site/s016y7u/ducklife-3.json", {onProgress: UnityProgress,Module:{onRuntimeInitialized: function() {UnityProgress(gameInstance, "complete")}}});
+          this.remove();
+        }
+      }
+    </script>
+    <div class="webgl-content">
+      <div id="gameContainer" style="width: 100%; height: 100%; margin: auto"></div>
+    </div>
+<style>
+button {
+  min-width: 100%;
+  font-family: fantasy;
+  appearance: none;
+  border: 1;
+  border-radius: 19px;
+  background: #000;
+  color: #fff;
+  padding: 18px 46px;
+  font-size: 42px;
+  cursor: pointer;
+}
+button:hover {
+  background: #411b73;
+}
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 0px #cbd6ee;
+} 
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+</style>`,
+			result: [],
+		},
+	},
+	{
+		embedMatch: {
+			name: "fullscreen",
+			segments: [
+				`<button class="c-button">`,
+				regex.text,
+				`</button>
+`,
+				regex.css,
+				`
+
+<script>
+var urlObj = new window.URL(window.location.href);
+var url = "`,
+				[regex.url],
+				`";
+
+if (url) {
+	var win;
+
+	document.querySelector('button').onclick = function() {
+		if (win) {
+			win.focus();
+		} else {
+			win = window.open();
+			win.document.body.style.margin = '0`,
+				/^( \d+%)?/,
+				`';
+			win.document.body.style.height = '100vh';
+			var iframe = win.document.createElement('iframe');
+			iframe.style.border = 'none';
+			iframe.style.width = '`,
+				regex.number,
+				`%';
+			iframe.style.height = '100%';
+			iframe.style.margin = '0';
+			iframe.src = url;
+			win.document.body.appendChild(iframe);
+			
+
+			var interval = setInterval(function() {
+				if (win.closed) {
+					clearInterval(interval);
+					win = undefined;
+
+				}
+			}, 500);
+
+
+		}
+	};
+}
+</script>`,
+			],
+		},
+
+		test: {
+			data: `<button class="c-button">PLAY FULLSCREEN</button>
+<style>
+.c-button {
+  min-width: 100%;
+  font-family: fantasy;
+  appearance: none;
+  border: 0;
+  border-radius: 5px;
+  background: #320d90;
+  color: #fff;
+  padding: 0px 46px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.c-button:hover {
+  background: #000000;
+}
+
+.c-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px #cbd6ee;
+}
+  
+ .c-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+</style>
+
+<script>
+        var urlObj = new window.URL(window.location.href);
+        var url = "https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/1ee20621-61bc-4ec8-a8ec-5e839c2e6edc%2Fragdoll-achievement.xml";
+
+        if (url) {
+            var win;
+
+            document.querySelector('button').onclick = function() {
+                if (win) {
+                    win.focus();
+                } else {
+                    win = window.open();
+                    win.document.body.style.margin = '0';
+                    win.document.body.style.height = '100vh';
+                    var iframe = win.document.createElement('iframe');
+                    iframe.style.border = 'none';
+                    iframe.style.width = '100%';
+                    iframe.style.height = '100%';
+                    iframe.style.margin = '0';
+                    iframe.src = url;
+                    win.document.body.appendChild(iframe);
+                    
+
+                    var interval = setInterval(function() {
+                        if (win.closed) {
+                            clearInterval(interval);
+                            win = undefined;
+
+                        }
+                    }, 500);
+
+
+                }
+            };
+        }
+    </script>`,
+			result: [
+				"https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/1ee20621-61bc-4ec8-a8ec-5e839c2e6edc%2Fragdoll-achievement.xml",
+			],
 		},
 	},
 ];

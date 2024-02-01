@@ -1,5 +1,6 @@
 import type { SiteFunction } from "@types";
 
+import { fr } from "@googleSites/gsShared";
 import {
 	removeTest,
 	type EmbedMatchWithTest,
@@ -27,26 +28,7 @@ export const run: SiteFunction = async () => {
 
 export const matches: EmbedMatchWithTest[] = [
 	{
-		embedMatch: {
-			name: "fr",
-			segments: [
-				`<div id=fr data='<iframe width="100%" height="100%" src="`,
-				[regex.url],
-				`" frameborder="0" allowfullscreen></iframe>'>
-</div><button class="c-button" type="button" onclick="PlayTo(this)">`,
-				regex.alphaNumeric,
-				`</button>`,
-				regex.css,
-				`
-<script>
-function PlayTo(sel){
-var div = sel.previousSibling;
-div.innerHTML=div.getAttribute('data');
-sel.style.display = "none";
-}
-</script>`,
-			],
-		},
+		embedMatch: fr,
 		test: {
 			data: `<div id=fr data='<iframe width="100%" height="100%" src="https://gg-opensocial.googleusercontent.com/gadgets/ifr?url=https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/1ee20621-61bc-4ec8-a8ec-5e839c2e6edc%2F1-on-1-basketball.xml" frameborder="0" allowfullscreen></iframe>'>
 </div><button class="c-button" type="button" onclick="PlayTo(this)">PLAY GAME</button>
