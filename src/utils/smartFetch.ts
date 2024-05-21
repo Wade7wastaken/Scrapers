@@ -118,7 +118,7 @@ export const exists = async (log: Logger, url: string): Promise<boolean> => {
 	await waitForNetwork(url);
 
 	try {
-		const response = await axios.head(url);
+		const response = await axios.head<unknown>(url);
 		// Check if the status code is in the 200-399 range, indicating a successful request.
 		const doesExist = response.status >= 200 && response.status < 400;
 
