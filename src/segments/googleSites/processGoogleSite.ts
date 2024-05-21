@@ -19,8 +19,10 @@ export const processGoogleSite = async (
 	IGNORED_GAMES: Set<string>,
 	matches: EmbedMatch[]
 ): Promise<void> => {
-	const $ = await fetchAndParse(log, mainPageLink);
-	if ($ === undefined) return;
+	const pageResult = await fetchAndParse(log, mainPageLink);
+
+	if (pageResult.isErr()) return;
+	const $ = pageResult.unwrap();
 
 	await asyncIterator($(SIDEBAR_SELECTOR).toArray(), async (e) => {
 		const elem = $(e);
@@ -30,8 +32,10 @@ export const processGoogleSite = async (
 
 		const gameUrl = `https://sites.google.com${elem.attr("href")}`;
 
-		const $2 = await fetchAndParse(log, gameUrl);
-		if ($2 === undefined) return;
+		const pageResult = await fetchAndParse(log, gameUrl);
+		if (pageResult.isErr()) return;
+
+		const $2 = pageResult.unwrap();
 
 		const embeds = $2(EMBED_SELECTOR);
 		if (embeds.length <= 0) log.warn(`No embeds on ${gameName}`);
