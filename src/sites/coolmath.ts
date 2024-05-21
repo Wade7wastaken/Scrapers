@@ -1,3 +1,4 @@
+import { Err, Ok, type Result } from "@thames/monads";
 import { z } from "zod";
 
 import type { SiteFunction } from "@types";
@@ -20,19 +21,15 @@ const findIframeUrl = async (
 	log: Logger,
 	url: string,
 	gameName: string
-): Promise<string | undefined> => {
-	const $ = await fetchAndParse(log, url);
-	if ($ === undefined) return undefined;
+): Promise<Result<string, string>> => {
+	const pageResult = await fetchAndParse(log, url);
 
-	const iframe = $("iframe");
-
-	const gameUrl = iframe.attr("src");
-	if (gameUrl === undefined) {
-		log.warn(`Couldn't find iframe on page ${gameName}`);
-		return undefined;
-	}
-
-	return gameUrl;
+	return pageResult.andThen(($) => {
+		const gameUrl = $("iframe").attr("src");
+		return gameUrl === undefined
+			? Err(`Couldn't find iframe on page ${gameName}`)
+			: Ok(gameUrl);
+	});
 };
 
 const findBestUrl = async (
@@ -52,7 +49,7 @@ const findBestUrl = async (
 	}
 
 	const iframeUrl = await findIframeUrl(log, pageUrl, title);
-	return iframeUrl === undefined ? [pageUrl] : [pageUrl, iframeUrl];
+	return iframeUrl.isErr() ? [pageUrl] : [pageUrl, iframeUrl.unwrap()];
 };
 
 export const run: SiteFunction = async () => {
