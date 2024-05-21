@@ -1,11 +1,14 @@
 import { inspect } from "node:util";
 
+import { Err, Ok } from "@thames/monads";
 import axios, { isAxiosError } from "axios";
 
 import { capitalize, sleep } from "./misc";
 
 import type { Logger } from "./logger";
+import type { Result } from "@thames/monads";
 import type { AxiosRequestConfig } from "axios";
+import type { ZodSchema, z } from "zod";
 
 import {
 	MAX_RETRIES,
@@ -46,24 +49,25 @@ const waitForNetwork = async (url: string): Promise<void> => {
 };
 
 // a wrapper of the main fetch function to allow for retries
-const fetchWrapper = async <T>(
+const fetchWrapper = async <T extends ZodSchema>(
 	log: Logger,
 	url: string,
 	options: AxiosRequestConfig,
+	expectedType: T,
 	retry = 0
-): Promise<T | undefined> => {
+): Promise<Result<z.infer<T>, string>> => {
 	const requestName = `request to ${url} with options ${inspect(options)}`;
 
-	if (retry >= MAX_RETRIES) {
-		log.error(`${capitalize(requestName)} failed after ${retry} attempts.`);
-		return undefined;
-	}
+	if (retry >= MAX_RETRIES)
+		return Err(
+			`${capitalize(requestName)} failed after ${retry} attempts.`
+		);
 
 	try {
-		const response = await axios.get<undefined>(url, options);
-		return response.data;
+		const response = await axios.get<unknown>(url, options);
+		return Ok(expectedType.parse(response.data));
 	} catch (error) {
-		if (!isAxiosError<T>(error)) throw error;
+		if (!isAxiosError(error)) throw error;
 
 		const retryDelay = getRetryMS(retry);
 
@@ -71,12 +75,10 @@ const fetchWrapper = async <T>(
 		if (
 			error.response &&
 			NO_RETRY_HTTP_CODES.includes(error.response.status)
-		) {
-			log.error(
+		)
+			return Err(
 				`Unretriable HTTP code returned on request to ${requestName}: ${error.response.status}`
 			);
-			return undefined;
-		}
 
 		log.warn(
 			`Retriable error on request to ${requestName}. Retrying in ${retryDelay}ms. Error details:`
@@ -85,26 +87,26 @@ const fetchWrapper = async <T>(
 
 		await sleep(retryDelay);
 
-		return fetchWrapper(log, url, options, retry + 1);
+		return fetchWrapper(log, url, options, expectedType, retry + 1);
 	}
 };
 
-export const smartFetch = async <T>(
+export const smartFetch = async <T extends ZodSchema>(
 	log: Logger,
 	url: string,
+	expectedType: T,
 	params?: Record<string, string | number>,
 	silent = false
-): Promise<T | undefined> => {
+): Promise<Result<z.infer<T>, string>> => {
 	await waitForNetwork(url);
 
 	log.info(`Request started: ${url}`);
 
-	const response = await fetchWrapper<T>(log, url, { params });
+	const response = await fetchWrapper<T>(log, url, { params }, expectedType);
 
 	// use silent if you want to make your own error message
-	if (!silent && response === undefined) log.warn(`Request to ${url} failed`);
-
-	log.info(`Request to ${url} succeeded`);
+	if (!silent && response.isErr()) log.warn(`Request to ${url} failed`);
+	else log.info(`Request to ${url} succeeded`);
 
 	return response;
 };
