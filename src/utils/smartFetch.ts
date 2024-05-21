@@ -65,7 +65,10 @@ const fetchWrapper = async <T extends ZodSchema>(
 
 	try {
 		const response = await axios.get<unknown>(url, options);
-		return Ok(expectedType.parse(response.data));
+		const parseResult = expectedType.safeParse(response.data);
+		return parseResult.success
+			? Ok(parseResult.data)
+			: Err(parseResult.error.format()._errors.join("\r\n"));
 	} catch (error) {
 		if (!isAxiosError(error)) throw error;
 
