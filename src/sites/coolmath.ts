@@ -61,9 +61,6 @@ export const run: SiteFunction = async () => {
 	const jsonUrl =
 		"https://www.coolmathgames.com/sites/default/files/cmatgame_games_with_levels.json";
 
-	const response = await smartFetch<unknown>(log, jsonUrl);
-	if (response === undefined) return [];
-
 	const schema = z.object({
 		game: z.array(
 			z.object({
@@ -78,7 +75,14 @@ export const run: SiteFunction = async () => {
 		),
 	});
 
-	const games = schema.parse(response);
+	const fetchResult = await smartFetch(log, jsonUrl, schema);
+
+	if (fetchResult.isErr()) return [];
+
+	// should be safe but i haven't found a more elegant way yet
+	const games = fetchResult.unwrap();
+
+	// const games = schema.parse(response);
 
 	const nonFlashGames = games.game.filter((game) => game.type !== "flash");
 
