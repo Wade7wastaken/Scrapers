@@ -1,3 +1,5 @@
+import { Err } from "@thames/monads";
+
 import type { SiteFunction } from "@types";
 
 import { asyncIterator } from "@segments/asyncIterator";
@@ -27,7 +29,7 @@ export const run: SiteFunction = async () => {
 		"https://sites.google.com/site/populardoodlegames/"
 	);
 
-	if (pageResult.isErr()) return [];
+	if (pageResult.isErr()) return Err("");
 	const $ = pageResult.unwrap();
 
 	const selector = "a[data-level]";

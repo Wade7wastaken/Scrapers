@@ -10,6 +10,8 @@ import type { Game } from "@types";
 
 import * as sites from "@sites";
 
+export type SiteNames = keyof typeof sites;
+
 export const processSites = async (): Promise<
 	Record<keyof typeof sites, Game[]>
 > => {
