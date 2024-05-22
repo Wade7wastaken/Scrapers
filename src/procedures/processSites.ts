@@ -1,17 +1,30 @@
 import { enabledSites } from "../siteToggle";
-import { lowerCaseSort, objectEntriesTyped } from "../utils/misc";
+import {
+	lowerCaseSort,
+	objectEntriesTyped,
+	objectFromEntriesTyped,
+	promiseSettledResultToResult,
+} from "../utils/misc";
 
 import type { Game } from "@types";
 
 import * as sites from "@sites";
 
-export const processSites = async (): Promise<Game[]> => {
-	const sitePromises = objectEntriesTyped(sites)
-		.filter(([siteName]) => enabledSites.includes(siteName))
-		.map(([_, site]) => site.run());
+export const processSites = async (): Promise<
+	Record<keyof typeof sites, Game[]>
+> => {
+	const sitePromises = await Promise.allSettled(
+		objectEntriesTyped(sites)
+			.filter(([siteName, _]) => enabledSites.includes(siteName))
+			.map(
+				async ([siteName, site]) =>
+					[siteName, await site.run()] as const
+			)
+	);
 
-	const results = await Promise.all(sitePromises);
-
-	// [[1, 2], [3, 4]].flat(1) => [1, 2, 3, 4]
-	return results.flat().sort(lowerCaseSort);
+	return objectFromEntriesTyped(
+		sitePromises
+			.map((site) => promiseSettledResultToResult(site).unwrap())
+			.map((a) => [a[0], a[1].unwrap().sort(lowerCaseSort)] as const)
+	);
 };

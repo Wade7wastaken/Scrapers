@@ -1,6 +1,14 @@
-import type { Entries, Game } from "@types";
+import { inspect } from "node:util";
+
+import { Err, Ok, type Result } from "@thames/monads";
+
+import type { Game } from "@types";
 
 // one liner function that could be used anywhere
+
+export type Entries<T> = {
+	[K in keyof T]: [K, T[K]];
+}[keyof T][];
 
 export const sleep = (ms: number): Promise<void> =>
 	new Promise((r) => setTimeout(r, ms));
@@ -31,3 +39,27 @@ export const formatTime = (now: Date): string =>
 // https://stackoverflow.com/questions/60141960/typescript-key-value-relation-preserving-object-entries-type
 export const objectEntriesTyped = <T extends object>(obj: T): Entries<T> =>
 	Object.entries(obj) as Entries<T>;
+
+export const objectFromEntriesTyped = <
+	const T extends readonly (readonly [PropertyKey, unknown])[],
+>(
+	entries: T
+): { [K in T[number] as K[0]]: K[1] } => {
+	return Object.fromEntries(entries) as { [K in T[number] as K[0]]: K[1] };
+};
+
+export const awaitObjectPromises = async <T>(
+	obj: Record<string, Promise<T>>
+): Promise<Record<string, T>> =>
+	objectFromEntriesTyped(
+		await Promise.all(
+			objectEntriesTyped(obj).map(async ([k, v]) => [k, await v] as const)
+		)
+	);
+
+export const promiseSettledResultToResult = <T extends NonNullable<unknown>>(
+	promiseSettledResult: PromiseSettledResult<T>
+): Result<T, string> =>
+	promiseSettledResult.status === "fulfilled"
+		? Ok(promiseSettledResult.value)
+		: Err(inspect(promiseSettledResult.reason));
