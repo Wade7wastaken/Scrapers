@@ -74,7 +74,7 @@ export const run: SiteFunction = async () => {
 
 	const fetchResult = await smartFetch(log, jsonUrl, schema);
 
-	if (fetchResult.isErr()) return [];
+	if (fetchResult.isErr()) return Err(fetchResult.unwrapErr());
 
 	// should be safe but i haven't found a more elegant way yet
 	const games = fetchResult.unwrap();

@@ -1,3 +1,5 @@
+import { Ok, type Result } from "@thames/monads";
+
 import type { Game, GameMap } from "@types";
 import type { Logger } from "@utils/logger";
 
@@ -10,9 +12,12 @@ const processResults = (results: GameMap, site: string): Game[] =>
 		site,
 	}));
 
-export const cleanUp = (log: Logger, results: GameMap): Game[] => {
+export const cleanUp = (
+	log: Logger,
+	results: GameMap
+): Result<Game[], string> => {
 	log.info("DONE");
 	log.info(results);
 	resultStatistics.set(log.prefix, results.size);
-	return processResults(results, log.prefix);
+	return Ok(processResults(results, log.prefix));
 };
