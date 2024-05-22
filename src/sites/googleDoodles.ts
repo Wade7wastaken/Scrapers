@@ -1,3 +1,5 @@
+import { Err } from "@thames/monads";
+
 import type { SiteFunction } from "@types";
 
 import { asyncIterator } from "@segments/asyncIterator";
@@ -22,12 +24,13 @@ const IGNORED_GAMES = new Set([
 export const run: SiteFunction = async () => {
 	const { log, results } = init("Google Doodles");
 
-	const $ = await fetchAndParse(
+	const pageResult = await fetchAndParse(
 		log,
 		"https://sites.google.com/site/populardoodlegames/"
 	);
 
-	if ($ === undefined) return [];
+	if (pageResult.isErr()) return Err("");
+	const $ = pageResult.unwrap();
 
 	const selector = "a[data-level]";
 
@@ -37,9 +40,10 @@ export const run: SiteFunction = async () => {
 
 		if (IGNORED_GAMES.has(gameName)) return;
 
-		const $2 = await fetchAndParse(log, gameUrl);
+		const pageResult = await fetchAndParse(log, gameUrl);
 
-		if ($2 === undefined) return;
+		if (pageResult.isErr()) return;
+		const $2 = pageResult.unwrap();
 
 		const embed = $2(".w536ob")[0];
 

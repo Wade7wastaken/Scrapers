@@ -1,3 +1,4 @@
+import { Err, Ok, type Result } from "@thames/monads";
 import { z } from "zod";
 
 import type { SiteFunction } from "@types";
@@ -20,19 +21,15 @@ const findIframeUrl = async (
 	log: Logger,
 	url: string,
 	gameName: string
-): Promise<string | undefined> => {
-	const $ = await fetchAndParse(log, url);
-	if ($ === undefined) return undefined;
+): Promise<Result<string, string>> => {
+	const pageResult = await fetchAndParse(log, url);
 
-	const iframe = $("iframe");
-
-	const gameUrl = iframe.attr("src");
-	if (gameUrl === undefined) {
-		log.warn(`Couldn't find iframe on page ${gameName}`);
-		return undefined;
-	}
-
-	return gameUrl;
+	return pageResult.andThen(($) => {
+		const gameUrl = $("iframe").attr("src");
+		return gameUrl === undefined
+			? Err(`Couldn't find iframe on page ${gameName}`)
+			: Ok(gameUrl);
+	});
 };
 
 const findBestUrl = async (
@@ -52,7 +49,7 @@ const findBestUrl = async (
 	}
 
 	const iframeUrl = await findIframeUrl(log, pageUrl, title);
-	return iframeUrl === undefined ? [pageUrl] : [pageUrl, iframeUrl];
+	return iframeUrl.isErr() ? [pageUrl] : [pageUrl, iframeUrl.unwrap()];
 };
 
 export const run: SiteFunction = async () => {
@@ -60,9 +57,6 @@ export const run: SiteFunction = async () => {
 
 	const jsonUrl =
 		"https://www.coolmathgames.com/sites/default/files/cmatgame_games_with_levels.json";
-
-	const response = await smartFetch<unknown>(log, jsonUrl);
-	if (response === undefined) return [];
 
 	const schema = z.object({
 		game: z.array(
@@ -78,7 +72,14 @@ export const run: SiteFunction = async () => {
 		),
 	});
 
-	const games = schema.parse(response);
+	const fetchResult = await smartFetch(log, jsonUrl, schema);
+
+	if (fetchResult.isErr()) return Err(fetchResult.unwrapErr());
+
+	// should be safe but i haven't found a more elegant way yet
+	const games = fetchResult.unwrap();
+
+	// const games = schema.parse(response);
 
 	const nonFlashGames = games.game.filter((game) => game.type !== "flash");
 

@@ -18,10 +18,6 @@ export const run: SiteFunction = async () => {
 
 		const url = BASE_URL + letter;
 
-		const response = await smartFetch<unknown>(log, url);
-
-		if (response === undefined) return;
-
 		const schema = z.object({
 			games: z.array(
 				z.object({
@@ -32,7 +28,11 @@ export const run: SiteFunction = async () => {
 			),
 		});
 
-		const parsed = schema.parse(response);
+		const fetchResult = await smartFetch(log, url, schema);
+
+		if (fetchResult.isErr()) return;
+
+		const parsed = fetchResult.unwrap();
 
 		// we currently don't check if the location actually exists, but the
 		// poki seems stable enough

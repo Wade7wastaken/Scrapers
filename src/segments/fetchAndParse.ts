@@ -1,3 +1,4 @@
+import { Ok, type Result } from "@thames/monads";
 import { load } from "cheerio";
 import { z } from "zod";
 
@@ -9,12 +10,8 @@ import { smartFetch } from "@utils/smartFetch";
 export const fetchAndParse = async (
 	log: Logger,
 	url: string
-): Promise<CheerioAPI | undefined> => {
-	const response = await smartFetch<unknown>(log, url);
-	if (response === undefined) return undefined;
-
-	const parsed = z.string().parse(response);
-
-	const $ = load(parsed);
-	return $;
+): Promise<Result<CheerioAPI, string>> => {
+	const fetchResult = await smartFetch(log, url, z.string());
+	// im pretty sure cheerio.load doesn't throw anything
+	return fetchResult.andThen((page) => Ok(load(page)));
 };
