@@ -1,9 +1,8 @@
-import { MainLogger } from "../utils/logger";
 import { resultStatistics } from "../utils/resultStatistics";
 
-export const reportStats = (): void => {
-	const log = new MainLogger("Stats");
+import type { Logger } from "../utils/logger";
 
+export const reportStats = (log: Logger): void => {
 	for (const [site, size] of resultStatistics.entries())
 		log.info(`${site} had ${size} entries`);
 };

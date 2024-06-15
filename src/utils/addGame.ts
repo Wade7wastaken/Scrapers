@@ -8,5 +8,9 @@ export function addGame(
 	...gameUrls: UrlType
 ): void {
 	log.info(`Game added: ${gameName}: ${JSON.stringify(gameUrls)}`);
-	results.set(gameName, gameUrls);
+	if (results.has(gameName)) {
+		results.get(gameName)?.push(...gameUrls);
+	} else {
+		results.set(gameName, gameUrls);
+	}
 }

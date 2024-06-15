@@ -35,12 +35,12 @@ import {
  */
 
 const main = async (): Promise<void> => {
-	mainInit();
+	const log = mainInit();
 
-	const results = await processSites();
+	const results = await processSites(log);
 
 	processOutput(results);
-	reportStats();
+	reportStats(log);
 	mainCleanUp();
 
 	// this is here so i can view the final variables in VSCode.

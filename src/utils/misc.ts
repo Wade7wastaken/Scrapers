@@ -10,6 +10,9 @@ export type Entries<T> = {
 	[K in keyof T]: [K, T[K]];
 }[keyof T][];
 
+export const smartInspect = (data: unknown): string =>
+	typeof data === "string" ? data : inspect(data);
+
 export const sleep = (ms: number): Promise<void> =>
 	new Promise((r) => setTimeout(r, ms));
 
@@ -62,4 +65,4 @@ export const promiseSettledResultToResult = <T extends NonNullable<unknown>>(
 ): Result<T, string> =>
 	promiseSettledResult.status === "fulfilled"
 		? Ok(promiseSettledResult.value)
-		: Err(inspect(promiseSettledResult.reason));
+		: Err(smartInspect(promiseSettledResult.reason));

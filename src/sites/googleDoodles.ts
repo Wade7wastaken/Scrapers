@@ -1,4 +1,4 @@
-import { Err } from "@thames/monads";
+import { Err, Ok } from "@thames/monads";
 
 import type { SiteFunction } from "@types";
 
@@ -69,5 +69,5 @@ export const run: SiteFunction = async () => {
 		addGame(log, results, gameName, url);
 	});
 
-	return cleanUp(log, results);
+	return Ok(cleanUp(log, results));
 };

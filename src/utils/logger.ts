@@ -7,13 +7,14 @@ import type { Dirent, WriteStream } from "node:fs";
 
 import { LOG_LOCATION } from "@config";
 
-export type Logger = {
+// eslint-disable-next-line @typescript-eslint/consistent-type-definitions
+export interface Logger {
 	prefix: string;
 	info(m: unknown): void;
 	warn(m: unknown): void;
 	error(m: unknown): void;
 	setResultsLength(length: number): void;
-};
+}
 
 // Functions as a logger, but is also used as an identifier as to which site
 // function a call came from using the prefix member

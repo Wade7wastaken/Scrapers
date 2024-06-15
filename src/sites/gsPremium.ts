@@ -1,3 +1,5 @@
+import { Ok } from "@thames/monads";
+
 import type { SiteFunction } from "@types";
 
 import { fr } from "@googleSites/gsShared";
@@ -34,7 +36,7 @@ export const run: SiteFunction = async () => {
 		removeTest(matches)
 	);
 
-	return cleanUp(log, results);
+	return Ok(cleanUp(log, results));
 };
 
 export const matches: EmbedMatchWithTest[] = [

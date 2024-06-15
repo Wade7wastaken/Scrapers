@@ -1,4 +1,4 @@
-import { Err } from "@thames/monads";
+import { Err, Ok, isErr } from "@thames/monads";
 import { z } from "zod";
 
 import type { GameMap, SiteFunction } from "@types";
@@ -65,7 +65,7 @@ export const run: SiteFunction = async () => {
 
 	const fetchResult = await smartFetch(log, tagsUrl, schema);
 
-	if (fetchResult.isErr()) return Err("");
+	if (isErr(fetchResult)) return Err(fetchResult.unwrapErr());
 
 	const parsed = fetchResult.unwrap();
 
@@ -74,5 +74,5 @@ export const run: SiteFunction = async () => {
 		await fetchPage(log, results, url);
 	});
 
-	return cleanUp(log, results);
+	return Ok(cleanUp(log, results));
 };

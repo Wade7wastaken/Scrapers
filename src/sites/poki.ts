@@ -1,3 +1,4 @@
+import { Ok } from "@thames/monads";
 import { z } from "zod";
 
 import type { SiteFunction } from "@types";
@@ -30,7 +31,12 @@ export const run: SiteFunction = async () => {
 
 		const fetchResult = await smartFetch(log, url, schema);
 
-		if (fetchResult.isErr()) return;
+		if (fetchResult.isErr()) {
+			log.warn(
+				`Error fetching data in iteration ${i} of Poki: ${fetchResult.unwrapErr()}`
+			);
+			return;
+		}
 
 		const parsed = fetchResult.unwrap();
 
@@ -40,5 +46,5 @@ export const run: SiteFunction = async () => {
 			addGame(log, results, title, `https://poki.com/en/g/${location}`);
 	});
 
-	return cleanUp(log, results);
+	return Ok(cleanUp(log, results));
 };

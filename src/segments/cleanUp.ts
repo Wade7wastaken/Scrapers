@@ -1,5 +1,3 @@
-import { Ok, type Result } from "@thames/monads";
-
 import type { Game, GameMap } from "@types";
 import type { Logger } from "@utils/logger";
 
@@ -12,12 +10,11 @@ const processResults = (results: GameMap, site: string): Game[] =>
 		site,
 	}));
 
-export const cleanUp = (
-	log: Logger,
-	results: GameMap
-): Result<Game[], string> => {
+// ik its weird to return a Result here, but this function is called after
+// everything is done in a site function, signaling a success
+export const cleanUp = (log: Logger, results: GameMap): Game[] => {
 	log.info("DONE");
 	log.info(results);
 	resultStatistics.set(log.prefix, results.size);
-	return Ok(processResults(results, log.prefix));
+	return processResults(results, log.prefix);
 };
