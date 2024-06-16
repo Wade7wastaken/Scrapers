@@ -5,7 +5,7 @@ import axios, { isAxiosError } from "axios";
 
 import { capitalize, sleep } from "./misc";
 
-import type { Logger } from "./logger";
+import type { Context } from "./logger";
 import type { Result } from "@thames/monads";
 import type { AxiosRequestConfig } from "axios";
 import type { ZodSchema, z } from "zod";
@@ -28,7 +28,8 @@ export const getDomain = (url: string): string => {
 };
 
 // how long to wait given how many retries there have been
-export const getRetryMS = (retries: number): number => 2 ** (retries + 1) * 1000;
+export const getRetryMS = (retries: number): number =>
+	2 ** (retries + 1) * 1000;
 
 // waits until there has been at least REQUEST_DELAY_MS milliseconds between the
 // last request to the same domain name
@@ -50,7 +51,7 @@ const waitForNetwork = async (url: string): Promise<void> => {
 
 // a wrapper of the main fetch function to allow for retries
 const fetchWrapper = async <T extends ZodSchema>(
-	log: Logger,
+	ctx: Context,
 	url: string,
 	options: AxiosRequestConfig,
 	expectedType: T,
@@ -83,19 +84,19 @@ const fetchWrapper = async <T extends ZodSchema>(
 				`Unretriable HTTP code returned on request to ${requestName}: ${error.response.status}`
 			);
 
-		log.warn(
+		ctx.warn(
 			`Retriable error on request to ${requestName}. Retrying in ${retryDelay}ms. Error details:`
 		);
-		log.warn(error);
+		ctx.warn(error);
 
 		await sleep(retryDelay);
 
-		return fetchWrapper(log, url, options, expectedType, retry + 1);
+		return fetchWrapper(ctx, url, options, expectedType, retry + 1);
 	}
 };
 
 export const smartFetch = async <T extends ZodSchema>(
-	log: Logger,
+	ctx: Context,
 	url: string,
 	expectedType: T,
 	params?: Record<string, string | number>,
@@ -103,18 +104,18 @@ export const smartFetch = async <T extends ZodSchema>(
 ): Promise<Result<z.infer<T>, string>> => {
 	await waitForNetwork(url);
 
-	log.info(`Request started: ${url}`);
+	ctx.info(`Request started: ${url}`);
 
-	const response = await fetchWrapper<T>(log, url, { params }, expectedType);
+	const response = await fetchWrapper<T>(ctx, url, { params }, expectedType);
 
 	// use silent if you want to make your own error message
-	if (!silent && response.isErr()) log.warn(`Request to ${url} failed`);
-	else log.info(`Request to ${url} succeeded`);
+	if (!silent && response.isErr()) ctx.warn(`Request to ${url} failed`);
+	else ctx.info(`Request to ${url} succeeded`);
 
 	return response;
 };
 
-export const exists = async (log: Logger, url: string): Promise<boolean> => {
+export const exists = async (ctx: Context, url: string): Promise<boolean> => {
 	await waitForNetwork(url);
 
 	try {
@@ -122,16 +123,16 @@ export const exists = async (log: Logger, url: string): Promise<boolean> => {
 		// Check if the status code is in the 200-399 range, indicating a successful request.
 		const doesExist = response.status >= 200 && response.status < 400;
 
-		if (doesExist) log.info(`${url} exists: returned ${response.status}`);
-		else log.warn(`${url} doesn't exist: returned ${response.status}`);
+		if (doesExist) ctx.info(`${url} exists: returned ${response.status}`);
+		else ctx.warn(`${url} doesn't exist: returned ${response.status}`);
 
 		return doesExist;
 	} catch (error) {
 		if (!isAxiosError(error)) throw error;
 
 		// Axios will throw an error for non-2xx status codes.
-		log.error(`Axios error when checking if ${url} exists. Error details:`);
-		log.error(error);
+		ctx.error(`Axios error when checking if ${url} exists. Error details:`);
+		ctx.error(error);
 		return false;
 	}
 };

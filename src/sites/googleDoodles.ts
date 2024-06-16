@@ -22,10 +22,10 @@ const IGNORED_GAMES = new Set([
 ]);
 
 export const run: SiteFunction = async () => {
-	const { log, results } = init("Google Doodles");
+	const { ctx, results } = init("Google Doodles");
 
 	const pageResult = await fetchAndParse(
-		log,
+		ctx,
 		"https://sites.google.com/site/populardoodlegames/"
 	);
 
@@ -40,7 +40,7 @@ export const run: SiteFunction = async () => {
 
 		if (IGNORED_GAMES.has(gameName)) return;
 
-		const pageResult = await fetchAndParse(log, gameUrl);
+		const pageResult = await fetchAndParse(ctx, gameUrl);
 
 		if (pageResult.isErr()) return;
 		const $2 = pageResult.unwrap();
@@ -48,26 +48,26 @@ export const run: SiteFunction = async () => {
 		const embed = $2(".w536ob")[0];
 
 		if (embed === undefined) {
-			log.warn(`Couldn't find an embed for ${gameName}`);
+			ctx.warn(`Couldn't find an embed for ${gameName}`);
 			return;
 		}
 
 		if (embed.attribs["data-code"]) {
-			log.warn(`Page ${gameName} has data-code attribute. Skipping...`);
+			ctx.warn(`Page ${gameName} has data-code attribute. Skipping...`);
 			return;
 		}
 
 		const url = embed.attribs["data-url"];
 
 		if (url === undefined) {
-			log.error(
+			ctx.error(
 				`Couldn't find data-url on page ${gameName}. Skipping...`
 			);
 			return;
 		}
 
-		addGame(log, results, gameName, url);
+		addGame(ctx, results, gameName, url);
 	});
 
-	return Ok(cleanUp(log, results));
+	return Ok(cleanUp(ctx, results));
 };

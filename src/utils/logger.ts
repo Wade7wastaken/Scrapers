@@ -1,15 +1,14 @@
-import { createWriteStream, readdirSync, rmSync } from "node:fs";
-import { inspect } from "node:util";
+import { createWriteStream } from "node:fs";
 
-import { getFilename, validateDirectory, formatTime } from ".";
+import { formatTime, smartInspect } from ".";
 
-import type { Dirent, WriteStream } from "node:fs";
+import type { WriteStream } from "node:fs";
 
 import { LOG_LOCATION } from "@config";
 
 // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
-export interface Logger {
-	prefix: string;
+export interface Context {
+	name: string;
 	info(m: unknown): void;
 	warn(m: unknown): void;
 	error(m: unknown): void;
@@ -18,43 +17,17 @@ export interface Logger {
 
 // Functions as a logger, but is also used as an identifier as to which site
 // function a call came from using the prefix member
-export class MainLogger implements Logger {
-	public readonly prefix: string;
-
+export class MainContext implements Context {
 	public static logFileStream: WriteStream;
 
 	public static readonly resultLengths = new Map<string, number>();
 
-	private static prepareLogLine(line: unknown): string {
-		return typeof line === "string" ? line : inspect(line);
-	}
-
-	public constructor(prefix: string) {
-		this.prefix = prefix;
-	}
+	public constructor(public readonly name: string) {}
 
 	public static initLogger(): void {
-		validateDirectory(LOG_LOCATION);
-		const files = readdirSync(LOG_LOCATION, { withFileTypes: true })
-			.filter((item) => this.shouldDeleteLogFile(item))
-			.map((file) => LOG_LOCATION + "/" + file.name);
-
-		for (const file of files) rmSync(file);
-
-		MainLogger.logFileStream = createWriteStream(
-			`${LOG_LOCATION}/${new Date().toDateString()}.log`
+		MainContext.logFileStream = createWriteStream(
+			`${LOG_LOCATION}/${new Date().toLocaleString()}.log`
 		);
-	}
-
-	private static shouldDeleteLogFile(item: Dirent): boolean {
-		return (
-			item.isFile() &&
-			this.getDateDifference(getFilename(item.name)) >= 8.64e8
-		);
-	}
-
-	private static getDateDifference(dateStr: string): number {
-		return Date.now() - new Date(dateStr).valueOf();
 	}
 
 	private log(
@@ -62,12 +35,12 @@ export class MainLogger implements Logger {
 		logLevel: string,
 		consoleLogLevel: "log" | "warn" | "error"
 	): void {
-		console[consoleLogLevel](`${this.prefix}:`, m);
+		console[consoleLogLevel](`${this.name}:`, m);
 
-		MainLogger.logFileStream.write(
+		MainContext.logFileStream.write(
 			`[${logLevel.toUpperCase()}] [${formatTime(new Date())}] ${
-				this.prefix
-			}: ${MainLogger.prepareLogLine(m)}\n`
+				this.name
+			}: ${smartInspect(m)}\n`
 		);
 	}
 
@@ -84,16 +57,16 @@ export class MainLogger implements Logger {
 	}
 
 	public setResultsLength(length: number): void {
-		MainLogger.resultLengths.set(this.prefix, length);
+		MainContext.resultLengths.set(this.name, length);
 	}
 
 	public static closeFileStream(): void {
-		MainLogger.logFileStream.close();
+		MainContext.logFileStream.close();
 	}
 }
 
-export class TestLogger implements Logger {
-	public prefix = "Test Logger";
+export class TestLogger implements Context {
+	public name = "Test Logger";
 
 	public info(m: unknown): void {
 		console.log(m);

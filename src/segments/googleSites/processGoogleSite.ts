@@ -4,7 +4,7 @@ import { fetchAndParse } from "../fetchAndParse";
 import { processDataCode, type EmbedMatch } from "./processDataCode";
 
 import type { GameMap } from "@types";
-import type { Logger } from "@utils/logger";
+import type { Context } from "@utils/logger";
 
 import { addGame } from "@utils/addGame";
 import { removeDuplicates } from "@utils/misc";
@@ -13,13 +13,13 @@ const SIDEBAR_SELECTOR = "a[data-level]";
 const EMBED_SELECTOR = ".w536ob";
 
 export const processGoogleSite = async (
-	log: Logger,
+	ctx: Context,
 	results: GameMap,
 	mainPageLink: string,
 	IGNORED_GAMES: Set<string>,
 	matches: EmbedMatch[]
 ): Promise<void> => {
-	const pageResult = await fetchAndParse(log, mainPageLink);
+	const pageResult = await fetchAndParse(ctx, mainPageLink);
 
 	if (pageResult.isErr()) return;
 	const $ = pageResult.unwrap();
@@ -32,13 +32,13 @@ export const processGoogleSite = async (
 
 		const gameUrl = `https://sites.google.com${elem.attr("href")}`;
 
-		const pageResult = await fetchAndParse(log, gameUrl);
+		const pageResult = await fetchAndParse(ctx, gameUrl);
 		if (pageResult.isErr()) return;
 
 		const $2 = pageResult.unwrap();
 
 		const embeds = $2(EMBED_SELECTOR);
-		if (embeds.length <= 0) log.warn(`No embeds on ${gameName}`);
+		if (embeds.length <= 0) ctx.warn(`No embeds on ${gameName}`);
 
 		const links = embeds.toArray().flatMap((e, i): string[] => {
 			const embed = $2(e);
@@ -47,17 +47,17 @@ export const processGoogleSite = async (
 			const dataCode = embed.attr("data-code");
 
 			if (dataUrl === undefined) {
-				log.warn(`Embed ${i + 1} on ${gameName} doesn't have data-url`);
+				ctx.warn(`Embed ${i + 1} on ${gameName} doesn't have data-url`);
 				return [];
 			}
 
 			return dataCode === undefined
 				? [dataUrl]
-				: processDataCode(log, dataCode, i, gameName, matches);
+				: processDataCode(ctx, dataCode, i, gameName, matches);
 		});
 
 		links.unshift(gameUrl);
 
-		addGame(log, results, gameName, ...removeDuplicates(links));
+		addGame(ctx, results, gameName, ...removeDuplicates(links));
 	});
 };

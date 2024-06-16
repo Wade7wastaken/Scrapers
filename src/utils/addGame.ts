@@ -1,13 +1,13 @@
 import type { GameMap, NameType, UrlType } from "@types";
-import type { Logger } from "@utils";
+import type { Context } from "@utils";
 
 export function addGame(
-	log: Logger,
+	ctx: Context,
 	results: GameMap,
 	gameName: NameType,
 	...gameUrls: UrlType
 ): void {
-	log.info(`Game added: ${gameName}: ${JSON.stringify(gameUrls)}`);
+	ctx.info(`Game added: ${gameName}: ${JSON.stringify(gameUrls)}`);
 	if (results.has(gameName)) {
 		results.get(gameName)?.push(...gameUrls);
 	} else {

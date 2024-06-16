@@ -26,17 +26,17 @@ const IGNORED_GAMES = new Set([
 ]);
 
 export const run: SiteFunction = async () => {
-	const { log, results } = init("Unblocked Premium");
+	const { ctx, results } = init("Unblocked Premium");
 
 	await processGoogleSite(
-		log,
+		ctx,
 		results,
 		"https://sites.google.com/view/games-unblockedd/",
 		IGNORED_GAMES,
 		removeTest(matches)
 	);
 
-	return Ok(cleanUp(log, results));
+	return Ok(cleanUp(ctx, results));
 };
 
 export const matches: EmbedMatchWithTest[] = [

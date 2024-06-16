@@ -12,7 +12,7 @@ import { smartFetch } from "@utils/smartFetch";
 const BASE_URL = "https://api.poki.com/search/query/3?q=";
 
 export const run: SiteFunction = async () => {
-	const { log, results } = init("Poki");
+	const { ctx, results } = init("Poki");
 
 	await asyncLoop(0, 10, 1, async (i) => {
 		const letter = String.fromCodePoint(97 + i);
@@ -29,10 +29,10 @@ export const run: SiteFunction = async () => {
 			),
 		});
 
-		const fetchResult = await smartFetch(log, url, schema);
+		const fetchResult = await smartFetch(ctx, url, schema);
 
 		if (fetchResult.isErr()) {
-			log.warn(
+			ctx.warn(
 				`Error fetching data in iteration ${i} of Poki: ${fetchResult.unwrapErr()}`
 			);
 			return;
@@ -43,8 +43,8 @@ export const run: SiteFunction = async () => {
 		// we currently don't check if the location actually exists, but the
 		// poki seems stable enough
 		for (const { title, slug: location } of parsed.games)
-			addGame(log, results, title, `https://poki.com/en/g/${location}`);
+			addGame(ctx, results, title, `https://poki.com/en/g/${location}`);
 	});
 
-	return Ok(cleanUp(log, results));
+	return Ok(cleanUp(ctx, results));
 };

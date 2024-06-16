@@ -2,7 +2,7 @@ import { Err, Ok, isErr } from "@thames/monads";
 import { z } from "zod";
 
 import type { GameMap, SiteFunction } from "@types";
-import type { Logger } from "@utils/logger";
+import type { Context } from "@utils/logger";
 
 import { asyncIterator } from "@segments/asyncIterator";
 import { cleanUp } from "@segments/cleanUp";
@@ -14,7 +14,7 @@ import { smartFetch } from "@utils/smartFetch";
 const MAX_PAGE_SIZE = 100;
 
 const fetchPage = async (
-	log: Logger,
+	ctx: Context,
 	results: GameMap,
 	fetchUrl: string,
 	page = 1
@@ -33,7 +33,7 @@ const fetchPage = async (
 		}),
 	});
 
-	const fetchResult = await smartFetch(log, fetchUrl, schema, {
+	const fetchResult = await smartFetch(ctx, fetchUrl, schema, {
 		paginationPage: page,
 		paginationSize: MAX_PAGE_SIZE,
 	});
@@ -47,11 +47,11 @@ const fetchPage = async (
 	if (items.length === 0) return;
 
 	for (const { name, slug } of items)
-		addGame(log, results, name, `https://www.crazygames.com/game/${slug}`);
+		addGame(ctx, results, name, `https://www.crazygames.com/game/${slug}`);
 };
 
 export const run: SiteFunction = async () => {
-	const { log, results } = init("CrazyGames");
+	const { ctx, results } = init("CrazyGames");
 
 	const tagsUrl = "https://api.crazygames.com/v3/en_US/page/tags";
 
@@ -63,7 +63,7 @@ export const run: SiteFunction = async () => {
 		),
 	});
 
-	const fetchResult = await smartFetch(log, tagsUrl, schema);
+	const fetchResult = await smartFetch(ctx, tagsUrl, schema);
 
 	if (isErr(fetchResult)) return Err(fetchResult.unwrapErr());
 
@@ -71,8 +71,8 @@ export const run: SiteFunction = async () => {
 
 	await asyncIterator(parsed.tags, async (tag) => {
 		const url = `https://api.crazygames.com/v3/en_US/page/tagCategory/${tag.slug}`;
-		await fetchPage(log, results, url);
+		await fetchPage(ctx, results, url);
 	});
 
-	return Ok(cleanUp(log, results));
+	return Ok(cleanUp(ctx, results));
 };

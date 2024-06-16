@@ -1,6 +1,6 @@
-import { MainLogger } from "@utils/logger";
+import { MainContext } from "@utils/logger";
 
 export const mainCleanUp = (): void => {
 	// anything after this can't use the logger
-	MainLogger.logFileStream.close();
+	MainContext.logFileStream.close();
 };

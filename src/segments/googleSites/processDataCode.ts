@@ -1,4 +1,4 @@
-import type { Logger } from "@utils/logger";
+import type { Context } from "@utils/logger";
 
 import { capitalize, removeAllWhitespace, removeDuplicates } from "@utils/misc";
 import { ResultList } from "@utils/resultList";
@@ -28,7 +28,7 @@ export const removeTest = (matches: EmbedMatchWithTest[]): EmbedMatch[] =>
 	matches.map((match) => match.embedMatch);
 
 export const runMatch = (
-	log: Logger,
+	ctx: Context,
 	embed: string,
 	embedIndex: number,
 	embedMatch: EmbedMatch,
@@ -42,7 +42,7 @@ export const runMatch = (
 		wanted?: string,
 		got?: string
 	): EmbedMatchResult => {
-		log.info(
+		ctx.info(
 			`${capitalize(
 				location
 			)} didn't match. ${matchLocation}, segment: ${index}${
@@ -91,7 +91,7 @@ export const runMatch = (
 	}
 
 	// we haven't returned in the loop, so there is a match
-	log.info(`Match found! ${matchLocation}`);
+	ctx.info(`Match found! ${matchLocation}`);
 
 	return {
 		matched: true,
@@ -100,7 +100,7 @@ export const runMatch = (
 };
 
 export const processDataCode = (
-	log: Logger,
+	ctx: Context,
 	embed: string,
 	embedIndex: number,
 	gameName: string,
@@ -110,7 +110,7 @@ export const processDataCode = (
 
 	for (const matchCase of matches) {
 		const testCaseResult = runMatch(
-			log,
+			ctx,
 			trimmedEmbed,
 			embedIndex,
 			matchCase,
@@ -120,7 +120,7 @@ export const processDataCode = (
 		if (testCaseResult.matched) return testCaseResult.urls ?? [];
 	}
 
-	log.warn(
+	ctx.warn(
 		`Couldn't find a match on embed number ${embedIndex} on ${gameName}. Embed: ${embed}`
 	);
 	return [];

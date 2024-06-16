@@ -1,6 +1,6 @@
-import { MainLogger, type Logger } from "../utils/logger";
+import { MainContext, type Context } from "../utils/logger";
 
-export const mainInit = (): Logger => {
-	MainLogger.initLogger();
-	return new MainLogger("System");
+export const mainInit = (): Context => {
+	MainContext.initLogger();
+	return new MainContext("System");
 };

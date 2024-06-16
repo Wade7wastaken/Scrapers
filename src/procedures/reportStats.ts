@@ -1,8 +1,8 @@
 import { resultStatistics } from "../utils/resultStatistics";
 
-import type { Logger } from "../utils/logger";
+import type { Context } from "../utils/logger";
 
-export const reportStats = (log: Logger): void => {
+export const reportStats = (ctx: Context): void => {
 	for (const [site, size] of resultStatistics.entries())
-		log.info(`${site} had ${size} entries`);
+		ctx.info(`${site} had ${size} entries`);
 };

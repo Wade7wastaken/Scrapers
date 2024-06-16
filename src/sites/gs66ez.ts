@@ -15,17 +15,17 @@ import { regex } from "@utils/regex";
 const IGNORED_GAMES = new Set(["All Unblocked Games 66 EZ", "Feedback"]);
 
 export const run: SiteFunction = async () => {
-	const { log, results } = init("UnblockedGames66");
+	const { ctx, results } = init("UnblockedGames66");
 
 	await processGoogleSite(
-		log,
+		ctx,
 		results,
 		"https://sites.google.com/site/unblockedgames66ez/",
 		IGNORED_GAMES,
 		removeTest(matches)
 	);
 
-	return Ok(cleanUp(log, results));
+	return Ok(cleanUp(ctx, results));
 };
 
 export const matches: EmbedMatchWithTest[] = [

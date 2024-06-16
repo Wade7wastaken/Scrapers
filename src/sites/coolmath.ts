@@ -34,9 +34,9 @@ const SUBDOMAINS = [
 ];
 
 export const run: SiteFunction = async () => {
-	const { log, results } = init("Coolmath Games");
+	const { ctx, results } = init("Coolmath Games");
 
-	const fetchResult = await smartFetch(log, JSON_URL, SCHEMA);
+	const fetchResult = await smartFetch(ctx, JSON_URL, SCHEMA);
 
 	return fetchResult.map((games) => {
 		const nonFlashGames = games.game.filter(
@@ -46,9 +46,9 @@ export const run: SiteFunction = async () => {
 		for (const game of nonFlashGames) {
 			for (const subdomain of SUBDOMAINS) {
 				const gamePage = `https://${subdomain}.coolmathgames.com/0-${game.alias}`;
-				addGame(log, results, game.title, gamePage, gamePage + "/play");
+				addGame(ctx, results, game.title, gamePage, gamePage + "/play");
 			}
 		}
-		return cleanUp(log, results);
+		return cleanUp(ctx, results);
 	});
 };

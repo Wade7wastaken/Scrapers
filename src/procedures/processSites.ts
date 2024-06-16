@@ -8,14 +8,14 @@ import {
 
 import type { Result } from "@thames/monads";
 import type { Game } from "@types";
-import type { Logger } from "@utils/index";
+import type { Context } from "@utils/index";
 
 import * as sites from "@sites";
 
 export type SiteNames = keyof typeof sites;
 
 const processSite = (
-	log: Logger,
+	ctx: Context,
 	name: SiteNames,
 	games: Result<Game[], string>
 ): [SiteNames, Game[]] => [
@@ -24,7 +24,7 @@ const processSite = (
 		.match({
 			ok: (val) => val,
 			err(err) {
-				log.error(`Error processing site ${name}: ${err}`);
+				ctx.error(`Error processing site ${name}: ${err}`);
 				return [];
 			},
 		})
@@ -32,7 +32,7 @@ const processSite = (
 ];
 
 export const processSites = async (
-	log: Logger
+	ctx: Context
 ): Promise<Record<SiteNames, Game[]>> => {
 	const sitePromises = await Promise.allSettled(
 		objectEntriesTyped(sites)
@@ -47,6 +47,6 @@ export const processSites = async (
 	return objectFromEntriesTyped(
 		sitePromises
 			.map((site) => promiseSettledResultToResult(site).unwrap())
-			.map((a) => processSite(log, ...a))
+			.map((a) => processSite(ctx, ...a))
 	);
 };
