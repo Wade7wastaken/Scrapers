@@ -1,5 +1,5 @@
 import { writeFileSync } from "node:fs";
-import { dirname } from "node:path";
+import path from "node:path";
 
 import { enabledSites } from "../siteToggle";
 
@@ -21,7 +21,7 @@ import { emptyDirectory, validateDirectory } from "@utils/filesystem";
 // };
 
 export const processOutput = (games: Record<SiteNames, Game[]>): void => {
-	const outputDir = dirname(OUTPUT_LOCATION);
+	const outputDir = path.dirname(OUTPUT_LOCATION);
 	validateDirectory(outputDir);
 	emptyDirectory(outputDir);
 	writeFileSync(

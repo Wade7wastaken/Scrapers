@@ -44,6 +44,7 @@ const main = async (): Promise<void> => {
 	mainCleanUp();
 
 	// this is here so i can view the final variables in VSCode.
+	// eslint-disable-next-line no-debugger
 	debugger;
 };
 

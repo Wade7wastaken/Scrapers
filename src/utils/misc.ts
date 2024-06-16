@@ -19,8 +19,10 @@ export const sleep = (ms: number): Promise<void> =>
 export const lowerCaseSort = (a: Game, b: Game): number =>
 	a.name.toLowerCase().localeCompare(b.name.toLowerCase());
 
-export const capitalize = (s: string): string =>
-	s[0]?.toUpperCase() + s.slice(1);
+export const capitalize = (s: string): string => {
+	const firstChar = s[0];
+	return firstChar === undefined ? "" : firstChar.toUpperCase() + s.slice(1);
+};
 
 export const getRegexContents = (regex: RegExp): string =>
 	String(regex).slice(1, -1);

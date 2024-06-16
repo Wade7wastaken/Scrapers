@@ -1,5 +1,5 @@
 import { mkdirSync, rmSync } from "node:fs";
-import { parse } from "node:path";
+import path from "node:path";
 
 export const validateDirectory = (location: string): void => {
 	try {
@@ -21,4 +21,4 @@ export const emptyDirectory = (location: string): void => {
 	}
 };
 
-export const getFilename = (file: string): string => parse(file).name;
+export const getFilename = (file: string): string => path.parse(file).name;

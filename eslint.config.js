@@ -53,6 +53,13 @@ export default ts.config(
 			"@typescript-eslint/prefer-nullish-coalescing": "warn",
 			"@typescript-eslint/prefer-optional-chain": "warn",
 			"@typescript-eslint/consistent-type-definitions": ["error", "type"],
+			"@typescript-eslint/restrict-template-expressions": [
+				"warn",
+				{
+					allowNumber: true,
+					allowBoolean: true,
+				},
+			],
 
 			// Import Rules
 			"import-x/no-unresolved": "error",
