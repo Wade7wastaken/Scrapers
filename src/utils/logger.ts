@@ -65,7 +65,7 @@ export class MainContext implements Context {
 	}
 }
 
-export class TestLogger implements Context {
+export class TestContext implements Context {
 	public name = "Test Logger";
 
 	public info(m: unknown): void {

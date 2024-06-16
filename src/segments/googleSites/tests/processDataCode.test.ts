@@ -7,7 +7,7 @@ import {
 } from "../processDataCode";
 
 import * as sites from "@sites";
-import { TestLogger } from "@utils/logger";
+import { TestContext } from "@utils/logger";
 import { removeAllWhitespace } from "@utils/misc";
 
 const testCaseWrapper = (
@@ -15,7 +15,7 @@ const testCaseWrapper = (
 	segments: EmbedMatchSegment[]
 ): EmbedMatchResult =>
 	runMatch(
-		new TestLogger(),
+		new TestContext(),
 		removeAllWhitespace(embed),
 		-1,
 		{
