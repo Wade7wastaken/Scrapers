@@ -2,7 +2,7 @@ import { Err, Ok, isErr } from "@thames/monads";
 import { z } from "zod";
 
 import type { GameMap, SiteFunction } from "@types";
-import type { Context } from "@utils/logger";
+import type { Context } from "@utils/context";
 
 import { asyncIterator } from "@segments/asyncIterator";
 import { cleanUp } from "@segments/cleanUp";

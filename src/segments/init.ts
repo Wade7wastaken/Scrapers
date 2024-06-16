@@ -1,7 +1,7 @@
 import type { GameMap } from "@types";
-import type { Context } from "@utils/logger";
+import type { Context } from "@utils/context";
 
-import { MainContext } from "@utils/logger";
+import { MainContext } from "@utils/context";
 
 export const init = (
 	loggerPrefix: string

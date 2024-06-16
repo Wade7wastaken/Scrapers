@@ -5,7 +5,7 @@ import axios, { isAxiosError } from "axios";
 
 import { capitalize, sleep } from "./misc";
 
-import type { Context } from "./logger";
+import type { Context } from "./context";
 import type { Result } from "@thames/monads";
 import type { AxiosRequestConfig } from "axios";
 import type { ZodSchema, z } from "zod";

@@ -1,4 +1,4 @@
-import { MainContext } from "@utils/logger";
+import { MainContext } from "@utils/context";
 
 export const mainCleanUp = (): void => {
 	// anything after this can't use the logger

@@ -1,6 +1,6 @@
 export * from "./addGame";
 export * from "./filesystem";
-export * from "./logger";
+export * from "./context";
 export * from "./misc";
 export * from "./regex";
 export * from "./resultList";

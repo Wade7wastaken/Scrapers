@@ -4,7 +4,7 @@ import { fetchAndParse } from "../fetchAndParse";
 import { processDataCode, type EmbedMatch } from "./processDataCode";
 
 import type { GameMap } from "@types";
-import type { Context } from "@utils/logger";
+import type { Context } from "@utils/context";
 
 import { addGame } from "@utils/addGame";
 import { removeDuplicates } from "@utils/misc";

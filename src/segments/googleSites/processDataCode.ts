@@ -1,4 +1,4 @@
-import type { Context } from "@utils/logger";
+import type { Context } from "@utils/context";
 
 import { capitalize, removeAllWhitespace, removeDuplicates } from "@utils/misc";
 import { ResultList } from "@utils/resultList";

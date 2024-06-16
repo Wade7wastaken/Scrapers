@@ -1,5 +1,5 @@
 import type { Game, GameMap } from "@types";
-import type { Context } from "@utils/logger";
+import type { Context } from "@utils/context";
 
 import { resultStatistics } from "@utils/resultStatistics";
 

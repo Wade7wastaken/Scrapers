@@ -7,7 +7,7 @@ import {
 } from "../processDataCode";
 
 import * as sites from "@sites";
-import { TestContext } from "@utils/logger";
+import { TestContext } from "@utils/context";
 import { removeAllWhitespace } from "@utils/misc";
 
 const testCaseWrapper = (

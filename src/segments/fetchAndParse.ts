@@ -2,7 +2,7 @@ import { Ok, type Result } from "@thames/monads";
 import { load } from "cheerio";
 import { z } from "zod";
 
-import type { Context } from "@utils/logger";
+import type { Context } from "@utils/context";
 import type { CheerioAPI } from "cheerio";
 
 import { smartFetch } from "@utils/smartFetch";
