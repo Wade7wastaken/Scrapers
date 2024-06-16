@@ -1,4 +1,4 @@
-import { dirname, resolve } from "node:path";
+import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { TsconfigPathsPlugin } from "tsconfig-paths-webpack-plugin";
@@ -12,7 +12,10 @@ const config = {
 	entry: "./src/main.ts",
 	target: "node",
 	output: {
-		path: resolve(dirname(fileURLToPath(import.meta.url)), "dist"),
+		path: path.resolve(
+			path.dirname(fileURLToPath(import.meta.url)),
+			"dist"
+		),
 		filename: "bundle.js",
 		module: true,
 		chunkFormat: "module",
