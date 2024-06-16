@@ -6,7 +6,7 @@
 	"scripts": {
 		"start": "node dist/bundle.js",
 		"build": "webpack",
-		"export": "webpack --mode production",
+		"export": "webpack --mode production --devtool false",
 		"lint": "eslint .",
 		"lint:fix": "eslint . --fix",
 		"test": "vitest --test-timeout 0",

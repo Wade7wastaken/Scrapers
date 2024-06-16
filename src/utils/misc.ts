@@ -33,7 +33,8 @@ export const removeAllWhitespace = (input: string): string =>
 export const removeDuplicates = <T>(arr: T[]): T[] =>
 	arr.filter((value, index, self) => self.indexOf(value) === index);
 
-export const padNumber = (time: number, len = 2): string =>
+// not public because it doesn't handle negative numbers well
+const padNumber = (time: number, len = 2): string =>
 	time.toString().padStart(len, "0");
 
 export const formatTime = (now: Date): string =>
@@ -49,9 +50,8 @@ export const objectFromEntriesTyped = <
 	const T extends readonly (readonly [PropertyKey, unknown])[],
 >(
 	entries: T
-): { [K in T[number] as K[0]]: K[1] } => {
-	return Object.fromEntries(entries) as { [K in T[number] as K[0]]: K[1] };
-};
+): { [K in T[number] as K[0]]: K[1] } =>
+	Object.fromEntries(entries) as { [K in T[number] as K[0]]: K[1] };
 
 export const awaitObjectPromises = async <T>(
 	obj: Record<string, Promise<T>>

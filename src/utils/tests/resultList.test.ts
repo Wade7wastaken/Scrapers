@@ -23,8 +23,8 @@ describe("an array wrapper class", () => {
 	it("adds elements with the spread operator", () => {
 		expect.hasAssertions();
 		const results = new ResultList<string>();
-		// eslint-disable-next-line unicorn/no-useless-spread
-		results.add(...["hello", "world"]);
+		const resultToAdd = ["hello", "world"];
+		results.add(...resultToAdd);
 		expect(results.retrieve()).toStrictEqual(["hello", "world"]);
 		expect(results.length()).toBe(2);
 	});

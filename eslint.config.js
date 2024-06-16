@@ -9,9 +9,7 @@ export default ts.config(
 	js.configs.recommended,
 	...ts.configs.strictTypeChecked,
 	...ts.configs.stylisticTypeChecked,
-	// eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
 	unicorn.configs["flat/recommended"],
-	// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
 	prettier,
 	{
 		ignores: ["node_modules/", "vite.config.ts", "dist/", "results/"],
@@ -96,11 +94,16 @@ export default ts.config(
 		},
 	},
 	{
+		files: ["**/*.js"],
+		...ts.configs.disableTypeChecked,
+	},
+	{
 		files: ["**/*.test.ts"],
 		plugins: {
 			vitest,
 		},
 		rules: {
+			...vitest.configs.all.rules,
 			...vitest.configs.recommended.rules,
 		},
 	}

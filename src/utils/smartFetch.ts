@@ -28,7 +28,7 @@ export const getDomain = (url: string): string => {
 };
 
 // how long to wait given how many retries there have been
-const getRetryMS = (retries: number): number => 2 ** (retries + 1) * 1000;
+export const getRetryMS = (retries: number): number => 2 ** (retries + 1) * 1000;
 
 // waits until there has been at least REQUEST_DELAY_MS milliseconds between the
 // last request to the same domain name
