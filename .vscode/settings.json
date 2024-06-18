@@ -1,5 +1,0 @@
-{
-	// eslint editor support doesn't seem to work without this despite flat
-	// configs already in eslint. Hopefully it will change someday.
-	"eslint.experimental.useFlatConfig": true
-}
