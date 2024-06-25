@@ -25,7 +25,7 @@ const IGNORED_GAMES = new Set([
 	"Copyright",
 ]);
 
-export const run: SiteFunction = async () => {
+export const run: SiteFunction =  () => {
 	const { ctx, results } = init("Unblocked Premium");
 
 	await processGoogleSite(

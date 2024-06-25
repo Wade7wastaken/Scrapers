@@ -21,7 +21,7 @@ const IGNORED_GAMES = new Set([
 	"Contact",
 ]);
 
-export const run: SiteFunction = async () => {
+export const run: SiteFunction =  () => {
 	const { ctx, results } = init("Google Doodles");
 
 	const pageResult = await fetchAndParse(

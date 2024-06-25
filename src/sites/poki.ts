@@ -11,7 +11,7 @@ import { smartFetch } from "@utils/smartFetch";
 
 const BASE_URL = "https://api.poki.com/search/query/3?q=";
 
-export const run: SiteFunction = async () => {
+export const run: SiteFunction =  () => {
 	const { ctx, results } = init("Poki");
 
 	await asyncLoop(0, 10, 1, async (i) => {

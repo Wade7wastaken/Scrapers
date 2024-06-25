@@ -19,6 +19,7 @@
 		"@eslint/eslintrc": "^3.1.0",
 		"@eslint/js": "^9.5.0",
 		"@types/eslint__js": "^8.42.3",
+		"@types/lodash": "^4.17.5",
 		"@types/node": "^20.14.2",
 		"@types/webpack": "^5.28.5",
 		"@types/webpack-node-externals": "^3.0.4",
@@ -44,6 +45,7 @@
 		"@thames/monads": "^0.6.2",
 		"axios": "^1.7.2",
 		"cheerio": "^1.0.0-rc.12",
+		"lodash": "^4.17.21",
 		"neverthrow": "^6.2.2",
 		"zod": "^3.23.8"
 	}

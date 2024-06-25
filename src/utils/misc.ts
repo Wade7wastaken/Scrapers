@@ -1,8 +1,9 @@
 import { inspect } from "node:util";
 
-import { Err, Ok, type Result } from "@thames/monads";
+import { err, ok } from "neverthrow";
 
 import type { Game } from "@types";
+import type { Result } from "neverthrow";
 
 // one liner function that could be used anywhere
 
@@ -62,9 +63,7 @@ export const awaitObjectPromises = async <T>(
 		)
 	);
 
-export const promiseSettledResultToResult = <T extends NonNullable<unknown>>(
-	promiseSettledResult: PromiseSettledResult<T>
+export const promiseSettledResultToResult = <T>(
+	p: PromiseSettledResult<T>
 ): Result<T, string> =>
-	promiseSettledResult.status === "fulfilled"
-		? Ok(promiseSettledResult.value)
-		: Err(smartInspect(promiseSettledResult.reason));
+	p.status === "fulfilled" ? ok(p.value) : err(smartInspect(p.reason));

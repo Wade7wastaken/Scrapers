@@ -1,4 +1,4 @@
-import type { Result } from "@thames/monads";
+import type { ResultAsync } from "neverthrow";
 
 export type NameType = string;
 export type UrlType = string[];
@@ -13,7 +13,7 @@ export type Game = {
 // a mapping between game names and urls
 export type GameMap = Map<NameType, UrlType>;
 
-export type SiteFunction = () => Promise<Result<Game[], string>>;
+export type SiteFunction = () => ResultAsync<Game[], string>;
 
 export type Entries<T> = {
 	[K in keyof T]: [K, T[K]];

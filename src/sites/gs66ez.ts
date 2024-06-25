@@ -14,7 +14,7 @@ import { regex } from "@utils/regex";
 
 const IGNORED_GAMES = new Set(["All Unblocked Games 66 EZ", "Feedback"]);
 
-export const run: SiteFunction = async () => {
+export const run: SiteFunction =  () => {
 	const { ctx, results } = init("UnblockedGames66");
 
 	await processGoogleSite(
