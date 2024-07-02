@@ -44,6 +44,7 @@
 	"dependencies": {
 		"@thames/monads": "^0.7.0",
 		"axios": "^1.7.2",
+		"axios-retry": "^4.4.1",
 		"cheerio": "1.0.0-rc.12",
 		"lodash": "^4.17.21",
 		"neverthrow": "^6.2.2",
