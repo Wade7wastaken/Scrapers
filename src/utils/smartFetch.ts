@@ -6,8 +6,8 @@ import { ResultAsync, err, errAsync, ok, type Result } from "neverthrow";
 import { capitalize, sleep } from "./misc";
 
 import type { Context } from "./context";
-import type { AxiosRequestConfig } from "axios";
-import type { ZodSchema, z } from "zod";
+import type { AxiosError, AxiosRequestConfig } from "axios";
+import type { ZodError, ZodSchema, z } from "zod";
 
 import {
 	MAX_RETRIES,
@@ -60,21 +60,19 @@ const axiosGetSafe = ResultAsync.fromThrowable(axios.get, (err) => {
 const safeParseResult = <T extends ZodSchema>(
 	expectedType: T,
 	data: unknown
-): Result<z.infer<T>, string> => {
+): Result<z.infer<T>, ZodError> => {
 	const parseResult = expectedType.safeParse(data);
-	return parseResult.success
-		? ok(parseResult.data)
-		: err(parseResult.error.format()._errors.join("\r\n"));
+	return parseResult.success ? ok(parseResult.data) : err(parseResult.error);
 };
 
 const fetchAndParse = <T extends ZodSchema>(
 	url: string,
 	options: AxiosRequestConfig,
 	expectedType: T
-): ResultAsync<z.infer<T>, string> =>
-	axiosGetSafe<unknown>(url, options)
-		.mapErr(String) // im turning the axios error into a string for now, probably change later
-		.andThen((response) => safeParseResult(expectedType, response.data));
+): ResultAsync<z.infer<T>, AxiosError | ZodError> =>
+	axiosGetSafe<unknown>(url, options).andThen((response) =>
+		safeParseResult(expectedType, response.data)
+	);
 
 // a wrapper of the main fetch function to allow for retries
 const fetchWrapper = async <T extends ZodSchema>(
@@ -83,43 +81,44 @@ const fetchWrapper = async <T extends ZodSchema>(
 	options: AxiosRequestConfig,
 	expectedType: T,
 	retry = 0
-): Promise<ResultAsync<z.infer<T>, string>> => {
+): Promise<z.infer<T>> => {
 	const requestName = `request to ${url} with options ${inspect(options)}`;
 
 	if (retry >= MAX_RETRIES)
-		return errAsync(
+		throw new Error(
 			`${capitalize(requestName)} failed after ${retry} attempts.`
 		);
 
-	try {
-		const response = axiosGetSafe<unknown>(url, options);
-		const parseResult = expectedType.safeParse(response.data);
-		return parseResult.success
-			? ok(parseResult.data)
-			: err(parseResult.error.format()._errors.join("\r\n"));
-	} catch (error) {
-		if (!isAxiosError(error)) throw error;
+	const result = await fetchAndParse(url, options, expectedType);
 
-		const retryDelay = getRetryMS(retry);
+	if (result.isErr()) {
+		const error = result.error;
+		if (isAxiosError(error)) {
+			// axios error
+			const retryDelay = getRetryMS(retry);
 
-		// PR if you can clean up this error handling pls
-		if (
-			error.response &&
-			NO_RETRY_HTTP_CODES.includes(error.response.status)
-		)
-			return err(
-				`Unretriable HTTP code returned on request to ${requestName}: ${error.response.status}`
+			// PR if you can clean up this error handling pls
+			if (
+				error.response &&
+				NO_RETRY_HTTP_CODES.includes(error.response.status)
+			)
+				return err(
+					`Unretriable HTTP code returned on request to ${requestName}: ${error.response.status}`
+				);
+
+			ctx.warn(
+				`Retriable error on request to ${requestName}. Retrying in ${retryDelay}ms. Error details:`
 			);
+			ctx.warn(error);
 
-		ctx.warn(
-			`Retriable error on request to ${requestName}. Retrying in ${retryDelay}ms. Error details:`
-		);
-		ctx.warn(error);
+			await sleep(retryDelay);
 
-		await sleep(retryDelay);
-
-		return fetchWrapper(ctx, url, options, expectedType, retry + 1);
+			return fetchWrapper(ctx, url, options, expectedType, retry + 1);
+		} else {
+			throw new Error(String(error));
+		}
 	}
+	return result.value;
 };
 
 export const smartFetch = async <T extends ZodSchema>(
@@ -136,8 +135,8 @@ export const smartFetch = async <T extends ZodSchema>(
 	const response = await fetchWrapper<T>(ctx, url, { params }, expectedType);
 
 	// use silent if you want to make your own error message
-	if (!silent && response.isErr()) ctx.warn(`Request to ${url} failed`);
-	else ctx.info(`Request to ${url} succeeded`);
+	// if (!silent && response.isErr()) ctx.warn(`Request to ${url} failed`);
+	// else ctx.info(`Request to ${url} succeeded`);
 
 	return response;
 };
