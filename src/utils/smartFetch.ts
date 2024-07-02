@@ -48,6 +48,7 @@ const waitForNetwork = async (url: string): Promise<void> => {
 	}, REQUEST_DELAY_MS);
 };
 
+// eslint-disable-next-line @typescript-eslint/unbound-method
 const axiosGetSafe = ResultAsync.fromThrowable(axios.get, (err) => {
 	if (isAxiosError(err)) {
 		return err;
