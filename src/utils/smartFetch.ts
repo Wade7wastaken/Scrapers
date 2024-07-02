@@ -132,7 +132,7 @@ export const smartFetch = async <T extends ZodSchema>(
 
 	ctx.info(`Request started: ${url}`);
 
-	const response = await fetchWrapper<T>(ctx, url, { params }, expectedType);
+	const response = await fetchWrapper<T>(ctx, url, { params, ctx }, expectedType);
 
 	// use silent if you want to make your own error message
 	// if (!silent && response.isErr()) ctx.warn(`Request to ${url} failed`);
