@@ -1,12 +1,11 @@
 import { inspect } from "node:util";
 
-import { Err, Ok } from "@thames/monads";
 import axios, { isAxiosError } from "axios";
+import { err, ok, type Result } from "neverthrow";
 
 import { capitalize, sleep } from "./misc";
 
 import type { Context } from "./context";
-import type { Result } from "@thames/monads";
 import type { AxiosRequestConfig } from "axios";
 import type { ZodSchema, z } from "zod";
 
@@ -60,7 +59,7 @@ const fetchWrapper = async <T extends ZodSchema>(
 	const requestName = `request to ${url} with options ${inspect(options)}`;
 
 	if (retry >= MAX_RETRIES)
-		return Err(
+		return err(
 			`${capitalize(requestName)} failed after ${retry} attempts.`
 		);
 
@@ -68,8 +67,8 @@ const fetchWrapper = async <T extends ZodSchema>(
 		const response = await axios.get<unknown>(url, options);
 		const parseResult = expectedType.safeParse(response.data);
 		return parseResult.success
-			? Ok(parseResult.data)
-			: Err(parseResult.error.format()._errors.join("\r\n"));
+			? ok(parseResult.data)
+			: err(parseResult.error.format()._errors.join("\r\n"));
 	} catch (error) {
 		if (!isAxiosError(error)) throw error;
 
@@ -80,7 +79,7 @@ const fetchWrapper = async <T extends ZodSchema>(
 			error.response &&
 			NO_RETRY_HTTP_CODES.includes(error.response.status)
 		)
-			return Err(
+			return err(
 				`Unretriable HTTP code returned on request to ${requestName}: ${error.response.status}`
 			);
 
