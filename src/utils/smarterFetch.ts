@@ -21,7 +21,7 @@ export const getRetryMS = (retries: number): number =>
 // formats a config into a string used for errors and warnings
 // might not be a bad idea to memo this because smartInspect can be expensive
 const formatError = (config: AxiosRequestConfig): string =>
-	`request to ${config.url} failed with params ${smartInspect(config.params)}`;
+	`request to ${config.url}${config.params ? ` with params ${smartInspect(config.params)}` : ""}`;
 
 // create an axios instance
 const instance = axios.create();
@@ -44,11 +44,11 @@ axiosRetry(instance, {
 		const shouldRetry = isNetworkOrIdempotentRequestError(error);
 		if (shouldRetry)
 			error.config?.ctx.warn(
-				`Retriable error on request to ${formatError(error.config)}.`
+				`Retriable error on ${formatError(error.config)}.`
 			);
 		else
 			error.config?.ctx.error(
-				`Unretriable error on request to ${formatError(error.config)}: ${error.response?.status}`
+				`Unretriable error on ${formatError(error.config)}: ${error.response?.status}`
 			);
 
 		return shouldRetry;

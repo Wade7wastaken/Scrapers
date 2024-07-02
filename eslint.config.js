@@ -103,7 +103,6 @@ export default ts.config(
 			vitest,
 		},
 		rules: {
-			...vitest.configs.all.rules,
 			...vitest.configs.recommended.rules,
 		},
 	}

@@ -73,11 +73,11 @@ export class TestContext implements Context {
 	}
 
 	public warn(m: unknown): void {
-		console.log(m);
+		console.warn(m);
 	}
 
 	public error(m: unknown): void {
-		console.log(m);
+		console.error(m);
 	}
 
 	public setResultsLength(length: number): void {
