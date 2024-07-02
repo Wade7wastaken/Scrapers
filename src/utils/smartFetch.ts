@@ -1,7 +1,7 @@
 import { inspect } from "node:util";
 
 import axios, { isAxiosError } from "axios";
-import { err, ok, type Result } from "neverthrow";
+import { ResultAsync, err, errAsync, ok, type Result } from "neverthrow";
 
 import { capitalize, sleep } from "./misc";
 
@@ -48,6 +48,33 @@ const waitForNetwork = async (url: string): Promise<void> => {
 	}, REQUEST_DELAY_MS);
 };
 
+const axiosGetSafe = ResultAsync.fromThrowable(axios.get, (err) => {
+	if (isAxiosError(err)) {
+		return err;
+	} else {
+		throw new Error(`Unknown error received from axios: ${String(err)}`);
+	}
+});
+
+const safeParseResult = <T extends ZodSchema>(
+	expectedType: T,
+	data: unknown
+): Result<z.infer<T>, string> => {
+	const parseResult = expectedType.safeParse(data);
+	return parseResult.success
+		? ok(parseResult.data)
+		: err(parseResult.error.format()._errors.join("\r\n"));
+};
+
+const fetchAndParse = <T extends ZodSchema>(
+	url: string,
+	options: AxiosRequestConfig,
+	expectedType: T
+): ResultAsync<z.infer<T>, string> =>
+	axiosGetSafe<unknown>(url, options)
+		.mapErr(String) // im turning the axios error into a string for now, probably change later
+		.andThen((response) => safeParseResult(expectedType, response.data));
+
 // a wrapper of the main fetch function to allow for retries
 const fetchWrapper = async <T extends ZodSchema>(
 	ctx: Context,
@@ -55,16 +82,16 @@ const fetchWrapper = async <T extends ZodSchema>(
 	options: AxiosRequestConfig,
 	expectedType: T,
 	retry = 0
-): Promise<Result<z.infer<T>, string>> => {
+): Promise<ResultAsync<z.infer<T>, string>> => {
 	const requestName = `request to ${url} with options ${inspect(options)}`;
 
 	if (retry >= MAX_RETRIES)
-		return err(
+		return errAsync(
 			`${capitalize(requestName)} failed after ${retry} attempts.`
 		);
 
 	try {
-		const response = await axios.get<unknown>(url, options);
+		const response = axiosGetSafe<unknown>(url, options);
 		const parseResult = expectedType.safeParse(response.data);
 		return parseResult.success
 			? ok(parseResult.data)
