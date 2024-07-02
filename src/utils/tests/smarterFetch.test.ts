@@ -4,7 +4,7 @@ import { TestContext } from "..";
 
 import type { Result } from "neverthrow";
 
-import { axiosGetSafe } from "@utils/smarterFetch";
+import { smarterFetch } from "@utils/smarterFetch";
 
 const vitestUnwrap = <T, E>(r: Result<T, E>): T => {
 	expect(r.isOk()).toBeTruthy();
@@ -27,13 +27,13 @@ describe("performs http requests with retries and domain throttling", () => {
 		consoleLog.mockReset();
 		consoleWarn.mockReset();
 		consoleError.mockReset();
-	})
+	});
 
 	it("gets data from an api", async () => {
 		expect.hasAssertions();
 
 		const URL = "https://httpstat.us/200";
-		const responseResult = await axiosGetSafe(URL, {
+		const responseResult = await smarterFetch(URL, {
 			ctx,
 		});
 
@@ -54,20 +54,25 @@ describe("performs http requests with retries and domain throttling", () => {
 		expect.hasAssertions();
 
 		const URL = "https://httpstat.us/404";
-		const responseResult = await axiosGetSafe(URL, {
+		const responseResult = await smarterFetch(URL, {
 			ctx,
 		});
 
 		const error = vitestUnwrapErr(responseResult);
 		// idk why axios errors don't have a simple status member
 		expect(error.code).toBe("ERR_BAD_REQUEST");
-		expect(error.response?.data).toStrictEqual({ code: 404, description: "Not Found" })
+		expect(error.response?.data).toStrictEqual({
+			code: 404,
+			description: "Not Found",
+		});
 		expect(error.response?.status).toBe(404);
 
 		expect(consoleLog.mock.calls).toStrictEqual([
 			[`Request started: ${URL}`],
 		]);
 		expect(consoleWarn).toHaveBeenCalledTimes(0);
-		expect(consoleError.mock.calls).toStrictEqual([[`Unretriable error on request to ${URL}: 404`]])
+		expect(consoleError.mock.calls).toStrictEqual([
+			[`Unretriable error on request to ${URL}: 404`],
+		]);
 	});
 });
