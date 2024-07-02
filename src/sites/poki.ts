@@ -1,50 +1,54 @@
-import { Ok } from "@thames/monads";
+import { range } from "lodash";
+import { ResultAsync, ok } from "neverthrow";
 import { z } from "zod";
 
 import type { SiteFunction } from "@types";
 
-import { asyncLoop } from "@segments/asyncLoop";
 import { cleanUp } from "@segments/cleanUp";
 import { init } from "@segments/init";
 import { addGame } from "@utils/addGame";
-import { smartFetch } from "@utils/smartFetch";
+import { fetchAndParse } from "@utils/smarterFetch";
 
 const BASE_URL = "https://api.poki.com/search/query/3?q=";
 
-export const run: SiteFunction =  () => {
+const SCHEMA = z.object({
+	games: z.array(
+		z.object({
+			id: z.number(),
+			title: z.string(),
+			slug: z.string(),
+		})
+	),
+});
+
+export const run: SiteFunction = () => {
 	const { ctx, results } = init("Poki");
 
-	await asyncLoop(0, 10, 1, async (i) => {
+	const searchResults = range(26).map((i) => {
 		const letter = String.fromCodePoint(97 + i);
 
 		const url = BASE_URL + letter;
 
-		const schema = z.object({
-			games: z.array(
-				z.object({
-					id: z.number(),
-					title: z.string(),
-					slug: z.string(),
-				})
-			),
+		return fetchAndParse(ctx, url, SCHEMA).orElse((err) => {
+			ctx.warn(`Error in iteration ${i} of Poki: ${err}`);
+			return ok({ games: [] });
 		});
-
-		const fetchResult = await smartFetch(ctx, url, schema);
-
-		if (fetchResult.isErr()) {
-			ctx.warn(
-				`Error fetching data in iteration ${i} of Poki: ${fetchResult.unwrapErr()}`
-			);
-			return;
-		}
-
-		const parsed = fetchResult.unwrap();
-
-		// we currently don't check if the location actually exists, but the
-		// poki seems stable enough
-		for (const { title, slug: location } of parsed.games)
-			addGame(ctx, results, title, `https://poki.com/en/g/${location}`);
 	});
 
-	return Ok(cleanUp(ctx, results));
+	// array map
+	return ResultAsync.combine(searchResults).map((games) => {
+		for (const game of games) {
+			// we currently don't check if the location actually exists, but the
+			// poki seems stable enough
+			for (const { title, slug: location } of game.games)
+				addGame(
+					ctx,
+					results,
+					title,
+					`https://poki.com/en/g/${location}`
+				);
+		}
+
+		return cleanUp(ctx, results);
+	});
 };

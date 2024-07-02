@@ -33,7 +33,7 @@ const SUBDOMAINS = [
 	"stage2-edit",
 ];
 
-export const run: SiteFunction = () => {
+export const run: SiteFunction =  () => {
 	const { ctx, results } = init("Coolmath Games");
 
 	const fetchResult = fetchAndParse(ctx, JSON_URL, SCHEMA);
