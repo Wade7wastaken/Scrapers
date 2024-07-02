@@ -4,7 +4,7 @@ import type { SiteFunction } from "@types";
 
 import { asyncIterator } from "@segments/asyncIterator";
 import { cleanUp } from "@segments/cleanUp";
-import { fetchAndParse } from "@segments/fetchAndParse";
+import { fetchAndParseHTML } from "@segments/fetchAndParse";
 import { init } from "@segments/init";
 import { addGame } from "@utils/addGame";
 
@@ -21,10 +21,10 @@ const IGNORED_GAMES = new Set([
 	"Contact",
 ]);
 
-export const run: SiteFunction =  () => {
+export const run: SiteFunction = () => {
 	const { ctx, results } = init("Google Doodles");
 
-	const pageResult = await fetchAndParse(
+	const pageResult = await fetchAndParseHTML(
 		ctx,
 		"https://sites.google.com/site/populardoodlegames/"
 	);
@@ -40,7 +40,7 @@ export const run: SiteFunction =  () => {
 
 		if (IGNORED_GAMES.has(gameName)) return;
 
-		const pageResult = await fetchAndParse(ctx, gameUrl);
+		const pageResult = await fetchAndParseHTML(ctx, gameUrl);
 
 		if (pageResult.isErr()) return;
 		const $2 = pageResult.unwrap();

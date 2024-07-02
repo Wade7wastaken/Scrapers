@@ -7,7 +7,7 @@ import type { CheerioAPI } from "cheerio";
 
 import { smartFetch } from "@utils/smartFetch";
 
-export const fetchAndParse = async (
+export const fetchAndParseHTML = async (
 	ctx: Context,
 	url: string
 ): Promise<Result<CheerioAPI, string>> => {

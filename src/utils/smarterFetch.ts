@@ -4,9 +4,9 @@ import { ResultAsync, err, ok } from "neverthrow";
 
 import { capitalize, sleep, smartInspect } from "./misc";
 
-import type { AxiosError } from "axios";
+import type { Context } from ".";
 import type { Result } from "neverthrow";
-import type { ZodError, ZodSchema, z } from "zod";
+import type { ZodSchema, z } from "zod";
 
 import {
 	MAX_RETRIES,
@@ -99,23 +99,27 @@ instance.interceptors.response.use((response) => {
 // still not sure what this eslint error means
 // eslint-disable-next-line @typescript-eslint/unbound-method
 export const smarterFetch = ResultAsync.fromThrowable(instance.get, (err) => {
-	if (isAxiosError(err)) return err;
+	if (isAxiosError(err))
+		return String(err); // should improve this later
 	else throw new Error(`Unknown error received from axios: ${String(err)}`);
 });
 
 const safeParseResult = <T extends ZodSchema>(
 	expectedType: T,
 	data: unknown
-): Result<z.infer<T>, ZodError> => {
+): Result<z.infer<T>, string> => {
 	const parseResult = expectedType.safeParse(data);
-	return parseResult.success ? ok(parseResult.data) : err(parseResult.error);
+	return parseResult.success
+		? ok(parseResult.data)
+		: err(parseResult.error.format()._errors.join("\r\n"));
 };
 
 export const fetchAndParse = <T extends ZodSchema>(
+	ctx: Context,
 	url: string,
-	options: AxiosRequestConfig,
-	expectedType: T
-): ResultAsync<z.infer<T>, AxiosError | ZodError> =>
-	smarterFetch<unknown>(url, options).andThen((response) =>
+	expectedType: T,
+	params?: Record<string, string | number>
+): ResultAsync<z.infer<T>, string> =>
+	smarterFetch<unknown>(url, { params, ctx }).andThen((response) =>
 		safeParseResult(expectedType, response.data)
 	);

@@ -5,7 +5,7 @@ import type { SiteFunction } from "@types";
 import { cleanUp } from "@segments/cleanUp";
 import { init } from "@segments/init";
 import { addGame } from "@utils/addGame";
-import { smartFetch } from "@utils/smartFetch";
+import { fetchAndParse } from "@utils/smarterFetch";
 
 const JSON_URL =
 	"https://www.coolmathgames.com/sites/default/files/cmatgame_games_with_levels.json";
@@ -33,10 +33,10 @@ const SUBDOMAINS = [
 	"stage2-edit",
 ];
 
-export const run: SiteFunction =  () => {
+export const run: SiteFunction = () => {
 	const { ctx, results } = init("Coolmath Games");
 
-	const fetchResult = await smartFetch(ctx, JSON_URL, SCHEMA);
+	const fetchResult = fetchAndParse(ctx, JSON_URL, SCHEMA);
 
 	return fetchResult.map((games) => {
 		const nonFlashGames = games.game.filter(

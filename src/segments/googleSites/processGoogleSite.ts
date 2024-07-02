@@ -1,5 +1,5 @@
 import { asyncIterator } from "../asyncIterator";
-import { fetchAndParse } from "../fetchAndParse";
+import { fetchAndParseHTML } from "../fetchAndParse";
 
 import { processDataCode, type EmbedMatch } from "./processDataCode";
 
@@ -19,7 +19,7 @@ export const processGoogleSite = async (
 	IGNORED_GAMES: Set<string>,
 	matches: EmbedMatch[]
 ): Promise<void> => {
-	const pageResult = await fetchAndParse(ctx, mainPageLink);
+	const pageResult = await fetchAndParseHTML(ctx, mainPageLink);
 
 	if (pageResult.isErr()) return;
 	const $ = pageResult.unwrap();
@@ -32,7 +32,7 @@ export const processGoogleSite = async (
 
 		const gameUrl = `https://sites.google.com${elem.attr("href")}`;
 
-		const pageResult = await fetchAndParse(ctx, gameUrl);
+		const pageResult = await fetchAndParseHTML(ctx, gameUrl);
 		if (pageResult.isErr()) return;
 
 		const $2 = pageResult.unwrap();
