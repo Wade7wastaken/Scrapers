@@ -4,7 +4,7 @@ import { TestContext } from "..";
 
 import type { Result } from "neverthrow";
 
-import { smarterFetch } from "@utils/smarterFetch";
+import { smartFetch } from "@utils/smarterFetch";
 
 const vitestUnwrap = <T, E>(r: Result<T, E>): T => {
 	expect(r.isOk()).toBeTruthy();
@@ -33,7 +33,7 @@ describe("performs http requests with retries and domain throttling", () => {
 		expect.hasAssertions();
 
 		const URL = "https://httpstat.us/200";
-		const responseResult = await smarterFetch(URL, {
+		const responseResult = await smartFetch(URL, {
 			ctx,
 		});
 
@@ -54,7 +54,7 @@ describe("performs http requests with retries and domain throttling", () => {
 		expect.hasAssertions();
 
 		const URL = "https://httpstat.us/404";
-		const responseResult = await smarterFetch(URL, {
+		const responseResult = await smartFetch(URL, {
 			ctx,
 		});
 

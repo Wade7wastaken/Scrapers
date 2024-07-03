@@ -98,7 +98,7 @@ instance.interceptors.response.use((response) => {
 
 // still not sure what this eslint error means
 // eslint-disable-next-line @typescript-eslint/unbound-method
-export const smarterFetch = ResultAsync.fromThrowable(instance.get, (err) => {
+export const smartFetch = ResultAsync.fromThrowable(instance.get, (err) => {
 	if (isAxiosError(err))
 		return String(err); // should improve this later
 	else throw new Error(`Unknown error received from axios: ${String(err)}`);
@@ -120,6 +120,6 @@ export const fetchAndParse = <T extends ZodSchema>(
 	expectedType: T,
 	params?: Record<string, string | number>
 ): ResultAsync<z.infer<T>, string> =>
-	smarterFetch<unknown>(url, { params, ctx }).andThen((response) =>
+	smartFetch<unknown>(url, { params, ctx }).andThen((response) =>
 		safeParseResult(expectedType, response.data)
 	);
