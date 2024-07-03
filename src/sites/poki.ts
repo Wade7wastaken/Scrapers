@@ -24,18 +24,14 @@ const SCHEMA = z.object({
 export const run: SiteFunction = () => {
 	const { ctx, results } = init("Poki");
 
-	const searchResults = range(26).map((i) => {
-		const letter = String.fromCodePoint(97 + i);
-
-		const url = BASE_URL + letter;
-
-		return fetchAndParse(ctx, url, SCHEMA)
+	const searchResults = range(26).map((i) =>
+		fetchAndParse(ctx, BASE_URL + String.fromCodePoint(97 + i), SCHEMA)
 			.map((response) => response.games)
 			.orElse((err) => {
 				ctx.warn(`Error in iteration ${i} of Poki: ${err}`);
 				return ok([]);
-			});
-	});
+			})
+	);
 
 	// array map
 	return ResultAsync.combine(searchResults).map((pages) => {

@@ -33,22 +33,20 @@ const SUBDOMAINS = [
 	"stage2-edit",
 ];
 
-export const run: SiteFunction =  () => {
+export const run: SiteFunction = () => {
 	const { ctx, results } = init("Coolmath Games");
 
-	const fetchResult = fetchAndParse(ctx, JSON_URL, SCHEMA);
-
-	return fetchResult.map((games) => {
+	return fetchAndParse(ctx, JSON_URL, SCHEMA).map((games) => {
 		const nonFlashGames = games.game.filter(
 			(game) => game.type !== "flash"
 		);
 
-		for (const game of nonFlashGames) {
+		for (const game of nonFlashGames)
 			for (const subdomain of SUBDOMAINS) {
 				const gamePage = `https://${subdomain}.coolmathgames.com/0-${game.alias}`;
 				addGame(ctx, results, game.title, gamePage, gamePage + "/play");
 			}
-		}
+
 		return cleanUp(ctx, results);
 	});
 };
