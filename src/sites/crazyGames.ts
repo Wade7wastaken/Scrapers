@@ -1,8 +1,9 @@
-import { ok, ResultAsync } from "neverthrow";
+import { err, ok } from "neverthrow";
 import { z } from "zod";
 
 import type { GameMap, SiteFunction } from "@types";
 import type { Context } from "@utils/context";
+import type { ResultAsync } from "neverthrow";
 
 import { cleanUp } from "@segments/cleanUp";
 import { init } from "@segments/init";
@@ -12,68 +13,57 @@ import { fetchAndParse } from "@utils/smarterFetch";
 // seems to be a hard limit for the crazy games api
 const MAX_PAGE_SIZE = 100;
 
-const fetchPage = (
+const ALL_GAMES_URL = "https://api.crazygames.com/v3/en_US/page/allGames";
+const ALL_GAMES_SCHEMA = z.object({
+	games: z.object({
+		items: z.array(
+			z.object({
+				name: z.string(),
+				slug: z.string(),
+			})
+		),
+	}),
+});
+
+const getPage = (
 	ctx: Context,
 	results: GameMap,
-	fetchUrl: string,
-	page = 1
-): ResultAsync<void, never> => {
-	const schema = z.object({
-		games: z.object({
-			data: z.object({
-				items: z.array(
-					z.object({
-						name: z.string(),
-						slug: z.string(),
-					})
-				),
-				total: z.number(),
-			}),
-		}),
-	});
-
-	const fetchResult = fetchAndParse(ctx, fetchUrl, schema, {
-		paginationPage: page,
+	pageNumber = 0
+): ResultAsync<void, string> => {
+	return fetchAndParse(ctx, ALL_GAMES_URL, ALL_GAMES_SCHEMA, {
+		paginationPage: pageNumber,
 		paginationSize: MAX_PAGE_SIZE,
-	});
-
-	return fetchResult
-		.map((r) => r.games.data.items)
-		.orElse((err) => {
-			ctx.warn(`Error in tag ${fetchUrl} of crazyGames: ${err}`);
-			return ok([]);
+	})
+		.map((response) => response.games.items)
+		.andThen((games) => {
+			return games.length === 0 // if we're at the end
+				? err("exiting recursive function")
+				: ok(games);
 		})
 		.map((games) => {
-			for (const { name, slug } of games)
+			for (const { name, slug } of games) {
 				addGame(
 					ctx,
 					results,
 					name,
 					`https://www.crazygames.com/game/${slug}`
 				);
+			}
+		})
+		.andThen((_) => {
+			return getPage(ctx, results, pageNumber + 1);
 		});
 };
 
 export const run: SiteFunction = () => {
 	const { ctx, results } = init("CrazyGames");
 
-	const tagsUrl = "https://api.crazygames.com/v3/en_US/page/tags";
-
-	const schema = z.object({
-		tags: z.array(
-			z.object({
-				slug: z.string(),
-			})
-		),
-	});
-
-	const fetchResult = fetchAndParse(ctx, tagsUrl, schema);
-
-	return fetchResult.andThen((parsed) => {
-		const tagPages = parsed.tags.map((tag) => {
-			const url = `https://api.crazygames.com/v3/en_US/page/tagCategory/${tag.slug}`;
-			return fetchPage(ctx, results, url);
-		});
-		return ResultAsync.combine(tagPages).map((_) => cleanUp(ctx, results));
-	});
+	return getPage(ctx, results)
+		.orElse((error) => {
+			return error === "exiting recursive function"
+				? // eslint-disable-next-line unicorn/no-useless-undefined
+					ok(undefined)
+				: err(error);
+		})
+		.map((_) => cleanUp(ctx, results));
 };
