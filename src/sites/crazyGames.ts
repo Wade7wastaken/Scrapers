@@ -1,24 +1,23 @@
-import { Err, Ok, isErr } from "@thames/monads";
+import { ok, ResultAsync } from "neverthrow";
 import { z } from "zod";
 
 import type { GameMap, SiteFunction } from "@types";
 import type { Context } from "@utils/context";
 
-import { asyncIterator } from "@segments/asyncIterator";
 import { cleanUp } from "@segments/cleanUp";
 import { init } from "@segments/init";
 import { addGame } from "@utils/addGame";
-import { smartFetch } from "@utils/smartFetch";
+import { fetchAndParse } from "@utils/smarterFetch";
 
 // seems to be a hard limit for the crazy games api
 const MAX_PAGE_SIZE = 100;
 
-const fetchPage = async (
+const fetchPage = (
 	ctx: Context,
 	results: GameMap,
 	fetchUrl: string,
 	page = 1
-): Promise<void> => {
+): ResultAsync<void, never> => {
 	const schema = z.object({
 		games: z.object({
 			data: z.object({
@@ -33,24 +32,29 @@ const fetchPage = async (
 		}),
 	});
 
-	const fetchResult = await smartFetch(ctx, fetchUrl, schema, {
+	const fetchResult = fetchAndParse(ctx, fetchUrl, schema, {
 		paginationPage: page,
 		paginationSize: MAX_PAGE_SIZE,
 	});
 
-	if (fetchResult.isErr()) return;
-
-	const parsed = fetchResult.unwrap();
-
-	const items = parsed.games.data.items;
-
-	if (items.length === 0) return;
-
-	for (const { name, slug } of items)
-		addGame(ctx, results, name, `https://www.crazygames.com/game/${slug}`);
+	return fetchResult
+		.map((r) => r.games.data.items)
+		.orElse((err) => {
+			ctx.warn(`Error in tag ${fetchUrl} of crazyGames: ${err}`);
+			return ok([]);
+		})
+		.map((games) => {
+			for (const { name, slug } of games)
+				addGame(
+					ctx,
+					results,
+					name,
+					`https://www.crazygames.com/game/${slug}`
+				);
+		});
 };
 
-export const run: SiteFunction =  () => {
+export const run: SiteFunction = () => {
 	const { ctx, results } = init("CrazyGames");
 
 	const tagsUrl = "https://api.crazygames.com/v3/en_US/page/tags";
@@ -63,16 +67,13 @@ export const run: SiteFunction =  () => {
 		),
 	});
 
-	const fetchResult = await smartFetch(ctx, tagsUrl, schema);
+	const fetchResult = fetchAndParse(ctx, tagsUrl, schema);
 
-	if (isErr(fetchResult)) return Err(fetchResult.unwrapErr());
-
-	const parsed = fetchResult.unwrap();
-
-	await asyncIterator(parsed.tags, async (tag) => {
-		const url = `https://api.crazygames.com/v3/en_US/page/tagCategory/${tag.slug}`;
-		await fetchPage(ctx, results, url);
+	return fetchResult.andThen((parsed) => {
+		const tagPages = parsed.tags.map((tag) => {
+			const url = `https://api.crazygames.com/v3/en_US/page/tagCategory/${tag.slug}`;
+			return fetchPage(ctx, results, url);
+		});
+		return ResultAsync.combine(tagPages).map((_) => cleanUp(ctx, results));
 	});
-
-	return Ok(cleanUp(ctx, results));
 };

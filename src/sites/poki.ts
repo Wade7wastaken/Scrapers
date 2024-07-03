@@ -29,18 +29,20 @@ export const run: SiteFunction = () => {
 
 		const url = BASE_URL + letter;
 
-		return fetchAndParse(ctx, url, SCHEMA).orElse((err) => {
-			ctx.warn(`Error in iteration ${i} of Poki: ${err}`);
-			return ok({ games: [] });
-		});
+		return fetchAndParse(ctx, url, SCHEMA)
+			.map((response) => response.games)
+			.orElse((err) => {
+				ctx.warn(`Error in iteration ${i} of Poki: ${err}`);
+				return ok([]);
+			});
 	});
 
 	// array map
-	return ResultAsync.combine(searchResults).map((games) => {
-		for (const game of games) {
+	return ResultAsync.combine(searchResults).map((pages) => {
+		for (const page of pages) {
 			// we currently don't check if the location actually exists, but the
 			// poki seems stable enough
-			for (const { title, slug: location } of game.games)
+			for (const { title, slug: location } of page)
 				addGame(
 					ctx,
 					results,
