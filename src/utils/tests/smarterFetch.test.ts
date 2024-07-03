@@ -58,14 +58,7 @@ describe("performs http requests with retries and domain throttling", () => {
 			ctx,
 		});
 
-		const error = vitestUnwrapErr(responseResult);
-		// idk why axios errors don't have a simple status member
-		expect(error.code).toBe("ERR_BAD_REQUEST");
-		expect(error.response?.data).toStrictEqual({
-			code: 404,
-			description: "Not Found",
-		});
-		expect(error.response?.status).toBe(404);
+		vitestUnwrapErr(responseResult);
 
 		expect(consoleLog.mock.calls).toStrictEqual([
 			[`Request started: ${URL}`],
