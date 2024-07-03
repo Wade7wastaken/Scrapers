@@ -5,7 +5,7 @@ import type { SiteFunction } from "@types";
 import { cleanUp } from "@segments/cleanUp";
 import { init } from "@segments/init";
 import { addGame } from "@utils/addGame";
-import { fetchAndParse } from "@utils/smarterFetch";
+import { fetchAndParse } from "@utils/smartFetch";
 
 const JSON_URL =
 	"https://www.coolmathgames.com/sites/default/files/cmatgame_games_with_levels.json";

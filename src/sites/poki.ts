@@ -7,7 +7,7 @@ import type { SiteFunction } from "@types";
 import { cleanUp } from "@segments/cleanUp";
 import { init } from "@segments/init";
 import { addGame } from "@utils/addGame";
-import { fetchAndParse } from "@utils/smarterFetch";
+import { fetchAndParse } from "@utils/smartFetch";
 
 const BASE_URL = "https://api.poki.com/search/query/3?q=";
 

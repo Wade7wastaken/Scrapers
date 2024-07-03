@@ -8,7 +8,7 @@ import type { ResultAsync } from "neverthrow";
 import { cleanUp } from "@segments/cleanUp";
 import { init } from "@segments/init";
 import { addGame } from "@utils/addGame";
-import { fetchAndParse } from "@utils/smarterFetch";
+import { fetchAndParse } from "@utils/smartFetch";
 
 // seems to be a hard limit for the crazy games api
 const MAX_PAGE_SIZE = 100;

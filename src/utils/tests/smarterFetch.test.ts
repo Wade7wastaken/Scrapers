@@ -4,7 +4,7 @@ import { TestContext } from "..";
 
 import type { Result } from "neverthrow";
 
-import { smartFetch } from "@utils/smarterFetch";
+import { smartFetch } from "@utils/smartFetch";
 
 const vitestUnwrap = <T, E>(r: Result<T, E>): T => {
 	expect(r.isOk()).toBeTruthy();
