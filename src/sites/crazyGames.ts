@@ -25,45 +25,38 @@ const ALL_GAMES_SCHEMA = z.object({
 	}),
 });
 
+const GAME_PAGE_BASE_URL = "https://www.crazygames.com/game/";
+
 const getPage = (
 	ctx: Context,
 	results: GameMap,
 	pageNumber = 0
-): ResultAsync<void, string> => {
-	return fetchAndParse(ctx, ALL_GAMES_URL, ALL_GAMES_SCHEMA, {
+): ResultAsync<void, string> =>
+	fetchAndParse(ctx, ALL_GAMES_URL, ALL_GAMES_SCHEMA, {
 		paginationPage: pageNumber,
 		paginationSize: MAX_PAGE_SIZE,
 	})
 		.map((response) => response.games.items)
-		.andThen((games) => {
-			return games.length === 0 // if we're at the end
+		.andThen((games) =>
+			games.length === 0 // if we're at the end
 				? err("exiting recursive function")
-				: ok(games);
-		})
+				: ok(games)
+		)
 		.map((games) => {
-			for (const { name, slug } of games) {
-				addGame(
-					ctx,
-					results,
-					name,
-					`https://www.crazygames.com/game/${slug}`
-				);
-			}
+			for (const { name, slug } of games)
+				addGame(ctx, results, name, GAME_PAGE_BASE_URL + slug);
 		})
-		.andThen((_) => {
-			return getPage(ctx, results, pageNumber + 1);
-		});
-};
+		.andThen((_) => getPage(ctx, results, pageNumber + 1));
 
 export const run: SiteFunction = () => {
 	const { ctx, results } = init("CrazyGames");
 
 	return getPage(ctx, results)
-		.orElse((error) => {
-			return error === "exiting recursive function"
+		.orElse((error) =>
+			error === "exiting recursive function"
 				? // eslint-disable-next-line unicorn/no-useless-undefined
 					ok(undefined)
-				: err(error);
-		})
+				: err(error)
+		)
 		.map((_) => cleanUp(ctx, results));
 };
