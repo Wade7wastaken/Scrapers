@@ -1,51 +1,87 @@
 import {
-	mainCleanUp,
-	mainInit,
-	processOutput,
-	processSites,
-	reportStats,
-} from "./procedures";
+	HttpClient,
+	HttpClientRequest,
+	HttpClientResponse,
+	HttpMiddleware,
+} from "@effect/platform";
+import { Console, Effect, pipe } from "effect";
+import { sleep } from "./utils";
+import { REQUEST_DELAY_MS, REQUEST_DELAY_WAIT_MULTIPLIER } from "@config";
 
-/**
- * TODO:
- *
- * Features:
- * Function to process test regex match (maybe second in array?)
- * Logic to check if test was unused
- * Add stats to show how many urls for each page (kinda done)
- * Use a Set instead of array for links to avoid duplicates without additional logic
- * Logic to check if regex always matched the same value (it can be replaced by a string)
- * Response type checking
- * Rust-like errors (maybe just use rust)
- *
- * Bugfixes:
- * deal with all the types scattered everywhere
- * Running tests should touch log folder or have any side effects
- * rename "log" everywhere to "ctx". Context makes more sense now because it is actually used as the context
- *
- * Config:
- */
-
-/**
- * Utils contains small utility functions/classes that are typically used more
- * than once in site functions. Procedures contains functions that are only
- * called once in init/takedown of the program. Segments are used in site
- * programs and are also mostly used procedurally. Segments are the Procedures
- * for site functions.
- */
-
-const main = async (): Promise<void> => {
-	const ctx = mainInit();
-
-	const results = await processSites(ctx);
-
-	processOutput(results);
-	reportStats(ctx);
-	mainCleanUp();
-
-	// this is here so i can view the final variables in VSCode.
-	// eslint-disable-next-line no-debugger
-	debugger;
+export const getDomain = (url: string): string => {
+	const hostname = new URL(url).hostname;
+	const noEnding = hostname.slice(0, hostname.lastIndexOf("."));
+	return noEnding.slice(noEnding.lastIndexOf(".") + 1);
 };
 
-void main();
+const domains = new Map<string, boolean>();
+
+const throttleDomain = async (url: string): Promise<string> => {
+	const domain = getDomain(url);
+
+	// make sure the domain exists in the map
+	if (!domains.has(domain)) domains.set(domain, true);
+
+	while (!domains.get(domain))
+		await sleep(REQUEST_DELAY_MS * REQUEST_DELAY_WAIT_MULTIPLIER);
+
+	// set it to false and after DELAY_TIME ms, set it back to true
+	domains.set(domain, false);
+	setTimeout(() => {
+		domains.set(domain, true);
+	}, REQUEST_DELAY_MS);
+
+	return url;
+};
+
+const throttleDomain2 = (url: string) =>
+	Effect.gen(function* () {
+		const domain = getDomain(url);
+
+		// make sure the domain exists in the map
+		if (!domains.has(domain)) domains.set(domain, true);
+
+		while (!domains.get(domain))
+			yield* Effect.sleep(
+				REQUEST_DELAY_MS * REQUEST_DELAY_WAIT_MULTIPLIER
+			);
+		// yield* sleep(REQUEST_DELAY_MS * REQUEST_DELAY_WAIT_MULTIPLIER);
+
+		// set it to false and after DELAY_TIME ms, set it back to true
+		domains.set(domain, false);
+		setTimeout(() => {
+			domains.set(domain, true);
+		}, REQUEST_DELAY_MS);
+
+		return url;
+	});
+
+const throttleDomainEffect = (url: string) =>
+	Effect.promise(async () => await throttleDomain(url));
+
+const makeRequest = (url: string) =>
+	pipe(
+		url,
+		throttleDomain2,
+		Effect.tap(Console.log),
+		// Effect.andThen((url) =>
+		// 	HttpClientRequest.get(url).pipe(
+		// 		HttpClient.fetch,
+		// 		HttpClientResponse.text
+		// 	)
+		// )
+		// Effect.tap(Console.log)
+	);
+
+const program = Effect.all(
+	[
+		makeRequest("https://www.google.com/"),
+		makeRequest("https://www.google.com/"),
+		makeRequest("https://www.google.com/"),
+		makeRequest("https://www.bing.com/"),
+		makeRequest("https://www.bing.com/"),
+	],
+	{ concurrency: "unbounded" }
+);
+
+void Effect.runPromise(program);
