@@ -2,41 +2,33 @@ import {
 	HttpClient,
 	HttpClientRequest,
 	HttpClientResponse,
-	HttpMiddleware,
 } from "@effect/platform";
+import { Schema } from "@effect/schema";
 import { Console, Effect, pipe } from "effect";
-import { sleep } from "./utils";
-import { REQUEST_DELAY_MS, REQUEST_DELAY_WAIT_MULTIPLIER } from "@config";
 
-export const getDomain = (url: string): string => {
-	const hostname = new URL(url).hostname;
-	const noEnding = hostname.slice(0, hostname.lastIndexOf("."));
-	return noEnding.slice(noEnding.lastIndexOf(".") + 1);
-};
+import type { HttpClientError } from "@effect/platform";
+import type { ParseError } from "@effect/schema/ParseResult";
+
+import { REQUEST_DELAY_MS, REQUEST_DELAY_WAIT_MULTIPLIER } from "@config";
+import type { UnknownException } from "effect/Cause";
+
+class URLParseError {
+	public readonly _tag = "URLParseError";
+	public constructor(public err: UnknownException) {}
+}
+
+const getDomain = (url: string): Effect.Effect<string, URLParseError> =>
+	Effect.try(() => new URL(url).hostname).pipe(
+		Effect.mapError((err) => new URLParseError(err)),
+		Effect.map((hostname) => hostname.slice(0, hostname.lastIndexOf("."))),
+		Effect.map((noEnding) => noEnding.slice(noEnding.lastIndexOf(".") + 1))
+	);
 
 const domains = new Map<string, boolean>();
 
-const throttleDomain = async (url: string): Promise<string> => {
-	const domain = getDomain(url);
-
-	// make sure the domain exists in the map
-	if (!domains.has(domain)) domains.set(domain, true);
-
-	while (!domains.get(domain))
-		await sleep(REQUEST_DELAY_MS * REQUEST_DELAY_WAIT_MULTIPLIER);
-
-	// set it to false and after DELAY_TIME ms, set it back to true
-	domains.set(domain, false);
-	setTimeout(() => {
-		domains.set(domain, true);
-	}, REQUEST_DELAY_MS);
-
-	return url;
-};
-
-const throttleDomain2 = (url: string) =>
+const throttleDomain = (url: string): Effect.Effect<string, URLParseError> =>
 	Effect.gen(function* () {
-		const domain = getDomain(url);
+		const domain = yield* getDomain(url);
 
 		// make sure the domain exists in the map
 		if (!domains.has(domain)) domains.set(domain, true);
@@ -45,7 +37,6 @@ const throttleDomain2 = (url: string) =>
 			yield* Effect.sleep(
 				REQUEST_DELAY_MS * REQUEST_DELAY_WAIT_MULTIPLIER
 			);
-		// yield* sleep(REQUEST_DELAY_MS * REQUEST_DELAY_WAIT_MULTIPLIER);
 
 		// set it to false and after DELAY_TIME ms, set it back to true
 		domains.set(domain, false);
@@ -56,32 +47,37 @@ const throttleDomain2 = (url: string) =>
 		return url;
 	});
 
-const throttleDomainEffect = (url: string) =>
-	Effect.promise(async () => await throttleDomain(url));
-
-const makeRequest = (url: string) =>
+const makeRequest = <T>(
+	url: string,
+	schema: Schema.Schema<T>
+): Effect.Effect<
+	T,
+	URLParseError | HttpClientError.HttpClientError | ParseError
+> =>
 	pipe(
 		url,
-		throttleDomain2,
+		throttleDomain,
 		Effect.tap(Console.log),
-		// Effect.andThen((url) =>
-		// 	HttpClientRequest.get(url).pipe(
-		// 		HttpClient.fetch,
-		// 		HttpClientResponse.text
-		// 	)
-		// )
-		// Effect.tap(Console.log)
+		Effect.andThen((url) =>
+			HttpClientRequest.get(url).pipe(
+				HttpClient.fetchOk,
+				Effect.andThen(HttpClientResponse.schemaBodyJson(schema))
+			)
+		),
+		Effect.scoped
 	);
 
 const program = Effect.all(
 	[
-		makeRequest("https://www.google.com/"),
-		makeRequest("https://www.google.com/"),
-		makeRequest("https://www.google.com/"),
-		makeRequest("https://www.bing.com/"),
-		makeRequest("https://www.bing.com/"),
+		makeRequest("https://www.google.com/", Schema.String),
+		makeRequest("https://www.google.com/", Schema.String),
+		makeRequest("https://www.google.com/", Schema.String),
+		makeRequest("https://www.bing.com/", Schema.String),
+		makeRequest("https://www.bing.com/", Schema.String),
 	],
 	{ concurrency: "unbounded" }
 );
 
-void Effect.runPromise(program);
+await Effect.runPromise(program);
+
+debugger;
