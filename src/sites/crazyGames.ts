@@ -1,9 +1,7 @@
-import { err, ok } from "neverthrow";
+import { ok, safeTry } from "neverthrow";
 import { z } from "zod";
 
-import type { GameMap, SiteFunction } from "@types";
-import type { Context } from "@utils/context";
-import type { ResultAsync } from "neverthrow";
+import type { SiteFunction } from "@types";
 
 import { cleanUp } from "@segments/cleanUp";
 import { init } from "@segments/init";
@@ -27,36 +25,57 @@ const ALL_GAMES_SCHEMA = z.object({
 
 const GAME_PAGE_BASE_URL = "https://www.crazygames.com/game/";
 
-const getPage = (
-	ctx: Context,
-	results: GameMap,
-	pageNumber = 0
-): ResultAsync<void, string> =>
-	fetchAndParse(ctx, ALL_GAMES_URL, ALL_GAMES_SCHEMA, {
-		paginationPage: pageNumber,
-		paginationSize: MAX_PAGE_SIZE,
-	})
-		.map((response) => response.games.items)
-		.andThen((games) =>
-			games.length === 0 // if we're at the end
-				? err("exiting recursive function")
-				: ok(games)
-		)
-		.map((games) => {
-			for (const { name, slug } of games)
+export const run: SiteFunction = () =>
+	safeTry(async function* () {
+		const { ctx, results } = init("CrazyGames");
+
+		let prevPageLength;
+
+		let pageNumber = 1;
+
+		do {
+			const {
+				games: { items: games },
+			} = yield* fetchAndParse(ctx, ALL_GAMES_URL, ALL_GAMES_SCHEMA, {
+				paginationPage: pageNumber,
+				paginationSize: MAX_PAGE_SIZE,
+			})
+				.orElse((err) => {
+					ctx.warn(`Error on page ${pageNumber}: ${err}`);
+					return ok({
+						games: { items: [] },
+					});
+				})
+				.safeUnwrap();
+
+			for (const { name, slug } of games) {
 				addGame(ctx, results, name, GAME_PAGE_BASE_URL + slug);
-		})
-		.andThen((_) => getPage(ctx, results, pageNumber + 1));
+			}
 
-export const run: SiteFunction = () => {
-	const { ctx, results } = init("CrazyGames");
+			prevPageLength = games.length;
+			pageNumber++;
+		} while (prevPageLength === MAX_PAGE_SIZE);
 
-	return getPage(ctx, results)
-		.orElse((error) =>
-			error === "exiting recursive function"
-				? // eslint-disable-next-line unicorn/no-useless-undefined
-					ok(undefined)
-				: err(error)
-		)
-		.map((_) => cleanUp(ctx, results));
-};
+		return ok(cleanUp(ctx, results));
+	});
+
+// export const run2: SiteFunction = () =>
+// 	safeTry(async function* () {
+// 		const { ctx, results } = init("CrazyGames");
+
+// 		const firstPageResponse = yield* fetchAndParse(
+// 			ctx,
+// 			ALL_GAMES_URL,
+// 			ALL_GAMES_SCHEMA,
+// 			{
+// 				paginationPage: 1,
+// 				paginationSize: MAX_PAGE_SIZE,
+// 			}
+// 		).safeUnwrap();
+
+// 		const total = firstPageResponse.games.total;
+
+// 		range(2, Math.ceil(total / MAX_PAGE_SIZE) + 1)
+
+// 		return ok(cleanUp(ctx, results));
+// 	});

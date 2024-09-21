@@ -20,7 +20,7 @@ export const getRetryMS = (retries: number): number =>
 
 // formats a config into a string used for errors and warnings
 // might not be a bad idea to memo this because smartInspect can be expensive
-const formatError = (config: AxiosRequestConfig): string =>
+const formatRequestInfo = (config: AxiosRequestConfig): string =>
 	`request to ${config.url}${config.params ? ` with params ${smartInspect(config.params)}` : ""}`;
 
 // create an axios instance
@@ -30,25 +30,25 @@ const instance = axios.create();
 axiosRetry(instance, {
 	retries: MAX_RETRIES,
 	retryDelay: getRetryMS,
-	onRetry(retryCount, _error, requestConfig) {
+	onRetry(retryCount, error, requestConfig) {
 		requestConfig.ctx.warn(
-			`Retriable error on request to ${formatError(requestConfig)}. Retrying in ${getRetryMS(retryCount)}ms. Error details:`
+			`Retriable error on ${formatRequestInfo(requestConfig)}. Retrying in ${getRetryMS(retryCount)}ms. Error details: ${JSON.stringify(error.toJSON())}`
 		);
 	},
 	onMaxRetryTimesExceeded(error, retryCount) {
 		error.config?.ctx.error(
-			`${capitalize(formatError(error.config))} failed after ${retryCount} attempts`
+			`${capitalize(formatRequestInfo(error.config))} failed after ${retryCount} attempts. Error details: ${JSON.stringify(error.toJSON())}`
 		);
 	},
 	retryCondition(error) {
 		const shouldRetry = isNetworkOrIdempotentRequestError(error);
 		if (shouldRetry)
 			error.config?.ctx.warn(
-				`Retriable error on ${formatError(error.config)}.`
+				`Retriable error on ${formatRequestInfo(error.config)}`
 			);
 		else
 			error.config?.ctx.error(
-				`Unretriable error on ${formatError(error.config)}: ${error.response?.status}`
+				`Unretriable error on ${formatRequestInfo(error.config)}: ${error.response?.status}`
 			);
 
 		return shouldRetry;
@@ -86,13 +86,15 @@ const throttleDomain = async (url: string): Promise<void> => {
 
 instance.interceptors.request.use(async (config) => {
 	const url = config.url ?? "";
-	config.ctx.info(`Request started: ${url}`);
+	config.ctx.info(capitalize(formatRequestInfo(config)) + " started");
 	await throttleDomain(url);
 	return config;
 });
 
 instance.interceptors.response.use((response) => {
-	response.config.ctx.info(`Request to ${response.config.url} succeeded`);
+	response.config.ctx.info(
+		capitalize(formatRequestInfo(response.config)) + " succeeded"
+	);
 	return response;
 });
 

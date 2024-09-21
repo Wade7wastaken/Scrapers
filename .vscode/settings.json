@@ -1,3 +1,4 @@
 {
-	"cSpell.words": ["neverthrow"]
+	"cSpell.words": ["neverthrow"],
+	"typescript.tsdk": "node_modules\\typescript\\lib"
 }

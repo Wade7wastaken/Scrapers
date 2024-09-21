@@ -1,83 +1,51 @@
 import {
-	HttpClient,
-	HttpClientRequest,
-	HttpClientResponse,
-} from "@effect/platform";
-import { Schema } from "@effect/schema";
-import { Console, Effect, pipe } from "effect";
+	mainCleanUp,
+	mainInit,
+	processOutput,
+	processSites,
+	reportStats,
+} from "./procedures";
 
-import type { HttpClientError } from "@effect/platform";
-import type { ParseError } from "@effect/schema/ParseResult";
+/**
+ * TODO:
+ *
+ * Features:
+ * Function to process test regex match (maybe second in array?)
+ * Logic to check if test was unused
+ * Add stats to show how many urls for each page (kinda done)
+ * Use a Set instead of array for links to avoid duplicates without additional logic
+ * Logic to check if regex always matched the same value (it can be replaced by a string)
+ * Response type checking
+ * Rust-like errors (maybe just use rust)
+ *
+ * Bugfixes:
+ * deal with all the types scattered everywhere
+ * Running tests should touch log folder or have any side effects
+ * rename "log" everywhere to "ctx". Context makes more sense now because it is actually used as the context
+ *
+ * Config:
+ */
 
-import { REQUEST_DELAY_MS, REQUEST_DELAY_WAIT_MULTIPLIER } from "@config";
-import type { UnknownException } from "effect/Cause";
+/**
+ * Utils contains small utility functions/classes that are typically used more
+ * than once in site functions. Procedures contains functions that are only
+ * called once in init/takedown of the program. Segments are used in site
+ * programs and are also mostly used procedurally. Segments are the Procedures
+ * for site functions.
+ */
 
-class URLParseError {
-	public readonly _tag = "URLParseError";
-	public constructor(public err: UnknownException) {}
-}
+const main = async (): Promise<void> => {
+	const ctx = mainInit();
 
-const getDomain = (url: string): Effect.Effect<string, URLParseError> =>
-	Effect.try(() => new URL(url).hostname).pipe(
-		Effect.mapError((err) => new URLParseError(err)),
-		Effect.map((hostname) => hostname.slice(0, hostname.lastIndexOf("."))),
-		Effect.map((noEnding) => noEnding.slice(noEnding.lastIndexOf(".") + 1))
-	);
+	const results = await processSites(ctx);
 
-const domains = new Map<string, boolean>();
+	processOutput(results);
+	reportStats(ctx);
+	mainCleanUp();
 
-const throttleDomain = (url: string): Effect.Effect<string, URLParseError> =>
-	Effect.gen(function* () {
-		const domain = yield* getDomain(url);
+	// this is here so i can view the final variables in VSCode.
+	// eslint-disable-next-line no-debugger
+	debugger;
+};
 
-		// make sure the domain exists in the map
-		if (!domains.has(domain)) domains.set(domain, true);
-
-		while (!domains.get(domain))
-			yield* Effect.sleep(
-				REQUEST_DELAY_MS * REQUEST_DELAY_WAIT_MULTIPLIER
-			);
-
-		// set it to false and after DELAY_TIME ms, set it back to true
-		domains.set(domain, false);
-		setTimeout(() => {
-			domains.set(domain, true);
-		}, REQUEST_DELAY_MS);
-
-		return url;
-	});
-
-const makeRequest = <T>(
-	url: string,
-	schema: Schema.Schema<T>
-): Effect.Effect<
-	T,
-	URLParseError | HttpClientError.HttpClientError | ParseError
-> =>
-	pipe(
-		url,
-		throttleDomain,
-		Effect.tap(Console.log),
-		Effect.andThen((url) =>
-			HttpClientRequest.get(url).pipe(
-				HttpClient.fetchOk,
-				Effect.andThen(HttpClientResponse.schemaBodyJson(schema))
-			)
-		),
-		Effect.scoped
-	);
-
-const program = Effect.all(
-	[
-		makeRequest("https://www.google.com/", Schema.String),
-		makeRequest("https://www.google.com/", Schema.String),
-		makeRequest("https://www.google.com/", Schema.String),
-		makeRequest("https://www.bing.com/", Schema.String),
-		makeRequest("https://www.bing.com/", Schema.String),
-	],
-	{ concurrency: "unbounded" }
-);
-
-await Effect.runPromise(program);
-
-debugger;
+void main();

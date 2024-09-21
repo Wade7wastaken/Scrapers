@@ -50,7 +50,7 @@
 		"cheerio": "1.0.0",
 		"effect": "^3.6.5",
 		"lodash": "^4.17.21",
-		"neverthrow": "^7.0.1",
+		"neverthrow": "^8.0.0",
 		"zod": "^3.23.8"
 	}
 }

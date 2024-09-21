@@ -1,3 +1,4 @@
+import { ok, safeTry } from "neverthrow";
 import { z } from "zod";
 
 import type { SiteFunction } from "@types";
@@ -27,26 +28,24 @@ const SCHEMA = z.object({
 const SUBDOMAINS = [
 	"www",
 	"edit",
-	"edit1",
-	"stage",
-	"stage-edit",
-	"stage2-edit",
+	// "edit1",
+	// "stage",
+	// "stage-edit",
+	// "stage2-edit",
 ];
 
-export const run: SiteFunction = () => {
-	const { ctx, results } = init("Coolmath Games");
+export const run: SiteFunction = () =>
+	safeTry(async function* () {
+		const { ctx, results } = init("Coolmath Games");
 
-	return fetchAndParse(ctx, JSON_URL, SCHEMA).map((games) => {
-		const nonFlashGames = games.game.filter(
-			(game) => game.type !== "flash"
-		);
+		const games = yield* fetchAndParse(ctx, JSON_URL, SCHEMA).safeUnwrap();
 
-		for (const game of nonFlashGames)
+		for (const game of games.game.filter((game) => game.type !== "flash")) {
 			for (const subdomain of SUBDOMAINS) {
 				const gamePage = `https://${subdomain}.coolmathgames.com/0-${game.alias}`;
 				addGame(ctx, results, game.title, gamePage, gamePage + "/play");
 			}
+		}
 
-		return cleanUp(ctx, results);
+		return ok(cleanUp(ctx, results));
 	});
-};

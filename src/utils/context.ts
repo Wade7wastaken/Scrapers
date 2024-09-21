@@ -25,8 +25,11 @@ export class MainContext implements Context {
 	public constructor(public readonly name: string) {}
 
 	public static initLogger(): void {
+		// MainContext.logFileStream = createWriteStream(
+		// 	`${LOG_LOCATION}/${new Date().toUTCString()}.log`
+		// );
 		MainContext.logFileStream = createWriteStream(
-			`${LOG_LOCATION}/${new Date().toLocaleString()}.log`
+			`${LOG_LOCATION}/log.log`
 		);
 	}
 
