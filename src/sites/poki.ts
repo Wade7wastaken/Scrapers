@@ -2,7 +2,7 @@ import { ResultAsync, ok, safeTry } from "neverthrow";
 import { z } from "zod";
 
 import type { SiteFunction } from "@types";
-import type { Context } from "@utils/index";
+import type { Context } from "@utils/context";
 
 import { cleanUp } from "@segments/cleanUp";
 import { init } from "@segments/init";

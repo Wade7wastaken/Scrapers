@@ -1,9 +1,8 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 
-import { TestContext } from "..";
-
 import type { Result } from "neverthrow";
 
+import { TestContext } from "@utils/context";
 import { smartFetch } from "@utils/smartFetch";
 
 const vitestUnwrap = <T, E>(r: Result<T, E>): T => {

@@ -4,7 +4,7 @@ import { ResultAsync, err, ok } from "neverthrow";
 
 import { capitalize, sleep, smartInspect } from "./misc";
 
-import type { Context } from ".";
+import type { Context } from "./context";
 import type { Result } from "neverthrow";
 import type { ZodSchema, z } from "zod";
 

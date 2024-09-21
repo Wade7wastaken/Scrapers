@@ -1,10 +1,10 @@
 import { enabledSites } from "../siteToggle";
-import { objectEntriesTyped } from "../utils/misc";
 
 import type { Game } from "@types";
-import type { Context } from "@utils/index";
+import type { Context } from "@utils/context";
 
 import * as sites from "@sites";
+import { objectEntriesTyped } from "@utils/misc";
 
 export type SiteNames = keyof typeof sites;
 

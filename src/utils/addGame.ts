@@ -1,5 +1,5 @@
+import type { Context } from "./context";
 import type { GameMap, NameType, UrlType } from "@types";
-import type { Context } from "@utils";
 
 export function addGame(
 	ctx: Context,

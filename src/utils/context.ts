@@ -1,6 +1,6 @@
 import { createWriteStream } from "node:fs";
 
-import { formatTime, smartInspect } from ".";
+import { formatTime, smartInspect } from "./misc";
 
 import type { WriteStream } from "node:fs";
 
