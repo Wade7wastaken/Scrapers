@@ -1,4 +1,5 @@
 import js from "@eslint/js";
+import tsParser from "@typescript-eslint/parser";
 import prettier from "eslint-config-prettier";
 import importX from "eslint-plugin-import-x";
 import unicorn from "eslint-plugin-unicorn";
@@ -7,6 +8,8 @@ import ts from "typescript-eslint";
 
 export default ts.config(
 	js.configs.recommended,
+	importX.flatConfigs.recommended,
+	importX.flatConfigs.typescript,
 	...ts.configs.strictTypeChecked,
 	...ts.configs.stylisticTypeChecked,
 	unicorn.configs["flat/recommended"],
@@ -16,24 +19,12 @@ export default ts.config(
 	},
 	{
 		languageOptions: {
+			parser: tsParser,
 			parserOptions: {
 				project: true,
-				tsconfigRootDir: import.meta.dirname,
-				ecmaVersion: "latest",
-				sourceType: "module",
 			},
-		},
-		plugins: {
-			"import-x": importX,
-		},
-		settings: {
-			"import-x/parsers": {
-				"@typescript-eslint/parser": [".ts"],
-			},
-			"import-x/resolver": {
-				typescript: true,
-				node: true,
-			},
+			ecmaVersion: "latest",
+			sourceType: "module",
 		},
 		rules: {
 			// TypeScript Rules
@@ -60,11 +51,7 @@ export default ts.config(
 			],
 
 			// Import Rules
-			"import-x/no-unresolved": "error",
-			"import-x/named": "error",
 			"import-x/namespace": "error",
-			"import-x/default": "error",
-			"import-x/export": "error",
 			"import-x/order": [
 				"warn",
 				{
@@ -104,6 +91,12 @@ export default ts.config(
 		},
 		rules: {
 			...vitest.configs.recommended.rules,
+		},
+	},
+	{
+		files: ["eslint.config.js"],
+		rules: {
+			"import-x/no-named-as-default-member": "off",
 		},
 	}
 );
