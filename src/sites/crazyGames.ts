@@ -79,3 +79,5 @@ export const run: SiteFunction = () =>
 
 // 		return ok(cleanUp(ctx, results));
 // 	});
+
+export const displayName = "CrazyGames";
