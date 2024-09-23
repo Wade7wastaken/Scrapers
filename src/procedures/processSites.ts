@@ -5,6 +5,11 @@ import type { GroupedJson } from "@types";
 import * as sites from "@sites";
 import { MainContext, type Context } from "@utils/context";
 import { objectEntriesTyped } from "@utils/misc";
+import { Result, ResultAsync, safeTry } from "neverthrow";
+import { fsReadFile } from "@utils/filesystem";
+import { OUTPUT_LOCATION } from "@config";
+import { z } from "zod";
+import { safeParseResult } from "@utils/smartFetch";
 
 export type SiteNames = keyof typeof sites;
 
@@ -35,3 +40,24 @@ export const processSites = async (ctx: Context): Promise<GroupedJson> => {
 
 	return result;
 };
+
+const GROUPED_JSON_SCHEMA = z.record(
+	z.string(),
+	z.object({
+		displayName: z.string(),
+		games: z.array(
+			z.object({ name: z.string(), urls: z.array(z.string()) })
+		),
+	})
+);
+
+const constructGroupedJson = () =>
+	safeTry(async function* () {
+		const previousOutput = yield* fsReadFile(OUTPUT_LOCATION).safeUnwrap();
+		const parsed = yield* Result.fromThrowable(JSON.parse)(
+			previousOutput
+		).safeUnwrap();
+		const safe = yield* safeParseResult(GROUPED_JSON_SCHEMA, parsed).safeUnwrap();
+		safe satisfies GroupedJson;
+		
+	});

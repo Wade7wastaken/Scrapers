@@ -8,7 +8,6 @@ export type SiteType = string;
 export type Game = {
 	name: NameType;
 	urls: UrlType;
-	site: SiteType;
 };
 
 type GroupedJsonSite = {

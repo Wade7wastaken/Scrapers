@@ -33,6 +33,9 @@ importers:
       '@eslint/js':
         specifier: ^9.11.0
         version: 9.11.0
+      '@total-typescript/ts-reset':
+        specifier: ^0.6.1
+        version: 0.6.1
       '@types/eslint__js':
         specifier: ^8.42.3
         version: 8.42.3
@@ -413,6 +416,9 @@ packages:
 
   '@rtsao/scc@1.1.0':
     resolution: {integrity: sha512-zt6OdqaDoOnJ1ZYsCYGt9YmWzDXl4vQdKTyJev62gFhRGKdx7mcT54V9KIjg+d2wi9EXsPvAPKe7i7WjfVWB8g==}
+
+  '@total-typescript/ts-reset@0.6.1':
+    resolution: {integrity: sha512-cka47fVSo6lfQDIATYqb/vO1nvFfbPw7uWLayIXIhGETj0wcOOlrlkobOMDNQOFr9QOafegUPq13V2+6vtD7yg==}
 
   '@types/eslint@9.6.1':
     resolution: {integrity: sha512-FXx2pKgId/WyYo2jXw63kk7/+TY7u7AziEJxJAnSFzHlqTAS3Ync6SvgYAN/k4/PQpnnVuzoMuVnByKK2qp0ag==}
@@ -2413,6 +2419,8 @@ snapshots:
 
   '@rtsao/scc@1.1.0':
     optional: true
+
+  '@total-typescript/ts-reset@0.6.1': {}
 
   '@types/eslint@9.6.1':
     dependencies:

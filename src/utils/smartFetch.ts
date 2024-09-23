@@ -106,7 +106,7 @@ export const smartFetch = ResultAsync.fromThrowable(instance.get, (err) => {
 	else throw new Error(`Unknown error received from axios: ${String(err)}`);
 });
 
-const safeParseResult = <T extends ZodSchema>(
+export const safeParseResult = <T extends ZodSchema>(
 	expectedType: T,
 	data: unknown
 ): Result<z.infer<T>, string> => {
