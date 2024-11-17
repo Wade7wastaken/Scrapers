@@ -1,24 +1,16 @@
 import type { Context } from "@utils/context";
 import type { ResultAsync } from "neverthrow";
 
-export type NameType = string;
-export type UrlType = string[];
-export type SiteType = string;
-
 export type Game = {
-	name: NameType;
-	urls: UrlType;
+	name: string;
+	urls: string[];
 };
 
-type GroupedJsonSite = {
-	displayName: string;
-	games: Game[]
-}
+// first is name, second is site, rest are urls
+type CompactGame = readonly [string, number, ...string[]];
 
-export type GroupedJson = Record<string, GroupedJsonSite>;
+export type GroupedJson = Record<string, Game[]>;
 
-
-// a mapping between game names and urls
-export type GameMap = Map<NameType, UrlType>;
+export type UngroupedJson = CompactGame[];
 
 export type SiteFunction = (ctx: Context) => ResultAsync<Game[], string>;

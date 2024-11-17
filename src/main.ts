@@ -3,7 +3,6 @@ import {
 	mainInit,
 	processOutput,
 	processSites,
-	reportStats,
 } from "./procedures";
 
 /**
@@ -38,14 +37,8 @@ const main = async (): Promise<void> => {
 	const ctx = mainInit();
 
 	const results = await processSites(ctx);
-
-	processOutput(results);
-	reportStats(ctx);
+	await processOutput(results);
 	mainCleanUp();
-
-	// this is here so i can view the final variables in VSCode.
-	// eslint-disable-next-line no-debugger
-	debugger;
 };
 
 void main();

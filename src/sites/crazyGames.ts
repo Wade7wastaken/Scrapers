@@ -1,10 +1,8 @@
 import { ok, safeTry } from "neverthrow";
 import { z } from "zod";
 
-import type { SiteFunction } from "@types";
+import type { Game, SiteFunction } from "@types";
 
-import { cleanUp } from "@segments/cleanUp";
-import { init } from "@segments/init";
 import { addGame } from "@utils/addGame";
 import { fetchAndParse } from "@utils/smartFetch";
 
@@ -25,13 +23,12 @@ const ALL_GAMES_SCHEMA = z.object({
 
 const GAME_PAGE_BASE_URL = "https://www.crazygames.com/game/";
 
-export const run: SiteFunction = () =>
+export const run: SiteFunction = (ctx) =>
 	safeTry(async function* () {
-		const { ctx, results } = init("CrazyGames");
-
 		let prevPageLength;
-
 		let pageNumber = 1;
+
+		const results: Game[] = [];
 
 		do {
 			const {
@@ -49,35 +46,14 @@ export const run: SiteFunction = () =>
 				.safeUnwrap();
 
 			for (const { name, slug } of games) {
-				addGame(ctx, results, name, GAME_PAGE_BASE_URL + slug);
+				results.push(addGame(ctx, name, GAME_PAGE_BASE_URL + slug));
 			}
 
 			prevPageLength = games.length;
 			pageNumber++;
 		} while (prevPageLength === MAX_PAGE_SIZE);
 
-		return ok(cleanUp(ctx, results));
+		return ok(results);
 	});
-
-// export const run2: SiteFunction = () =>
-// 	safeTry(async function* () {
-// 		const { ctx, results } = init("CrazyGames");
-
-// 		const firstPageResponse = yield* fetchAndParse(
-// 			ctx,
-// 			ALL_GAMES_URL,
-// 			ALL_GAMES_SCHEMA,
-// 			{
-// 				paginationPage: 1,
-// 				paginationSize: MAX_PAGE_SIZE,
-// 			}
-// 		).safeUnwrap();
-
-// 		const total = firstPageResponse.games.total;
-
-// 		range(2, Math.ceil(total / MAX_PAGE_SIZE) + 1)
-
-// 		return ok(cleanUp(ctx, results));
-// 	});
 
 export const displayName = "CrazyGames";

@@ -31,7 +31,6 @@
 		"eslint-plugin-import-x": "^4.2.1",
 		"eslint-plugin-unicorn": "^55.0.0",
 		"eslint-plugin-vitest": "^0.5.4",
-		"prettier": "^3.3.3",
 		"ts-loader": "^9.5.1",
 		"tsconfig-paths-webpack-plugin": "^4.1.0",
 		"typescript": "^5.6.2",
@@ -48,6 +47,7 @@
 		"cheerio": "1.0.0",
 		"lodash": "^4.17.21",
 		"neverthrow": "^8.0.0",
+		"prettier": "^3.3.3",
 		"zod": "^3.23.8"
 	}
 }

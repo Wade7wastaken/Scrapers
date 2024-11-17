@@ -1,12 +1,12 @@
 import axios, { isAxiosError, type AxiosRequestConfig } from "axios";
 import axiosRetry, { isNetworkOrIdempotentRequestError } from "axios-retry";
-import { ResultAsync, err, ok } from "neverthrow";
+import { load, type CheerioAPI } from "cheerio";
+import { ResultAsync } from "neverthrow";
+import { z, type ZodSchema } from "zod";
 
-import { capitalize, sleep, smartInspect } from "./misc";
+import { capitalize, safeParseResult, sleep, smartInspect } from "./misc";
 
 import type { Context } from "./context";
-import type { Result } from "neverthrow";
-import type { ZodSchema, z } from "zod";
 
 import {
 	MAX_RETRIES,
@@ -15,8 +15,7 @@ import {
 } from "@config";
 
 // how long to wait given how many retries there have been
-export const getRetryMS = (retries: number): number =>
-	2 ** (retries + 1) * 1000;
+const getRetryMS = (retries: number): number => 2 ** (retries + 1) * 1000;
 
 // formats a config into a string used for errors and warnings
 // might not be a bad idea to memo this because smartInspect can be expensive
@@ -59,7 +58,7 @@ axiosRetry(instance, {
 const domains = new Map<string, boolean>();
 
 // gets just the domain name of a url. "https://www.google.com/page" => "google"
-export const getDomain = (url: string): string => {
+const getDomain = (url: string): string => {
 	const hostname = new URL(url).hostname;
 	const noEnding = hostname.slice(0, hostname.lastIndexOf("."));
 	return noEnding.slice(noEnding.lastIndexOf(".") + 1);
@@ -86,8 +85,10 @@ const throttleDomain = async (url: string): Promise<void> => {
 
 instance.interceptors.request.use(async (config) => {
 	const url = config.url ?? "";
-	config.ctx.info(capitalize(formatRequestInfo(config)) + " started");
+	const requestInfo = capitalize(formatRequestInfo(config));
+	config.ctx.info(requestInfo + " started");
 	await throttleDomain(url);
+	config.ctx.info(requestInfo + " launched");
 	return config;
 });
 
@@ -106,16 +107,6 @@ export const smartFetch = ResultAsync.fromThrowable(instance.get, (err) => {
 	else throw new Error(`Unknown error received from axios: ${String(err)}`);
 });
 
-export const safeParseResult = <T extends ZodSchema>(
-	expectedType: T,
-	data: unknown
-): Result<z.infer<T>, string> => {
-	const parseResult = expectedType.safeParse(data);
-	return parseResult.success
-		? ok(parseResult.data)
-		: err(parseResult.error.format()._errors.join("\r\n"));
-};
-
 export const fetchAndParse = <T extends ZodSchema>(
 	ctx: Context,
 	url: string,
@@ -125,3 +116,9 @@ export const fetchAndParse = <T extends ZodSchema>(
 	smartFetch<unknown>(url, { params, ctx }).andThen((response) =>
 		safeParseResult(expectedType, response.data)
 	);
+
+export const fetchAndParseHTML = (
+	ctx: Context,
+	url: string
+): ResultAsync<CheerioAPI, string> =>
+	fetchAndParse(ctx, url, z.string()).map((str) => load(str));

@@ -12,15 +12,12 @@ export interface Context {
 	info(m: unknown): void;
 	warn(m: unknown): void;
 	error(m: unknown): void;
-	setResultsLength(length: number): void;
 }
 
 // Functions as a logger, but is also used as an identifier as to which site
 // function a call came from using the prefix member
 export class MainContext implements Context {
 	public static logFileStream: WriteStream;
-
-	public static readonly resultLengths = new Map<string, number>();
 
 	public constructor(public readonly name: string) {}
 
@@ -29,7 +26,7 @@ export class MainContext implements Context {
 		// 	`${LOG_LOCATION}/${new Date().toUTCString()}.log`
 		// );
 		MainContext.logFileStream = createWriteStream(
-			`${LOG_LOCATION}/log.log`
+			`${LOG_LOCATION}/scraper.log`
 		);
 	}
 
@@ -59,10 +56,6 @@ export class MainContext implements Context {
 		this.log(m, "error", "error");
 	}
 
-	public setResultsLength(length: number): void {
-		MainContext.resultLengths.set(this.name, length);
-	}
-
 	public static closeFileStream(): void {
 		MainContext.logFileStream.close();
 	}
@@ -81,9 +74,5 @@ export class TestContext implements Context {
 
 	public error(m: unknown): void {
 		console.error(m);
-	}
-
-	public setResultsLength(length: number): void {
-		console.log(`Test Logger was set with result length of ${length}`);
 	}
 }
