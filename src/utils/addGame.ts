@@ -1,16 +1,11 @@
-import type { GameMap, NameType, UrlType } from "@types";
-import type { Context } from "@utils";
+import type { Context } from "./context";
+import type { Game } from "@types";
 
 export function addGame(
 	ctx: Context,
-	results: GameMap,
-	gameName: NameType,
-	...gameUrls: UrlType
-): void {
+	gameName: string,
+	...gameUrls: string[]
+): Game {
 	ctx.info(`Game added: ${gameName}: ${JSON.stringify(gameUrls)}`);
-	if (results.has(gameName)) {
-		results.get(gameName)?.push(...gameUrls);
-	} else {
-		results.set(gameName, gameUrls);
-	}
+	return { name: gameName.trim(), urls: gameUrls.map((url) => url.trim()) };
 }

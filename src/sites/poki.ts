@@ -1,50 +1,49 @@
-import { Ok } from "@thames/monads";
+import { ResultAsync, ok } from "neverthrow";
 import { z } from "zod";
 
-import type { SiteFunction } from "@types";
+import type { Game, SiteFunction } from "@types";
+import type { Context } from "@utils/context";
 
-import { asyncLoop } from "@segments/asyncLoop";
-import { cleanUp } from "@segments/cleanUp";
-import { init } from "@segments/init";
 import { addGame } from "@utils/addGame";
-import { smartFetch } from "@utils/smartFetch";
+import { fetchAndParse } from "@utils/smartFetch";
 
-const BASE_URL = "https://api.poki.com/search/query/3?q=";
+const CATEGORY_BASE_URL = "https://api.poki.com/category/";
+const CATEGORY_URL = CATEGORY_BASE_URL + "categories";
+const CATEGORY_PARAMS = { site: 3 };
+const CATEGORY_SCHEMA = z.object({
+	related_categories: z.array(z.object({ slug: z.string() })),
+});
 
-export const run: SiteFunction = async () => {
-	const { ctx, results } = init("Poki");
+const GAME_BASE_URL = "https://poki.com/en/g/";
+const GAME_PARAMS = { site: 3, limit: 200 };
+const GAME_SCHEMA = z.object({
+	games: z.array(z.object({ slug: z.string(), title: z.string() })),
+});
 
-	await asyncLoop(0, 10, 1, async (i) => {
-		const letter = String.fromCodePoint(97 + i);
-
-		const url = BASE_URL + letter;
-
-		const schema = z.object({
-			games: z.array(
-				z.object({
-					id: z.number(),
-					title: z.string(),
-					slug: z.string(),
-				})
-			),
+const processCategory = (
+	ctx: Context,
+	slug: string
+): ResultAsync<Game[], never> =>
+	fetchAndParse(ctx, CATEGORY_BASE_URL + slug, GAME_SCHEMA, GAME_PARAMS)
+		.map(({ games }) =>
+			games.map(({ slug, title }) =>
+				addGame(ctx, title, GAME_BASE_URL + slug)
+			)
+		)
+		.orElse((err) => {
+			ctx.warn(`Error on category ${slug}: ${err}`);
+			return ok([]);
+		})
+		.andTee((games) => {
+			ctx.info(`Category ${slug} had ${games.length} games`);
 		});
 
-		const fetchResult = await smartFetch(ctx, url, schema);
+export const run: SiteFunction = (ctx) =>
+	fetchAndParse(ctx, CATEGORY_URL, CATEGORY_SCHEMA, CATEGORY_PARAMS)
+		.map(({ related_categories }) =>
+			related_categories.map(({ slug }) => processCategory(ctx, slug))
+		)
+		.andThen((categoryResults) => ResultAsync.combine(categoryResults))
+		.map((games) => games.flat());
 
-		if (fetchResult.isErr()) {
-			ctx.warn(
-				`Error fetching data in iteration ${i} of Poki: ${fetchResult.unwrapErr()}`
-			);
-			return;
-		}
-
-		const parsed = fetchResult.unwrap();
-
-		// we currently don't check if the location actually exists, but the
-		// poki seems stable enough
-		for (const { title, slug: location } of parsed.games)
-			addGame(ctx, results, title, `https://poki.com/en/g/${location}`);
-	});
-
-	return Ok(cleanUp(ctx, results));
-};
+export const displayName = "Poki";

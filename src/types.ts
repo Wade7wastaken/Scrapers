@@ -1,20 +1,16 @@
-import type { Result } from "@thames/monads";
-
-export type NameType = string;
-export type UrlType = string[];
-export type SiteType = string;
+import type { Context } from "@utils/context";
+import type { ResultAsync } from "neverthrow";
 
 export type Game = {
-	name: NameType;
-	urls: UrlType;
-	site: SiteType;
+	name: string;
+	urls: string[];
 };
 
-// a mapping between game names and urls
-export type GameMap = Map<NameType, UrlType>;
+// first is name, second is site, rest are urls
+type CompactGame = readonly [string, number, ...string[]];
 
-export type SiteFunction = () => Promise<Result<Game[], string>>;
+export type GroupedJson = Record<string, Game[]>;
 
-export type Entries<T> = {
-	[K in keyof T]: [K, T[K]];
-}[keyof T][];
+export type UngroupedJson = CompactGame[];
+
+export type SiteFunction = (ctx: Context) => ResultAsync<Game[], string>;

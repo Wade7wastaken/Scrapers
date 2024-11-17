@@ -1,10 +1,9 @@
-import type * as sites from "./sites";
+import type * as sites from "@sites";
 
-export const enabledSites: (keyof typeof sites)[] = [
-	"coolmath",
-	"crazyGames",
-	"googleDoodles",
-	"gs66ez",
-	"gsPremium",
-	"poki",
+type SiteName = (typeof sites)[keyof typeof sites]["displayName"];
+
+export const enabledSites: SiteName[] = [
+	// "Coolmath Games",
+	// "CrazyGames",
+	"Poki",
 ];

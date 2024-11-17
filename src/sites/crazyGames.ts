@@ -1,78 +1,59 @@
-import { Err, Ok, isErr } from "@thames/monads";
+import { ok, safeTry } from "neverthrow";
 import { z } from "zod";
 
-import type { GameMap, SiteFunction } from "@types";
-import type { Context } from "@utils/context";
+import type { Game, SiteFunction } from "@types";
 
-import { asyncIterator } from "@segments/asyncIterator";
-import { cleanUp } from "@segments/cleanUp";
-import { init } from "@segments/init";
 import { addGame } from "@utils/addGame";
-import { smartFetch } from "@utils/smartFetch";
+import { fetchAndParse } from "@utils/smartFetch";
 
 // seems to be a hard limit for the crazy games api
 const MAX_PAGE_SIZE = 100;
 
-const fetchPage = async (
-	ctx: Context,
-	results: GameMap,
-	fetchUrl: string,
-	page = 1
-): Promise<void> => {
-	const schema = z.object({
-		games: z.object({
-			data: z.object({
-				items: z.array(
-					z.object({
-						name: z.string(),
-						slug: z.string(),
-					})
-				),
-				total: z.number(),
-			}),
-		}),
-	});
-
-	const fetchResult = await smartFetch(ctx, fetchUrl, schema, {
-		paginationPage: page,
-		paginationSize: MAX_PAGE_SIZE,
-	});
-
-	if (fetchResult.isErr()) return;
-
-	const parsed = fetchResult.unwrap();
-
-	const items = parsed.games.data.items;
-
-	if (items.length === 0) return;
-
-	for (const { name, slug } of items)
-		addGame(ctx, results, name, `https://www.crazygames.com/game/${slug}`);
-};
-
-export const run: SiteFunction = async () => {
-	const { ctx, results } = init("CrazyGames");
-
-	const tagsUrl = "https://api.crazygames.com/v3/en_US/page/tags";
-
-	const schema = z.object({
-		tags: z.array(
+const ALL_GAMES_URL = "https://api.crazygames.com/v3/en_US/page/allGames";
+const ALL_GAMES_SCHEMA = z.object({
+	games: z.object({
+		items: z.array(
 			z.object({
+				name: z.string(),
 				slug: z.string(),
 			})
 		),
+	}),
+});
+
+const GAME_PAGE_BASE_URL = "https://www.crazygames.com/game/";
+
+export const run: SiteFunction = (ctx) =>
+	safeTry(async function* () {
+		let prevPageLength;
+		let pageNumber = 1;
+
+		const results: Game[] = [];
+
+		do {
+			const {
+				games: { items: games },
+			} = yield* fetchAndParse(ctx, ALL_GAMES_URL, ALL_GAMES_SCHEMA, {
+				paginationPage: pageNumber,
+				paginationSize: MAX_PAGE_SIZE,
+			})
+				.orElse((err) => {
+					ctx.warn(`Error on page ${pageNumber}: ${err}`);
+					return ok({
+						games: { items: [] },
+					});
+				})
+				.safeUnwrap();
+
+			for (const { name, slug } of games) {
+				results.push(addGame(ctx, name, GAME_PAGE_BASE_URL + slug));
+			}
+
+			prevPageLength = games.length;
+			pageNumber++;
+		} while (prevPageLength === MAX_PAGE_SIZE);
+
+		return ok(results);
 	});
 
-	const fetchResult = await smartFetch(ctx, tagsUrl, schema);
-
-	if (isErr(fetchResult)) return Err(fetchResult.unwrapErr());
-
-	const parsed = fetchResult.unwrap();
-
-	await asyncIterator(parsed.tags, async (tag) => {
-		const url = `https://api.crazygames.com/v3/en_US/page/tagCategory/${tag.slug}`;
-		await fetchPage(ctx, results, url);
-	});
-
-	return Ok(cleanUp(ctx, results));
-};
+export const displayName = "CrazyGames";

@@ -1,4 +1,4 @@
-import { MainContext, type Context } from "../utils/context";
+import { MainContext, type Context } from "@utils/context";
 
 export const mainInit = (): Context => {
 	MainContext.initLogger();

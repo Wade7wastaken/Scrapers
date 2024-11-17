@@ -1,39 +1,73 @@
-import { inspect } from "node:util";
+import axios, { isAxiosError, type AxiosRequestConfig } from "axios";
+import axiosRetry, { isNetworkOrIdempotentRequestError } from "axios-retry";
+import { load, type CheerioAPI } from "cheerio";
+import { ResultAsync } from "neverthrow";
+import { z, type ZodSchema } from "zod";
 
-import { Err, Ok } from "@thames/monads";
-import axios, { isAxiosError } from "axios";
-
-import { capitalize, sleep } from "./misc";
+import { capitalize, safeParseResult, sleep, smartInspect } from "./misc";
 
 import type { Context } from "./context";
-import type { Result } from "@thames/monads";
-import type { AxiosRequestConfig } from "axios";
-import type { ZodSchema, z } from "zod";
 
 import {
 	MAX_RETRIES,
-	NO_RETRY_HTTP_CODES,
 	REQUEST_DELAY_MS,
 	REQUEST_DELAY_WAIT_MULTIPLIER,
 } from "@config";
+
+// how long to wait given how many retries there have been
+const getRetryMS = (retries: number): number => 2 ** (retries + 1) * 1000;
+
+// formats a config into a string used for errors and warnings
+// might not be a bad idea to memo this because smartInspect can be expensive
+const formatRequestInfo = (config: AxiosRequestConfig): string =>
+	`request to ${config.url}${config.params ? ` with params ${smartInspect(config.params)}` : ""}`;
+
+// create an axios instance
+const instance = axios.create();
+
+// config for 3rd party axios-retry package
+axiosRetry(instance, {
+	retries: MAX_RETRIES,
+	retryDelay: getRetryMS,
+	onRetry(retryCount, error, requestConfig) {
+		requestConfig.ctx.warn(
+			`Retriable error on ${formatRequestInfo(requestConfig)}. Retrying in ${getRetryMS(retryCount)}ms. Error details: ${JSON.stringify(error.toJSON())}`
+		);
+	},
+	onMaxRetryTimesExceeded(error, retryCount) {
+		error.config?.ctx.error(
+			`${capitalize(formatRequestInfo(error.config))} failed after ${retryCount} attempts. Error details: ${JSON.stringify(error.toJSON())}`
+		);
+	},
+	retryCondition(error) {
+		const shouldRetry = isNetworkOrIdempotentRequestError(error);
+		if (shouldRetry)
+			error.config?.ctx.warn(
+				`Retriable error on ${formatRequestInfo(error.config)}`
+			);
+		else
+			error.config?.ctx.error(
+				`Unretriable error on ${formatRequestInfo(error.config)}: ${error.response?.status}`
+			);
+
+		return shouldRetry;
+	},
+});
 
 // a mapping between domains and if they're ready for another request
 const domains = new Map<string, boolean>();
 
 // gets just the domain name of a url. "https://www.google.com/page" => "google"
-export const getDomain = (url: string): string => {
+const getDomain = (url: string): string => {
 	const hostname = new URL(url).hostname;
 	const noEnding = hostname.slice(0, hostname.lastIndexOf("."));
 	return noEnding.slice(noEnding.lastIndexOf(".") + 1);
 };
 
-// how long to wait given how many retries there have been
-export const getRetryMS = (retries: number): number =>
-	2 ** (retries + 1) * 1000;
-
-// waits until there has been at least REQUEST_DELAY_MS milliseconds between the
-// last request to the same domain name
-const waitForNetwork = async (url: string): Promise<void> => {
+// throttles based on the request's domain. Requests that have the same domain
+// must bet at least REQUEST_DELAY_MS apart, but request from different domains
+// can be instant.
+const throttleDomain = async (url: string): Promise<void> => {
 	const domain = getDomain(url);
 
 	// make sure the domain exists in the map
@@ -49,90 +83,42 @@ const waitForNetwork = async (url: string): Promise<void> => {
 	}, REQUEST_DELAY_MS);
 };
 
-// a wrapper of the main fetch function to allow for retries
-const fetchWrapper = async <T extends ZodSchema>(
-	ctx: Context,
-	url: string,
-	options: AxiosRequestConfig,
-	expectedType: T,
-	retry = 0
-): Promise<Result<z.infer<T>, string>> => {
-	const requestName = `request to ${url} with options ${inspect(options)}`;
+instance.interceptors.request.use(async (config) => {
+	const url = config.url ?? "";
+	const requestInfo = capitalize(formatRequestInfo(config));
+	config.ctx.info(requestInfo + " started");
+	await throttleDomain(url);
+	config.ctx.info(requestInfo + " launched");
+	return config;
+});
 
-	if (retry >= MAX_RETRIES)
-		return Err(
-			`${capitalize(requestName)} failed after ${retry} attempts.`
-		);
-
-	try {
-		const response = await axios.get<unknown>(url, options);
-		const parseResult = expectedType.safeParse(response.data);
-		return parseResult.success
-			? Ok(parseResult.data)
-			: Err(parseResult.error.format()._errors.join("\r\n"));
-	} catch (error) {
-		if (!isAxiosError(error)) throw error;
-
-		const retryDelay = getRetryMS(retry);
-
-		// PR if you can clean up this error handling pls
-		if (
-			error.response &&
-			NO_RETRY_HTTP_CODES.includes(error.response.status)
-		)
-			return Err(
-				`Unretriable HTTP code returned on request to ${requestName}: ${error.response.status}`
-			);
-
-		ctx.warn(
-			`Retriable error on request to ${requestName}. Retrying in ${retryDelay}ms. Error details:`
-		);
-		ctx.warn(error);
-
-		await sleep(retryDelay);
-
-		return fetchWrapper(ctx, url, options, expectedType, retry + 1);
-	}
-};
-
-export const smartFetch = async <T extends ZodSchema>(
-	ctx: Context,
-	url: string,
-	expectedType: T,
-	params?: Record<string, string | number>,
-	silent = false
-): Promise<Result<z.infer<T>, string>> => {
-	await waitForNetwork(url);
-
-	ctx.info(`Request started: ${url}`);
-
-	const response = await fetchWrapper<T>(ctx, url, { params }, expectedType);
-
-	// use silent if you want to make your own error message
-	if (!silent && response.isErr()) ctx.warn(`Request to ${url} failed`);
-	else ctx.info(`Request to ${url} succeeded`);
-
+instance.interceptors.response.use((response) => {
+	response.config.ctx.info(
+		capitalize(formatRequestInfo(response.config)) + " succeeded"
+	);
 	return response;
-};
+});
 
-export const exists = async (ctx: Context, url: string): Promise<boolean> => {
-	await waitForNetwork(url);
+// still not sure what this eslint error means
+// eslint-disable-next-line @typescript-eslint/unbound-method
+export const smartFetch = ResultAsync.fromThrowable(instance.get, (err) => {
+	if (isAxiosError(err))
+		return String(err); // should improve this later
+	else throw new Error(`Unknown error received from axios: ${String(err)}`);
+});
 
-	try {
-		const response = await axios.head<unknown>(url);
-		// Check if the status code is in the 200-399 range, indicating a successful request.
-		const doesExist = response.status >= 200 && response.status < 400;
+export const fetchAndParse = <T extends ZodSchema>(
+	ctx: Context,
+	url: string,
+	expectedType: T,
+	params?: Record<string, string | number>
+): ResultAsync<z.infer<T>, string> =>
+	smartFetch<unknown>(url, { params, ctx }).andThen((response) =>
+		safeParseResult(expectedType, response.data)
+	);
 
-		if (doesExist) ctx.info(`${url} exists: returned ${response.status}`);
-		else ctx.warn(`${url} doesn't exist: returned ${response.status}`);
-
-		return doesExist;
-	} catch (error) {
-		if (!isAxiosError(error)) throw error;
-
-		// Axios will throw an error for non-2xx status codes.
-		ctx.error(`Axios error when checking if ${url} exists. Error details:`);
-		ctx.error(error);
-		return false;
-	}
-};
+export const fetchAndParseHTML = (
+	ctx: Context,
+	url: string
+): ResultAsync<CheerioAPI, string> =>
+	fetchAndParse(ctx, url, z.string()).map((str) => load(str));

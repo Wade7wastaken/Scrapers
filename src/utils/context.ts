@@ -1,6 +1,6 @@
 import { createWriteStream } from "node:fs";
 
-import { formatTime, smartInspect } from ".";
+import { formatTime, smartInspect } from "./misc";
 
 import type { WriteStream } from "node:fs";
 
@@ -12,7 +12,6 @@ export interface Context {
 	info(m: unknown): void;
 	warn(m: unknown): void;
 	error(m: unknown): void;
-	setResultsLength(length: number): void;
 }
 
 // Functions as a logger, but is also used as an identifier as to which site
@@ -20,13 +19,14 @@ export interface Context {
 export class MainContext implements Context {
 	public static logFileStream: WriteStream;
 
-	public static readonly resultLengths = new Map<string, number>();
-
 	public constructor(public readonly name: string) {}
 
 	public static initLogger(): void {
+		// MainContext.logFileStream = createWriteStream(
+		// 	`${LOG_LOCATION}/${new Date().toUTCString()}.log`
+		// );
 		MainContext.logFileStream = createWriteStream(
-			`${LOG_LOCATION}/${new Date().toLocaleString()}.log`
+			`${LOG_LOCATION}/scraper.log`
 		);
 	}
 
@@ -56,10 +56,6 @@ export class MainContext implements Context {
 		this.log(m, "error", "error");
 	}
 
-	public setResultsLength(length: number): void {
-		MainContext.resultLengths.set(this.name, length);
-	}
-
 	public static closeFileStream(): void {
 		MainContext.logFileStream.close();
 	}
@@ -73,14 +69,10 @@ export class TestContext implements Context {
 	}
 
 	public warn(m: unknown): void {
-		console.log(m);
+		console.warn(m);
 	}
 
 	public error(m: unknown): void {
-		console.log(m);
-	}
-
-	public setResultsLength(length: number): void {
-		console.log(`Test Logger was set with result length of ${length}`);
+		console.error(m);
 	}
 }
