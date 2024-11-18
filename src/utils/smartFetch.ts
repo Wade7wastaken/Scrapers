@@ -103,7 +103,7 @@ instance.interceptors.response.use((response) => {
 // eslint-disable-next-line @typescript-eslint/unbound-method
 export const smartFetch = ResultAsync.fromThrowable(instance.get, (err) => {
 	if (isAxiosError(err))
-		return String(err); // should improve this later
+		return smartInspect(err); // should improve this later
 	else throw new Error(`Unknown error received from axios: ${String(err)}`);
 });
 

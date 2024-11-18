@@ -37,8 +37,8 @@ const formatUrls = (subdomain: string, name: string): string[] => {
 };
 
 export const run: SiteFunction = (ctx) =>
-	fetchAndParse(ctx, JSON_URL, SCHEMA).map((res) =>
-		res.game
+	fetchAndParse(ctx, JSON_URL, SCHEMA).map(({ game }) =>
+		game
 			.filter(({ type }) => type !== "flash")
 			.flatMap(({ title, alias }) =>
 				SUBDOMAINS.map((subdomain) =>

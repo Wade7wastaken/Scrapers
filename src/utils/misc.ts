@@ -2,6 +2,7 @@ import { inspect } from "node:util";
 
 import { err, ok, type Result } from "neverthrow";
 
+import type { Context } from "./context";
 import type { z, ZodSchema } from "zod";
 
 // one liner function that could be used anywhere
@@ -41,3 +42,14 @@ export const safeParseResult = <T extends ZodSchema>(
 		? ok(parseResult.data)
 		: err(parseResult.error.format()._errors.join("\r\n"));
 };
+
+export const warn =
+	<R>(
+		ctx: Context,
+		msg: string,
+		d: R
+	): ((err: unknown) => Result<R, never>) =>
+	(err) => {
+		ctx.warn(`${msg}: ${smartInspect(err)}`);
+		return ok(d);
+	};

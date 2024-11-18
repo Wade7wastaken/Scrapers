@@ -1,10 +1,11 @@
-import { ResultAsync, ok } from "neverthrow";
+import { ResultAsync } from "neverthrow";
 import { z } from "zod";
 
 import type { Game, SiteFunction } from "@types";
 import type { Context } from "@utils/context";
 
 import { addGame } from "@utils/addGame";
+import { warn } from "@utils/misc";
 import { fetchAndParse } from "@utils/smartFetch";
 
 const CATEGORY_BASE_URL = "https://api.poki.com/category/";
@@ -30,10 +31,7 @@ const processCategory = (
 				addGame(ctx, title, GAME_BASE_URL + slug)
 			)
 		)
-		.orElse((err) => {
-			ctx.warn(`Error on category ${slug}: ${err}`);
-			return ok([]);
-		})
+		.orElse(warn(ctx, `Error on category ${slug}`, []))
 		.andTee((games) => {
 			ctx.info(`Category ${slug} had ${games.length} games`);
 		});

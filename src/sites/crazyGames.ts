@@ -1,9 +1,12 @@
-import { ok, safeTry } from "neverthrow";
+import { ok } from "neverthrow";
 import { z } from "zod";
 
 import type { Game, SiteFunction } from "@types";
+import type { Context } from "@utils/context";
+import type { ResultAsync } from "neverthrow";
 
 import { addGame } from "@utils/addGame";
+import { warn } from "@utils/misc";
 import { fetchAndParse } from "@utils/smartFetch";
 
 // seems to be a hard limit for the crazy games api
@@ -23,37 +26,28 @@ const ALL_GAMES_SCHEMA = z.object({
 
 const GAME_PAGE_BASE_URL = "https://www.crazygames.com/game/";
 
-export const run: SiteFunction = (ctx) =>
-	safeTry(async function* () {
-		let prevPageLength;
-		let pageNumber = 1;
+const getPage = (
+	ctx: Context,
+	pageNumber: number
+): ResultAsync<Game[], string> =>
+	fetchAndParse(ctx, ALL_GAMES_URL, ALL_GAMES_SCHEMA, {
+		paginationPage: pageNumber,
+		paginationSize: MAX_PAGE_SIZE,
+	})
+		.orElse(
+			warn(ctx, `Error on page ${pageNumber}`, { games: { items: [] } })
+		)
+		.map(({ games: { items: games } }) =>
+			games.map(({ name, slug }) =>
+				addGame(ctx, name, GAME_PAGE_BASE_URL + slug)
+			)
+		)
+		.andThen((games) =>
+			games.length === 0
+				? ok([])
+				: getPage(ctx, pageNumber++).map((next) => [...games, ...next])
+		);
 
-		const results: Game[] = [];
-
-		do {
-			const {
-				games: { items: games },
-			} = yield* fetchAndParse(ctx, ALL_GAMES_URL, ALL_GAMES_SCHEMA, {
-				paginationPage: pageNumber,
-				paginationSize: MAX_PAGE_SIZE,
-			})
-				.orElse((err) => {
-					ctx.warn(`Error on page ${pageNumber}: ${err}`);
-					return ok({
-						games: { items: [] },
-					});
-				})
-				.safeUnwrap();
-
-			for (const { name, slug } of games) {
-				results.push(addGame(ctx, name, GAME_PAGE_BASE_URL + slug));
-			}
-
-			prevPageLength = games.length;
-			pageNumber++;
-		} while (prevPageLength === MAX_PAGE_SIZE);
-
-		return ok(results);
-	});
+export const run: SiteFunction = (ctx) => getPage(ctx, 0);
 
 export const displayName = "CrazyGames";
