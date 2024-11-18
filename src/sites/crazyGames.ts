@@ -5,8 +5,8 @@ import type { Game, SiteFunction } from "@types";
 import type { Context } from "@utils/context";
 import type { ResultAsync } from "neverthrow";
 
-import { addGame } from "@utils/addGame";
 import { warn } from "@utils/misc";
+import { newGame } from "@utils/newGame";
 import { fetchAndParse } from "@utils/smartFetch";
 
 // seems to be a hard limit for the crazy games api
@@ -39,7 +39,7 @@ const getPage = (
 		)
 		.map(({ games: { items: games } }) =>
 			games.map(({ name, slug }) =>
-				addGame(ctx, name, GAME_PAGE_BASE_URL + slug)
+				newGame(ctx, name, GAME_PAGE_BASE_URL + slug)
 			)
 		)
 		.andThen((games) =>

@@ -2,7 +2,7 @@ import { z } from "zod";
 
 import type { SiteFunction } from "@types";
 
-import { addGame } from "@utils/addGame";
+import { newGame } from "@utils/newGame";
 import { fetchAndParse } from "@utils/smartFetch";
 
 const JSON_URL =
@@ -42,7 +42,7 @@ export const run: SiteFunction = (ctx) =>
 			.filter(({ type }) => type !== "flash")
 			.flatMap(({ title, alias }) =>
 				SUBDOMAINS.map((subdomain) =>
-					addGame(ctx, title, ...formatUrls(subdomain, alias))
+					newGame(ctx, title, ...formatUrls(subdomain, alias))
 				)
 			)
 	);

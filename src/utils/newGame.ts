@@ -1,7 +1,7 @@
 import type { Context } from "./context";
 import type { Game } from "@types";
 
-export function addGame(
+export function newGame(
 	ctx: Context,
 	gameName: string,
 	...gameUrls: string[]

@@ -4,8 +4,8 @@ import { z } from "zod";
 import type { Game, SiteFunction } from "@types";
 import type { Context } from "@utils/context";
 
-import { addGame } from "@utils/addGame";
 import { warn } from "@utils/misc";
+import { newGame } from "@utils/newGame";
 import { fetchAndParse } from "@utils/smartFetch";
 
 const CATEGORY_BASE_URL = "https://api.poki.com/category/";
@@ -28,7 +28,7 @@ const processCategory = (
 	fetchAndParse(ctx, CATEGORY_BASE_URL + slug, GAME_SCHEMA, GAME_PARAMS)
 		.map(({ games }) =>
 			games.map(({ slug, title }) =>
-				addGame(ctx, title, GAME_BASE_URL + slug)
+				newGame(ctx, title, GAME_BASE_URL + slug)
 			)
 		)
 		.orElse(warn(ctx, `Error on category ${slug}`, []))
