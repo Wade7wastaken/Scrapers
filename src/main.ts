@@ -1,7 +1,7 @@
 import { GROUPED_OUTPUT_LOCATION, UNGROUPED_OUTPUT_LOCATION } from "@config";
 import { FileSystem } from "@effect/platform";
 import { NodeFileSystem, NodeRuntime } from "@effect/platform-node";
-import { Effect, Data, Schema, Layer, pipe } from "effect";
+import { Effect, Data, Schema, Layer, pipe, Console } from "effect";
 import { format } from "prettier";
 
 const Game = Schema.Struct({
@@ -57,7 +57,8 @@ class PrettierError extends Data.TaggedError("PrettierError")<{
 
 const prettyJson = (o: unknown): Effect.Effect<string, PrettierError, never> =>
 	Effect.tryPromise({
-		try: async () => await format(JSON.stringify(o), { parser: "json" }),
+		try: async () =>
+			await format(JSON.stringify(o), { parser: "json", useTabs: true }),
 		catch: (err) => new PrettierError({ err }),
 	});
 
@@ -101,10 +102,12 @@ const combinedLayer = Layer.provide(
 );
 
 const program = Effect.gen(function* () {
+	yield* Console.log("starting");
 	const writer = yield* ResultsWriter;
 	yield* writer.write({
 		SomethingNew: [{ name: "abc", urls: ["url1", "url2"] }],
 	});
+	yield* Console.log("done");
 }).pipe(Effect.provide(combinedLayer));
 
 NodeRuntime.runMain(program);
