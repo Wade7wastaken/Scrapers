@@ -104,9 +104,7 @@ const combinedLayer = Layer.provide(
 const program = Effect.gen(function* () {
 	yield* Console.log("starting");
 	const writer = yield* ResultsWriter;
-	yield* writer.write({
-		SomethingNew: [{ name: "abc", urls: ["url1", "url2"] }],
-	});
+	yield* writer.write({});
 	yield* Console.log("done");
 }).pipe(Effect.provide(combinedLayer));
 
