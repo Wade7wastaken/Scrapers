@@ -1,5 +1,5 @@
 {
 	"cSpell.words": ["neverthrow"],
 	"typescript.tsdk": "node_modules\\typescript\\lib",
-	"typescript.tsserver.experimental.enableProjectDiagnostics": true
+	// "typescript.tsserver.experimental.enableProjectDiagnostics": true
 }

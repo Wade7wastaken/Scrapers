@@ -3,7 +3,6 @@ import tsParser from "@typescript-eslint/parser";
 import prettier from "eslint-config-prettier";
 import importX from "eslint-plugin-import-x";
 import unicorn from "eslint-plugin-unicorn";
-import vitest from "eslint-plugin-vitest";
 import ts from "typescript-eslint";
 
 export default ts.config(
@@ -15,7 +14,7 @@ export default ts.config(
 	unicorn.configs["flat/recommended"],
 	prettier,
 	{
-		ignores: ["node_modules/", "vite.config.ts", "dist/", "results/"],
+		ignores: ["node_modules/", "dist/", "results/"],
 	},
 	{
 		languageOptions: {
@@ -83,15 +82,6 @@ export default ts.config(
 	{
 		files: ["**/*.js"],
 		...ts.configs.disableTypeChecked,
-	},
-	{
-		files: ["**/*.test.ts"],
-		plugins: {
-			vitest,
-		},
-		rules: {
-			...vitest.configs.recommended.rules,
-		},
 	},
 	{
 		files: ["eslint.config.js"],

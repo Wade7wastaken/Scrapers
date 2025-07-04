@@ -1,44 +1,110 @@
-import {
-	mainCleanUp,
-	mainInit,
-	processOutput,
-	processSites,
-} from "./procedures";
+import { GROUPED_OUTPUT_LOCATION, UNGROUPED_OUTPUT_LOCATION } from "@config";
+import { FileSystem } from "@effect/platform";
+import { NodeFileSystem, NodeRuntime } from "@effect/platform-node";
+import { Effect, Data, Schema, Layer, pipe } from "effect";
+import { format } from "prettier";
 
-/**
- * TODO:
- *
- * Features:
- * Function to process test regex match (maybe second in array?)
- * Logic to check if test was unused
- * Add stats to show how many urls for each page (kinda done)
- * Use a Set instead of array for links to avoid duplicates without additional logic
- * Logic to check if regex always matched the same value (it can be replaced by a string)
- * Response type checking
- * Rust-like errors (maybe just use rust)
- *
- * Bugfixes:
- * deal with all the types scattered everywhere
- * Running tests should touch log folder or have any side effects
- * rename "log" everywhere to "ctx". Context makes more sense now because it is actually used as the context
- *
- * Config:
- */
+const Game = Schema.Struct({
+	name: Schema.String,
+	urls: Schema.Array(Schema.String),
+});
 
-/**
- * Utils contains small utility functions/classes that are typically used more
- * than once in site functions. Procedures contains functions that are only
- * called once in init/takedown of the program. Segments are used in site
- * programs and are also mostly used procedurally. Segments are the Procedures
- * for site functions.
- */
+type Game = typeof Game.Type;
 
-const main = async (): Promise<void> => {
-	const ctx = mainInit();
+// first is name, second is site, rest are urls
+type CompactGame = readonly [string, number, ...string[]];
 
-	const results = await processSites(ctx);
-	await processOutput(results);
-	mainCleanUp();
-};
+const GroupedJson = Schema.Record({
+	key: Schema.String,
+	value: Schema.Array(Game),
+});
 
-void main();
+// type GroupedJson = Record<string, Game[]>;
+type GroupedJson = typeof GroupedJson.Type;
+
+const parseGroupedJson = Schema.decodeUnknown(GroupedJson);
+
+type UngroupedJson = CompactGame[];
+
+const constructUngroupedJson = (
+	grouped: GroupedJson,
+	sites: string[]
+): UngroupedJson =>
+	Object.entries(grouped)
+		.flatMap(([site, games]) =>
+			games.map(
+				({ name, urls }) =>
+					[name, sites.indexOf(site), ...urls] as const
+			)
+		)
+		.sort((a, b) => a[0].toLowerCase().localeCompare(b[0].toLowerCase()));
+
+class JsonParseError extends Data.TaggedError("JsonParseError")<{
+	err: string;
+}> {}
+
+const parseJsonSafe = (
+	s: string
+): Effect.Effect<unknown, JsonParseError, never> =>
+	Effect.try({
+		try: () => JSON.parse(s),
+		catch: (err) => new JsonParseError({ err: String(err) }),
+	});
+
+class PrettierError extends Data.TaggedError("PrettierError")<{
+	err: unknown;
+}> {}
+
+const prettyJson = (o: unknown): Effect.Effect<string, PrettierError, never> =>
+	Effect.tryPromise({
+		try: async () => await format(JSON.stringify(o), { parser: "json" }),
+		catch: (err) => new PrettierError({ err }),
+	});
+
+const uglyJson = (o: unknown): string => JSON.stringify(o);
+
+class ResultsWriter extends Effect.Service<ResultsWriter>()("Test", {
+	effect: Effect.gen(function* () {
+		const fs = yield* FileSystem.FileSystem;
+		const write = (newResults: GroupedJson) =>
+			Effect.gen(function* () {
+				const oldResults = yield* pipe(
+					GROUPED_OUTPUT_LOCATION,
+					fs.readFileString,
+					Effect.andThen(parseJsonSafe),
+					Effect.andThen(parseGroupedJson)
+				);
+
+				const combined = { ...oldResults, ...newResults };
+				const prettyGrouped = yield* prettyJson(combined);
+				yield* fs.writeFileString(
+					GROUPED_OUTPUT_LOCATION,
+					prettyGrouped
+				);
+
+				const sites = Object.keys(combined);
+				const ungrouped = constructUngroupedJson(combined, sites);
+				const ungroupedString = uglyJson({ sites, games: ungrouped });
+				yield* fs.writeFileString(
+					UNGROUPED_OUTPUT_LOCATION,
+					ungroupedString
+				);
+			});
+		return { write } as const;
+	}),
+	dependencies: [NodeFileSystem.layer],
+}) {}
+
+const combinedLayer = Layer.provide(
+	ResultsWriter.Default,
+	NodeFileSystem.layer
+);
+
+const program = Effect.gen(function* () {
+	const writer = yield* ResultsWriter;
+	yield* writer.write({
+		SomethingNew: [{ name: "abc", urls: ["url1", "url2"] }],
+	});
+}).pipe(Effect.provide(combinedLayer));
+
+NodeRuntime.runMain(program);
