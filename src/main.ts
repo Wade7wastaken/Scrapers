@@ -1,15 +1,34 @@
 import { GROUPED_OUTPUT_LOCATION, UNGROUPED_OUTPUT_LOCATION } from "@config";
 import { FileSystem } from "@effect/platform";
 import { NodeFileSystem, NodeRuntime } from "@effect/platform-node";
-import { Effect, Data, Schema, Layer, pipe, Console } from "effect";
+import {
+	Effect,
+	Data,
+	Schema,
+	Layer,
+	pipe,
+	Console,
+	Either,
+	Schedule,
+	Context,
+	Ref,
+	Clock,
+	HashSet,
+	HashMap,
+	Option,
+	Logger,
+} from "effect";
 import { format } from "prettier";
+
+import * as sites from "@sites";
+import { enabledSites } from "./siteToggle";
 
 const Game = Schema.Struct({
 	name: Schema.String,
 	urls: Schema.Array(Schema.String),
 });
 
-type Game = typeof Game.Type;
+export type Game = typeof Game.Type;
 
 // first is name, second is site, rest are urls
 type CompactGame = readonly [string, number, ...string[]];
@@ -64,7 +83,7 @@ const prettyJson = (o: unknown): Effect.Effect<string, PrettierError, never> =>
 
 const uglyJson = (o: unknown): string => JSON.stringify(o);
 
-class ResultsWriter extends Effect.Service<ResultsWriter>()("Test", {
+class ResultsWriter extends Effect.Service<ResultsWriter>()("ResultsWriter", {
 	effect: Effect.gen(function* () {
 		const fs = yield* FileSystem.FileSystem;
 		const write = (newResults: GroupedJson) =>
@@ -96,16 +115,67 @@ class ResultsWriter extends Effect.Service<ResultsWriter>()("Test", {
 	dependencies: [NodeFileSystem.layer],
 }) {}
 
-const combinedLayer = Layer.provide(
-	ResultsWriter.Default,
-	NodeFileSystem.layer
-);
+class ThrottleState extends Context.Tag("ThrottleState")<
+	ThrottleState,
+	Ref.Ref<HashMap.HashMap<string, boolean>>
+>() {}
 
-const program = Effect.gen(function* () {
+// const throttlea = new Map()
+
+class HttpService extends Effect.Service<HttpService>()("HttpService", {
+	effect: Effect.gen(function* () {
+		const throttle = yield* ThrottleState;
+		const get = (url: string) =>
+			Effect.gen(function* () {
+				while (
+					!Option.getOrElse(
+						HashMap.get(yield* Ref.get(throttle), url),
+						() => true
+					)
+				) {
+					yield* Clock.sleep(0);
+				}
+				yield* Ref.update(throttle, HashMap.set(url, false));
+
+				const fetchTime = yield* Clock.currentTimeMillis;
+				yield* Console.log(`fetching ${url} at ${fetchTime}`);
+
+				yield* Effect.fork(
+					Clock.sleep(1000).pipe(
+						Effect.andThen(() =>
+							Ref.update(throttle, HashMap.set(url, true))
+						)
+					)
+				);
+
+				return;
+			});
+
+		return { get } as const;
+	}),
+	dependencies: [Layer.effect(ThrottleState, Ref.make(HashMap.empty()))],
+}) {}
+
+Effect.gen(function* () {
 	yield* Console.log("starting");
-	const writer = yield* ResultsWriter;
-	yield* writer.write({});
+	// yield* Clock.sleep("5 seconds");
+	const httpService = yield* HttpService;
+	const effects = [1, 2, 3, 4, 5].map((i) => httpService.get(`same`));
+	yield* Effect.all(effects, { concurrency: "unbounded" });
+	// const effects = Object.entries(sites)
+	// 	.filter(([name, _]) => enabledSites.includes(name))
+	// 	.map(([_, site]) =>
+	// 		site.run.pipe(
+	// 			Effect.map((result) => [site.displayName, result] as const)
+	// 		)
+	// 	);
+	// const results = yield* Effect.all(effects, { concurrency: "unbounded" });
+	// const grouped = Object.fromEntries(results);
+	// const writer = yield* ResultsWriter;
+	// yield* writer.write(grouped);
 	yield* Console.log("done");
-}).pipe(Effect.provide(combinedLayer));
-
-NodeRuntime.runMain(program);
+}).pipe(
+	Effect.provide(ResultsWriter.Default),
+	Effect.provide(HttpService.Default),
+	NodeRuntime.runMain
+);
