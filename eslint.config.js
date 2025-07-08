@@ -9,9 +9,9 @@ export default ts.config(
 	js.configs.recommended,
 	importX.flatConfigs.recommended,
 	importX.flatConfigs.typescript,
-	...ts.configs.strictTypeChecked,
-	...ts.configs.stylisticTypeChecked,
-	unicorn.configs["flat/recommended"],
+	ts.configs.strictTypeChecked,
+	ts.configs.stylisticTypeChecked,
+	unicorn.configs.recommended,
 	prettier,
 	{
 		ignores: ["node_modules/", "dist/", "results/"],
@@ -56,14 +56,6 @@ export default ts.config(
 				{
 					"newlines-between": "always",
 					alphabetize: { order: "asc", caseInsensitive: true },
-					groups: [
-						"builtin",
-						"external",
-						"parent",
-						"sibling",
-						"index",
-						"type",
-					],
 				},
 			],
 
@@ -77,6 +69,7 @@ export default ts.config(
 				},
 			],
 			"unicorn/prevent-abbreviations": "off",
+			"unicorn/throw-new-error": "off",
 		},
 	},
 	{
@@ -87,6 +80,7 @@ export default ts.config(
 		files: ["eslint.config.js"],
 		rules: {
 			"import-x/no-named-as-default-member": "off",
+			"import-x/no-named-as-default": "off",
 		},
 	}
 );

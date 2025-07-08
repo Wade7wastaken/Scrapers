@@ -4,6 +4,6 @@ type SiteName = (typeof sites)[keyof typeof sites]["displayName"];
 
 export const enabledSites: SiteName[] = [
 	// "Coolmath Games",
-	"CrazyGames",
+	// "CrazyGames",
 	// "Poki",
 ];

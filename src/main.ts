@@ -1,5 +1,5 @@
-import { GROUPED_OUTPUT_LOCATION, UNGROUPED_OUTPUT_LOCATION } from "@config";
-import { FileSystem, HttpClient, HttpClientRequest } from "@effect/platform";
+import type { HttpClientRequest } from "@effect/platform";
+import { FileSystem, HttpClient } from "@effect/platform";
 import {
 	NodeFileSystem,
 	NodeHttpClient,
@@ -18,11 +18,13 @@ import {
 	HashMap,
 	Option,
 } from "effect";
+import _ from "lodash";
 import { format } from "prettier";
 
-import * as sites from "@sites";
 import { enabledSites } from "./siteToggle";
-import _ from "lodash";
+
+import { GROUPED_OUTPUT_LOCATION, UNGROUPED_OUTPUT_LOCATION } from "@config";
+import * as sites from "@sites";
 
 const Game = Schema.Struct({
 	name: Schema.String,
@@ -65,7 +67,7 @@ class JsonParseError extends Data.TaggedError("JsonParseError")<{
 
 const parseJsonSafe = (
 	s: string
-): Effect.Effect<unknown, JsonParseError, never> =>
+): Effect.Effect<unknown, JsonParseError> =>
 	Effect.try({
 		try: () => JSON.parse(s),
 		catch: (err) => new JsonParseError({ err: String(err) }),
@@ -75,7 +77,7 @@ class PrettierError extends Data.TaggedError("PrettierError")<{
 	err: unknown;
 }> {}
 
-const prettyJson = (o: unknown): Effect.Effect<string, PrettierError, never> =>
+const prettyJson = (o: unknown): Effect.Effect<string, PrettierError> =>
 	Effect.tryPromise({
 		try: async () =>
 			await format(JSON.stringify(o), { parser: "json", useTabs: true }),
