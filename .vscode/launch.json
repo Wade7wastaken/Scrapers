@@ -10,7 +10,8 @@
 			"sourceMaps": true,
 			"smartStep": true,
 			"internalConsoleOptions": "openOnSessionStart",
-			"outFiles": ["${workspaceFolder}/dist/**/*.js"]
+			"outFiles": ["${workspaceFolder}/dist/**/*.js"],
+			"outputCapture": "std"
 		}
 	]
 }

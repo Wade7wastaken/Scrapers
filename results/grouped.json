@@ -15924,6 +15924,10 @@
 	],
 	"CrazyGames": [
 		{
+			"name": " Stickman Crowd Fight",
+			"urls": ["https://www.crazygames.com/game/cartoon-crowd-clash"]
+		},
+		{
 			"name": "10 Bullets - HTML 5",
 			"urls": ["https://www.crazygames.com/game/10-bullets-html-5"]
 		},
@@ -15946,6 +15950,14 @@
 		{
 			"name": "100 Doors Challenge",
 			"urls": ["https://www.crazygames.com/game/100-doors-challenge"]
+		},
+		{
+			"name": "100 Doors Puzzle Box",
+			"urls": ["https://www.crazygames.com/game/100-doors-puzzle-box"]
+		},
+		{
+			"name": "100 Doors: Around the World",
+			"urls": ["https://www.crazygames.com/game/100-doors-around-the-world"]
 		},
 		{
 			"name": "100 Meters Race",
@@ -16006,6 +16018,7 @@
 			"name": "2248 Puzzle - Link Numbers",
 			"urls": ["https://www.crazygames.com/game/2248-puzzle---link-numbers"]
 		},
+		{ "name": "3 Tiles", "urls": ["https://www.crazygames.com/game/3-tiles"] },
 		{
 			"name": "3D Bowling",
 			"urls": ["https://www.crazygames.com/game/3d-bowling"]
@@ -16023,6 +16036,12 @@
 			"urls": ["https://www.crazygames.com/game/3d-moto-simulator-2"]
 		},
 		{
+			"name": "3D Sandbox: Battle of the Kingdoms",
+			"urls": [
+				"https://www.crazygames.com/game/3d-sandbox-battle-of-the-kingdoms"
+			]
+		},
+		{
 			"name": "3D Underground Car Parking",
 			"urls": ["https://www.crazygames.com/game/3d-underground-car-parking"]
 		},
@@ -16033,6 +16052,10 @@
 		{
 			"name": "4th and Goal 2019",
 			"urls": ["https://www.crazygames.com/game/4th-and-goal-2019"]
+		},
+		{
+			"name": "4x4 Chess: Last Man Stand",
+			"urls": ["https://www.crazygames.com/game/4x4-chess"]
 		},
 		{
 			"name": "4x4 Offroader",
@@ -16047,6 +16070,10 @@
 			"urls": [
 				"https://www.crazygames.com/game/8-ball-pool-billiards-multiplayer"
 			]
+		},
+		{
+			"name": "9 Blocks",
+			"urls": ["https://www.crazygames.com/game/9-blocks-mzz"]
 		},
 		{
 			"name": "911: Cannibal",
@@ -16093,16 +16120,16 @@
 			"urls": ["https://www.crazygames.com/game/a-small-world-cup-snk"]
 		},
 		{
-			"name": "A Thief's Journey",
-			"urls": ["https://www.crazygames.com/game/a-thief-s-journey"]
-		},
-		{
 			"name": "ABC Pizza Maker",
 			"urls": ["https://www.crazygames.com/game/abc-pizza-maker---cooking-game"]
 		},
 		{
 			"name": "Abobo's Big Adventure",
 			"urls": ["https://www.crazygames.com/game/abobos-big-adventure"]
+		},
+		{
+			"name": "Aces of the Sky: Epic Dogfights",
+			"urls": ["https://www.crazygames.com/game/aces-of-the-sky-epic-dogfights"]
 		},
 		{
 			"name": "Achilles",
@@ -16149,8 +16176,16 @@
 			"urls": ["https://www.crazygames.com/game/adventure-miner"]
 		},
 		{
-			"name": "Adventures of Flig",
-			"urls": ["https://www.crazygames.com/game/adventures-of-flig"]
+			"name": "Adversator",
+			"urls": ["https://www.crazygames.com/game/adversator"]
+		},
+		{
+			"name": "Aero Mania",
+			"urls": ["https://www.crazygames.com/game/hyper-drone-racer"]
+		},
+		{
+			"name": "AFK Dungeon: Idle Action RPG",
+			"urls": ["https://www.crazygames.com/game/afk-dungeon-zaq"]
 		},
 		{
 			"name": "AFK HEROES",
@@ -16187,6 +16222,10 @@
 		},
 		{ "name": "Aground", "urls": ["https://www.crazygames.com/game/aground"] },
 		{
+			"name": "Aidan in Danger",
+			"urls": ["https://www.crazygames.com/game/aidan-in-danger"]
+		},
+		{
 			"name": "Aim Master",
 			"urls": ["https://www.crazygames.com/game/aim-master"]
 		},
@@ -16199,6 +16238,10 @@
 			"urls": ["https://www.crazygames.com/game/air-battle-royale-sky-blitz"]
 		},
 		{
+			"name": "Air Block",
+			"urls": ["https://www.crazygames.com/game/air-block"]
+		},
+		{
 			"name": "Air Defence 3",
 			"urls": ["https://www.crazygames.com/game/air-defence-3"]
 		},
@@ -16207,20 +16250,12 @@
 			"urls": ["https://www.crazygames.com/game/air-hockey-cup"]
 		},
 		{
+			"name": "Air Hockey Glow",
+			"urls": ["https://www.crazygames.com/game/air-hockey-glow"]
+		},
+		{
 			"name": "Air Strike",
 			"urls": ["https://www.crazygames.com/game/air-strike"]
-		},
-		{
-			"name": "Air Toons",
-			"urls": ["https://www.crazygames.com/game/air-toons"]
-		},
-		{
-			"name": "Air Wars 2",
-			"urls": ["https://www.crazygames.com/game/air-wars-2"]
-		},
-		{
-			"name": "Air Wars 3",
-			"urls": ["https://www.crazygames.com/game/air-wars-3"]
 		},
 		{
 			"name": "Airborne Motocross",
@@ -16264,10 +16299,6 @@
 			"urls": ["https://www.crazygames.com/game/alice-is-dead-3"]
 		},
 		{
-			"name": "Alien Hominid",
-			"urls": ["https://www.crazygames.com/game/alien-hominid"]
-		},
-		{
 			"name": "Alien Invasion Tower Defense",
 			"urls": ["https://www.crazygames.com/game/alien-invasion-tower-defense"]
 		},
@@ -16305,6 +16336,10 @@
 		{
 			"name": "Animal DNA Run",
 			"urls": ["https://www.crazygames.com/game/animal-dna-run"]
+		},
+		{
+			"name": "Animal Royal",
+			"urls": ["https://www.crazygames.com/game/animal-royal-vse"]
 		},
 		{
 			"name": "Animal Shopping Supermarket",
@@ -16371,15 +16406,14 @@
 			"name": "Apes Fighting Gorilla Game",
 			"urls": ["https://www.crazygames.com/game/apes-fighting-gorilla-game"]
 		},
-		{ "name": "Apes.io", "urls": ["https://www.crazygames.com/game/apes-io"] },
+		{
+			"name": "Apocalypse Reborn",
+			"urls": ["https://www.crazygames.com/game/apocalypse-reborn-qff"]
+		},
 		{ "name": "Appel", "urls": ["https://www.crazygames.com/game/appel"] },
 		{
 			"name": "Apple Shooter",
 			"urls": ["https://www.crazygames.com/game/apple-shooter"]
-		},
-		{
-			"name": "Aqua Cop",
-			"urls": ["https://www.crazygames.com/game/aqua-cop"]
 		},
 		{
 			"name": "Aquapark Balls Party",
@@ -16394,6 +16428,10 @@
 			"urls": ["https://www.crazygames.com/game/arcade-rope"]
 		},
 		{
+			"name": "Archer Clash",
+			"urls": ["https://www.crazygames.com/game/archer-clash-ftj"]
+		},
+		{
 			"name": "Archer Defense",
 			"urls": ["https://www.crazygames.com/game/archer-defense"]
 		},
@@ -16406,6 +16444,18 @@
 		{
 			"name": "Archer Ragdoll Masters",
 			"urls": ["https://www.crazygames.com/game/archer-ragdoll-masters"]
+		},
+		{
+			"name": "Archer Shooter 3D",
+			"urls": ["https://www.crazygames.com/game/archer-shooter-3d-bpu"]
+		},
+		{
+			"name": "Archers Arena",
+			"urls": ["https://www.crazygames.com/game/archers-arena"]
+		},
+		{
+			"name": "Archers Battle",
+			"urls": ["https://www.crazygames.com/game/archers-battle"]
 		},
 		{
 			"name": "Archery Master",
@@ -16457,21 +16507,31 @@
 			"urls": ["https://www.crazygames.com/game/idle-art-tycoon"]
 		},
 		{
-			"name": "Artillery",
-			"urls": ["https://www.crazygames.com/game/artillery"]
-		},
-		{
 			"name": "Arx Arcana (Last Mage Standing)",
 			"urls": ["https://www.crazygames.com/game/arx-arcana-dungeon-royale"]
 		},
 		{ "name": "Ascent", "urls": ["https://www.crazygames.com/game/ascent"] },
 		{
+			"name": "Ashline Racing: Born To Burn",
+			"urls": [
+				"https://www.crazygames.com/game/ashline-racing-born-to-burn-tmr"
+			]
+		},
+		{
 			"name": "ASMR Beauty Homeless",
 			"urls": ["https://www.crazygames.com/game/asmr-beauty-homeless"]
 		},
 		{
+			"name": "ASMR Beauty Japanese Spa",
+			"urls": ["https://www.crazygames.com/game/asmr-beauty-japanese-spa"]
+		},
+		{
 			"name": "ASMR Beauty Treatment",
 			"urls": ["https://www.crazygames.com/game/asmr-beauty-treatment"]
+		},
+		{
+			"name": "ASMR Girl: Livestream Mukbang",
+			"urls": ["https://www.crazygames.com/game/asmr-girl-livestream-mukbang"]
 		},
 		{
 			"name": "ASMR Nail Treatment",
@@ -16490,12 +16550,8 @@
 			"urls": ["https://www.crazygames.com/game/bot-machines"]
 		},
 		{
-			"name": "Assault Time",
-			"urls": ["https://www.crazygames.com/game/assault-time"]
-		},
-		{
-			"name": "Assault Zone",
-			"urls": ["https://www.crazygames.com/game/assault-zone"]
+			"name": "Asteroid Breaker",
+			"urls": ["https://www.crazygames.com/game/asteroid-breaker-ezu"]
 		},
 		{
 			"name": "AstroDud.io",
@@ -16504,6 +16560,10 @@
 		{
 			"name": "Atari Breakout",
 			"urls": ["https://www.crazygames.com/game/atari-breakout"]
+		},
+		{
+			"name": "Atomic Champions",
+			"urls": ["https://www.crazygames.com/game/atomic-champions"]
 		},
 		{
 			"name": "Attack of Duty",
@@ -16530,12 +16590,20 @@
 			"urls": ["https://www.crazygames.com/game/auto-drive---highway"]
 		},
 		{
+			"name": "Auto Ninja",
+			"urls": ["https://www.crazygames.com/game/auto-ninja"]
+		},
+		{
 			"name": "Auto RiskRisk",
 			"urls": ["https://www.crazygames.com/game/auto-riskrisk"]
 		},
 		{
 			"name": "Autogun Heroes",
 			"urls": ["https://www.crazygames.com/game/autogun-heroes-izk"]
+		},
+		{
+			"name": "AutoRPG Arena",
+			"urls": ["https://www.crazygames.com/game/autorpg-arena-fbu"]
 		},
 		{
 			"name": "Autumn Glam Gala",
@@ -16600,16 +16668,20 @@
 			"urls": ["https://www.crazygames.com/game/backpack-idle"]
 		},
 		{
+			"name": "Backpack Viking",
+			"urls": ["https://www.crazygames.com/game/backpack-viking"]
+		},
+		{
 			"name": "Backwoods",
 			"urls": ["https://www.crazygames.com/game/backwoods"]
 		},
 		{
-			"name": "Backyard Baseball",
-			"urls": ["https://www.crazygames.com/game/backyard-baseball"]
-		},
-		{
 			"name": "Bacteria",
 			"urls": ["https://www.crazygames.com/game/bacteria-nrz"]
+		},
+		{
+			"name": "Bad Cat - Granny's Return",
+			"urls": ["https://www.crazygames.com/game/bad-cat---granny-s-return"]
 		},
 		{
 			"name": "Bad Dolls",
@@ -16621,6 +16693,14 @@
 			"urls": ["https://www.crazygames.com/game/bad-soccer-manager"]
 		},
 		{ "name": "Badland", "urls": ["https://www.crazygames.com/game/badland"] },
+		{
+			"name": "Bag Defense",
+			"urls": ["https://www.crazygames.com/game/bag-defense"]
+		},
+		{
+			"name": "Bakery Manage: Store Simulator",
+			"urls": ["https://www.crazygames.com/game/bakery-manage-store-simulator"]
+		},
 		{
 			"name": "Balanced Running",
 			"urls": ["https://www.crazygames.com/game/balanced-running"]
@@ -16634,10 +16714,22 @@
 			"urls": ["https://www.crazygames.com/game/ball-blaster"]
 		},
 		{
+			"name": "Ball Block Maze",
+			"urls": ["https://www.crazygames.com/game/ball-block-maze"]
+		},
+		{
+			"name": "Ball Guys",
+			"urls": ["https://www.crazygames.com/game/ball-guys"]
+		},
+		{
 			"name": "Ball Hero Adventure: Red Bounce Ball",
 			"urls": [
 				"https://www.crazygames.com/game/ball-hero-adventure-red-bounce-ball"
 			]
+		},
+		{
+			"name": "Ball Ring Destruction",
+			"urls": ["https://www.crazygames.com/game/ball-ring-destruction"]
 		},
 		{
 			"name": "Balloon Clash",
@@ -16646,6 +16738,10 @@
 		{
 			"name": "Balloons.io",
 			"urls": ["https://www.crazygames.com/game/balloonsio"]
+		},
+		{
+			"name": "Bank Heist",
+			"urls": ["https://www.crazygames.com/game/bank-heist"]
 		},
 		{
 			"name": "Bank Robbery",
@@ -16666,6 +16762,10 @@
 		{
 			"name": "Bar Master",
 			"urls": ["https://www.crazygames.com/game/bar-master"]
+		},
+		{
+			"name": "Bar Rumble",
+			"urls": ["https://www.crazygames.com/game/bar-rumble"]
 		},
 		{
 			"name": "Barbiecore",
@@ -16698,6 +16798,10 @@
 		{
 			"name": "Bash Arena",
 			"urls": ["https://www.crazygames.com/game/bash-arena"]
+		},
+		{
+			"name": "Basket Battle",
+			"urls": ["https://www.crazygames.com/game/basket-battle-zmg"]
 		},
 		{
 			"name": "Basket Blitz 2",
@@ -16744,6 +16848,10 @@
 			"urls": ["https://www.crazygames.com/game/basketball-legends-2020"]
 		},
 		{
+			"name": "Basketball Orbit",
+			"urls": ["https://www.crazygames.com/game/basketball-orbit"]
+		},
+		{
 			"name": "Basketball Serial Shooter",
 			"urls": ["https://www.crazygames.com/game/basketball-serial-shooter"]
 		},
@@ -16754,6 +16862,10 @@
 		{
 			"name": "Basketball Stars",
 			"urls": ["https://www.crazygames.com/game/basketball-stars-2019"]
+		},
+		{
+			"name": "Basketball Superstars",
+			"urls": ["https://www.crazygames.com/game/basketball-superstars"]
 		},
 		{
 			"name": "BasketBros",
@@ -16834,12 +16946,14 @@
 			"urls": ["https://www.crazygames.com/game/battle-masters"]
 		},
 		{
-			"name": "Battle Royale Survival",
-			"urls": ["https://www.crazygames.com/game/battle-royale-survival"]
+			"name": "Battle of Knights: Robby and Dragons",
+			"urls": [
+				"https://www.crazygames.com/game/battle-of-knights-robby-and-dragons"
+			]
 		},
 		{
-			"name": "Battle S.W.A.T vs Mercenary",
-			"urls": ["https://www.crazygames.com/game/battle-swat-vs-mercenary"]
+			"name": "Battle Royale Survival",
+			"urls": ["https://www.crazygames.com/game/battle-royale-survival"]
 		},
 		{
 			"name": "Battle Simulator: Counter Stickman",
@@ -16858,6 +16972,14 @@
 			"urls": ["https://www.crazygames.com/game/battle-typer"]
 		},
 		{
+			"name": "BattleChonk",
+			"urls": ["https://www.crazygames.com/game/battlechonk-hig"]
+		},
+		{
+			"name": "Battlecruisers",
+			"urls": ["https://www.crazygames.com/game/battlecruisers"]
+		},
+		{
 			"name": "BattleDudes.io",
 			"urls": ["https://www.crazygames.com/game/battledudes-io"]
 		},
@@ -16868,6 +16990,10 @@
 		{
 			"name": "Battleships General Quarters",
 			"urls": ["https://www.crazygames.com/game/battleships-general-quarter"]
+		},
+		{
+			"name": "Battleships Pirates",
+			"urls": ["https://www.crazygames.com/game/battleships-pirates-wnz"]
 		},
 		{
 			"name": "BattleTabs",
@@ -16881,10 +17007,18 @@
 			"name": "Beach Ball",
 			"urls": ["https://www.crazygames.com/game/beach-ball"]
 		},
+		{
+			"name": "Beach Club",
+			"urls": ["https://www.crazygames.com/game/beach-club"]
+		},
 		{ "name": "Beam", "urls": ["https://www.crazygames.com/game/beam"] },
 		{
 			"name": "Bear Haven",
 			"urls": ["https://www.crazygames.com/game/bear-haven"]
+		},
+		{
+			"name": "Bear vs Humans",
+			"urls": ["https://www.crazygames.com/game/bear-vs-humans"]
 		},
 		{
 			"name": "Beauty Princess Makeup",
@@ -17057,10 +17191,17 @@
 			"urls": ["https://www.crazygames.com/game/bird-sort-puzzle"]
 		},
 		{
+			"name": "Bit Gun.io",
+			"urls": ["https://www.crazygames.com/game/bit-gun-io"]
+		},
+		{
 			"name": "Bitcoin Mining Simulator",
 			"urls": ["https://www.crazygames.com/game/bitcoin-mining-simulator"]
 		},
-		{ "name": "black", "urls": ["https://www.crazygames.com/game/black"] },
+		{
+			"name": "Black Friday Mystery Sale",
+			"urls": ["https://www.crazygames.com/game/black-friday-mystery-sale"]
+		},
 		{
 			"name": "Black Hole Blitz",
 			"urls": ["https://www.crazygames.com/game/black-hole-blitz"]
@@ -17078,14 +17219,14 @@
 			"urls": ["https://www.crazygames.com/game/blackchain"]
 		},
 		{
-			"name": "Blackjack Master",
-			"urls": ["https://www.crazygames.com/game/blackjack-master"]
-		},
-		{
 			"name": "Blackriver Mystery: Hidden Objects",
 			"urls": [
 				"https://www.crazygames.com/game/blackriver-mystery-hidden-objects"
 			]
+		},
+		{
+			"name": "Blade Merge",
+			"urls": ["https://www.crazygames.com/game/blade-merge"]
 		},
 		{
 			"name": "Blade of Dimensions",
@@ -17100,12 +17241,12 @@
 			"urls": ["https://www.crazygames.com/game/blast-billiards-4"]
 		},
 		{
-			"name": "Blaster Pranks",
-			"urls": ["https://www.crazygames.com/game/blaster-pranks"]
+			"name": "Blast It!",
+			"urls": ["https://www.crazygames.com/game/damn-it-ttl"]
 		},
 		{
-			"name": "blinDead",
-			"urls": ["https://www.crazygames.com/game/blindead"]
+			"name": "Blaster Pranks",
+			"urls": ["https://www.crazygames.com/game/blaster-pranks"]
 		},
 		{
 			"name": "Blitz Tanks",
@@ -17116,8 +17257,12 @@
 			"urls": ["https://www.crazygames.com/game/blob-opera"]
 		},
 		{
-			"name": "Block Blast 3D",
-			"urls": ["https://www.crazygames.com/game/block-blast-3d"]
+			"name": "Block Blaster",
+			"urls": ["https://www.crazygames.com/game/block-puzzle-master"]
+		},
+		{
+			"name": "Block Build Destroyer",
+			"urls": ["https://www.crazygames.com/game/block-build-destroyer"]
 		},
 		{
 			"name": "Block Champ",
@@ -17148,6 +17293,10 @@
 			"urls": ["https://www.crazygames.com/game/block-fuser"]
 		},
 		{
+			"name": "Block Legends",
+			"urls": ["https://www.crazygames.com/game/block-legends"]
+		},
+		{
 			"name": "Block Magic Puzzle",
 			"urls": ["https://www.crazygames.com/game/block-magic-puzzle"]
 		},
@@ -17164,12 +17313,16 @@
 			"urls": ["https://www.crazygames.com/game/block-puzzle-item-rush"]
 		},
 		{
-			"name": "Block Puzzle Master",
-			"urls": ["https://www.crazygames.com/game/block-puzzle-master"]
-		},
-		{
 			"name": "Block Puzzle Plus",
 			"urls": ["https://www.crazygames.com/game/block-puzzle-plus"]
+		},
+		{
+			"name": "Block Puzzle Slide - Block Jam",
+			"urls": ["https://www.crazygames.com/game/block-puzzle-slide---block-jam"]
+		},
+		{
+			"name": "Block Puzzle Tropical Story",
+			"urls": ["https://www.crazygames.com/game/block-puzzle-tropical-story"]
 		},
 		{
 			"name": "Block Shoot Clicker",
@@ -17180,14 +17333,18 @@
 			"urls": ["https://www.crazygames.com/game/block-tech-epic-sandbox"]
 		},
 		{
+			"name": "Block Tour",
+			"urls": ["https://www.crazygames.com/game/block-tour-kfz"]
+		},
+		{
+			"name": "Block Wall Destroyer",
+			"urls": ["https://www.crazygames.com/game/block-wall-destroyer"]
+		},
+		{
 			"name": "BlockBuster Puzzle",
 			"urls": ["https://www.crazygames.com/game/blockbuster-puzzle"]
 		},
 		{ "name": "Blocks", "urls": ["https://www.crazygames.com/game/blocks"] },
-		{
-			"name": "Blocks and Numbers",
-			"urls": ["https://www.crazygames.com/game/blocks-and-numbers"]
-		},
 		{
 			"name": "Blocks Fill Tangram",
 			"urls": ["https://www.crazygames.com/game/blocks-fill-tangram"]
@@ -17209,6 +17366,10 @@
 			"urls": [
 				"https://www.crazygames.com/game/blocky-parkour-only-up-adventure"
 			]
+		},
+		{
+			"name": "Blocky Tank 3D",
+			"urls": ["https://www.crazygames.com/game/blocky-tank-3d"]
 		},
 		{
 			"name": "Blocky Traffic Racing",
@@ -17321,6 +17482,10 @@
 			"urls": ["https://www.crazygames.com/game/bomber-xxl"]
 		},
 		{
+			"name": "Bomboo: Endless Bombing Fun",
+			"urls": ["https://www.crazygames.com/game/bomboo-endless-bombing-fun-kef"]
+		},
+		{
 			"name": "Bonanza Shooter: Bubble Blast",
 			"urls": ["https://www.crazygames.com/game/bonanza-shooter-bubble-blast"]
 		},
@@ -17328,15 +17493,24 @@
 			"name": "Bone Breaker Tycoon",
 			"urls": ["https://www.crazygames.com/game/bone-breaker-tycoon"]
 		},
+		{
+			"name": "Bone Doctor Shoulder Case",
+			"urls": ["https://www.crazygames.com/game/bone-doctor-shoulder-case"]
+		},
 		{ "name": "Bonk.io", "urls": ["https://www.crazygames.com/game/bonkio"] },
 		{
 			"name": "Boom Cell",
 			"urls": ["https://www.crazygames.com/game/boom-cell"]
 		},
 		{
+			"name": "Boom Karts",
+			"urls": ["https://www.crazygames.com/game/boom-karts"]
+		},
+		{
 			"name": "Boom Land Lite",
 			"urls": ["https://www.crazygames.com/game/boom-land-lite"]
 		},
+		{ "name": "Boom!", "urls": ["https://www.crazygames.com/game/boom-vid"] },
 		{
 			"name": "BoomCraft",
 			"urls": ["https://www.crazygames.com/game/boomcraft"]
@@ -17350,16 +17524,20 @@
 			"urls": ["https://www.crazygames.com/game/bore-blasters"]
 		},
 		{
-			"name": "Borgverse",
-			"urls": ["https://www.crazygames.com/game/borgverse"]
-		},
-		{
 			"name": "Bot Bumper",
 			"urls": ["https://www.crazygames.com/game/bot-bumper"]
 		},
 		{
+			"name": "Bottle Flip Idle",
+			"urls": ["https://www.crazygames.com/game/bottle-flip-idle"]
+		},
+		{
 			"name": "Bounce Blocku Golf",
 			"urls": ["https://www.crazygames.com/game/bounce-blocku-golf"]
+		},
+		{
+			"name": "Bounce Heroes",
+			"urls": ["https://www.crazygames.com/game/bounce-heroes"]
 		},
 		{
 			"name": "Bounce Out",
@@ -17394,6 +17572,10 @@
 			"urls": ["https://www.crazygames.com/game/bouncy-pickaxe"]
 		},
 		{
+			"name": "Bouncy Ragdoll",
+			"urls": ["https://www.crazygames.com/game/bouncy-ragdoll"]
+		},
+		{
 			"name": "Bowlin' Go FRVR",
 			"urls": ["https://www.crazygames.com/game/bowlin-go-frvr"]
 		},
@@ -17410,7 +17592,15 @@
 			"name": "Bowmaster Prelude",
 			"urls": ["https://www.crazygames.com/game/bowmaster-prelude"]
 		},
+		{
+			"name": "Box It Up",
+			"urls": ["https://www.crazygames.com/game/box-it-up"]
+		},
 		{ "name": "Boxing", "urls": ["https://www.crazygames.com/game/boxing"] },
+		{
+			"name": "Boxing 3D",
+			"urls": ["https://www.crazygames.com/game/boxing-3d"]
+		},
 		{
 			"name": "Boxing Random",
 			"urls": ["https://www.crazygames.com/game/boxing-random"]
@@ -17442,6 +17632,14 @@
 			"urls": ["https://www.crazygames.com/game/braindom-2-who-is-lying"]
 		},
 		{
+			"name": "Brainrot Idle Clicker",
+			"urls": ["https://www.crazygames.com/game/brainrot-idle-clicker"]
+		},
+		{
+			"name": "Brainrots.io",
+			"urls": ["https://www.crazygames.com/game/italianbrainrotquiz-io"]
+		},
+		{
 			"name": "Brat Girl Summer",
 			"urls": ["https://www.crazygames.com/game/brat-girl-summer"]
 		},
@@ -17452,6 +17650,10 @@
 		{
 			"name": "Brawl Hero",
 			"urls": ["https://www.crazygames.com/game/brawl-hero"]
+		},
+		{
+			"name": "Break Free",
+			"urls": ["https://www.crazygames.com/game/break-free"]
 		},
 		{
 			"name": "Break it - Brick Breaker",
@@ -17470,20 +17672,28 @@
 			"urls": ["https://www.crazygames.com/game/breakshoot-idle"]
 		},
 		{
+			"name": "Brick Bash Saga",
+			"urls": ["https://www.crazygames.com/game/brick-bash-saga"]
+		},
+		{
 			"name": "Bricks Breaker",
 			"urls": ["https://www.crazygames.com/game/bricks-breaker"]
+		},
+		{
+			"name": "Bricks Sort",
+			"urls": ["https://www.crazygames.com/game/bricks-sort-construction-3d"]
 		},
 		{
 			"name": "Bridezilla Ellie",
 			"urls": ["https://www.crazygames.com/game/bridezilla-barbie"]
 		},
 		{
-			"name": "Bro Royale",
-			"urls": ["https://www.crazygames.com/game/bro-royale"]
+			"name": "Bridge Race",
+			"urls": ["https://www.crazygames.com/game/bridge-race"]
 		},
 		{
-			"name": "Brontosaurus Jigsaw Puzzle",
-			"urls": ["https://www.crazygames.com/game/brontosaurus-jigsaw-puzzle"]
+			"name": "Bro Royale",
+			"urls": ["https://www.crazygames.com/game/bro-royale"]
 		},
 		{
 			"name": "Broomcraft Mystic Evasion",
@@ -17497,6 +17707,7 @@
 			"name": "BrutalMania.io (Brutal Mania)",
 			"urls": ["https://www.crazygames.com/game/brutalmania-io"]
 		},
+		{ "name": "Bubbits", "urls": ["https://www.crazygames.com/game/bubbits"] },
 		{
 			"name": "Bubble Blast",
 			"urls": ["https://www.crazygames.com/game/bubble-blast-pwd"]
@@ -17518,10 +17729,6 @@
 			"urls": ["https://www.crazygames.com/game/bubble-shooter-classic"]
 		},
 		{
-			"name": "Bubble Shooter HD 2",
-			"urls": ["https://www.crazygames.com/game/bubble-shooter-hd-2"]
-		},
-		{
 			"name": "Bubble Sorting",
 			"urls": ["https://www.crazygames.com/game/bubble-sorting"]
 		},
@@ -17532,10 +17739,6 @@
 		{
 			"name": "Bubble Struggle 2",
 			"urls": ["https://www.crazygames.com/game/bubble-struggle-2"]
-		},
-		{
-			"name": "Bubble Tanks",
-			"urls": ["https://www.crazygames.com/game/bubble-tanks"]
 		},
 		{
 			"name": "Bubble Tanks 2",
@@ -17560,6 +17763,10 @@
 		{
 			"name": "Buggy Kart Racing",
 			"urls": ["https://www.crazygames.com/game/buggy-kart-racing"]
+		},
+		{
+			"name": "Build & Survive",
+			"urls": ["https://www.crazygames.com/game/build-survive"]
 		},
 		{
 			"name": "Build and Crush",
@@ -17593,23 +17800,23 @@
 			"name": "Bullet Fury 2",
 			"urls": ["https://www.crazygames.com/game/bullet-fury-2"]
 		},
-		{
-			"name": "Bullets & Brains",
-			"urls": ["https://www.crazygames.com/game/bullets-brains"]
-		},
 		{ "name": "Bum Ben", "urls": ["https://www.crazygames.com/game/bum-ben"] },
+		{
+			"name": "Bumbly Bee",
+			"urls": ["https://www.crazygames.com/game/bumbly-bee"]
+		},
 		{
 			"name": "Bump It Up",
 			"urls": ["https://www.crazygames.com/game/bump-it-up"]
 		},
 		{ "name": "Bump.io", "urls": ["https://www.crazygames.com/game/bump-io"] },
 		{
-			"name": "Bunny Market",
-			"urls": ["https://www.crazygames.com/game/bunny-market"]
-		},
-		{
 			"name": "Burger Boss",
 			"urls": ["https://www.crazygames.com/game/burger-boss"]
+		},
+		{
+			"name": "Burger Cafe",
+			"urls": ["https://www.crazygames.com/game/burger-cafe"]
 		},
 		{
 			"name": "Burger Clicker",
@@ -17642,10 +17849,6 @@
 		{
 			"name": "Burnout Drift 3: Seaport Max",
 			"urls": ["https://www.crazygames.com/game/burnout-drift-seaport-max"]
-		},
-		{
-			"name": "Burnout Drift: Online",
-			"urls": ["https://www.crazygames.com/game/burnout-drift-online"]
 		},
 		{
 			"name": "Burnout Racers",
@@ -17732,6 +17935,10 @@
 			"urls": ["https://www.crazygames.com/game/capture-war"]
 		},
 		{
+			"name": "Capy Merge: Animal Drop Puzzle",
+			"urls": ["https://www.crazygames.com/game/watermelon-puzzle-capy-merge"]
+		},
+		{
 			"name": "Capybara Clicker",
 			"urls": ["https://www.crazygames.com/game/capybara-clicker"]
 		},
@@ -17788,7 +17995,7 @@
 			"urls": ["https://www.crazygames.com/game/car-painting-simulator"]
 		},
 		{
-			"name": "Car Parking Pro",
+			"name": "Car Parking Pro ",
 			"urls": ["https://www.crazygames.com/game/car-parking-pro"]
 		},
 		{
@@ -17798,6 +18005,10 @@
 		{
 			"name": "Car Simulator: Crash City",
 			"urls": ["https://www.crazygames.com/game/car-simulator-crash-city"]
+		},
+		{
+			"name": "Car Sky Survival",
+			"urls": ["https://www.crazygames.com/game/car-sky-survival"]
 		},
 		{
 			"name": "Car Speed Racing Tycoon",
@@ -17826,10 +18037,6 @@
 		{
 			"name": "Cards Keeper",
 			"urls": ["https://www.crazygames.com/game/cards-keeper"]
-		},
-		{
-			"name": "Cargo Drive",
-			"urls": ["https://www.crazygames.com/game/cargo-drive"]
 		},
 		{
 			"name": "Cargo Truck Parking",
@@ -17918,6 +18125,10 @@
 			"urls": ["https://www.crazygames.com/game/castles-cc"]
 		},
 		{
+			"name": "Cat and Granny",
+			"urls": ["https://www.crazygames.com/game/cat-and-granny-original"]
+		},
+		{
 			"name": "Cat Bakery",
 			"urls": ["https://www.crazygames.com/game/cat-bakery"]
 		},
@@ -17932,12 +18143,12 @@
 			"urls": ["https://www.crazygames.com/game/cat-house"]
 		},
 		{
-			"name": "Cat Life Simulator",
-			"urls": ["https://www.crazygames.com/game/cat-life-simulator-zcn"]
-		},
-		{
 			"name": "Cat Life Simulator 3D",
 			"urls": ["https://www.crazygames.com/game/cat-life-simulator"]
+		},
+		{
+			"name": "Cat Life Simulator: Devil Cat",
+			"urls": ["https://www.crazygames.com/game/cat-life-simulator-devil-cat"]
 		},
 		{
 			"name": "Cat Lovescapes",
@@ -17952,8 +18163,16 @@
 			"urls": ["https://www.crazygames.com/game/cat-sorter-puzzle"]
 		},
 		{
+			"name": "Cat Warrior Parkour",
+			"urls": ["https://www.crazygames.com/game/cat-warrior-parkour"]
+		},
+		{
 			"name": "Catch Tiles: Piano Game",
 			"urls": ["https://www.crazygames.com/game/catch-tiles-piano-game"]
+		},
+		{
+			"name": "Catch-A-Rock",
+			"urls": ["https://www.crazygames.com/game/catch-a-rock-nbq"]
 		},
 		{
 			"name": "Categories",
@@ -17970,6 +18189,10 @@
 		{
 			"name": "Cave FRVR",
 			"urls": ["https://www.crazygames.com/game/cave-frvr"]
+		},
+		{
+			"name": "Caveman Life",
+			"urls": ["https://www.crazygames.com/game/caveman-life"]
 		},
 		{
 			"name": "Cavern: From the Fog",
@@ -17991,12 +18214,16 @@
 			"urls": ["https://www.crazygames.com/game/cemetery-warrior-4"]
 		},
 		{
-			"name": "CG FC 24",
+			"name": "CG FC 25",
 			"urls": ["https://www.crazygames.com/game/cg-fc-24"]
 		},
 		{
 			"name": "Chainsaw Dance",
 			"urls": ["https://www.crazygames.com/game/chainsaw-dance"]
+		},
+		{
+			"name": "Chakram Master",
+			"urls": ["https://www.crazygames.com/game/chakram-master"]
 		},
 		{
 			"name": "Champions of The Void: Paladin",
@@ -18020,8 +18247,20 @@
 			"urls": ["https://www.crazygames.com/game/chat-noir"]
 		},
 		{
+			"name": "Checkers & Draughts Multiplayer",
+			"urls": ["https://www.crazygames.com/game/checkers-draughts-multiplayer"]
+		},
+		{
 			"name": "Checkers Deluxe Edition",
 			"urls": ["https://www.crazygames.com/game/checkers-deluxe-edition"]
+		},
+		{
+			"name": "Chef Slide",
+			"urls": ["https://www.crazygames.com/game/chef-slide"]
+		},
+		{
+			"name": "Chess Clicker",
+			"urls": ["https://www.crazygames.com/game/chess-clicker-lhi"]
 		},
 		{
 			"name": "Chess Free",
@@ -18038,10 +18277,6 @@
 		{
 			"name": "Chess Online Multiplayer",
 			"urls": ["https://www.crazygames.com/game/chess-online-multiplayer-game"]
-		},
-		{
-			"name": "Chess Royale",
-			"urls": ["https://www.crazygames.com/game/chess-royale"]
 		},
 		{
 			"name": "Chess Wars",
@@ -18076,12 +18311,24 @@
 			"urls": ["https://www.crazygames.com/game/chicken-and-bee"]
 		},
 		{
+			"name": "Chicken Clicker",
+			"urls": ["https://www.crazygames.com/game/chicken-clicker"]
+		},
+		{
 			"name": "Chicken CS",
 			"urls": ["https://www.crazygames.com/game/chicken-cs"]
 		},
 		{
+			"name": "Chicken Scream",
+			"urls": ["https://www.crazygames.com/game/chicken-scream"]
+		},
+		{
 			"name": "Chickenauts",
 			"urls": ["https://www.crazygames.com/game/chickenauts-demo"]
+		},
+		{
+			"name": "Chips Sort Puzzle",
+			"urls": ["https://www.crazygames.com/game/chips-sort-puzzle"]
 		},
 		{
 			"name": "Chipuzik's Evolution",
@@ -18219,6 +18466,10 @@
 			"urls": ["https://www.crazygames.com/game/clash-of-warriors-ofd"]
 		},
 		{
+			"name": "ClashBall.io",
+			"urls": ["https://www.crazygames.com/game/clashball-io"]
+		},
+		{
 			"name": "Clashed Metal Drifting Wars",
 			"urls": ["https://www.crazygames.com/game/clashed-metal-drifting-wars"]
 		},
@@ -18231,16 +18482,16 @@
 			"urls": ["https://www.crazygames.com/game/classic-card-games-collection"]
 		},
 		{
-			"name": "Classic City Car Driving: 1980s",
-			"urls": ["https://www.crazygames.com/game/classic-city-car-driving-1980s"]
-		},
-		{
 			"name": "Classic Labyrinth 3D",
 			"urls": ["https://www.crazygames.com/game/classic-labyrinth-3d"]
 		},
 		{
 			"name": "Classic Solitaire",
 			"urls": ["https://www.crazygames.com/game/classic-solitaire"]
+		},
+		{
+			"name": "Clean It Up! Demo",
+			"urls": ["https://www.crazygames.com/game/clean-it-up-demo"]
 		},
 		{
 			"name": "CleanUp.IO",
@@ -18253,6 +18504,10 @@
 		{
 			"name": "Click Click Clicker",
 			"urls": ["https://www.crazygames.com/game/click-click-clicker"]
+		},
+		{
+			"name": "Click To Grill",
+			"urls": ["https://www.crazygames.com/game/click-to-grill"]
 		},
 		{
 			"name": "Clicker Heroes",
@@ -18271,6 +18526,10 @@
 			"urls": ["https://www.crazygames.com/game/clickermon"]
 		},
 		{
+			"name": "Climbing Block",
+			"urls": ["https://www.crazygames.com/game/climbing-block---let-s-up-llam"]
+		},
+		{
 			"name": "Clock Clicker",
 			"urls": ["https://www.crazygames.com/game/clock-clicker"]
 		},
@@ -18283,16 +18542,20 @@
 			"urls": ["https://www.crazygames.com/game/club-tycoon-idle-clicker"]
 		},
 		{
-			"name": "Code Animal",
-			"urls": ["https://www.crazygames.com/game/code-animal"]
-		},
-		{
 			"name": "Coffee Idle",
 			"urls": ["https://www.crazygames.com/game/coffee-idle"]
 		},
 		{
+			"name": "Coffee Match: Block Puzzle",
+			"urls": ["https://www.crazygames.com/game/coffee-match-block-puzzle"]
+		},
+		{
 			"name": "Coin Clicker",
 			"urls": ["https://www.crazygames.com/game/coin-clicker"]
+		},
+		{
+			"name": "Coin Picker",
+			"urls": ["https://www.crazygames.com/game/coin-picker-yqi"]
 		},
 		{
 			"name": "CoinBlock Clicker",
@@ -18320,16 +18583,20 @@
 		},
 		{ "name": "Colojon", "urls": ["https://www.crazygames.com/game/colojon"] },
 		{
+			"name": "Colojon 2",
+			"urls": ["https://www.crazygames.com/game/colojon-2"]
+		},
+		{
 			"name": "Colonist.io",
 			"urls": ["https://www.crazygames.com/game/katan-io"]
 		},
 		{
-			"name": "Color Block Blast 3",
-			"urls": ["https://www.crazygames.com/game/color-block-blast-3"]
-		},
-		{
 			"name": "Color Farm",
 			"urls": ["https://www.crazygames.com/game/color-farm"]
+		},
+		{
+			"name": "Color Fill 3D",
+			"urls": ["https://www.crazygames.com/game/color-fill-3d"]
 		},
 		{
 			"name": "Color Hole",
@@ -18344,8 +18611,20 @@
 			"urls": ["https://www.crazygames.com/game/color-line"]
 		},
 		{
+			"name": "Color Match",
+			"urls": ["https://www.crazygames.com/game/color-match-amg"]
+		},
+		{
 			"name": "Color Mix - Jelly Merge",
 			"urls": ["https://www.crazygames.com/game/color-mix---jelly-merge"]
+		},
+		{
+			"name": "Color Music Hop Ball Games",
+			"urls": ["https://www.crazygames.com/game/color-music-hop-ball-games"]
+		},
+		{
+			"name": "Color Nuts & Bolts Puzzle",
+			"urls": ["https://www.crazygames.com/game/color-nuts-bolts-puzzle"]
 		},
 		{
 			"name": "Color Page ASMR",
@@ -18354,6 +18633,10 @@
 		{
 			"name": "Color Pixel Art Classic",
 			"urls": ["https://www.crazygames.com/game/color-pixel-art-classic"]
+		},
+		{
+			"name": "Color Roll 3D",
+			"urls": ["https://www.crazygames.com/game/color-roll-3d"]
 		},
 		{
 			"name": "Color Screw: Unscrew & Match",
@@ -18370,6 +18653,14 @@
 		{
 			"name": "Color Tunnel",
 			"urls": ["https://www.crazygames.com/game/color-tunnel"]
+		},
+		{
+			"name": "Color Water Sort 3D",
+			"urls": ["https://www.crazygames.com/game/color-water-sort-3d"]
+		},
+		{
+			"name": "Color Zone",
+			"urls": ["https://www.crazygames.com/game/color-zone"]
 		},
 		{
 			"name": "ColorBox Puzzle",
@@ -18390,6 +18681,10 @@
 			]
 		},
 		{
+			"name": "Coloring by Numbers: Pixel Room",
+			"urls": ["https://www.crazygames.com/game/coloring-by-numbers-pixel-room"]
+		},
+		{
 			"name": "Colors Craft",
 			"urls": ["https://www.crazygames.com/game/colors-craft"]
 		},
@@ -18397,7 +18692,10 @@
 			"name": "ColorTris",
 			"urls": ["https://www.crazygames.com/game/colortris-demo"]
 		},
-		{ "name": "Coma", "urls": ["https://www.crazygames.com/game/coma"] },
+		{
+			"name": "Command Strike FPS",
+			"urls": ["https://www.crazygames.com/game/command-strike-fps-iqh"]
+		},
 		{
 			"name": "Commando 2D",
 			"urls": ["https://www.crazygames.com/game/commando-myk"]
@@ -18454,6 +18752,10 @@
 			"urls": ["https://www.crazygames.com/game/construction-ramp-jumping"]
 		},
 		{
+			"name": "Construction Set - 3D Builder",
+			"urls": ["https://www.crazygames.com/game/construction-set---3d-builder"]
+		},
+		{
 			"name": "Cookie Clicker Save the World",
 			"urls": ["https://www.crazygames.com/game/cookie-clicker-save-the-world"]
 		},
@@ -18481,10 +18783,30 @@
 			"name": "Cooking Live",
 			"urls": ["https://www.crazygames.com/game/cooking-live"]
 		},
+		{
+			"name": "Cool Girl Aesthetics",
+			"urls": ["https://www.crazygames.com/game/cool-girl-aesthetics"]
+		},
+		{
+			"name": "Cool Kingdom",
+			"urls": ["https://www.crazygames.com/game/cool-kingdom"]
+		},
 		{ "name": "Copter", "urls": ["https://www.crazygames.com/game/copter"] },
 		{
 			"name": "Copter.io",
 			"urls": ["https://www.crazygames.com/game/copter-io"]
+		},
+		{
+			"name": "Corn Tycoon",
+			"urls": ["https://www.crazygames.com/game/corn-tycoon"]
+		},
+		{
+			"name": "Cornfield",
+			"urls": ["https://www.crazygames.com/game/cornfield"]
+		},
+		{
+			"name": "Cornhole League",
+			"urls": ["https://www.crazygames.com/game/cornhole-league---board-games"]
 		},
 		{
 			"name": "Cosmic Miners",
@@ -18495,20 +18817,45 @@
 			"urls": ["https://www.crazygames.com/game/cougar-simulator-big-cats"]
 		},
 		{
+			"name": "Count Masters: Stickman Games",
+			"urls": ["https://www.crazygames.com/game/count-masters-stickman-games"]
+		},
+		{
+			"name": "Country Hopper",
+			"urls": ["https://www.crazygames.com/game/country-hopper"]
+		},
+		{
+			"name": "Country Life Meadows",
+			"urls": ["https://www.crazygames.com/game/country-life-meadows"]
+		},
+		{
 			"name": "Cow Defender",
 			"urls": ["https://www.crazygames.com/game/cow-defender"]
 		},
+		{ "name": "cowz.io", "urls": ["https://www.crazygames.com/game/cowz-io"] },
 		{
 			"name": "Craft 3D",
 			"urls": ["https://www.crazygames.com/game/craft-3d"]
+		},
+		{
+			"name": "Craft and Battle",
+			"urls": ["https://www.crazygames.com/game/craft-and-battle"]
 		},
 		{
 			"name": "Craft Destroy",
 			"urls": ["https://www.crazygames.com/game/craft-destroy"]
 		},
 		{
+			"name": "Craft Drill",
+			"urls": ["https://www.crazygames.com/game/idle-craft-drill"]
+		},
+		{
 			"name": "Craft Drill Clicker",
 			"urls": ["https://www.crazygames.com/game/craft-drill-clicker"]
+		},
+		{
+			"name": "Craft market",
+			"urls": ["https://www.crazygames.com/game/cubic-shop"]
 		},
 		{
 			"name": "Craft World",
@@ -18539,12 +18886,20 @@
 			"urls": ["https://www.crazygames.com/game/crazy-bots"]
 		},
 		{
+			"name": "Crazy Bus",
+			"urls": ["https://www.crazygames.com/game/crazy-bus"]
+		},
+		{
 			"name": "Crazy Car Stunts",
 			"urls": ["https://www.crazygames.com/game/crazy-car-stunts"]
 		},
 		{
 			"name": "Crazy Car Stunts 3D",
 			"urls": ["https://www.crazygames.com/game/crazy-car-stunts-hvb"]
+		},
+		{
+			"name": "Crazy Colors",
+			"urls": ["https://www.crazygames.com/game/crazy-colors"]
 		},
 		{
 			"name": "Crazy Combat",
@@ -18555,12 +18910,12 @@
 			"urls": ["https://www.crazygames.com/game/crazy-crypt-escape"]
 		},
 		{
-			"name": "Crazy Descent",
-			"urls": ["https://www.crazygames.com/game/crazy-descent"]
-		},
-		{
 			"name": "Crazy Drift",
 			"urls": ["https://www.crazygames.com/game/crazy-drift"]
+		},
+		{
+			"name": "Crazy Dummy Swing Multiplayer",
+			"urls": ["https://www.crazygames.com/game/crazy-dummy-swing-multiplayer"]
 		},
 		{
 			"name": "Crazy Farming",
@@ -18579,22 +18934,28 @@
 			"urls": ["https://www.crazygames.com/game/crazy-for-speed"]
 		},
 		{
-			"name": "Crazy Galactic Arena Multiplayer",
-			"urls": [
-				"https://www.crazygames.com/game/crazy-galactic-arena-multiplayer"
-			]
-		},
-		{
 			"name": "Crazy Grand Prix",
 			"urls": ["https://www.crazygames.com/game/crazy-grand-prix"]
+		},
+		{
+			"name": "Crazy Guys",
+			"urls": ["https://www.crazygames.com/game/crazy-guys"]
 		},
 		{
 			"name": "Crazy Hills",
 			"urls": ["https://www.crazygames.com/game/offroad-master"]
 		},
 		{
+			"name": "Crazy Jump Jump Multiplayer",
+			"urls": ["https://www.crazygames.com/game/crazy-jump-jump-multiplayer"]
+		},
+		{
 			"name": "Crazy Mechs",
 			"urls": ["https://www.crazygames.com/game/crazy-mechs"]
+		},
+		{
+			"name": "Crazy Miners",
+			"urls": ["https://www.crazygames.com/game/crazy-miners-multiplayer"]
 		},
 		{
 			"name": "Crazy Moto Stunts",
@@ -18605,8 +18966,16 @@
 			"urls": ["https://www.crazygames.com/game/crazy-motorcycle"]
 		},
 		{
+			"name": "Crazy MotoX Multiplayer",
+			"urls": ["https://www.crazygames.com/game/crazy-motox-multiplayer"]
+		},
+		{
 			"name": "Crazy MX",
 			"urls": ["https://www.crazygames.com/game/crazy-mx"]
+		},
+		{
+			"name": "Crazy Office: Slap and Smash!",
+			"urls": ["https://www.crazygames.com/game/crazy-office-slap-and-smash"]
 		},
 		{
 			"name": "Crazy Parkour",
@@ -18655,6 +19024,10 @@
 		{
 			"name": "Crazy Train Snake",
 			"urls": ["https://www.crazygames.com/game/train-snake"]
+		},
+		{
+			"name": "Crazy Vikings Life",
+			"urls": ["https://www.crazygames.com/game/crazy-vikings-life"]
 		},
 		{
 			"name": "Crazy Walk",
@@ -18719,10 +19092,6 @@
 			"urls": ["https://www.crazygames.com/game/crimson-room"]
 		},
 		{
-			"name": "Crocodile Simulator Beach Hunt",
-			"urls": ["https://www.crazygames.com/game/crocodile-simulator-beach-hunt"]
-		},
-		{
 			"name": "Crocword",
 			"urls": ["https://www.crazygames.com/game/crocword"]
 		},
@@ -18739,6 +19108,10 @@
 			"urls": ["https://www.crazygames.com/game/cross-strike"]
 		},
 		{
+			"name": "Crossection",
+			"urls": ["https://www.crazygames.com/game/crossection"]
+		},
+		{
 			"name": "Crossword",
 			"urls": ["https://www.crazygames.com/game/crossword"]
 		},
@@ -18749,6 +19122,10 @@
 		{
 			"name": "Crowd Lumberjack Stickman",
 			"urls": ["https://www.crazygames.com/game/crowd-lumberjack-stickman"]
+		},
+		{
+			"name": "Crusher Block",
+			"urls": ["https://www.crazygames.com/game/crusher-block-jwd"]
 		},
 		{
 			"name": "Crusher Clicker",
@@ -18795,6 +19172,10 @@
 			"urls": ["https://www.crazygames.com/game/cube-vs-ball-clicker"]
 		},
 		{
+			"name": "CubeCraft: Merge & Battle",
+			"urls": ["https://www.crazygames.com/game/cubecraft-merge-battle-uxw"]
+		},
+		{
 			"name": "Cubefield",
 			"urls": ["https://www.crazygames.com/game/cubefield"]
 		},
@@ -18811,6 +19192,14 @@
 			"urls": ["https://www.crazygames.com/game/cubes-and-balls"]
 		},
 		{
+			"name": "Cubes Crusher",
+			"urls": ["https://www.crazygames.com/game/cubes-crusher"]
+		},
+		{
+			"name": "Cubic Frontier: Zombie Robby",
+			"urls": ["https://www.crazygames.com/game/cubic-frontier-zombie-robby"]
+		},
+		{
 			"name": "Cubic Rush",
 			"urls": ["https://www.crazygames.com/game/cubic-rush"]
 		},
@@ -18822,6 +19211,10 @@
 			"name": "Cubie Jump",
 			"urls": ["https://www.crazygames.com/game/cubie-jump"]
 		},
+		{
+			"name": "Cubox.io",
+			"urls": ["https://www.crazygames.com/game/cubox-io-fgt"]
+		},
 		{ "name": "Cubxer", "urls": ["https://www.crazygames.com/game/cubxer"] },
 		{
 			"name": "Cucumber Man",
@@ -18830,10 +19223,6 @@
 		{
 			"name": "Cue Billiard Club",
 			"urls": ["https://www.crazygames.com/game/cue-billiard-club"]
-		},
-		{
-			"name": "Cuisine Royale",
-			"urls": ["https://www.crazygames.com/game/cuisine-royale"]
 		},
 		{
 			"name": "Cupcake Clicker",
@@ -18849,7 +19238,7 @@
 			"urls": ["https://www.crazygames.com/game/cursed-treasure"]
 		},
 		{
-			"name": "Cursed Treasure 1½",
+			"name": "Cursed Treasure 1.5",
 			"urls": ["https://www.crazygames.com/game/cursed-treasure-11-2"]
 		},
 		{
@@ -18867,6 +19256,14 @@
 		{
 			"name": "Cut Annoying Orange Idle",
 			"urls": ["https://www.crazygames.com/game/cut-annoying-orange-idle"]
+		},
+		{
+			"name": "Cut In Half",
+			"urls": ["https://www.crazygames.com/game/cut-in-half"]
+		},
+		{
+			"name": "Cut in Half, Please!",
+			"urls": ["https://www.crazygames.com/game/cut-in-half-please"]
 		},
 		{
 			"name": "Cut the Rope",
@@ -18921,6 +19318,10 @@
 			"urls": ["https://www.crazygames.com/game/cyber-rage-retribution"]
 		},
 		{
+			"name": "CyberDino 3D",
+			"urls": ["https://www.crazygames.com/game/cyberdino-3d-nez"]
+		},
+		{
 			"name": "CyberDino: T-Rex vs Robots",
 			"urls": ["https://www.crazygames.com/game/cyberdino-t-rex-vs-robots"]
 		},
@@ -18949,8 +19350,24 @@
 			"urls": ["https://www.crazygames.com/game/cycle-extreme"]
 		},
 		{
+			"name": "Cypher - Code Breaker",
+			"urls": ["https://www.crazygames.com/game/cypher---code-breaker"]
+		},
+		{
 			"name": "Daddy Rabbit",
 			"urls": ["https://www.crazygames.com/game/daddy-rabbit"]
+		},
+		{
+			"name": "Daily AMazeBalls",
+			"urls": ["https://www.crazygames.com/game/daily-a-maze-balls"]
+		},
+		{
+			"name": "Daily Emoji Hunt",
+			"urls": ["https://www.crazygames.com/game/daily-emoji-hunt"]
+		},
+		{
+			"name": "Daily Kitchen Escape",
+			"urls": ["https://www.crazygames.com/game/daily-kitchen-escape"]
 		},
 		{
 			"name": "Daily Mahjong",
@@ -18983,6 +19400,10 @@
 			"urls": ["https://www.crazygames.com/game/dancing-dreamer"]
 		},
 		{
+			"name": "Dandan Slime",
+			"urls": ["https://www.crazygames.com/game/dandan-slime-anj"]
+		},
+		{
 			"name": "Dark Academy Fashion",
 			"urls": ["https://www.crazygames.com/game/wednesday-dark-academy"]
 		},
@@ -18991,12 +19412,16 @@
 			"urls": ["https://www.crazygames.com/game/dark-lands"]
 		},
 		{
-			"name": "Darts Club",
-			"urls": ["https://www.crazygames.com/game/darts-club"]
+			"name": "Dark Odyssey",
+			"urls": ["https://www.crazygames.com/game/dark-odyssey-lzc"]
 		},
 		{
-			"name": "Darts Idle",
-			"urls": ["https://www.crazygames.com/game/darts-idle"]
+			"name": "Dark Stones: Card Battle RPG",
+			"urls": ["https://www.crazygames.com/game/dark-stones-card-battle-rpg"]
+		},
+		{
+			"name": "Darts Club",
+			"urls": ["https://www.crazygames.com/game/darts-club"]
 		},
 		{
 			"name": "Dash Hero",
@@ -19007,8 +19432,16 @@
 			"urls": ["https://www.crazygames.com/game/dashcraft-io"]
 		},
 		{
+			"name": "Data Diggers",
+			"urls": ["https://www.crazygames.com/game/data-diggers"]
+		},
+		{
 			"name": "Day D Tower Rush",
 			"urls": ["https://www.crazygames.com/game/day-d-tower-rush"]
+		},
+		{
+			"name": "DayCare Tycoon",
+			"urls": ["https://www.crazygames.com/game/daycare-tycoon"]
 		},
 		{
 			"name": "De-Animator",
@@ -19017,6 +19450,10 @@
 		{
 			"name": "Dead Land: Survival",
 			"urls": ["https://www.crazygames.com/game/dead-land-survival"]
+		},
+		{
+			"name": "Dead Seek",
+			"urls": ["https://www.crazygames.com/game/dead-seek"]
 		},
 		{
 			"name": "Dead Zed",
@@ -19029,12 +19466,6 @@
 		{
 			"name": "Deadly Red Spikes",
 			"urls": ["https://www.crazygames.com/game/deadly-red-spikes"]
-		},
-		{
-			"name": "Deadly Space Stories: A.I. Gone Bad",
-			"urls": [
-				"https://www.crazygames.com/game/deadly-space-stories-a-i-gone-bad"
-			]
 		},
 		{
 			"name": "Deads on the Road",
@@ -19164,8 +19595,18 @@
 			"urls": ["https://www.crazygames.com/game/desktop-tower-defense"]
 		},
 		{
+			"name": "Dessert Maker",
+			"urls": ["https://www.crazygames.com/game/dessert-maker"]
+		},
+		{
 			"name": "Destroy Base",
 			"urls": ["https://www.crazygames.com/game/destroy-base"]
+		},
+		{
+			"name": "Detective Holmes: Hidden Object",
+			"urls": [
+				"https://www.crazygames.com/game/detective-holmes-hidden-object-game-jbm"
+			]
 		},
 		{
 			"name": "Detective IQ: Brain Games",
@@ -19178,6 +19619,10 @@
 		{
 			"name": "Devil's Road",
 			"urls": ["https://www.crazygames.com/game/devil-s-road"]
+		},
+		{
+			"name": "Diamant: Sky Stories Match 3",
+			"urls": ["https://www.crazygames.com/game/diamant-match-3-sky-story"]
 		},
 		{
 			"name": "Diamond Drawing by Numbers",
@@ -19208,6 +19653,10 @@
 			"urls": ["https://www.crazygames.com/game/dice-wars"]
 		},
 		{
+			"name": "Dicetris",
+			"urls": ["https://www.crazygames.com/game/dicetris"]
+		},
+		{
 			"name": "Die In Style",
 			"urls": ["https://www.crazygames.com/game/die-in-style"]
 		},
@@ -19216,6 +19665,14 @@
 			"urls": ["https://www.crazygames.com/game/die-in-the-dungeon"]
 		},
 		{ "name": "Diep.io", "urls": ["https://www.crazygames.com/game/diepio"] },
+		{
+			"name": "Dig Craft",
+			"urls": ["https://www.crazygames.com/game/dig-craft"]
+		},
+		{
+			"name": "Dig Tycoon",
+			"urls": ["https://www.crazygames.com/game/dig-tycoon---idle-game-3d"]
+		},
 		{
 			"name": "digdig.io",
 			"urls": ["https://www.crazygames.com/game/digdig-io"]
@@ -19229,16 +19686,16 @@
 			"urls": ["https://www.crazygames.com/game/digital-circus-parkour-game"]
 		},
 		{
+			"name": "Digworm.io",
+			"urls": ["https://www.crazygames.com/game/digworm-io"]
+		},
+		{
 			"name": "Diner Dash",
 			"urls": ["https://www.crazygames.com/game/diner-dash"]
 		},
 		{
 			"name": "Diner in the Storm",
 			"urls": ["https://www.crazygames.com/game/diner-in-the-storm"]
-		},
-		{
-			"name": "Dino Addition Race",
-			"urls": ["https://www.crazygames.com/game/dino-addition-race"]
 		},
 		{
 			"name": "Dino Crowd",
@@ -19255,6 +19712,12 @@
 		{
 			"name": "Dino Hunting Jurassic World",
 			"urls": ["https://www.crazygames.com/game/dino-hunting-jurassic-world"]
+		},
+		{
+			"name": "Dino Hunting Sniper Shooting Game",
+			"urls": [
+				"https://www.crazygames.com/game/dino-hunting-sniper-shooting-game"
+			]
 		},
 		{
 			"name": "Dino Merge Wars",
@@ -19302,8 +19765,20 @@
 			"urls": ["https://www.crazygames.com/game/discover-the-city"]
 		},
 		{
+			"name": "Dishwasher",
+			"urls": ["https://www.crazygames.com/game/dishwasher"]
+		},
+		{
+			"name": "Diver Hero",
+			"urls": ["https://www.crazygames.com/game/diver-hero"]
+		},
+		{
 			"name": "DIY Makeup Salon: SPA Makeover",
 			"urls": ["https://www.crazygames.com/game/diy-makeup-salon-spa-makeover"]
+		},
+		{
+			"name": "DIY Ugly Christmas Sweater",
+			"urls": ["https://www.crazygames.com/game/diy-ugly-christmas-sweater"]
 		},
 		{
 			"name": "Doc Darling: Bone Surgery",
@@ -19334,10 +19809,6 @@
 			"urls": ["https://www.crazygames.com/game/dodgeball"]
 		},
 		{
-			"name": "Dog Life Simulator",
-			"urls": ["https://www.crazygames.com/game/dog-life-simulator"]
-		},
-		{
 			"name": "Dog Simulator 3D",
 			"urls": ["https://www.crazygames.com/game/dog-simulator-3d"]
 		},
@@ -19362,6 +19833,10 @@
 			"urls": ["https://www.crazygames.com/game/happy-dog"]
 		},
 		{
+			"name": "Dogs vs Aliens",
+			"urls": ["https://www.crazygames.com/game/dogs-vs-aliens"]
+		},
+		{
 			"name": "Dolphin Olympics",
 			"urls": ["https://www.crazygames.com/game/dolphin-olympics"]
 		},
@@ -19372,6 +19847,14 @@
 		{
 			"name": "Domino Battle",
 			"urls": ["https://www.crazygames.com/game/domino-battle"]
+		},
+		{
+			"name": "Domino Duel",
+			"urls": ["https://www.crazygames.com/game/domino-duel-uit"]
+		},
+		{
+			"name": "DON'T GET EATEN",
+			"urls": ["https://www.crazygames.com/game/don-t-get-eaten"]
 		},
 		{
 			"name": "Don't Get the Job",
@@ -19410,10 +19893,6 @@
 			"urls": ["https://www.crazygames.com/game/doodieman-voodoo"]
 		},
 		{
-			"name": "Doodle Arena",
-			"urls": ["https://www.crazygames.com/game/doodle-arena"]
-		},
-		{
 			"name": "Doodle Block Puzzle",
 			"urls": ["https://www.crazygames.com/game/doodle-block-puzzle-pym"]
 		},
@@ -19425,7 +19904,6 @@
 			"name": "Doodlr.io",
 			"urls": ["https://www.crazygames.com/game/doodlr-io"]
 		},
-		{ "name": "Doom 3", "urls": ["https://www.crazygames.com/game/doom-3"] },
 		{
 			"name": "Doomr.io",
 			"urls": ["https://www.crazygames.com/game/doomr-io"]
@@ -19433,6 +19911,10 @@
 		{
 			"name": "Doomsday Shooter",
 			"urls": ["https://www.crazygames.com/game/doomsday-shooter"]
+		},
+		{
+			"name": "Doors Castle",
+			"urls": ["https://www.crazygames.com/game/doors-castle"]
 		},
 		{
 			"name": "Doors: Paradox",
@@ -19447,10 +19929,6 @@
 			"urls": ["https://www.crazygames.com/game/dop-puzzle-displace-one-part"]
 		},
 		{
-			"name": "DOP: Draw One Part",
-			"urls": ["https://www.crazygames.com/game/dop-draw-one-part"]
-		},
-		{
 			"name": "Dot King",
 			"urls": ["https://www.crazygames.com/game/dot-king"]
 		},
@@ -19463,8 +19941,8 @@
 			"urls": ["https://www.crazygames.com/game/dr-psycho-hospital-escape"]
 		},
 		{
-			"name": "Dr. Psycho: Hospital Escape 2",
-			"urls": ["https://www.crazygames.com/game/dr-psycho-hospital-escape-2"]
+			"name": "Drag Master",
+			"urls": ["https://www.crazygames.com/game/drag-master"]
 		},
 		{
 			"name": "Drag Racer V2",
@@ -19498,10 +19976,26 @@
 			"name": "Dragon.io",
 			"urls": ["https://www.crazygames.com/game/dragon-io"]
 		},
+		{
+			"name": "Dragons Merge: Battle Games",
+			"urls": ["https://www.crazygames.com/game/dragons-merge-battle-games"]
+		},
 		{ "name": "DRAMA", "urls": ["https://www.crazygames.com/game/drama"] },
+		{
+			"name": "Draw and Break",
+			"urls": ["https://www.crazygames.com/game/draw-and-break"]
+		},
+		{
+			"name": "Draw Bridge",
+			"urls": ["https://www.crazygames.com/game/draw-bridge-brain-game"]
+		},
 		{
 			"name": "Draw Bridges",
 			"urls": ["https://www.crazygames.com/game/draw-bridges"]
+		},
+		{
+			"name": "Draw Climber",
+			"urls": ["https://www.crazygames.com/game/draw-climber"]
 		},
 		{
 			"name": "Draw Crash Race",
@@ -19602,8 +20096,16 @@
 			"urls": ["https://www.crazygames.com/game/drive-taxi"]
 		},
 		{
+			"name": "Driver Club: Highway Racing",
+			"urls": ["https://www.crazygames.com/game/driver-club-highway-racing"]
+		},
+		{
 			"name": "Drone Racing Championship",
 			"urls": ["https://www.crazygames.com/game/drone-racing-championship"]
+		},
+		{
+			"name": "Drone.io - AI Survivor",
+			"urls": ["https://www.crazygames.com/game/drone-io---ai-survivor"]
 		},
 		{
 			"name": "Drop & Merge the Numbers",
@@ -19632,6 +20134,10 @@
 		{
 			"name": "DualForce Idle",
 			"urls": ["https://www.crazygames.com/game/dualforce-idle"]
+		},
+		{
+			"name": "Duck Duck Clicker",
+			"urls": ["https://www.crazygames.com/game/duck-duck-clicker-ixu"]
 		},
 		{
 			"name": "Duck Hunt",
@@ -19674,10 +20180,6 @@
 			"urls": ["https://www.crazygames.com/game/duckpark-io"]
 		},
 		{
-			"name": "Dumb Ways to Die",
-			"urls": ["https://www.crazygames.com/game/dumb-ways-to-die-original"]
-		},
-		{
 			"name": "Dumb Ways to Die 2",
 			"urls": ["https://www.crazygames.com/game/dumb-ways-to-die-2-the-games"]
 		},
@@ -19694,13 +20196,18 @@
 			"urls": ["https://www.crazygames.com/game/dungeon-deck"]
 		},
 		{
+			"name": "Dungeon Master - Cult & Craft",
+			"urls": ["https://www.crazygames.com/game/dungeon-master---cult-craft"]
+		},
+		{
+			"name": "Dungeon of Terror",
+			"urls": ["https://www.crazygames.com/game/dungeon-of-terror"]
+		},
+		{
 			"name": "Dungeons n' Ducks",
 			"urls": ["https://www.crazygames.com/game/dungeons-n-ducks"]
 		},
-		{
-			"name": "Dunkshot",
-			"urls": ["https://www.crazygames.com/game/basketball-dunkshot"]
-		},
+		{ "name": "Duo", "urls": ["https://www.crazygames.com/game/duo-kjn"] },
 		{
 			"name": "DUO With Friends",
 			"urls": ["https://www.crazygames.com/game/duo-with-friends"]
@@ -19718,18 +20225,6 @@
 			"urls": ["https://www.crazygames.com/game/dwarves-glory-death-and-loot"]
 		},
 		{
-			"name": "Dynamons 5",
-			"urls": ["https://www.crazygames.com/game/dynamons-5"]
-		},
-		{
-			"name": "Dynamons 6",
-			"urls": ["https://www.crazygames.com/game/dynamons-6"]
-		},
-		{
-			"name": "Dynamons World",
-			"urls": ["https://www.crazygames.com/game/dynamons-world"]
-		},
-		{
 			"name": "Eagle Ride",
 			"urls": ["https://www.crazygames.com/game/eagle-ride"]
 		},
@@ -19742,16 +20237,16 @@
 			"urls": ["https://www.crazygames.com/game/earth-taken-3"]
 		},
 		{
-			"name": "ECO Inc. Save the Earth Planet",
-			"urls": ["https://www.crazygames.com/game/eco-inc-save-the-earth-planet"]
-		},
-		{
 			"name": "Effing Worms",
 			"urls": ["https://www.crazygames.com/game/effing-worms"]
 		},
 		{
 			"name": "Egg Farm",
 			"urls": ["https://www.crazygames.com/game/egg-farm"]
+		},
+		{
+			"name": "Egg Folks Multiplayer",
+			"urls": ["https://www.crazygames.com/game/egg-folks-multiplayer"]
 		},
 		{
 			"name": "Eggy Car",
@@ -19798,6 +20293,12 @@
 			"urls": ["https://www.crazygames.com/game/barbie-fashion-police"]
 		},
 		{
+			"name": "Ellie's Recipe: Dubai Chocolate Bar",
+			"urls": [
+				"https://www.crazygames.com/game/ellie-s-recipe-dubai-chocolate-bar"
+			]
+		},
+		{
 			"name": "Elsa & Anna's Icy Dress Up",
 			"urls": ["https://www.crazygames.com/game/elsa-anna-s-icy-dress-up"]
 		},
@@ -19810,6 +20311,10 @@
 		{
 			"name": "Elsa Breakup Game",
 			"urls": ["https://www.crazygames.com/game/elsa-breakup-game"]
+		},
+		{
+			"name": "Elvenrage",
+			"urls": ["https://www.crazygames.com/game/elvenrage"]
 		},
 		{
 			"name": "Elves Clan: Tricky Adventures",
@@ -19842,6 +20347,10 @@
 			"urls": ["https://www.crazygames.com/game/emily-s-hotel-solitaire"]
 		},
 		{
+			"name": "Emoji Archer - Shooting Emoji",
+			"urls": ["https://www.crazygames.com/game/emoji-archer---shooting-emoji"]
+		},
+		{
 			"name": "Emoji Ball Blast",
 			"urls": ["https://www.crazygames.com/game/emoji-ball-blast"]
 		},
@@ -19862,10 +20371,6 @@
 			"urls": ["https://www.crazygames.com/game/emoji-puzzle"]
 		},
 		{
-			"name": "Emperors on Ice",
-			"urls": ["https://www.crazygames.com/game/emperors-on-ice"]
-		},
-		{
 			"name": "Empire City",
 			"urls": ["https://www.crazygames.com/game/empire-city"]
 		},
@@ -19880,10 +20385,6 @@
 		{
 			"name": "Endacopia",
 			"urls": ["https://www.crazygames.com/game/endacopia"]
-		},
-		{
-			"name": "Endless Car Chase 2",
-			"urls": ["https://www.crazygames.com/game/endless-car-chase-2"]
 		},
 		{
 			"name": "Endless Hot Pursuit",
@@ -19916,6 +20417,10 @@
 			]
 		},
 		{
+			"name": "Enemania",
+			"urls": ["https://www.crazygames.com/game/enemania"]
+		},
+		{
 			"name": "English Checkers Free",
 			"urls": ["https://www.crazygames.com/game/checkers-free"]
 		},
@@ -19928,8 +20433,26 @@
 			"urls": ["https://www.crazygames.com/game/epic-basketball"]
 		},
 		{
+			"name": "Epic Battles",
+			"urls": ["https://www.crazygames.com/game/epic-battles-lxo"]
+		},
+		{
 			"name": "Epic Empire: Tower Defense",
 			"urls": ["https://www.crazygames.com/game/epic-empire-tower-defense"]
+		},
+		{
+			"name": "Epic Mine",
+			"urls": ["https://www.crazygames.com/game/epic-mine"]
+		},
+		{
+			"name": "Epic Racing - Descent on Cars",
+			"urls": ["https://www.crazygames.com/game/epic-racing---descent-on-cars"]
+		},
+		{
+			"name": "Epic Sword Battle! Fight in Arena",
+			"urls": [
+				"https://www.crazygames.com/game/epic-sword-battle-fight-in-arena"
+			]
 		},
 		{
 			"name": "EpicBallz.io",
@@ -19944,10 +20467,8 @@
 			"urls": ["https://www.crazygames.com/game/escape-20-rooms"]
 		},
 		{
-			"name": "Escape from Creepy Forest : Zombie Horror",
-			"urls": [
-				"https://www.crazygames.com/game/escape-from-creepy-forest-zombie-horror"
-			]
+			"name": "Escape From Pizzeria",
+			"urls": ["https://www.crazygames.com/game/escape-from-pizzeria"]
 		},
 		{
 			"name": "Escape From Prison Multiplayer",
@@ -19982,6 +20503,10 @@
 			"urls": ["https://www.crazygames.com/game/escape-pear-room"]
 		},
 		{
+			"name": "Escape Room: Strange Case 2",
+			"urls": ["https://www.crazygames.com/game/escape-room-strange-case-2"]
+		},
+		{
 			"name": "Escape Series",
 			"urls": ["https://www.crazygames.com/game/escape-series"]
 		},
@@ -20002,11 +20527,25 @@
 			"urls": ["https://www.crazygames.com/game/eternal-road"]
 		},
 		{
+			"name": "Eternal Siege",
+			"urls": ["https://www.crazygames.com/game/eternal-siege"]
+		},
+		{
+			"name": "Euro Truck Driving Simulator 2025",
+			"urls": [
+				"https://www.crazygames.com/game/euro-truck-driving-simulator-2025"
+			]
+		},
+		{
 			"name": "European Football Quiz",
 			"urls": ["https://www.crazygames.com/game/soccer-europe-quiz"]
 		},
 		{ "name": "Ev.io", "urls": ["https://www.crazygames.com/game/ev-io"] },
 		{ "name": "Evade", "urls": ["https://www.crazygames.com/game/evade"] },
+		{
+			"name": "Everytown",
+			"urls": ["https://www.crazygames.com/game/everytown"]
+		},
 		{
 			"name": "Evil Neighbor",
 			"urls": ["https://www.crazygames.com/game/evil-father"]
@@ -20020,8 +20559,16 @@
 			"urls": ["https://www.crazygames.com/game/evil-neighbor-3"]
 		},
 		{
+			"name": "Evo Fish",
+			"urls": ["https://www.crazygames.com/game/evo-fish"]
+		},
+		{
 			"name": "EvoHero: Idle Gladiators",
 			"urls": ["https://www.crazygames.com/game/evohero---idle-gladiators"]
+		},
+		{
+			"name": "Evolution Factor",
+			"urls": ["https://www.crazygames.com/game/evolution-factor-1"]
 		},
 		{ "name": "Evolve", "urls": ["https://www.crazygames.com/game/evolve"] },
 		{
@@ -20035,22 +20582,6 @@
 		{
 			"name": "Exhibit of Sorrows",
 			"urls": ["https://www.crazygames.com/game/exhibit-of-sorrows"]
-		},
-		{
-			"name": "Extraordinary: Immortal",
-			"urls": ["https://www.crazygames.com/game/extraordinary-immortal"]
-		},
-		{
-			"name": "Extraordinary: Monster",
-			"urls": ["https://www.crazygames.com/game/extraordinary-monster"]
-		},
-		{
-			"name": "Extraordinary: Soul",
-			"urls": ["https://www.crazygames.com/game/ei-soul"]
-		},
-		{
-			"name": "Extraordinary: Trace",
-			"urls": ["https://www.crazygames.com/game/extraordinary-trace"]
 		},
 		{
 			"name": "Extreme Makeover",
@@ -20203,6 +20734,10 @@
 			"urls": ["https://www.crazygames.com/game/farming-life"]
 		},
 		{
+			"name": "Fashion Battle",
+			"urls": ["https://www.crazygames.com/game/fashion-battle"]
+		},
+		{
 			"name": "Fashion Box: Christmas Diva",
 			"urls": ["https://www.crazygames.com/game/fashion-box-christmas-diva"]
 		},
@@ -20223,10 +20758,6 @@
 			"urls": ["https://www.crazygames.com/game/fashion-famous"]
 		},
 		{
-			"name": "Fashion Model: Rising Star",
-			"urls": ["https://www.crazygames.com/game/fashion-model-rising-star"]
-		},
-		{
 			"name": "Fashion Repair",
 			"urls": ["https://www.crazygames.com/game/fashion-repair"]
 		},
@@ -20235,8 +20766,16 @@
 			"urls": ["https://www.crazygames.com/game/fashion-store-shop-tycoon"]
 		},
 		{
+			"name": "Fashion Tour Simulator",
+			"urls": ["https://www.crazygames.com/game/fashion-tour-simulator"]
+		},
+		{
 			"name": "Fashion Trip",
 			"urls": ["https://www.crazygames.com/game/fashion-trip-dress-up-games"]
+		},
+		{
+			"name": "Fashion Week 2025",
+			"urls": ["https://www.crazygames.com/game/fashion-week-2025"]
 		},
 		{
 			"name": "Fashionista Makeup & Dress Up",
@@ -20257,10 +20796,6 @@
 		{
 			"name": "Feed Me Monsters!",
 			"urls": ["https://www.crazygames.com/game/feed-me-monsters"]
-		},
-		{
-			"name": "Feed The King",
-			"urls": ["https://www.crazygames.com/game/feed-the-king"]
 		},
 		{ "name": "Feed Us", "urls": ["https://www.crazygames.com/game/feed-us"] },
 		{
@@ -20328,6 +20863,10 @@
 			"urls": ["https://www.crazygames.com/game/find-bird"]
 		},
 		{
+			"name": "Find Brainrot",
+			"urls": ["https://www.crazygames.com/game/find-brainrot"]
+		},
+		{
 			"name": "Find Cat",
 			"urls": ["https://www.crazygames.com/game/find-cat"]
 		},
@@ -20356,8 +20895,16 @@
 			"urls": ["https://www.crazygames.com/game/find-the-difference"]
 		},
 		{
+			"name": "Find The Pets",
+			"urls": ["https://www.crazygames.com/game/find-the-pets-cph"]
+		},
+		{
 			"name": "Find the Pieces",
 			"urls": ["https://www.crazygames.com/game/find-the-pieces"]
+		},
+		{
+			"name": "Find the Vampire",
+			"urls": ["https://www.crazygames.com/game/find-the-vampire"]
 		},
 		{
 			"name": "Find Them All!",
@@ -20384,36 +20931,6 @@
 			"urls": ["https://www.crazygames.com/game/fireblob-winter"]
 		},
 		{
-			"name": "Fireboy and Watergirl 1: Forest Temple",
-			"urls": [
-				"https://www.crazygames.com/game/fireboy-and-watergirl-the-forest-temple"
-			]
-		},
-		{
-			"name": "Fireboy and Watergirl 2: Light Temple",
-			"urls": ["https://www.crazygames.com/game/the-light-temple"]
-		},
-		{
-			"name": "Fireboy and Watergirl 3: Ice Temple",
-			"urls": ["https://www.crazygames.com/game/the-ice-temple"]
-		},
-		{
-			"name": "Fireboy and Watergirl 4: Crystal Temple",
-			"urls": ["https://www.crazygames.com/game/the-crystal-temple"]
-		},
-		{
-			"name": "Fireboy and Watergirl 5: Elements",
-			"urls": [
-				"https://www.crazygames.com/game/fireboy-and-watergirl-5-elements"
-			]
-		},
-		{
-			"name": "Fireboy and Watergirl 6: Fairy Tales",
-			"urls": [
-				"https://www.crazygames.com/game/fireboy-and-watergirl-6-fairy-tales"
-			]
-		},
-		{
 			"name": "Fireman 2024",
 			"urls": ["https://www.crazygames.com/game/fireman-2024"]
 		},
@@ -20432,6 +20949,14 @@
 		{
 			"name": "Fish Eat Getting Big",
 			"urls": ["https://www.crazygames.com/game/fish-eat-getting-big"]
+		},
+		{
+			"name": "Fish Frenzy",
+			"urls": ["https://www.crazygames.com/game/fish-frenzy"]
+		},
+		{
+			"name": "Fish IO",
+			"urls": ["https://www.crazygames.com/game/fish-io-be-the-king"]
 		},
 		{
 			"name": "Fish Merge FRVR",
@@ -20466,12 +20991,7 @@
 			"name": "Fitness Club 3D",
 			"urls": ["https://www.crazygames.com/game/fitness-club-3d"]
 		},
-		{
-			"name": "Five Nights at Old Toy Factory 2020",
-			"urls": [
-				"https://www.crazygames.com/game/five-nights-at-old-toy-factory-2020"
-			]
-		},
+		{ "name": "Five-O", "urls": ["https://www.crazygames.com/game/five-o"] },
 		{
 			"name": "Fiveheads Soccer",
 			"urls": ["https://www.crazygames.com/game/fiveheads-soccer"]
@@ -20482,12 +21002,12 @@
 		},
 		{ "name": "FL Tron", "urls": ["https://www.crazygames.com/game/fl-tron"] },
 		{
-			"name": "Flag Defender!",
-			"urls": ["https://www.crazygames.com/game/flag-defender"]
+			"name": "Flag Arena",
+			"urls": ["https://www.crazygames.com/game/flag-arena---capture-dominate"]
 		},
 		{
-			"name": "Flags Quiz",
-			"urls": ["https://www.crazygames.com/game/flags-quiz"]
+			"name": "Flag Defender!",
+			"urls": ["https://www.crazygames.com/game/flag-defender"]
 		},
 		{
 			"name": "Flakmeister",
@@ -20550,6 +21070,16 @@
 			"urls": ["https://www.crazygames.com/game/fly-for-fly"]
 		},
 		{
+			"name": "Fly Me Hard",
+			"urls": ["https://www.crazygames.com/game/fly-me-hard"]
+		},
+		{
+			"name": "Flying Bat Robot Car Transform Game",
+			"urls": [
+				"https://www.crazygames.com/game/flying-bat-robot-car-transform-game"
+			]
+		},
+		{
 			"name": "Flying Car Simulator",
 			"urls": ["https://www.crazygames.com/game/flying-car-simulator"]
 		},
@@ -20570,6 +21100,10 @@
 			"urls": ["https://www.crazygames.com/game/fnaf-shooter"]
 		},
 		{
+			"name": "Food Truck Chef™: A Fun Cooking Game",
+			"urls": ["https://www.crazygames.com/game/food-truck-chef"]
+		},
+		{
 			"name": "Food Tycoon FRVR",
 			"urls": ["https://www.crazygames.com/game/food-tycoon-frvr"]
 		},
@@ -20584,8 +21118,12 @@
 			]
 		},
 		{
-			"name": "Foosball 3D",
+			"name": "Foosball 3D ",
 			"urls": ["https://www.crazygames.com/game/foosball-3d"]
+		},
+		{
+			"name": "Foot Battle Ball",
+			"urls": ["https://www.crazygames.com/game/foot-battle-ball"]
 		},
 		{
 			"name": "Foot Chinko",
@@ -20630,8 +21168,16 @@
 			"urls": ["https://www.crazygames.com/game/fork-n-sausage"]
 		},
 		{
+			"name": "Fortress of Sinister",
+			"urls": ["https://www.crazygames.com/game/fortress-of-sinister"]
+		},
+		{
 			"name": "Fortune Match",
 			"urls": ["https://www.crazygames.com/game/fortune-match"]
+		},
+		{
+			"name": "Fortzone Battle Royale",
+			"urls": ["https://www.crazygames.com/game/fortzone-battle-royale-xkd"]
 		},
 		{ "name": "Forward", "urls": ["https://www.crazygames.com/game/forward"] },
 		{
@@ -20654,6 +21200,11 @@
 			"name": "Fox Simulator 3D",
 			"urls": ["https://www.crazygames.com/game/fox-simulator-3d"]
 		},
+		{
+			"name": "FPS Commando Gun Shooting Game",
+			"urls": ["https://www.crazygames.com/game/fps-commando-gun-shooting-game"]
+		},
+		{ "name": "Fragen", "urls": ["https://www.crazygames.com/game/fragen"] },
 		{
 			"name": "Fray Fight",
 			"urls": ["https://www.crazygames.com/game/fray-fight"]
@@ -20703,16 +21254,8 @@
 			"urls": ["https://www.crazygames.com/game/free-the-cat-puzzle-game"]
 		},
 		{
-			"name": "Fresdoka",
-			"urls": ["https://www.crazygames.com/game/fresdoka"]
-		},
-		{
 			"name": "Friday Night Funkin'",
 			"urls": ["https://www.crazygames.com/game/friday-night-funkin"]
-		},
-		{
-			"name": "Frisbee Game",
-			"urls": ["https://www.crazygames.com/game/frisbee-game"]
 		},
 		{ "name": "Frogger", "urls": ["https://www.crazygames.com/game/frogger"] },
 		{
@@ -20750,20 +21293,18 @@
 			"urls": ["https://www.crazygames.com/game/fruit-factory-idle"]
 		},
 		{
-			"name": "Fruit Masters Online",
-			"urls": ["https://www.crazygames.com/game/fruit-masters-online"]
+			"name": "Fruit Merge: Juicy Drop Game",
+			"urls": [
+				"https://www.crazygames.com/game/fruit-merge-juicy-drop-game-nyf"
+			]
 		},
 		{
-			"name": "Fruit Ninja",
-			"urls": ["https://www.crazygames.com/game/fruit-ninja"]
+			"name": "Fruit Party",
+			"urls": ["https://www.crazygames.com/game/fruit-party"]
 		},
 		{
 			"name": "Fruit Stab Challenge",
 			"urls": ["https://www.crazygames.com/game/fruit-stab-challenge"]
-		},
-		{
-			"name": "Frutball",
-			"urls": ["https://www.crazygames.com/game/frutball"]
 		},
 		{
 			"name": "FTD: Fixin' to Die",
@@ -20774,8 +21315,8 @@
 			"urls": ["https://www.crazygames.com/game/fun-colors"]
 		},
 		{
-			"name": "Fungi World",
-			"urls": ["https://www.crazygames.com/game/fungi-world"]
+			"name": "Fun Puzzles",
+			"urls": ["https://www.crazygames.com/game/fun-puzzles"]
 		},
 		{
 			"name": "Funny Angela Haircut",
@@ -20922,7 +21463,7 @@
 			"urls": ["https://www.crazygames.com/game/funny-zoo-emergency"]
 		},
 		{
-			"name": "Furcifer's Fungeon",
+			"name": "Furcifer's Fungeon ",
 			"urls": ["https://www.crazygames.com/game/furcifer-s-fungeon"]
 		},
 		{
@@ -20948,6 +21489,10 @@
 		{
 			"name": "Galaxy Clicker",
 			"urls": ["https://www.crazygames.com/game/galaxy-clicker"]
+		},
+		{
+			"name": "Galaxy Control: 3D Strategy",
+			"urls": ["https://www.crazygames.com/game/galaxy-control-3d-strategy"]
 		},
 		{
 			"name": "Game Cafe Escape",
@@ -20996,16 +21541,16 @@
 			"urls": ["https://www.crazygames.com/game/gas-monsters"]
 		},
 		{
+			"name": "Gaz to the Moon",
+			"urls": ["https://www.crazygames.com/game/gaz-to-the-moon"]
+		},
+		{
 			"name": "Gearshift One",
 			"urls": ["https://www.crazygames.com/game/gearshift-one"]
 		},
 		{
 			"name": "Gem Refiner",
 			"urls": ["https://www.crazygames.com/game/gem-refiner"]
-		},
-		{
-			"name": "Gem Twins",
-			"urls": ["https://www.crazygames.com/game/gem-twins"]
 		},
 		{
 			"name": "Genius Car 2",
@@ -21042,12 +21587,24 @@
 			"urls": ["https://www.crazygames.com/game/geometry-dash-open-world"]
 		},
 		{
+			"name": "GeoQuizle",
+			"urls": ["https://www.crazygames.com/game/geoquizle-ser"]
+		},
+		{
 			"name": "Get 1000",
 			"urls": ["https://www.crazygames.com/game/get-1000"]
 		},
 		{
+			"name": "Get a Screw: 3D Puzzle!",
+			"urls": ["https://www.crazygames.com/game/get-a-screw-3d-puzzle"]
+		},
+		{
 			"name": "Get Ready With Me: Concert Day",
 			"urls": ["https://www.crazygames.com/game/get-ready-with-me-concert-day"]
+		},
+		{
+			"name": "Get to Zero",
+			"urls": ["https://www.crazygames.com/game/get-to-zero-card-game"]
 		},
 		{
 			"name": "Getaway Shootout",
@@ -21056,6 +21613,10 @@
 		{
 			"name": "Getting Over It",
 			"urls": ["https://www.crazygames.com/game/getting-over-it"]
+		},
+		{
+			"name": "Ghetto Fighter",
+			"urls": ["https://www.crazygames.com/game/ghetto-fighter"]
 		},
 		{
 			"name": "Ghost Sniper",
@@ -21138,8 +21699,16 @@
 			"urls": ["https://www.crazygames.com/game/go-chicken-go"]
 		},
 		{
+			"name": "Go Escape",
+			"urls": ["https://www.crazygames.com/game/go-escape-nim"]
+		},
+		{
 			"name": "Go Kart Racing 3D",
 			"urls": ["https://www.crazygames.com/game/go-kart-racing-3d"]
+		},
+		{
+			"name": "Go!Go! Market",
+			"urls": ["https://www.crazygames.com/game/go-go-market"]
 		},
 		{
 			"name": "Goalkeeper Wiz",
@@ -21150,12 +21719,16 @@
 			"urls": ["https://www.crazygames.com/game/gobattleio"]
 		},
 		{
-			"name": "GoBattles 2",
-			"urls": ["https://www.crazygames.com/game/gobattles-2--light-version-"]
+			"name": "Goblin Punk Tower Defense",
+			"urls": ["https://www.crazygames.com/game/goblin-punk-tower-defense"]
 		},
 		{
 			"name": "God of Light",
 			"urls": ["https://www.crazygames.com/game/god-of-light"]
+		},
+		{
+			"name": "Goddess Connect",
+			"urls": ["https://www.crazygames.com/game/goddess-connect"]
 		},
 		{
 			"name": "Gods of Defense",
@@ -21170,6 +21743,10 @@
 			"urls": [
 				"https://www.crazygames.com/game/godzilla-daikaiju-battle-royale"
 			]
+		},
+		{
+			"name": "GoKarts.io",
+			"urls": ["https://www.crazygames.com/game/gokarts-io"]
 		},
 		{
 			"name": "Gold Digger FRVR",
@@ -21208,6 +21785,10 @@
 			"urls": ["https://www.crazygames.com/game/golf-adventures-2"]
 		},
 		{
+			"name": "Golf Mania",
+			"urls": ["https://www.crazygames.com/game/golf-mania"]
+		},
+		{
 			"name": "Golf Orbit",
 			"urls": ["https://www.crazygames.com/game/golf-orbit"]
 		},
@@ -21240,10 +21821,6 @@
 			"urls": ["https://www.crazygames.com/game/google-feud"]
 		},
 		{
-			"name": "Gothic Dress Up",
-			"urls": ["https://www.crazygames.com/game/gothic-dress-up"]
-		},
-		{
 			"name": "Grab and Run",
 			"urls": ["https://www.crazygames.com/game/grab-and-run"]
 		},
@@ -21274,6 +21851,10 @@
 			"urls": ["https://www.crazygames.com/game/grand-cyber-city"]
 		},
 		{
+			"name": "Grand Escape: Prison",
+			"urls": ["https://www.crazygames.com/game/grand-escape-prison"]
+		},
+		{
 			"name": "Grand Stunt Auto",
 			"urls": ["https://www.crazygames.com/game/grand-stunt-auto"]
 		},
@@ -21300,12 +21881,24 @@
 			"urls": ["https://www.crazygames.com/game/grandma-recipe-ramen"]
 		},
 		{
+			"name": "Grass Land",
+			"urls": ["https://www.crazygames.com/game/grass-land-cei"]
+		},
+		{
 			"name": "Gravity Arena Shooter",
 			"urls": ["https://www.crazygames.com/game/gravity-arena-shooter"]
 		},
 		{
+			"name": "Gravity Crowd",
+			"urls": ["https://www.crazygames.com/game/gravity-crowd"]
+		},
+		{
 			"name": "Great White",
 			"urls": ["https://www.crazygames.com/game/great-white-simulator-3d"]
+		},
+		{
+			"name": "Greedy Bunnies",
+			"urls": ["https://www.crazygames.com/game/greedy-bunnies"]
 		},
 		{
 			"name": "Greedy Dwarves",
@@ -21332,10 +21925,6 @@
 		{
 			"name": "Grocery Kart",
 			"urls": ["https://www.crazygames.com/game/grocery-kart"]
-		},
-		{
-			"name": "GROW Comeback",
-			"urls": ["https://www.crazygames.com/game/grow-comeback"]
 		},
 		{
 			"name": "Grow Cube",
@@ -21371,6 +21960,10 @@
 		},
 		{ "name": "Growmi", "urls": ["https://www.crazygames.com/game/growmi"] },
 		{
+			"name": "GRWM Date Night",
+			"urls": ["https://www.crazygames.com/game/grwm-date-night"]
+		},
+		{
 			"name": "GT Cars Mega Ramps",
 			"urls": ["https://www.crazygames.com/game/gt-cars-mega-ramps"]
 		},
@@ -21379,7 +21972,11 @@
 			"urls": ["https://www.crazygames.com/game/guardians-of-the-kingdom"]
 		},
 		{
-			"name": "Guess Who?",
+			"name": "Guess Their Answer",
+			"urls": ["https://www.crazygames.com/game/guess-their-answer"]
+		},
+		{
+			"name": "Guess Who Online",
 			"urls": ["https://www.crazygames.com/game/guess-who-multiplayer"]
 		},
 		{ "name": "Gulag", "urls": ["https://www.crazygames.com/game/gulag"] },
@@ -21398,6 +21995,10 @@
 		{
 			"name": "Gummy Blocks Battle",
 			"urls": ["https://www.crazygames.com/game/gummy-blocks-battle"]
+		},
+		{
+			"name": "Gun Fu: Stickman 2",
+			"urls": ["https://www.crazygames.com/game/gun-fu-stickman-2-zzv"]
 		},
 		{
 			"name": "Gun Master",
@@ -21444,28 +22045,24 @@
 			"urls": ["https://www.crazygames.com/game/guns-of-rage"]
 		},
 		{
-			"name": "GunsBytes.io",
-			"urls": ["https://www.crazygames.com/game/gunsbytes-io"]
-		},
-		{
-			"name": "Gym Heros: Fighting Game",
-			"urls": ["https://www.crazygames.com/game/gym-heros-fighting-game"]
+			"name": "Guns vs Zombies",
+			"urls": ["https://www.crazygames.com/game/guns-vs-zombies-merge-game-wsr"]
 		},
 		{
 			"name": "Gym Simulator 2024",
 			"urls": ["https://www.crazygames.com/game/gym-simulator-2024"]
 		},
 		{
-			"name": "Gymnastics Girls Dress Up",
-			"urls": ["https://www.crazygames.com/game/gymnastics-girls-dress-up-game"]
-		},
-		{
-			"name": "Hacker vs Robots",
-			"urls": ["https://www.crazygames.com/game/hacker-vs-robots"]
+			"name": "Hack and Climb",
+			"urls": ["https://www.crazygames.com/game/hack-and-climb"]
 		},
 		{
 			"name": "Hacking Hero: Hacker Clicker",
 			"urls": ["https://www.crazygames.com/game/hacking-hero-hacker-clicker"]
+		},
+		{
+			"name": "Hair Salon: Beauty Salon Game",
+			"urls": ["https://www.crazygames.com/game/hair-salon-beauty-salon-game"]
 		},
 		{
 			"name": "Haley Tries Heatless Curls",
@@ -21474,10 +22071,6 @@
 		{
 			"name": "Halloween Chainsaw Massacre",
 			"urls": ["https://www.crazygames.com/game/halloween-chainsaw-massacre"]
-		},
-		{
-			"name": "Halloween Escape",
-			"urls": ["https://www.crazygames.com/game/haloween-escape"]
 		},
 		{
 			"name": "Halloween Makeup Trends",
@@ -21532,10 +22125,6 @@
 			"urls": ["https://www.crazygames.com/game/happy-farm-the-crop"]
 		},
 		{
-			"name": "Happy Glass",
-			"urls": ["https://www.crazygames.com/game/happy-glass"]
-		},
-		{
 			"name": "Happy Town",
 			"urls": ["https://www.crazygames.com/game/happy-town"]
 		},
@@ -21544,24 +22133,16 @@
 			"urls": ["https://www.crazygames.com/game/happy-wheels"]
 		},
 		{
+			"name": "HappyVille Merge Farm",
+			"urls": ["https://www.crazygames.com/game/happyville-merge-farm-gtu"]
+		},
+		{
 			"name": "Hard Game 2",
 			"urls": ["https://www.crazygames.com/game/hard-game-2"]
 		},
 		{
 			"name": "Hard Wheels",
 			"urls": ["https://www.crazygames.com/game/hard-wheels"]
-		},
-		{
-			"name": "Hard Wheels 2",
-			"urls": ["https://www.crazygames.com/game/hard-wheels-2"]
-		},
-		{
-			"name": "Hard Wheels Winter",
-			"urls": ["https://www.crazygames.com/game/hard-wheels-winter"]
-		},
-		{
-			"name": "Hard Wheels Winter 2",
-			"urls": ["https://www.crazygames.com/game/hard-wheels-winter-2"]
 		},
 		{
 			"name": "Hardware Tycoon",
@@ -21576,8 +22157,8 @@
 			"urls": ["https://www.crazygames.com/game/haru-pandas-slide"]
 		},
 		{
-			"name": "Harvest Horizons Idle",
-			"urls": ["https://www.crazygames.com/game/harvest-horizons-idle"]
+			"name": "Harvest Kings",
+			"urls": ["https://www.crazygames.com/game/harvest-kings"]
 		},
 		{
 			"name": "Haste-Clicker",
@@ -21596,10 +22177,6 @@
 			"urls": ["https://www.crazygames.com/game/haste-miner-3-eternamine"]
 		},
 		{
-			"name": "Hasty Cargo",
-			"urls": ["https://www.crazygames.com/game/hasty-cargo"]
-		},
-		{
 			"name": "Haunted Heroes",
 			"urls": ["https://www.crazygames.com/game/haunted-heroes"]
 		},
@@ -21612,16 +22189,12 @@
 			"urls": ["https://www.crazygames.com/game/haunted-school-2---horror-game"]
 		},
 		{
-			"name": "Havendock",
+			"name": "Havendock (Pre-Alpha)",
 			"urls": ["https://www.crazygames.com/game/havendock"]
 		},
 		{
 			"name": "Hazmob FPS: Online Shooter",
 			"urls": ["https://www.crazygames.com/game/hazmob-fps-online-shooter"]
-		},
-		{
-			"name": "Head World Cup",
-			"urls": ["https://www.crazygames.com/game/head-world-cup"]
 		},
 		{
 			"name": "Head2Head Racing",
@@ -21647,6 +22220,7 @@
 			"name": "Hearts: Classic",
 			"urls": ["https://www.crazygames.com/game/hearts-classic"]
 		},
+		{ "name": "Hedgies", "urls": ["https://www.crazygames.com/game/hedgies"] },
 		{
 			"name": "Heist Master",
 			"urls": ["https://www.crazygames.com/game/heist-master"]
@@ -21688,8 +22262,16 @@
 			"urls": ["https://www.crazygames.com/game/herochero-enemy-slayer"]
 		},
 		{
+			"name": "Heroes Assemble",
+			"urls": ["https://www.crazygames.com/game/heroes-assemble"]
+		},
+		{
 			"name": "Heroes of Match 3",
 			"urls": ["https://www.crazygames.com/game/heroes-of-match-3"]
+		},
+		{
+			"name": "Heroes of the Arena",
+			"urls": ["https://www.crazygames.com/game/heroes-of-the-arena"]
 		},
 		{
 			"name": "Heroes of the Wasteland",
@@ -21698,6 +22280,10 @@
 		{
 			"name": "Heroes of Tiny Kingdom",
 			"urls": ["https://www.crazygames.com/game/heroes-of-tiny-kingdom"]
+		},
+		{
+			"name": "Heroic Archers",
+			"urls": ["https://www.crazygames.com/game/heroic-archer"]
 		},
 		{
 			"name": "Heroic Battle",
@@ -21720,12 +22306,12 @@
 			"urls": ["https://www.crazygames.com/game/hexa-blast-game"]
 		},
 		{
-			"name": "Hexa Dungeon",
-			"urls": ["https://www.crazygames.com/game/hexa-dungeon"]
+			"name": "Hexa Block 2048 Idle",
+			"urls": ["https://www.crazygames.com/game/hexa-block-2048-idle"]
 		},
 		{
-			"name": "Hexa Parking",
-			"urls": ["https://www.crazygames.com/game/hexa-parking"]
+			"name": "Hexa Dungeon",
+			"urls": ["https://www.crazygames.com/game/hexa-dungeon"]
 		},
 		{
 			"name": "Hexa Sort",
@@ -21734,6 +22320,10 @@
 		{
 			"name": "Hexanaut.io",
 			"urls": ["https://www.crazygames.com/game/hexanaut-io"]
+		},
+		{
+			"name": "Hexo Land",
+			"urls": ["https://www.crazygames.com/game/hextoland"]
 		},
 		{ "name": "Hextris", "urls": ["https://www.crazygames.com/game/hextris"] },
 		{
@@ -21803,12 +22393,16 @@
 			"urls": ["https://www.crazygames.com/game/hill-climb-on-moto-bike"]
 		},
 		{
+			"name": "Hill Masters",
+			"urls": ["https://www.crazygames.com/game/hill-masters"]
+		},
+		{
 			"name": "Hill Racing",
 			"urls": ["https://www.crazygames.com/game/hill-racing"]
 		},
 		{
-			"name": "Hired Force",
-			"urls": ["https://www.crazygames.com/game/hired-force"]
+			"name": "Hire Rush",
+			"urls": ["https://www.crazygames.com/game/hire-rush-kgw"]
 		},
 		{ "name": "HK Cafe", "urls": ["https://www.crazygames.com/game/hk-cafe"] },
 		{ "name": "Hobo", "urls": ["https://www.crazygames.com/game/hobo"] },
@@ -21843,16 +22437,24 @@
 			"urls": ["https://www.crazygames.com/game/home-flip"]
 		},
 		{
+			"name": "Homesteads: Dream Farm",
+			"urls": ["https://www.crazygames.com/game/homesteads-dream-farm-fkk"]
+		},
+		{
+			"name": "Hook & Slice",
+			"urls": ["https://www.crazygames.com/game/hook-slice"]
+		},
+		{
 			"name": "Hook Arena",
 			"urls": ["https://www.crazygames.com/game/hook-arena"]
 		},
 		{
-			"name": "Hoop World 3D",
-			"urls": ["https://www.crazygames.com/game/hoop-world-3d"]
+			"name": "Hook King Runner",
+			"urls": ["https://www.crazygames.com/game/hook-king-runner"]
 		},
 		{
-			"name": "Horde Hunters",
-			"urls": ["https://www.crazygames.com/game/horde-hunters"]
+			"name": "Hoop World 3D",
+			"urls": ["https://www.crazygames.com/game/hoop-world-3d"]
 		},
 		{
 			"name": "Horde Killer: You vs 100",
@@ -21877,6 +22479,10 @@
 		{
 			"name": "Horror Tale 2: Samantha",
 			"urls": ["https://www.crazygames.com/game/horror-tale-2-samantha"]
+		},
+		{
+			"name": "Horror Tale 3: The Witch",
+			"urls": ["https://www.crazygames.com/game/horror-tale-3-the-witch"]
 		},
 		{
 			"name": "Horse Cart Transport Taxi Game",
@@ -21921,8 +22527,20 @@
 			"urls": ["https://www.crazygames.com/game/hot-lava-floor"]
 		},
 		{
+			"name": "Hot Pot Game",
+			"urls": ["https://www.crazygames.com/game/hot-pot-game"]
+		},
+		{
+			"name": "Hot Road Infinite",
+			"urls": ["https://www.crazygames.com/game/hot-road-infinite"]
+		},
+		{
 			"name": "HotDog TD",
 			"urls": ["https://www.crazygames.com/game/hotdog-td"]
+		},
+		{
+			"name": "Hotfoot Baseball",
+			"urls": ["https://www.crazygames.com/game/hotfoot-baseball"]
 		},
 		{
 			"name": "House Escape: Office",
@@ -21963,6 +22581,10 @@
 		{
 			"name": "Human Resistance",
 			"urls": ["https://www.crazygames.com/game/human-resistance"]
+		},
+		{
+			"name": "Hungry Hamster",
+			"urls": ["https://www.crazygames.com/game/hungry-hamster"]
 		},
 		{
 			"name": "Hungry Ocean:  Eat, Feed and Grow Fish",
@@ -22007,6 +22629,10 @@
 			"urls": ["https://www.crazygames.com/game/hyperball-tachyon"]
 		},
 		{
+			"name": "Hyperblox Shooting",
+			"urls": ["https://www.crazygames.com/game/hyperblox-shooting"]
+		},
+		{
 			"name": "Hyperplex 3D",
 			"urls": ["https://www.crazygames.com/game/hyperplex-3d"]
 		},
@@ -22017,6 +22643,16 @@
 		{
 			"name": "Hyperspace Racers 3",
 			"urls": ["https://www.crazygames.com/game/hyperspace-racers-3"]
+		},
+		{
+			"name": "Hyperspace: Quantum Fracture",
+			"urls": [
+				"https://www.crazygames.com/game/hyperspace---quantum-fracture-fez"
+			]
+		},
+		{
+			"name": "Hypper Sandbox",
+			"urls": ["https://www.crazygames.com/game/hypper-sandbox"]
 		},
 		{
 			"name": "I Best Dancer!",
@@ -22091,6 +22727,10 @@
 			"urls": ["https://www.crazygames.com/game/idle-ants"]
 		},
 		{
+			"name": "Idle Army: Battle for the Lands",
+			"urls": ["https://www.crazygames.com/game/the-army"]
+		},
+		{
 			"name": "Idle Bee: Swarm Simulator",
 			"urls": ["https://www.crazygames.com/game/idle-bee-swarm-simulator"]
 		},
@@ -22127,12 +22767,20 @@
 			"urls": ["https://www.crazygames.com/game/idle-combine"]
 		},
 		{
+			"name": "Idle Construction 3D",
+			"urls": ["https://www.crazygames.com/game/idle-construction-3d"]
+		},
+		{
 			"name": "Idle Crafting Empire Tycoon",
 			"urls": ["https://www.crazygames.com/game/idle-crafting-empire-tycoon"]
 		},
 		{
 			"name": "Idle Crushing Block",
 			"urls": ["https://www.crazygames.com/game/idle-crushing-block"]
+		},
+		{
+			"name": "Idle Dangers",
+			"urls": ["https://www.crazygames.com/game/idle-dangers"]
 		},
 		{
 			"name": "Idle Defense",
@@ -22188,6 +22836,14 @@
 			"urls": ["https://www.crazygames.com/game/idle-it-company"]
 		},
 		{
+			"name": "Idle Lumber Mill",
+			"urls": ["https://www.crazygames.com/game/idle-lumber-mill"]
+		},
+		{
+			"name": "Idle Medieval Tower Defense",
+			"urls": ["https://www.crazygames.com/game/idle-medieval-tower-defense"]
+		},
+		{
 			"name": "Idle Mine: Remix",
 			"urls": ["https://www.crazygames.com/game/idle-mine-remix"]
 		},
@@ -22198,10 +22854,6 @@
 		{
 			"name": "Idle Mining Empire",
 			"urls": ["https://www.crazygames.com/game/idle-mining-empire"]
-		},
-		{
-			"name": "Idle Mobs Farm",
-			"urls": ["https://www.crazygames.com/game/idle-mobs-farm"]
 		},
 		{
 			"name": "IDLE Molecules",
@@ -22232,10 +22884,6 @@
 			"urls": ["https://www.crazygames.com/game/idle-printers-2"]
 		},
 		{
-			"name": "Idle Raid",
-			"urls": ["https://www.crazygames.com/game/idle-raid"]
-		},
-		{
 			"name": "Idle Reincarnator",
 			"urls": ["https://www.crazygames.com/game/idle-reincarnator"]
 		},
@@ -22246,6 +22894,10 @@
 		{
 			"name": "Idle Restaurant Tycoon",
 			"urls": ["https://www.crazygames.com/game/idle-restaurant-tycoon"]
+		},
+		{
+			"name": "Idle Saga",
+			"urls": ["https://www.crazygames.com/game/idle-saga"]
 		},
 		{
 			"name": "Idle Sand Castle",
@@ -22292,16 +22944,32 @@
 			"urls": ["https://www.crazygames.com/game/idle-treadmill"]
 		},
 		{
+			"name": "Idle World",
+			"urls": ["https://www.crazygames.com/game/idle-world"]
+		},
+		{
 			"name": "Idle World Miner Tycoon",
 			"urls": ["https://www.crazygames.com/game/idle-world-miner-tycoon"]
+		},
+		{
+			"name": "Idle Zombie Wave: Survivors",
+			"urls": ["https://www.crazygames.com/game/idle-zombie-wave"]
 		},
 		{
 			"name": "Idle Zoo",
 			"urls": ["https://www.crazygames.com/game/idle-zoo-lua"]
 		},
 		{
-			"name": "Immortal Taoists",
-			"urls": ["https://www.crazygames.com/game/immortal-taoists"]
+			"name": "Image Crossword",
+			"urls": ["https://www.crazygames.com/game/image-crossword-far"]
+		},
+		{
+			"name": "Immortal: Dark Slayer",
+			"urls": ["https://www.crazygames.com/game/immortal-dark-slayer"]
+		},
+		{
+			"name": "Immortals Revenge",
+			"urls": ["https://www.crazygames.com/game/immortals-revenge"]
 		},
 		{
 			"name": "Impossible Date",
@@ -22362,6 +23030,10 @@
 			"urls": ["https://www.crazygames.com/game/infiltrating-the-airship"]
 		},
 		{
+			"name": "Infinite Asteroids",
+			"urls": ["https://www.crazygames.com/game/infinite-asteroids"]
+		},
+		{
 			"name": "Infinite Heroes",
 			"urls": ["https://www.crazygames.com/game/infinite-heroes"]
 		},
@@ -22402,10 +23074,6 @@
 			"urls": ["https://www.crazygames.com/game/interstate-drifter-1999"]
 		},
 		{
-			"name": "Into the Forest",
-			"urls": ["https://www.crazygames.com/game/in-to-the-forest"]
-		},
-		{
 			"name": "Intrusion",
 			"urls": ["https://www.crazygames.com/game/intrusion"]
 		},
@@ -22420,6 +23088,10 @@
 		{
 			"name": "Iron Friend",
 			"urls": ["https://www.crazygames.com/game/iron-friend"]
+		},
+		{
+			"name": "Iron Towers Alliance",
+			"urls": ["https://www.crazygames.com/game/iron-towers-alliance"]
 		},
 		{
 			"name": "Is Today Another Day?",
@@ -22438,10 +23110,6 @@
 			"urls": ["https://www.crazygames.com/game/islander"]
 		},
 		{
-			"name": "Isles of Mists",
-			"urls": ["https://www.crazygames.com/game/isles-of-mists-horror-story"]
-		},
-		{
 			"name": "Isometric Escape",
 			"urls": ["https://www.crazygames.com/game/isometric-escape"]
 		},
@@ -22454,6 +23122,10 @@
 			"urls": ["https://www.crazygames.com/game/isometric-escapes"]
 		},
 		{
+			"name": "Italian Brainrot Clicker Game",
+			"urls": ["https://www.crazygames.com/game/italian-brainrot-clicker-usp"]
+		},
+		{
 			"name": "Iza's Supermarket",
 			"urls": ["https://www.crazygames.com/game/iza-s-supermarket"]
 		},
@@ -22462,10 +23134,15 @@
 			"urls": ["https://www.crazygames.com/game/jacksmith"]
 		},
 		{
+			"name": "Jail Escape",
+			"urls": ["https://www.crazygames.com/game/jail-escape"]
+		},
+		{
 			"name": "Jailbreak: Hide or Attack!",
 			"urls": ["https://www.crazygames.com/game/jailbreak-hide-or-attack"]
 		},
 		{ "name": "Jamir", "urls": ["https://www.crazygames.com/game/jamir"] },
+		{ "name": "Jamjam", "urls": ["https://www.crazygames.com/game/jamjam"] },
 		{
 			"name": "Janissary Battles",
 			"urls": ["https://www.crazygames.com/game/janissary-battles"]
@@ -22519,6 +23196,10 @@
 			"urls": ["https://www.crazygames.com/game/jet-rush"]
 		},
 		{
+			"name": "Jetpack Joyride",
+			"urls": ["https://www.crazygames.com/game/jetpack-joyride-pcp"]
+		},
+		{
 			"name": "Jetpack Jump",
 			"urls": ["https://www.crazygames.com/game/jetpack-jump"]
 		},
@@ -22543,6 +23224,14 @@
 			"urls": ["https://www.crazygames.com/game/jewels-frvr"]
 		},
 		{
+			"name": "Jingle Defense",
+			"urls": ["https://www.crazygames.com/game/jingle-defense"]
+		},
+		{
+			"name": "Johnny n Tommy - Prank Masters",
+			"urls": ["https://www.crazygames.com/game/johnny-n-tommy---prank-masters"]
+		},
+		{
 			"name": "Johnny Rocketfingers",
 			"urls": ["https://www.crazygames.com/game/johnny-rocketfingers"]
 		},
@@ -22559,6 +23248,10 @@
 			"urls": ["https://www.crazygames.com/game/juice-production-tycoon-remake"]
 		},
 		{ "name": "Juicy", "urls": ["https://www.crazygames.com/game/juicy"] },
+		{
+			"name": "JuicyJong",
+			"urls": ["https://www.crazygames.com/game/juicyjong"]
+		},
 		{
 			"name": "Jump and Hover",
 			"urls": ["https://www.crazygames.com/game/jump-and-hover"]
@@ -22644,10 +23337,6 @@
 			"urls": ["https://www.crazygames.com/game/kamaz-truck-driver"]
 		},
 		{
-			"name": "Kart Wars",
-			"urls": ["https://www.crazygames.com/game/kart-wars"]
-		},
-		{
 			"name": "Kawaii Friends: Tiles Matcher",
 			"urls": ["https://www.crazygames.com/game/kawaii-friends-tiles-matcher"]
 		},
@@ -22658,6 +23347,10 @@
 		{
 			"name": "Keeper of the Grove 2",
 			"urls": ["https://www.crazygames.com/game/keeper-of-the-grove-2"]
+		},
+		{
+			"name": "Kick Soccer Hero",
+			"urls": ["https://www.crazygames.com/game/kick-football-herosoccer-game"]
 		},
 		{
 			"name": "Kick the Noobik 3D",
@@ -22686,6 +23379,10 @@
 			"urls": ["https://www.crazygames.com/game/killer-whale"]
 		},
 		{
+			"name": "King of Street Soccer",
+			"urls": ["https://www.crazygames.com/game/king-of-street-football-nuo"]
+		},
+		{
 			"name": "King of Thieves",
 			"urls": ["https://www.crazygames.com/game/king-of-thieves"]
 		},
@@ -22708,6 +23405,10 @@
 		{
 			"name": "Kingdom Rush",
 			"urls": ["https://www.crazygames.com/game/kingdom-rush"]
+		},
+		{
+			"name": "Kingdom Solitaire",
+			"urls": ["https://www.crazygames.com/game/kingdom-solitaire"]
 		},
 		{
 			"name": "Kingmaker Academy: Warrior's Duels",
@@ -22750,12 +23451,36 @@
 			"urls": ["https://www.crazygames.com/game/kitty-cats"]
 		},
 		{
+			"name": "Kitty Clicker",
+			"urls": ["https://www.crazygames.com/game/kitty-clickler"]
+		},
+		{
 			"name": "Kitty Scramble: Word Stacks",
 			"urls": ["https://www.crazygames.com/game/kitty-scramble"]
 		},
 		{
 			"name": "Kity Builder",
 			"urls": ["https://www.crazygames.com/game/kity-builder"]
+		},
+		{
+			"name": "Knee Case Simulator",
+			"urls": ["https://www.crazygames.com/game/knee-case-simulator"]
+		},
+		{
+			"name": "Knife Master: Ball Racing",
+			"urls": ["https://www.crazygames.com/game/stack-fall-ttj"]
+		},
+		{
+			"name": "Knife.io",
+			"urls": ["https://www.crazygames.com/game/knife-io"]
+		},
+		{
+			"name": "Knight Clicker",
+			"urls": ["https://www.crazygames.com/game/knight-clicker"]
+		},
+		{
+			"name": "Knight Hero 2 Revenge Idle RPG",
+			"urls": ["https://www.crazygames.com/game/knight-hero-2-revenge-idle-rpg"]
 		},
 		{
 			"name": "Knight Hero Adventure Idle RPG",
@@ -22774,8 +23499,24 @@
 			"urls": ["https://www.crazygames.com/game/knightmare-tower"]
 		},
 		{
+			"name": "Knock and Run: 100 Doors Escape",
+			"urls": ["https://www.crazygames.com/game/knock-and-run"]
+		},
+		{
+			"name": "Knock Em All",
+			"urls": ["https://www.crazygames.com/game/knock-em-all"]
+		},
+		{
+			"name": "Knockout",
+			"urls": ["https://www.crazygames.com/game/knockout-games-nwi"]
+		},
+		{
 			"name": "KNOCKOUTS!",
 			"urls": ["https://www.crazygames.com/game/knockouts"]
+		},
+		{
+			"name": "Knots Jam: Thread Puzzle 3D",
+			"urls": ["https://www.crazygames.com/game/knots-jam-thread-puzzle-3d"]
 		},
 		{
 			"name": "Kobolm Rescue",
@@ -22935,18 +23676,14 @@
 			"name": "LA Shark",
 			"urls": ["https://www.crazygames.com/game/la-shark"]
 		},
-		{
-			"name": "LA Times Crossword",
-			"urls": ["https://www.crazygames.com/game/la-times-crossword"]
-		},
 		{ "name": "Land Ho!", "urls": ["https://www.crazygames.com/game/land-ho"] },
 		{
 			"name": "Landfill Simulator",
 			"urls": ["https://www.crazygames.com/game/landfill-sim"]
 		},
 		{
-			"name": "Landing Confirmed",
-			"urls": ["https://www.crazygames.com/game/landing-confirmed"]
+			"name": "LandLord - Real Estate Tycoon",
+			"urls": ["https://www.crazygames.com/game/landlord---real-estate-tycoon"]
 		},
 		{
 			"name": "Landor Quest 2",
@@ -23001,6 +23738,10 @@
 			"urls": ["https://www.crazygames.com/game/last-plant-on-earth"]
 		},
 		{
+			"name": "Last Play: Ragdoll Sandbox",
+			"urls": ["https://www.crazygames.com/game/last-play-ragdoll-sandbox-kqb"]
+		},
+		{
 			"name": "Launch Idle",
 			"urls": ["https://www.crazygames.com/game/launch-idle"]
 		},
@@ -23037,16 +23778,16 @@
 			"urls": ["https://www.crazygames.com/game/league-bowling"]
 		},
 		{
+			"name": "Leap and Avoid 2",
+			"urls": ["https://www.crazygames.com/game/leap-and-avoid-2"]
+		},
+		{
 			"name": "Learn To Fly",
 			"urls": ["https://www.crazygames.com/game/learn-to-fly"]
 		},
 		{
 			"name": "Leek Factory Tycoon",
 			"urls": ["https://www.crazygames.com/game/leek-factory-tycoon"]
-		},
-		{
-			"name": "Left 4 Dead",
-			"urls": ["https://www.crazygames.com/game/left-4-dead"]
 		},
 		{
 			"name": "Lemonade Stand",
@@ -23065,6 +23806,10 @@
 		{
 			"name": "Lethal Sniper 3D: Army Soldier",
 			"urls": ["https://www.crazygames.com/game/lethal-sniper-3d-army-soldier"]
+		},
+		{
+			"name": "LetterClash",
+			"urls": ["https://www.crazygames.com/game/letterclash"]
 		},
 		{
 			"name": "Letters Match",
@@ -23088,12 +23833,24 @@
 			"urls": ["https://www.crazygames.com/game/light-academia-fashion"]
 		},
 		{
+			"name": "Light Line",
+			"urls": ["https://www.crazygames.com/game/light-line"]
+		},
+		{
 			"name": "Light The Lamp",
 			"urls": ["https://www.crazygames.com/game/light-the-lamp"]
 		},
 		{
 			"name": "Lime Playground Sandbox",
 			"urls": ["https://www.crazygames.com/game/lime-playground-sandbox"]
+		},
+		{
+			"name": "Limited Defense",
+			"urls": ["https://www.crazygames.com/game/limited-defense"]
+		},
+		{
+			"name": "Limited Kaboom",
+			"urls": ["https://www.crazygames.com/game/limited-kaboom"]
 		},
 		{
 			"name": "Limitless",
@@ -23109,6 +23866,10 @@
 		},
 		{ "name": "Lines", "urls": ["https://www.crazygames.com/game/lines-tpx"] },
 		{ "name": "Link", "urls": ["https://www.crazygames.com/game/link"] },
+		{
+			"name": "Link Town",
+			"urls": ["https://www.crazygames.com/game/link-town"]
+		},
 		{
 			"name": "LinQuest",
 			"urls": ["https://www.crazygames.com/game/linquest"]
@@ -23152,13 +23913,10 @@
 			"urls": ["https://www.crazygames.com/game/little-protectors"]
 		},
 		{
-			"name": "Little Robot",
-			"urls": ["https://www.crazygames.com/game/little-robot"]
+			"name": "Little Shop",
+			"urls": ["https://www.crazygames.com/game/little-shop"]
 		},
-		{
-			"name": "Little Wheel",
-			"urls": ["https://www.crazygames.com/game/little-wheel"]
-		},
+		{ "name": "LIVE", "urls": ["https://www.crazygames.com/game/live-rby"] },
 		{
 			"name": "Live Avatar Maker: Girls",
 			"urls": ["https://www.crazygames.com/game/live-avatar-maker-girls"]
@@ -23216,6 +23974,10 @@
 			"urls": ["https://www.crazygames.com/game/loot-hero-wjo"]
 		},
 		{
+			"name": "Loot Island - Treasure Digger",
+			"urls": ["https://www.crazygames.com/game/loot-island---treasure-digger"]
+		},
+		{
 			"name": "Loot Party",
 			"urls": ["https://www.crazygames.com/game/loot-party"]
 		},
@@ -23269,12 +24031,26 @@
 			"urls": ["https://www.crazygames.com/game/ludo-legend"]
 		},
 		{
+			"name": "Ludo Party",
+			"urls": ["https://www.crazygames.com/game/ludo-party"]
+		},
+		{
+			"name": "Ludoteca",
+			"urls": ["https://www.crazygames.com/game/ludoteca"]
+		},
+		{
 			"name": "Lulu Run",
 			"urls": ["https://www.crazygames.com/game/lulu-run"]
 		},
 		{
 			"name": "Lulu's Fashion World",
 			"urls": ["https://www.crazygames.com/game/lulu-s-fashion-world"]
+		},
+		{
+			"name": "Lumber Harvest: Tree Cutting Game",
+			"urls": [
+				"https://www.crazygames.com/game/lumber-harvest-tree-cutting-game"
+			]
 		},
 		{
 			"name": "Lunapark Idle Clicker: For Fun",
@@ -23287,6 +24063,10 @@
 		{
 			"name": "Lunar Knight",
 			"urls": ["https://www.crazygames.com/game/lunar-knight"]
+		},
+		{
+			"name": "Lurkers.io",
+			"urls": ["https://www.crazygames.com/game/lurkers-io"]
 		},
 		{
 			"name": "Luxury Inc",
@@ -23307,6 +24087,14 @@
 		{
 			"name": "Mad Cars: Racing & Crash",
 			"urls": ["https://www.crazygames.com/game/mad-cars-racing-and-crash"]
+		},
+		{
+			"name": "Mad Evolution: Idle Merge",
+			"urls": ["https://www.crazygames.com/game/mad-evolution-idle-merge"]
+		},
+		{
+			"name": "Mad Royale Tactics",
+			"urls": ["https://www.crazygames.com/game/mad-royale-tactics"]
 		},
 		{
 			"name": "Mad Stick",
@@ -23331,6 +24119,10 @@
 		{
 			"name": "Madness Accelerant",
 			"urls": ["https://www.crazygames.com/game/madness-accelerant"]
+		},
+		{
+			"name": "Madness Cars Destroy",
+			"urls": ["https://www.crazygames.com/game/madness-car-destroy"]
 		},
 		{
 			"name": "Madness Deathwish",
@@ -23367,6 +24159,10 @@
 			"urls": ["https://www.crazygames.com/game/mage-vs-monsters"]
 		},
 		{
+			"name": "Mage's Secret",
+			"urls": ["https://www.crazygames.com/game/mage-s-secret"]
+		},
+		{
 			"name": "Mageclash.io",
 			"urls": ["https://www.crazygames.com/game/mageclash-io"]
 		},
@@ -23391,6 +24187,10 @@
 			"urls": ["https://www.crazygames.com/game/magic-kingdom-hex-match"]
 		},
 		{
+			"name": "Magic Kitchen: Merge Game",
+			"urls": ["https://www.crazygames.com/game/merge-cooking-game"]
+		},
+		{
 			"name": "Magic Merge: Tower Defense 3D",
 			"urls": ["https://www.crazygames.com/game/magic-merge-tower-defense-3d"]
 		},
@@ -23399,6 +24199,10 @@
 			"urls": [
 				"https://www.crazygames.com/game/magic-of-easter-princess-makeover"
 			]
+		},
+		{
+			"name": "Magic Princess",
+			"urls": ["https://www.crazygames.com/game/magic-princess"]
 		},
 		{
 			"name": "Magic Swords Idle RPG",
@@ -23417,16 +24221,8 @@
 			"urls": ["https://www.crazygames.com/game/magic-world"]
 		},
 		{
-			"name": "Magnet Chess",
-			"urls": ["https://www.crazygames.com/game/magnet-chess"]
-		},
-		{
 			"name": "Mahjong 3D Classic",
 			"urls": ["https://www.crazygames.com/game/mahjong-3d-classic"]
-		},
-		{
-			"name": "Mahjong Alchemy 2D",
-			"urls": ["https://www.crazygames.com/game/mahjong-alchemy-zhl"]
 		},
 		{
 			"name": "Mahjong Big",
@@ -23475,6 +24271,10 @@
 		{
 			"name": "Mahjong Online",
 			"urls": ["https://www.crazygames.com/game/mahjong-classic-webgl"]
+		},
+		{
+			"name": "Mahjong Pet Quest",
+			"urls": ["https://www.crazygames.com/game/mahjong-pet-quest"]
 		},
 		{
 			"name": "Mahjong Pirate Plunder Journey",
@@ -23569,28 +24369,20 @@
 			"urls": ["https://www.crazygames.com/game/masked-forces"]
 		},
 		{
-			"name": "Masked Forces 2: Demons Rising",
-			"urls": ["https://www.crazygames.com/game/masked-forces-2-demons-rising"]
-		},
-		{
 			"name": "Masked Forces: Zombie Survival",
 			"urls": ["https://www.crazygames.com/game/masked-forces-zombie-survival"]
-		},
-		{
-			"name": "Massive Multiplayer Platformer",
-			"urls": ["https://www.crazygames.com/game/massive-multiplayer-platformer"]
 		},
 		{
 			"name": "Master Chess",
 			"urls": ["https://www.crazygames.com/game/master-chess"]
 		},
 		{
-			"name": "Master Qwan's Mahjong",
-			"urls": ["https://www.crazygames.com/game/master-qwan-s-mahjong"]
+			"name": "Master Hit: Boss Hunter",
+			"urls": ["https://www.crazygames.com/game/master-hit-boss-hunter-btt"]
 		},
 		{
-			"name": "Master Weaves",
-			"urls": ["https://www.crazygames.com/game/master-weaves"]
+			"name": "Master Qwan's Mahjong",
+			"urls": ["https://www.crazygames.com/game/master-qwan-s-mahjong"]
 		},
 		{
 			"name": "Masters of Context",
@@ -23601,10 +24393,25 @@
 			"urls": ["https://www.crazygames.com/game/match-arena"]
 		},
 		{
+			"name": "Match Masters",
+			"urls": ["https://www.crazygames.com/game/match-masters-jiy"]
+		},
+		{
+			"name": "Match Moji",
+			"urls": ["https://www.crazygames.com/game/match-moji--emoji-puzzle-game"]
+		},
+		{
 			"name": "Match the Color",
 			"urls": ["https://www.crazygames.com/game/match-the-color"]
 		},
-		{ "name": "Matches", "urls": ["https://www.crazygames.com/game/matches"] },
+		{
+			"name": "Matches Craft - Idle Game",
+			"urls": ["https://www.crazygames.com/game/paper-shuffle-sort"]
+		},
+		{
+			"name": "MatchVentures",
+			"urls": ["https://www.crazygames.com/game/matchventures"]
+		},
 		{
 			"name": "Math Duck",
 			"urls": ["https://www.crazygames.com/game/math-duck"]
@@ -23616,10 +24423,6 @@
 		{
 			"name": "Math Push",
 			"urls": ["https://www.crazygames.com/game/math-push"]
-		},
-		{
-			"name": "Matrix Bullet Time Fighting",
-			"urls": ["https://www.crazygames.com/game/matrix-bullet-time-fighting"]
 		},
 		{
 			"name": "Max Mixed Cocktails",
@@ -23658,12 +24461,24 @@
 			"urls": ["https://www.crazygames.com/game/mcdonalds"]
 		},
 		{
+			"name": "Mean Girls Graduation Day",
+			"urls": ["https://www.crazygames.com/game/mean-girls-graduation-day"]
+		},
+		{
 			"name": "Meat Boy",
 			"urls": ["https://www.crazygames.com/game/meat-boy"]
 		},
 		{
 			"name": "Mecha Run",
 			"urls": ["https://www.crazygames.com/game/mecha-run"]
+		},
+		{
+			"name": "Mechs Rumble Blitz",
+			"urls": ["https://www.crazygames.com/game/mechs-rumble-blitz"]
+		},
+		{
+			"name": "Medieval Arena",
+			"urls": ["https://www.crazygames.com/game/medieval-arena"]
 		},
 		{
 			"name": "Medieval Battle 2P",
@@ -23678,10 +24493,6 @@
 			"urls": ["https://www.crazygames.com/game/medieval-shark"]
 		},
 		{
-			"name": "Meeblings",
-			"urls": ["https://www.crazygames.com/game/meeblings"]
-		},
-		{
 			"name": "Mega Dressup - Seasons Best",
 			"urls": ["https://www.crazygames.com/game/mega-dressup-seasons-best"]
 		},
@@ -23692,6 +24503,14 @@
 		{
 			"name": "Mega Fall Ragdoll Simulator",
 			"urls": ["https://www.crazygames.com/game/mega-fall-ragdoll-simulator"]
+		},
+		{
+			"name": "Mega Makeup Seasons Best",
+			"urls": ["https://www.crazygames.com/game/mega-makeup-seasons-best"]
+		},
+		{
+			"name": "Mega Parkour: Obby Escape Run",
+			"urls": ["https://www.crazygames.com/game/mega-parkour-obby-escape-run"]
 		},
 		{
 			"name": "Mega Ragdoll Sandbox Simulator",
@@ -23716,6 +24535,14 @@
 		{
 			"name": "MegamodGames",
 			"urls": ["https://www.crazygames.com/game/megamodgames"]
+		},
+		{
+			"name": "Meme Survivors: Backrooms",
+			"urls": ["https://www.crazygames.com/game/meme-survivors-backrooms-xus"]
+		},
+		{
+			"name": "MemeBattle: What's That Meme?",
+			"urls": ["https://www.crazygames.com/game/memebattle-what-s-that-meme"]
 		},
 		{
 			"name": "Memoji Puzzle",
@@ -23778,16 +24605,16 @@
 			"urls": ["https://www.crazygames.com/game/merge-cannon-chicken-defense"]
 		},
 		{
-			"name": "Merge Cooking Game",
-			"urls": ["https://www.crazygames.com/game/merge-cooking-game"]
-		},
-		{
 			"name": "Merge Defense",
 			"urls": ["https://www.crazygames.com/game/merge-defense"]
 		},
 		{
 			"name": "Merge Fruits",
 			"urls": ["https://www.crazygames.com/game/merge-fruits"]
+		},
+		{
+			"name": "Merge Galaxy",
+			"urls": ["https://www.crazygames.com/game/merge-galaxy"]
 		},
 		{
 			"name": "Merge Happy Planets",
@@ -23800,6 +24627,10 @@
 		{
 			"name": "Merge Knights!",
 			"urls": ["https://www.crazygames.com/game/merge-knights"]
+		},
+		{
+			"name": "Merge Magnat - Ideal Store",
+			"urls": ["https://www.crazygames.com/game/merge-magnat---ideal-store"]
 		},
 		{
 			"name": "Merge Master Tanks: Tank Wars",
@@ -23862,6 +24693,14 @@
 			"urls": ["https://www.crazygames.com/game/merge-war"]
 		},
 		{
+			"name": "Merge World",
+			"urls": ["https://www.crazygames.com/game/merge-world"]
+		},
+		{
+			"name": "Merge: Siege Ship",
+			"urls": ["https://www.crazygames.com/game/merge-siege-ship-jqx"]
+		},
+		{
 			"name": "MergeMentals",
 			"urls": ["https://www.crazygames.com/game/mergementals"]
 		},
@@ -23885,7 +24724,6 @@
 			"name": "Mermaidcore Makeup",
 			"urls": ["https://www.crazygames.com/game/mermaidcore-makeup"]
 		},
-		{ "name": "Met Rage", "urls": ["https://www.crazygames.com/game/metrage"] },
 		{
 			"name": "Metal Guns Fury",
 			"urls": ["https://www.crazygames.com/game/metal-guns-fury"]
@@ -23903,16 +24741,18 @@
 			"urls": ["https://www.crazygames.com/game/miami-shark"]
 		},
 		{
+			"name": "Microbe Mania - Cannon Strike",
+			"urls": [
+				"https://www.crazygames.com/game/microbe-mania---cannon-strike-cub"
+			]
+		},
+		{
 			"name": "Microlife",
 			"urls": ["https://www.crazygames.com/game/microlife"]
 		},
 		{
 			"name": "MIDNIGHT Remastered",
 			"urls": ["https://www.crazygames.com/game/midnight-remastered"]
-		},
-		{
-			"name": "Mighty Action Heroes",
-			"urls": ["https://www.crazygames.com/game/mighty-action-heroes"]
 		},
 		{
 			"name": "Mike And Mia 1st Day At School",
@@ -23967,7 +24807,7 @@
 			"urls": ["https://www.crazygames.com/game/mine-merge-mania"]
 		},
 		{
-			"name": "Mine Runner",
+			"name": "Mine Runner ",
 			"urls": ["https://www.crazygames.com/game/mine-runner"]
 		},
 		{
@@ -23985,6 +24825,10 @@
 		{
 			"name": "Mine-Craft.io",
 			"urls": ["https://www.crazygames.com/game/mine-craft-io"]
+		},
+		{
+			"name": "Mineblox - Guess the Recipe",
+			"urls": ["https://www.crazygames.com/game/mineblox---guess-the-recipe"]
 		},
 		{
 			"name": "MineClicker",
@@ -24007,10 +24851,6 @@
 			"urls": ["https://www.crazygames.com/game/minecube"]
 		},
 		{
-			"name": "MineEnergy.fun",
-			"urls": ["https://www.crazygames.com/game/mineenergy"]
-		},
-		{
 			"name": "MineEnergy2",
 			"urls": ["https://www.crazygames.com/game/mineenergy2"]
 		},
@@ -24031,6 +24871,10 @@
 			"urls": ["https://www.crazygames.com/game/miner-tycoon-big-dynamite"]
 		},
 		{
+			"name": "Miner's Fury!",
+			"urls": ["https://www.crazygames.com/game/miner-s-fury"]
+		},
+		{
 			"name": "Miner's Odyssey",
 			"urls": ["https://www.crazygames.com/game/miner-s-odyssey"]
 		},
@@ -24039,8 +24883,8 @@
 			"urls": ["https://www.crazygames.com/game/miners-adventure"]
 		},
 		{
-			"name": "MineStrike.fun",
-			"urls": ["https://www.crazygames.com/game/minestrike-fun"]
+			"name": "Minesweeper Duel",
+			"urls": ["https://www.crazygames.com/game/minesweeper-duel"]
 		},
 		{
 			"name": "MineTap Merge Clicker",
@@ -24051,6 +24895,10 @@
 			"urls": ["https://www.crazygames.com/game/mini-blocks"]
 		},
 		{
+			"name": "Mini Car Ball",
+			"urls": ["https://www.crazygames.com/game/mini-car-ball"]
+		},
+		{
 			"name": "Mini Crushers",
 			"urls": ["https://www.crazygames.com/game/mini-crushers"]
 		},
@@ -24059,7 +24907,7 @@
 			"urls": ["https://www.crazygames.com/game/mini-flips"]
 		},
 		{
-			"name": "Mini Golf 18",
+			"name": "Mini Golf 18 ",
 			"urls": ["https://www.crazygames.com/game/mini-golf-18"]
 		},
 		{
@@ -24071,16 +24919,16 @@
 			"urls": ["https://www.crazygames.com/game/mini-jumps"]
 		},
 		{
+			"name": "Mini Mine",
+			"urls": ["https://www.crazygames.com/game/minimine"]
+		},
+		{
 			"name": "Mini Putt",
 			"urls": ["https://www.crazygames.com/game/mini-putt"]
 		},
 		{
 			"name": "Mini Putt 3",
 			"urls": ["https://www.crazygames.com/game/mini-putt-3"]
-		},
-		{
-			"name": "Mini Royale: Nations",
-			"urls": ["https://www.crazygames.com/game/mini-royale-nations"]
 		},
 		{
 			"name": "Mini Scientist",
@@ -24137,6 +24985,10 @@
 			"urls": ["https://www.crazygames.com/game/mining-rush"]
 		},
 		{
+			"name": "Mirror Room Escape",
+			"urls": ["https://www.crazygames.com/game/mirror-room-escape"]
+		},
+		{
 			"name": "Mirror Wizard",
 			"urls": ["https://www.crazygames.com/game/mirror-wizard"]
 		},
@@ -24144,7 +24996,15 @@
 			"name": "Mirrorland",
 			"urls": ["https://www.crazygames.com/game/mirrorland"]
 		},
+		{
+			"name": "Mix Rave",
+			"urls": ["https://www.crazygames.com/game/mix-rave"]
+		},
 		{ "name": "Mk48.io", "urls": ["https://www.crazygames.com/game/mk48-io"] },
+		{
+			"name": "MMA Manager 2",
+			"urls": ["https://www.crazygames.com/game/mma-manager-2"]
+		},
 		{
 			"name": "Mobile Run",
 			"urls": ["https://www.crazygames.com/game/mobile-run"]
@@ -24170,6 +25030,10 @@
 			"urls": ["https://www.crazygames.com/game/modern-car-racing-2"]
 		},
 		{
+			"name": "Mojo Match 3D",
+			"urls": ["https://www.crazygames.com/game/mojo-match-3d"]
+		},
+		{
 			"name": "Mole Heist",
 			"urls": ["https://www.crazygames.com/game/mole-heist"]
 		},
@@ -24182,12 +25046,20 @@
 			"urls": ["https://www.crazygames.com/game/mom-s-diary-cooking-games"]
 		},
 		{
-			"name": "Momlife Simulator",
-			"urls": ["https://www.crazygames.com/game/momlife-simulator"]
-		},
-		{
 			"name": "Money Factory",
 			"urls": ["https://www.crazygames.com/game/money-factory-aqs"]
+		},
+		{
+			"name": "Money Factory: Tycoon Idle Game",
+			"urls": ["https://www.crazygames.com/game/money-factory-tycoon-idle-game"]
+		},
+		{
+			"name": "Money Maker Idle",
+			"urls": ["https://www.crazygames.com/game/money-maker-idle"]
+		},
+		{
+			"name": "Money Ping Pong",
+			"urls": ["https://www.crazygames.com/game/money-ping-pong-stj"]
 		},
 		{
 			"name": "Money Printer",
@@ -24208,10 +25080,6 @@
 		{
 			"name": "Monochrome Looks",
 			"urls": ["https://www.crazygames.com/game/monochrome-looks"]
-		},
-		{
-			"name": "Monopoly Clicker",
-			"urls": ["https://www.crazygames.com/game/monopoly-clicker"]
 		},
 		{
 			"name": "Monster Adventure",
@@ -24276,6 +25144,10 @@
 			"urls": ["https://www.crazygames.com/game/monster-mahjong-mrw"]
 		},
 		{
+			"name": "Monster Makeup 3D",
+			"urls": ["https://www.crazygames.com/game/monster-makeup-3d"]
+		},
+		{
 			"name": "Monster Mash: Pet Trainer",
 			"urls": ["https://www.crazygames.com/game/monster-mash-pet-trainer"]
 		},
@@ -24300,6 +25172,10 @@
 		{
 			"name": "Monster Shooter Apocalypse",
 			"urls": ["https://www.crazygames.com/game/monster-shooter-apocalypse"]
+		},
+		{
+			"name": "Monster Slayer",
+			"urls": ["https://www.crazygames.com/game/monster-slayer-idle-clicker"]
 		},
 		{
 			"name": "Monster Trainer: Catching Game",
@@ -24391,10 +25267,6 @@
 			"urls": ["https://www.crazygames.com/game/moto-robots-steel-trial"]
 		},
 		{
-			"name": "Moto Traffic Rider",
-			"urls": ["https://www.crazygames.com/game/moto-traffic-rider"]
-		},
-		{
 			"name": "Moto X3M",
 			"urls": ["https://www.crazygames.com/game/moto-x3m"]
 		},
@@ -24427,14 +25299,6 @@
 			"urls": ["https://www.crazygames.com/game/motogp-motocross-race"]
 		},
 		{
-			"name": "Motor Wars 2",
-			"urls": ["https://www.crazygames.com/game/motor-wars-2"]
-		},
-		{
-			"name": "Mountain Jigsaw Puzzle",
-			"urls": ["https://www.crazygames.com/game/mountain-jigsaw-puzzle"]
-		},
-		{
 			"name": "Mountain Operation",
 			"urls": ["https://www.crazygames.com/game/mountain-operation"]
 		},
@@ -24444,10 +25308,8 @@
 		},
 		{ "name": "Move It!", "urls": ["https://www.crazygames.com/game/move-it"] },
 		{
-			"name": "Move the Rubber Bands",
-			"urls": [
-				"https://www.crazygames.com/game/move-the-rubber-bands-logic-puzzle"
-			]
+			"name": "Move Match AR",
+			"urls": ["https://www.crazygames.com/game/move-match-3d"]
 		},
 		{
 			"name": "Mr. Dude: King of the Hill",
@@ -24462,7 +25324,7 @@
 			"urls": ["https://www.crazygames.com/game/mr-mine-escape"]
 		},
 		{
-			"name": "Mr. Racer",
+			"name": "Mr. Racer - Car Racing",
 			"urls": ["https://www.crazygames.com/game/mr-racer---car-racing"]
 		},
 		{
@@ -24557,6 +25419,10 @@
 			"urls": ["https://www.crazygames.com/game/my-crystal-underwater"]
 		},
 		{
+			"name": "My Dinoland",
+			"urls": ["https://www.crazygames.com/game/my-dinoland"]
+		},
+		{
 			"name": "My Dweller Gang",
 			"urls": ["https://www.crazygames.com/game/my-dweller-gang"]
 		},
@@ -24610,6 +25476,10 @@
 			"urls": ["https://www.crazygames.com/game/my-sugar-factory-2"]
 		},
 		{
+			"name": "My Sugar Factory 3",
+			"urls": ["https://www.crazygames.com/game/my-sugar-factory-3"]
+		},
+		{
 			"name": "My Sweet World",
 			"urls": ["https://www.crazygames.com/game/my-sweet-world"]
 		},
@@ -24624,6 +25494,14 @@
 		{
 			"name": "mySolar: Build Your Planets",
 			"urls": ["https://www.crazygames.com/game/mysolar-build-your-planets"]
+		},
+		{
+			"name": "Mystery Digger",
+			"urls": ["https://www.crazygames.com/game/mystery-digger"]
+		},
+		{
+			"name": "Mystery Forest - Match 3",
+			"urls": ["https://www.crazygames.com/game/mystery-forest---match-3"]
 		},
 		{
 			"name": "Mystery Mansion: Puzzle Escape",
@@ -24651,6 +25529,10 @@
 			"urls": ["https://www.crazygames.com/game/nail-doctor"]
 		},
 		{
+			"name": "Nail Salon",
+			"urls": ["https://www.crazygames.com/game/girls-nail-salon---nail-games"]
+		},
+		{
 			"name": "Nanaca Crash",
 			"urls": ["https://www.crazygames.com/game/nanaca-crash"]
 		},
@@ -24663,12 +25545,12 @@
 			"urls": ["https://www.crazygames.com/game/narrow-one"]
 		},
 		{
-			"name": "Narwhale.io",
-			"urls": ["https://www.crazygames.com/game/narwhaleio"]
-		},
-		{
 			"name": "Nature Strikes Back",
 			"urls": ["https://www.crazygames.com/game/nature-strikes-back"]
+		},
+		{
+			"name": "Nébula Tarot Cat",
+			"urls": ["https://www.crazygames.com/game/nebula-tarot-cat-uee"]
 		},
 		{
 			"name": "Necro Sludge",
@@ -24677,6 +25559,10 @@
 		{
 			"name": "Neil the Nail",
 			"urls": ["https://www.crazygames.com/game/neil-the-nail"]
+		},
+		{
+			"name": "Neko Sliding: Cat Puzzle",
+			"urls": ["https://www.crazygames.com/game/neko-sliding-cat-puzzle"]
 		},
 		{
 			"name": "Neon Rider",
@@ -24699,6 +25585,10 @@
 			"urls": ["https://www.crazygames.com/game/new-year-makeup-trends"]
 		},
 		{
+			"name": "New Year's Eve Makeup",
+			"urls": ["https://www.crazygames.com/game/new-year-s-eve-makeup"]
+		},
+		{
 			"name": "New Year's Glitter Fest",
 			"urls": ["https://www.crazygames.com/game/new-year-s-glitter-fest"]
 		},
@@ -24719,16 +25609,16 @@
 			"urls": ["https://www.crazygames.com/game/night-rider"]
 		},
 		{
-			"name": "Night Terror - The School",
-			"urls": ["https://www.crazygames.com/game/night-terror-the-school"]
-		},
-		{
 			"name": "Night Watchman",
 			"urls": ["https://www.crazygames.com/game/night-watchman"]
 		},
 		{
 			"name": "Nightfall Drifters",
 			"urls": ["https://www.crazygames.com/game/nightfall-drifters"]
+		},
+		{
+			"name": "Nightfall: Survival Siege",
+			"urls": ["https://www.crazygames.com/game/nightfall-survival-siege-gxt"]
 		},
 		{
 			"name": "NIMRODS: GunCraft Survivor Demo",
@@ -24765,12 +25655,20 @@
 			"urls": ["https://www.crazygames.com/game/ninja-rian"]
 		},
 		{
+			"name": "Ninja Spell Match",
+			"urls": ["https://www.crazygames.com/game/ninja-spell-match"]
+		},
+		{
 			"name": "Ninja: Bamboo Assassin",
 			"urls": ["https://www.crazygames.com/game/ninja-bamboo-assassin"]
 		},
 		{
 			"name": "No Crossroads",
 			"urls": ["https://www.crazygames.com/game/no-crossroads"]
+		},
+		{
+			"name": "No Limits: Drag Racing",
+			"urls": ["https://www.crazygames.com/game/no-limits-drag-racing"]
 		},
 		{
 			"name": "No Pain No Gain - Ragdoll Sandbox",
@@ -24791,12 +25689,22 @@
 			"urls": ["https://www.crazygames.com/game/nonogram-frvr"]
 		},
 		{
+			"name": "Noob and Zombies",
+			"urls": ["https://www.crazygames.com/game/noob-and-zombies"]
+		},
+		{
 			"name": "Noob Archer vs Stickman Zombie",
 			"urls": ["https://www.crazygames.com/game/noob-archer-vs-stickman-zombie"]
 		},
 		{
 			"name": "Noob Basketball Clicker",
 			"urls": ["https://www.crazygames.com/game/noob-basketball-clicker"]
+		},
+		{
+			"name": "Noob Digger: Pro Drill Miner",
+			"urls": [
+				"https://www.crazygames.com/game/noob-digger-pro-drill-miner-cal"
+			]
 		},
 		{
 			"name": "Noob Gigachad: Parkour Tricks Challenge",
@@ -24899,6 +25807,10 @@
 			"urls": ["https://www.crazygames.com/game/nubik-vs-herobrin-s-army"]
 		},
 		{
+			"name": "Nuclear Day",
+			"urls": ["https://www.crazygames.com/game/nuclear-day"]
+		},
+		{
 			"name": "NuggetRoyale.io (Nugget Royale)",
 			"urls": ["https://www.crazygames.com/game/nuggetroyale-io"]
 		},
@@ -24945,12 +25857,42 @@
 		},
 		{ "name": "O-VOID", "urls": ["https://www.crazygames.com/game/o-void"] },
 		{
+			"name": "Obby Cards: The Legend Hunt",
+			"urls": ["https://www.crazygames.com/game/obby-cards-the-legend-hunt"]
+		},
+		{
+			"name": "Obby Parkour Race: Multiplayer",
+			"urls": ["https://www.crazygames.com/game/obby-parkour-race"]
+		},
+		{
+			"name": "Obby Sprunki: Pet World",
+			"urls": ["https://www.crazygames.com/game/obby-sprunki-pet-world"]
+		},
+		{
+			"name": "Obby With Friends: Draw and Jump",
+			"urls": [
+				"https://www.crazygames.com/game/obby-with-friends-draw-and-jump"
+			]
+		},
+		{
 			"name": "Obby: +1 to Spaceflight Altitude",
 			"urls": ["https://www.crazygames.com/game/obby-1-to-spaceflight-altitude"]
 		},
 		{
+			"name": "Obby: Boxer",
+			"urls": ["https://www.crazygames.com/game/obby-boxer"]
+		},
+		{
+			"name": "Obby: Dumb or Genius IQ Test",
+			"urls": ["https://www.crazygames.com/game/obby-dumb-or-genius-iq-test"]
+		},
+		{
 			"name": "Obby: Legendary Dragon",
 			"urls": ["https://www.crazygames.com/game/obby-tame-the-legendary-dragon"]
+		},
+		{
+			"name": "Obby: Pull a Sword",
+			"urls": ["https://www.crazygames.com/game/obby-pull-a-sword"]
 		},
 		{
 			"name": "Obby: The Royal Race",
@@ -24977,6 +25919,10 @@
 		{
 			"name": "OctopusRun",
 			"urls": ["https://www.crazygames.com/game/octopusrun"]
+		},
+		{
+			"name": "Office Brawl - Room Smash",
+			"urls": ["https://www.crazygames.com/game/office-brawl---room-smash"]
 		},
 		{
 			"name": "Office Dress Up",
@@ -25033,14 +25979,6 @@
 			]
 		},
 		{
-			"name": "Offroad Racing",
-			"urls": ["https://www.crazygames.com/game/offroad-racing"]
-		},
-		{
-			"name": "Offroad Truck Race Extreme 3D",
-			"urls": ["https://www.crazygames.com/game/offroad-truck-race-extreme-3d"]
-		},
-		{
 			"name": "Offroader V6",
 			"urls": ["https://www.crazygames.com/game/offroader-v6"]
 		},
@@ -25061,8 +25999,8 @@
 			"urls": ["https://www.crazygames.com/game/oil-digging"]
 		},
 		{
-			"name": "Oil Painting Jigsaw",
-			"urls": ["https://www.crazygames.com/game/oil-painting-jigsaw"]
+			"name": "Oil Mining 3D: Petrol Factory",
+			"urls": ["https://www.crazygames.com/game/oil-mining-3d---petrol-factory"]
 		},
 		{
 			"name": "Oiligarchy",
@@ -25138,6 +26076,14 @@
 			"urls": ["https://www.crazygames.com/game/open-100-doors"]
 		},
 		{
+			"name": "Open House",
+			"urls": ["https://www.crazygames.com/game/open-house"]
+		},
+		{
+			"name": "OpenGuessr - Geo Guessing",
+			"urls": ["https://www.crazygames.com/game/openguessr"]
+		},
+		{
 			"name": "Operation Desert Road",
 			"urls": ["https://www.crazygames.com/game/operation-desert-road-kck"]
 		},
@@ -25156,18 +26102,22 @@
 		},
 		{ "name": "Orbit", "urls": ["https://www.crazygames.com/game/orbit"] },
 		{
-			"name": "Out of Power - 2D Horror Survival",
-			"urls": [
-				"https://www.crazygames.com/game/out-of-power---2d-horror-survival"
-			]
-		},
-		{
 			"name": "Outlets Rush",
 			"urls": ["https://www.crazygames.com/game/outlets-rush"]
 		},
 		{
 			"name": "Outpost: Zombie Apocalypse",
 			"urls": ["https://www.crazygames.com/game/outpost-zombie-apocalypse"]
+		},
+		{
+			"name": "Overtide.io",
+			"urls": ["https://www.crazygames.com/game/overtide-io"]
+		},
+		{
+			"name": "Overtitans: Destroyers of Worlds",
+			"urls": [
+				"https://www.crazygames.com/game/overtitans-destroyers-of-worlds"
+			]
 		},
 		{ "name": "OvO", "urls": ["https://www.crazygames.com/game/ovo"] },
 		{
@@ -25178,22 +26128,10 @@
 			"name": "Owner is Dead 2",
 			"urls": ["https://www.crazygames.com/game/owner-is-dead-2"]
 		},
-		{
-			"name": "OXY - Words Maker",
-			"urls": ["https://www.crazygames.com/game/oxy---words-maker"]
-		},
-		{
-			"name": "Pac Xon (Deluxe)",
-			"urls": ["https://www.crazygames.com/game/pac-xon"]
-		},
 		{ "name": "Pacman", "urls": ["https://www.crazygames.com/game/pacman"] },
 		{
 			"name": "Paddle Battle",
 			"urls": ["https://www.crazygames.com/game/paddle-battle"]
-		},
-		{
-			"name": "Paint By Words",
-			"urls": ["https://www.crazygames.com/game/paint-by-words"]
 		},
 		{
 			"name": "Paint Room Escape",
@@ -25212,10 +26150,6 @@
 			"urls": ["https://www.crazygames.com/game/paint-the-flag"]
 		},
 		{
-			"name": "Paintball Fun 3D Pixel",
-			"urls": ["https://www.crazygames.com/game/paintball-fun-3d-pixel"]
-		},
-		{
 			"name": "Paintball King",
 			"urls": ["https://www.crazygames.com/game/paintball-king"]
 		},
@@ -25230,6 +26164,10 @@
 		{
 			"name": "Pancake Maker",
 			"urls": ["https://www.crazygames.com/game/pancake-maker-cooking-game"]
+		},
+		{
+			"name": "Panda Shop Simulator",
+			"urls": ["https://www.crazygames.com/game/panda-shop-simulator"]
 		},
 		{
 			"name": "Panda Simulator 3D",
@@ -25316,16 +26254,34 @@
 			"urls": ["https://www.crazygames.com/game/papas-cupcakeria"]
 		},
 		{
+			"name": "Papaya Summer Farm",
+			"urls": ["https://www.crazygames.com/game/papaya-summer-farm-sho"]
+		},
+		{
+			"name": "Paper Boy Race: Running Game",
+			"urls": ["https://www.crazygames.com/game/paper-boy-race-running-game"]
+		},
+		{
 			"name": "Paper Delivery Boy",
 			"urls": ["https://www.crazygames.com/game/paper-delivery-boy"]
+		},
+		{
+			"name": "Paper Doll Diary: Dress Up DIY",
+			"urls": ["https://www.crazygames.com/game/paper-doll-diary-dress-up-diy"]
+		},
+		{
+			"name": "Paper Knight Quest: The Cube World",
+			"urls": [
+				"https://www.crazygames.com/game/paper-knight-quest--the-cube-world"
+			]
 		},
 		{
 			"name": "Paper Minecraft",
 			"urls": ["https://www.crazygames.com/game/paper-minecraft"]
 		},
 		{
-			"name": "Paper Plane Jam 3D",
-			"urls": ["https://www.crazygames.com/game/paper-plane-jam-3d"]
+			"name": "Paper Princess - Doll Dress Up",
+			"urls": ["https://www.crazygames.com/game/paper-princess---doll-dress-up"]
 		},
 		{
 			"name": "Paper.io 2",
@@ -25340,12 +26296,8 @@
 			"urls": ["https://www.crazygames.com/game/park-master-car-parking-jam"]
 		},
 		{
-			"name": "Park the Taxi",
-			"urls": ["https://www.crazygames.com/game/park-the-taxi"]
-		},
-		{
-			"name": "Park the Taxi 2",
-			"urls": ["https://www.crazygames.com/game/park-the-taxi-2"]
+			"name": "Park Town",
+			"urls": ["https://www.crazygames.com/game/park-town"]
 		},
 		{
 			"name": "Parking Fury 3D: Beach City",
@@ -25358,6 +26310,10 @@
 		{
 			"name": "Parking Fury 3D: Side Hustle",
 			"urls": ["https://www.crazygames.com/game/parking-fury-3d-side-hustle"]
+		},
+		{
+			"name": "Parking Jam",
+			"urls": ["https://www.crazygames.com/game/parking-jam-dqq"]
 		},
 		{
 			"name": "Parking Jam Escape",
@@ -25417,10 +26373,6 @@
 			"urls": ["https://www.crazygames.com/game/paws-pals-diner"]
 		},
 		{
-			"name": "Pearls of Atlantis",
-			"urls": ["https://www.crazygames.com/game/pearls-of-atlantis"]
-		},
-		{
 			"name": "Peckin' Pixels",
 			"urls": ["https://www.crazygames.com/game/peckin-pixels"]
 		},
@@ -25428,6 +26380,7 @@
 			"name": "Pegball FRVR",
 			"urls": ["https://www.crazygames.com/game/pegball-frvr"]
 		},
+		{ "name": "Pen Dig", "urls": ["https://www.crazygames.com/game/pen-dig"] },
 		{
 			"name": "Penalty Fever",
 			"urls": ["https://www.crazygames.com/game/penalty-fever"]
@@ -25469,16 +26422,16 @@
 			"urls": ["https://www.crazygames.com/game/pendulum-master"]
 		},
 		{
-			"name": "Penguin Diner",
-			"urls": ["https://www.crazygames.com/game/penguin-diner"]
-		},
-		{
-			"name": "Penguin Diner 2",
-			"urls": ["https://www.crazygames.com/game/penguin-diner-2"]
+			"name": "Penguin Dash",
+			"urls": ["https://www.crazygames.com/game/penguin-dash-ixp"]
 		},
 		{
 			"name": "Penguin Massacre",
 			"urls": ["https://www.crazygames.com/game/penguin-massacre"]
+		},
+		{
+			"name": "Penguin Restaurant",
+			"urls": ["https://www.crazygames.com/game/penguin-restaurant-mge"]
 		},
 		{
 			"name": "Penguin Wars",
@@ -25525,8 +26478,16 @@
 			"urls": ["https://www.crazygames.com/game/pet-healer---vet-hospital"]
 		},
 		{
+			"name": "Pet Salon Simulator",
+			"urls": ["https://www.crazygames.com/game/pet-salon-simulator"]
+		},
+		{
 			"name": "Pet Trainer Duel",
 			"urls": ["https://www.crazygames.com/game/pet-trainer-duel"]
+		},
+		{
+			"name": "Phoenix Contract",
+			"urls": ["https://www.crazygames.com/game/phoenix-contract-zky"]
 		},
 		{
 			"name": "Physics Miner",
@@ -25549,12 +26510,12 @@
 			"urls": ["https://www.crazygames.com/game/pilot-royale-battlegrounds"]
 		},
 		{
-			"name": "Pinball Arcade",
-			"urls": ["https://www.crazygames.com/game/pinball"]
+			"name": "Pin Away Puzzle - Tap It Out",
+			"urls": ["https://www.crazygames.com/game/pin-away"]
 		},
 		{
-			"name": "Pinball Clash",
-			"urls": ["https://www.crazygames.com/game/pinball-clash"]
+			"name": "Pinball Arcade",
+			"urls": ["https://www.crazygames.com/game/pinball"]
 		},
 		{
 			"name": "Pinball Idle",
@@ -25577,16 +26538,20 @@
 			"urls": ["https://www.crazygames.com/game/pipe-puzzle"]
 		},
 		{
-			"name": "Pipedown",
-			"urls": ["https://www.crazygames.com/game/pipedown"]
-		},
-		{
 			"name": "Pipes: The Puzzle",
 			"urls": ["https://www.crazygames.com/game/pipes-the-puzzle"]
 		},
 		{
-			"name": "Pirate's Gold",
-			"urls": ["https://www.crazygames.com/game/pirate-s-gold"]
+			"name": "Pirate Island",
+			"urls": ["https://www.crazygames.com/game/pirate-island"]
+		},
+		{
+			"name": "Pirates of the Caribbean: ToW",
+			"urls": ["https://www.crazygames.com/game/pirates-of-the-caribbean-tow"]
+		},
+		{
+			"name": "Pirates! - The Match-3",
+			"urls": ["https://www.crazygames.com/game/pirates---the-match-3"]
 		},
 		{
 			"name": "Pit Stop Helper",
@@ -25597,6 +26562,10 @@
 			"urls": [
 				"https://www.crazygames.com/game/pixel-apocalypse-infection-begin"
 			]
+		},
+		{
+			"name": "Pixel Combat: Zombies Strike",
+			"urls": ["https://www.crazygames.com/game/pixel-combat-zombies-strike"]
 		},
 		{
 			"name": "Pixel Force",
@@ -25629,6 +26598,10 @@
 		{
 			"name": "Pixel Shooter",
 			"urls": ["https://www.crazygames.com/game/pixel-shooter"]
+		},
+		{
+			"name": "Pixel Smash",
+			"urls": ["https://www.crazygames.com/game/pixel-smash"]
 		},
 		{
 			"name": "Pixel Smash Duel",
@@ -25665,6 +26638,10 @@
 			"urls": ["https://www.crazygames.com/game/pixels-for-christmas"]
 		},
 		{
+			"name": "Pizza Car",
+			"urls": ["https://www.crazygames.com/game/pizza-car"]
+		},
+		{
 			"name": "Pizza Challenge",
 			"urls": ["https://www.crazygames.com/game/pizza-challenge"]
 		},
@@ -25675,10 +26652,6 @@
 		{
 			"name": "Pizza Trucks Jigsaw",
 			"urls": ["https://www.crazygames.com/game/pizza-truck-jigsaw"]
-		},
-		{
-			"name": "PizzaFall",
-			"urls": ["https://www.crazygames.com/game/pizzafall"]
 		},
 		{
 			"name": "Plactions",
@@ -25709,6 +26682,10 @@
 			"urls": ["https://www.crazygames.com/game/planet-life"]
 		},
 		{
+			"name": "Planet Life Idle",
+			"urls": ["https://www.crazygames.com/game/planet-life-idle"]
+		},
+		{
 			"name": "Planet Miner FRVR",
 			"urls": ["https://www.crazygames.com/game/planet-miner-frvr"]
 		},
@@ -25733,6 +26710,10 @@
 			"urls": ["https://www.crazygames.com/game/planetary-assault"]
 		},
 		{
+			"name": "Planetary Terraformer",
+			"urls": ["https://www.crazygames.com/game/planetary-terraformer"]
+		},
+		{
 			"name": "Plangman",
 			"urls": ["https://www.crazygames.com/game/plangman"]
 		},
@@ -25749,8 +26730,16 @@
 			"urls": ["https://www.crazygames.com/game/platformer-chef"]
 		},
 		{
-			"name": "Platformer Jigsaw Puzzle",
-			"urls": ["https://www.crazygames.com/game/platformer-jigsaw-puzzle"]
+			"name": "PlayBlox.io",
+			"urls": ["https://www.crazygames.com/game/playblox-io"]
+		},
+		{
+			"name": "Playground",
+			"urls": ["https://www.crazygames.com/game/playground"]
+		},
+		{
+			"name": "Playground Man! Ragdoll Show!",
+			"urls": ["https://www.crazygames.com/game/ragdoll-break"]
 		},
 		{
 			"name": "Plazma Burst",
@@ -25769,6 +26758,10 @@
 			"urls": ["https://www.crazygames.com/game/pocket-zone"]
 		},
 		{
+			"name": "Pocketro",
+			"urls": ["https://www.crazygames.com/game/pocketro"]
+		},
+		{
 			"name": "Pogo Stick Parkour: Rage Game",
 			"urls": ["https://www.crazygames.com/game/pogo-stick-parkour-rage-game"]
 		},
@@ -25777,12 +26770,12 @@
 			"urls": ["https://www.crazygames.com/game/poke-the-presidents"]
 		},
 		{
-			"name": "Pokemon Clicker",
-			"urls": ["https://www.crazygames.com/game/pokemon-clicker"]
-		},
-		{
 			"name": "Poker Quest",
 			"urls": ["https://www.crazygames.com/game/poker-quest"]
+		},
+		{
+			"name": "Pokey Ball",
+			"urls": ["https://www.crazygames.com/game/pokey-ball"]
 		},
 		{
 			"name": "Police Car Town Chase",
@@ -25850,10 +26843,13 @@
 			"name": "Pop Jewels",
 			"urls": ["https://www.crazygames.com/game/pop-jewels"]
 		},
-		{ "name": "Pop Us!", "urls": ["https://www.crazygames.com/game/pop-us"] },
 		{
 			"name": "Pop-a-Word",
 			"urls": ["https://www.crazygames.com/game/pop-a-word"]
+		},
+		{
+			"name": "Pop! Pow! Witch Pong!",
+			"urls": ["https://www.crazygames.com/game/witch-pong"]
 		},
 		{
 			"name": "Popcorn Chef 2",
@@ -25885,10 +26881,13 @@
 			"urls": ["https://www.crazygames.com/game/pot-pelting"]
 		},
 		{
+			"name": "Pottery Master",
+			"urls": ["https://www.crazygames.com/game/pottery-master"]
+		},
+		{
 			"name": "Potty Racers",
 			"urls": ["https://www.crazygames.com/game/potty-racers"]
 		},
-		{ "name": "Pou", "urls": ["https://www.crazygames.com/game/pou"] },
 		{
 			"name": "Pouring Puzzle",
 			"urls": ["https://www.crazygames.com/game/pouring-puzzle"]
@@ -25914,12 +26913,12 @@
 			"urls": ["https://www.crazygames.com/game/powerlineio"]
 		},
 		{
-			"name": "Practice on Me",
-			"urls": ["https://www.crazygames.com/game/practice-on-me"]
+			"name": "Poxel.io",
+			"urls": ["https://www.crazygames.com/game/poxel-io"]
 		},
 		{
-			"name": "Prankster 3D",
-			"urls": ["https://www.crazygames.com/game/prankster-3d"]
+			"name": "Practice on Me",
+			"urls": ["https://www.crazygames.com/game/practice-on-me"]
 		},
 		{
 			"name": "Prehistoric Shark",
@@ -25932,6 +26931,10 @@
 		{
 			"name": "Press A to Party",
 			"urls": ["https://www.crazygames.com/game/press-a-to-party"]
+		},
+		{
+			"name": "Pretty Tidy",
+			"urls": ["https://www.crazygames.com/game/pretty-tidy"]
 		},
 		{
 			"name": "Pride Rainbow Fashion",
@@ -25953,30 +26956,28 @@
 			"urls": ["https://www.crazygames.com/game/princess-lovely-fashion"]
 		},
 		{
-			"name": "Princess Run: Temple and Ice",
-			"urls": ["https://www.crazygames.com/game/princess-run-temple-and-ice"]
-		},
-		{
-			"name": "Princess Wedding",
-			"urls": ["https://www.crazygames.com/game/princess-wedding-dress-up-game"]
-		},
-		{
 			"name": "Princess Wedding Transformation",
 			"urls": [
 				"https://www.crazygames.com/game/princess-wedding-transformation"
 			]
 		},
 		{
-			"name": "Printing Machine",
-			"urls": ["https://www.crazygames.com/game/printing-machine"]
-		},
-		{
 			"name": "Prison Break: Architect Tycoon",
 			"urls": ["https://www.crazygames.com/game/prison-break-architect-tycoon"]
 		},
 		{
+			"name": "Prison Escape",
+			"urls": ["https://www.crazygames.com/game/prison-escape-lnj"]
+		},
+		{
 			"name": "Pro Bowling 3D",
 			"urls": ["https://www.crazygames.com/game/pro-bowling"]
+		},
+		{
+			"name": "Pro Construction: Simulation 3D",
+			"urls": [
+				"https://www.crazygames.com/game/pro-construction-simulator-3d-swm"
+			]
 		},
 		{
 			"name": "Professional Sniper",
@@ -25995,8 +26996,8 @@
 			"urls": ["https://www.crazygames.com/game/progress-knight"]
 		},
 		{
-			"name": "Project Dimentia Bodhisattva",
-			"urls": ["https://www.crazygames.com/game/project-dimentia-bodhisattva"]
+			"name": "Project Prismatic",
+			"urls": ["https://www.crazygames.com/game/project-prismatic"]
 		},
 		{
 			"name": "Prom Night Dress Up",
@@ -26016,8 +27017,16 @@
 			"urls": ["https://www.crazygames.com/game/pudding-monsters"]
 		},
 		{
+			"name": "Pull the Pin",
+			"urls": ["https://www.crazygames.com/game/pull-the-pin"]
+		},
+		{
 			"name": "Punch Hero",
 			"urls": ["https://www.crazygames.com/game/punch-hero"]
+		},
+		{
+			"name": "Punch Max",
+			"urls": ["https://www.crazygames.com/game/punch-max"]
 		},
 		{
 			"name": "Punchers",
@@ -26044,12 +27053,20 @@
 			"urls": ["https://www.crazygames.com/game/puppy-merge"]
 		},
 		{
+			"name": "Pure Farm: Fresh Food",
+			"urls": ["https://www.crazygames.com/game/pure-farm-fresh-food"]
+		},
+		{
 			"name": "Purr-fect Scoops",
 			"urls": ["https://www.crazygames.com/game/purr-fect-scoops"]
 		},
 		{
 			"name": "Push My Chair",
 			"urls": ["https://www.crazygames.com/game/push-my-chair"]
+		},
+		{
+			"name": "Push Penguin",
+			"urls": ["https://www.crazygames.com/game/push-penguin"]
 		},
 		{
 			"name": "Push Push Cat",
@@ -26088,6 +27105,18 @@
 			"urls": ["https://www.crazygames.com/game/puzzle-room-escape"]
 		},
 		{
+			"name": "Puzzle Survivor",
+			"urls": ["https://www.crazygames.com/game/puzzle-survivor"]
+		},
+		{
+			"name": "Puzzle Wood Block",
+			"urls": ["https://www.crazygames.com/game/puzzle-wood-block"]
+		},
+		{
+			"name": "Puzzle: What a Twist!",
+			"urls": ["https://www.crazygames.com/game/puzzle-what-a-twist"]
+		},
+		{
 			"name": "Pyramid Solitaire Ancient Egypt",
 			"urls": [
 				"https://www.crazygames.com/game/pyramid-solitaire-ancient-egypt"
@@ -26098,8 +27127,16 @@
 			"urls": ["https://www.crazygames.com/game/python-snake-simulator"]
 		},
 		{
+			"name": "QB Legend",
+			"urls": ["https://www.crazygames.com/game/qb-legend"]
+		},
+		{
 			"name": "Quantum God",
 			"urls": ["https://www.crazygames.com/game/quantum-god"]
+		},
+		{
+			"name": "Qube 2048",
+			"urls": ["https://www.crazygames.com/game/qube-2048-elf"]
 		},
 		{
 			"name": "Quick Pixel Puzzles",
@@ -26142,6 +27179,10 @@
 		{
 			"name": "Racer Clicker",
 			"urls": ["https://www.crazygames.com/game/racer-clicker"]
+		},
+		{
+			"name": "Racing Builder",
+			"urls": ["https://www.crazygames.com/game/racing-builder"]
 		},
 		{
 			"name": "Racing Empire",
@@ -26193,6 +27234,26 @@
 		},
 		{ "name": "Rage", "urls": ["https://www.crazygames.com/game/rage"] },
 		{
+			"name": "Rage Fruits Tower Defense",
+			"urls": ["https://www.crazygames.com/game/fruit-tower-defense"]
+		},
+		{
+			"name": "Raid Heroes: Dragon Age",
+			"urls": ["https://www.crazygames.com/game/raid-heroes-dragon-age"]
+		},
+		{
+			"name": "Raid Heroes: Total War",
+			"urls": ["https://www.crazygames.com/game/raid-heroes-total-war-cgb"]
+		},
+		{
+			"name": "Raidfield 2",
+			"urls": ["https://www.crazygames.com/game/raidfield-2-pjc"]
+		},
+		{
+			"name": "Rainbow Friends Survivors",
+			"urls": ["https://www.crazygames.com/game/rainbow-friends-survivors"]
+		},
+		{
 			"name": "Rainbow Snake",
 			"urls": ["https://www.crazygames.com/game/rainbow-snake"]
 		},
@@ -26229,12 +27290,20 @@
 			"urls": ["https://www.crazygames.com/game/ramp-car-jumping"]
 		},
 		{
+			"name": "Ranch Adventures",
+			"urls": ["https://www.crazygames.com/game/ranch-adventures"]
+		},
+		{
 			"name": "Random Cards: Tower Defense",
 			"urls": ["https://www.crazygames.com/game/random-cards-tower-defense"]
 		},
 		{
 			"name": "Random Wars",
 			"urls": ["https://www.crazygames.com/game/random-wars"]
+		},
+		{
+			"name": "Raven Estate",
+			"urls": ["https://www.crazygames.com/game/raven-estate"]
 		},
 		{
 			"name": "Ray Part 1",
@@ -26245,6 +27314,10 @@
 			"urls": ["https://www.crazygames.com/game/ray-part-2"]
 		},
 		{ "name": "Raze 3", "urls": ["https://www.crazygames.com/game/raze-3"] },
+		{
+			"name": "RBWAR Online: Red vs Blue!",
+			"urls": ["https://www.crazygames.com/game/rbwar-online-red-vs-blue"]
+		},
 		{
 			"name": "RCC City Racing",
 			"urls": ["https://www.crazygames.com/game/rcc-city-racing"]
@@ -26290,6 +27363,10 @@
 			"urls": ["https://www.crazygames.com/game/real-simulator-monster-truck"]
 		},
 		{
+			"name": "RealDerby - Crash Day",
+			"urls": ["https://www.crazygames.com/game/realderby---crash-day"]
+		},
+		{
 			"name": "RealDrive",
 			"urls": ["https://www.crazygames.com/game/realdrive-feel-the-real-drive"]
 		},
@@ -26317,12 +27394,16 @@
 			]
 		},
 		{
-			"name": "Relic Splatter",
-			"urls": ["https://www.crazygames.com/game/relic-splatter"]
+			"name": "Redirect",
+			"urls": ["https://www.crazygames.com/game/redirect-arq"]
 		},
 		{
-			"name": "Religion Inc. God Simulator",
-			"urls": ["https://www.crazygames.com/game/god-simulator"]
+			"name": "REDLINE: Idle Front",
+			"urls": ["https://www.crazygames.com/game/redline-idle-front"]
+		},
+		{
+			"name": "Relic Splatter",
+			"urls": ["https://www.crazygames.com/game/relic-splatter"]
 		},
 		{
 			"name": "Replaying The Game",
@@ -26355,10 +27436,6 @@
 			"urls": ["https://www.crazygames.com/game/retro-battle"]
 		},
 		{
-			"name": "Retro Car Driver",
-			"urls": ["https://www.crazygames.com/game/retro-car-driver"]
-		},
-		{
 			"name": "Return Man 2",
 			"urls": ["https://www.crazygames.com/game/return-man-2"]
 		},
@@ -26375,10 +27452,6 @@
 			"urls": ["https://www.crazygames.com/game/revenot-roguelike-action-rpg"]
 		},
 		{
-			"name": "Revolution Idle RE",
-			"urls": ["https://www.crazygames.com/game/revolution-idle-re"]
-		},
-		{
 			"name": "Revolution Idle X",
 			"urls": ["https://www.crazygames.com/game/revolution-idle-x-demo"]
 		},
@@ -26393,10 +27466,6 @@
 		{
 			"name": "Rhythm Knight",
 			"urls": ["https://www.crazygames.com/game/rhythm-knight"]
-		},
-		{
-			"name": "Rich Doge",
-			"urls": ["https://www.crazygames.com/game/rich-doge"]
 		},
 		{
 			"name": "Riddle School",
@@ -26435,6 +27504,10 @@
 			"urls": ["https://www.crazygames.com/game/rift-of-hell---demons-war"]
 		},
 		{
+			"name": "Right Jump",
+			"urls": ["https://www.crazygames.com/game/right-jump"]
+		},
+		{
 			"name": "Ringo Starfish",
 			"urls": ["https://www.crazygames.com/game/ringo-starfish"]
 		},
@@ -26452,8 +27525,18 @@
 			"urls": ["https://www.crazygames.com/game/risehero"]
 		},
 		{
-			"name": "Rise of the Squire",
-			"urls": ["https://www.crazygames.com/game/rise-of-the-squire"]
+			"name": "Rise of the Blobs",
+			"urls": ["https://www.crazygames.com/game/rise-of-the-blobs-ehk"]
+		},
+		{
+			"name": "Road Battle: Gather the Gang",
+			"urls": [
+				"https://www.crazygames.com/game/road-battle-gather-the-gang-vvf"
+			]
+		},
+		{
+			"name": "Road Master 3D",
+			"urls": ["https://www.crazygames.com/game/road-master"]
 		},
 		{
 			"name": "Road to Golflantis",
@@ -26462,6 +27545,14 @@
 		{
 			"name": "Road Turn",
 			"urls": ["https://www.crazygames.com/game/road-turn"]
+		},
+		{
+			"name": "Robbie the Robot",
+			"urls": ["https://www.crazygames.com/game/robbie-the-robot"]
+		},
+		{
+			"name": "Robbie: Game Challenges",
+			"urls": ["https://www.crazygames.com/game/robbie-game-challenges"]
 		},
 		{
 			"name": "Robo Runner",
@@ -26541,6 +27632,10 @@
 		},
 		{ "name": "Rodha", "urls": ["https://www.crazygames.com/game/rodha"] },
 		{
+			"name": "Roglide: Slide & Match Blocks",
+			"urls": ["https://www.crazygames.com/game/roglide-slide-match-blocks"]
+		},
+		{
 			"name": "Rogue Dunk",
 			"urls": ["https://www.crazygames.com/game/rogue-dunk-viy"]
 		},
@@ -26563,6 +27658,14 @@
 		{
 			"name": "Rolling Balls Sea Race",
 			"urls": ["https://www.crazygames.com/game/roling-balls-sea-race"]
+		},
+		{
+			"name": "Rolling Balls Space Race",
+			"urls": ["https://www.crazygames.com/game/rolling-balls-space-race"]
+		},
+		{
+			"name": "Rolling In Gears",
+			"urls": ["https://www.crazygames.com/game/rolling-in-gears"]
 		},
 		{
 			"name": "RollUp Tiles",
@@ -26600,11 +27703,19 @@
 			"name": "Rope Color Sort 3D",
 			"urls": ["https://www.crazygames.com/game/rope-color-sort-3d"]
 		},
+		{
+			"name": "Rope Rescue",
+			"urls": ["https://www.crazygames.com/game/rope-rescue"]
+		},
 		{ "name": "Rotate", "urls": ["https://www.crazygames.com/game/rotate"] },
 		{ "name": "Rotator", "urls": ["https://www.crazygames.com/game/rotator"] },
 		{
 			"name": "Rough Ball",
 			"urls": ["https://www.crazygames.com/game/rough-ball-kvz"]
+		},
+		{
+			"name": "Rovercraft",
+			"urls": ["https://www.crazygames.com/game/rovercraft"]
 		},
 		{
 			"name": "Royal City Clashers 2",
@@ -26627,8 +27738,8 @@
 			"urls": ["https://www.crazygames.com/game/royal-pool"]
 		},
 		{
-			"name": "RoyaleDudes.io",
-			"urls": ["https://www.crazygames.com/game/royaledudes-io"]
+			"name": "RPG Idle Clicker",
+			"urls": ["https://www.crazygames.com/game/rpg-idle-clicker-uzz"]
 		},
 		{ "name": "RSVP", "urls": ["https://www.crazygames.com/game/rsvp"] },
 		{
@@ -26636,15 +27747,15 @@
 			"urls": ["https://www.crazygames.com/game/rude-races"]
 		},
 		{
-			"name": "Rummikub",
-			"urls": ["https://www.crazygames.com/game/rummikub"]
+			"name": "Rumble High",
+			"urls": ["https://www.crazygames.com/game/rumble-high"]
+		},
+		{
+			"name": "Rummy Blast",
+			"urls": ["https://www.crazygames.com/game/rummy-blast"]
 		},
 		{ "name": "Run", "urls": ["https://www.crazygames.com/game/run"] },
 		{ "name": "Run 3", "urls": ["https://www.crazygames.com/game/run-3"] },
-		{
-			"name": "Run Crazy - Prison Break 3D",
-			"urls": ["https://www.crazygames.com/game/run-crazy---prison-break-3d"]
-		},
 		{
 			"name": "Run Desnecessauro",
 			"urls": ["https://www.crazygames.com/game/run-desnecessauro"]
@@ -26662,8 +27773,12 @@
 			"urls": ["https://www.crazygames.com/game/run-zombie-run"]
 		},
 		{
+			"name": "Runic Curse",
+			"urls": ["https://www.crazygames.com/game/runic-curse"]
+		},
+		{
 			"name": "Rush & Fix",
-			"urls": ["https://www.crazygames.com/game/rush-&-fix"]
+			"urls": ["https://www.crazygames.com/game/rush-and-fix"]
 		},
 		{
 			"name": "Rush Car Driving: Race Master",
@@ -26672,6 +27787,10 @@
 		{
 			"name": "Rush Hour",
 			"urls": ["https://www.crazygames.com/game/rush-hour-owq"]
+		},
+		{
+			"name": "Rush Hour Cafe",
+			"urls": ["https://www.crazygames.com/game/rush-hour-cafe"]
 		},
 		{
 			"name": "Russian Bingo",
@@ -26707,6 +27826,11 @@
 				"https://www.crazygames.com/game/russian-uaz-4x4-driving-simulator"
 			]
 		},
+		{ "name": "Ruya", "urls": ["https://www.crazygames.com/game/ruya"] },
+		{
+			"name": "Sail Adventure",
+			"urls": ["https://www.crazygames.com/game/sail-adventure"]
+		},
 		{
 			"name": "Same Game",
 			"urls": ["https://www.crazygames.com/game/same-game"]
@@ -26726,6 +27850,10 @@
 		{
 			"name": "Samurai Showdown",
 			"urls": ["https://www.crazygames.com/game/samurai-showdown"]
+		},
+		{
+			"name": "Samurai's Shadow",
+			"urls": ["https://www.crazygames.com/game/samurai-s-shadow-qtn"]
 		},
 		{
 			"name": "Sand King",
@@ -26748,6 +27876,10 @@
 		{
 			"name": "Sandtrix",
 			"urls": ["https://www.crazygames.com/game/sandtrix"]
+		},
+		{
+			"name": "Sandwich Burger",
+			"urls": ["https://www.crazygames.com/game/sandwich-burger"]
 		},
 		{
 			"name": "Santa Haircut",
@@ -26785,6 +27917,7 @@
 			"name": "Save The Worm: Draw Puzzle",
 			"urls": ["https://www.crazygames.com/game/save-the-worm-draw-puzzle"]
 		},
+		{ "name": "Sbaloon", "urls": ["https://www.crazygames.com/game/sbaloon"] },
 		{
 			"name": "Scale of the Universe 2",
 			"urls": ["https://www.crazygames.com/game/scale-of-the-universe-2"]
@@ -26808,6 +27941,10 @@
 			"urls": ["https://www.crazygames.com/game/scavenger-hunt---hidden-items"]
 		},
 		{
+			"name": "Scavenger Hunt - Multiplayer",
+			"urls": ["https://www.crazygames.com/game/scavenger-hunt---multiplayer"]
+		},
+		{
 			"name": "School Panic",
 			"urls": ["https://www.crazygames.com/game/school-panic"]
 		},
@@ -26816,8 +27953,16 @@
 			"urls": ["https://www.crazygames.com/game/school-war"]
 		},
 		{
+			"name": "Schoolboy Escape: Runaway",
+			"urls": ["https://www.crazygames.com/game/schoolboy-escape-runaway"]
+		},
+		{
 			"name": "Scoring Champion",
 			"urls": ["https://www.crazygames.com/game/scoring-champion"]
+		},
+		{
+			"name": "Screamals",
+			"urls": ["https://www.crazygames.com/game/screamals"]
 		},
 		{
 			"name": "Screw Ball",
@@ -26828,6 +27973,10 @@
 			"urls": ["https://www.crazygames.com/game/screw-match-three"]
 		},
 		{
+			"name": "Screw Out: Bolts and Nuts",
+			"urls": ["https://www.crazygames.com/game/screw-out-bolts-and-nuts"]
+		},
+		{
 			"name": "Sculpture Collector",
 			"urls": ["https://www.crazygames.com/game/sculpture-collector"]
 		},
@@ -26836,16 +27985,22 @@
 			"urls": ["https://www.crazygames.com/game/seadragons-io"]
 		},
 		{
+			"name": "Search Hidden Objects: Find Them",
+			"urls": [
+				"https://www.crazygames.com/game/search-hidden-objects-find-them"
+			]
+		},
+		{
+			"name": "Seat Sorting Puzzle",
+			"urls": ["https://www.crazygames.com/game/number-race"]
+		},
+		{
 			"name": "Secret Agent James",
 			"urls": ["https://www.crazygames.com/game/gangster-contract-mafia-wars"]
 		},
 		{
 			"name": "Secrets of Charmland",
 			"urls": ["https://www.crazygames.com/game/secrets-of-charmland"]
-		},
-		{
-			"name": "Sector 01",
-			"urls": ["https://www.crazygames.com/game/sector-01"]
 		},
 		{
 			"name": "Seeing Things",
@@ -26858,10 +28013,6 @@
 		{
 			"name": "Seek and Destroy",
 			"urls": ["https://www.crazygames.com/game/seek-and-destroy"]
-		},
-		{
-			"name": "Semi Driver",
-			"urls": ["https://www.crazygames.com/game/semi-driver"]
 		},
 		{
 			"name": "Senya and Oscar 2",
@@ -26936,16 +28087,16 @@
 			"urls": ["https://www.crazygames.com/game/shepherd-farm"]
 		},
 		{
+			"name": "Ship Mania",
+			"urls": ["https://www.crazygames.com/game/ship-mania-boat-parking-jam"]
+		},
+		{
 			"name": "Ship Ramp Jumping",
 			"urls": ["https://www.crazygames.com/game/ship-ramp-jumping"]
 		},
 		{
 			"name": "Ships 3D",
 			"urls": ["https://www.crazygames.com/game/ships-3d"]
-		},
-		{
-			"name": "Shockwaves",
-			"urls": ["https://www.crazygames.com/game/shockwaves"]
 		},
 		{
 			"name": "Shoe Race",
@@ -26986,6 +28137,10 @@
 		{
 			"name": "Shootup.io",
 			"urls": ["https://www.crazygames.com/game/shootup-io"]
+		},
+		{
+			"name": "Shop Cashier Simulator 3D",
+			"urls": ["https://www.crazygames.com/game/shop-cashier-3d"]
 		},
 		{
 			"name": "Shopaholic Black Friday",
@@ -27070,12 +28225,20 @@
 			"urls": ["https://www.crazygames.com/game/simple-loot-idle"]
 		},
 		{
+			"name": "Simple Words",
+			"urls": ["https://www.crazygames.com/game/simple-words"]
+		},
+		{
 			"name": "SimpleBox 2",
 			"urls": ["https://www.crazygames.com/game/simplebox-2"]
 		},
 		{
 			"name": "Singing Horses",
 			"urls": ["https://www.crazygames.com/game/singing-horses"]
+		},
+		{
+			"name": "Single Line: Drawing Puzzle",
+			"urls": ["https://www.crazygames.com/game/single-line-drawing-puzzle"]
 		},
 		{
 			"name": "Single Stroke Line Draw",
@@ -27096,10 +28259,6 @@
 			"urls": ["https://www.crazygames.com/game/skeleton-simulator"]
 		},
 		{
-			"name": "Sketch Ink Jigsaw Puzzle",
-			"urls": ["https://www.crazygames.com/game/sketch-ink-jigsaw-puzzle"]
-		},
-		{
 			"name": "Sketchy Towers",
 			"urls": ["https://www.crazygames.com/game/sketchy-towers"]
 		},
@@ -27114,6 +28273,10 @@
 		{
 			"name": "Skillfite.io",
 			"urls": ["https://www.crazygames.com/game/skillfite-io"]
+		},
+		{
+			"name": "SkillWarz",
+			"urls": ["https://www.crazygames.com/game/skillwarz"]
 		},
 		{
 			"name": "Skinfluencer Beauty Routine",
@@ -27132,8 +28295,8 @@
 			"urls": ["https://www.crazygames.com/game/sky-balls-3d"]
 		},
 		{
-			"name": "Sky Bros",
-			"urls": ["https://www.crazygames.com/game/sky-bros"]
+			"name": "Sky Blocks Falling",
+			"urls": ["https://www.crazygames.com/game/sky-blocks-falling"]
 		},
 		{
 			"name": "Sky Car Drift",
@@ -27153,6 +28316,10 @@
 			"urls": ["https://www.crazygames.com/game/skydom-reforged"]
 		},
 		{ "name": "Skywire", "urls": ["https://www.crazygames.com/game/skywire"] },
+		{
+			"name": "Slap and Run",
+			"urls": ["https://www.crazygames.com/game/slap-and-run"]
+		},
 		{
 			"name": "Slap Battles.io",
 			"urls": ["https://www.crazygames.com/game/slap-battle-io"]
@@ -27229,6 +28396,10 @@
 			"urls": ["https://www.crazygames.com/game/slice-arena"]
 		},
 		{
+			"name": "Slice It All!",
+			"urls": ["https://www.crazygames.com/game/slice-it-all"]
+		},
+		{
 			"name": "Slice Master",
 			"urls": ["https://www.crazygames.com/game/slice-master"]
 		},
@@ -27261,8 +28432,16 @@
 			"urls": ["https://www.crazygames.com/game/slime-farm-remake"]
 		},
 		{
+			"name": "Slime Jumper",
+			"urls": ["https://www.crazygames.com/game/slime-jumper-cjb"]
+		},
+		{
 			"name": "Slime Knight",
 			"urls": ["https://www.crazygames.com/game/slime-knight"]
+		},
+		{
+			"name": "Slimecraft",
+			"urls": ["https://www.crazygames.com/game/slimecraft"]
 		},
 		{
 			"name": "Slingshot Crash",
@@ -27301,12 +28480,20 @@
 			"urls": ["https://www.crazygames.com/game/smarty-bubbles"]
 		},
 		{
+			"name": "Smash Block Arena",
+			"urls": ["https://www.crazygames.com/game/smash-block-arena"]
+		},
+		{
 			"name": "Smash Karts",
 			"urls": ["https://www.crazygames.com/game/smash-karts"]
 		},
 		{
 			"name": "Smash N Collect",
 			"urls": ["https://www.crazygames.com/game/smash-n-collect-kfn"]
+		},
+		{
+			"name": "Smash Quest",
+			"urls": ["https://www.crazygames.com/game/smash-quest"]
 		},
 		{
 			"name": "Smile Slime",
@@ -27325,6 +28512,10 @@
 			"urls": ["https://www.crazygames.com/game/snake-blockade"]
 		},
 		{
+			"name": "Snake Clash.io",
+			"urls": ["https://www.crazygames.com/game/snake-clash-io"]
+		},
+		{
 			"name": "Snake Fit",
 			"urls": ["https://www.crazygames.com/game/snake-fit"]
 		},
@@ -27337,6 +28528,14 @@
 			"urls": ["https://www.crazygames.com/game/snake-merge-idle-io-zone-game"]
 		},
 		{
+			"name": "Snake Shooter: Tower Battle",
+			"urls": ["https://www.crazygames.com/game/snake-shooter-cbu"]
+		},
+		{
+			"name": "Snake VS Block",
+			"urls": ["https://www.crazygames.com/game/snake-vs-block"]
+		},
+		{
 			"name": "Snake.io",
 			"urls": ["https://www.crazygames.com/game/snake-io"]
 		},
@@ -27347,6 +28546,10 @@
 		{
 			"name": "Sneak In 3D",
 			"urls": ["https://www.crazygames.com/game/sneak-in-3d"]
+		},
+		{
+			"name": "Sneaker Art",
+			"urls": ["https://www.crazygames.com/game/sneaker-art-rvf"]
 		},
 		{ "name": "SNIPER", "urls": ["https://www.crazygames.com/game/sniper"] },
 		{
@@ -27380,10 +28583,6 @@
 			"urls": ["https://www.crazygames.com/game/sniper-mission-blj"]
 		},
 		{
-			"name": "Sniper Shooting",
-			"urls": ["https://www.crazygames.com/game/sniper-shooting"]
-		},
-		{
 			"name": "Sniper Shot: Bullet Time",
 			"urls": ["https://www.crazygames.com/game/sniper-shot-bullet-time"]
 		},
@@ -27404,6 +28603,10 @@
 			"urls": ["https://www.crazygames.com/game/snow-plow-truck"]
 		},
 		{
+			"name": "Snow Rider 3D",
+			"urls": ["https://www.crazygames.com/game/snow-rider-3d"]
+		},
+		{
 			"name": "Snowball Skirmish",
 			"urls": ["https://www.crazygames.com/game/snowball-skirmish"]
 		},
@@ -27412,10 +28615,9 @@
 			"urls": ["https://www.crazygames.com/game/snowball-io"]
 		},
 		{
-			"name": "Snowballs.io",
-			"urls": ["https://www.crazygames.com/game/snowballs"]
+			"name": "Soccer Arena X",
+			"urls": ["https://www.crazygames.com/game/soccer-arena-x"]
 		},
-		{ "name": "SocCar", "urls": ["https://www.crazygames.com/game/soccar"] },
 		{
 			"name": "Soccer Bros",
 			"urls": ["https://www.crazygames.com/game/soccer-bros"]
@@ -27429,6 +28631,10 @@
 		{
 			"name": "Soccer Clicker",
 			"urls": ["https://www.crazygames.com/game/soccer-clicker"]
+		},
+		{
+			"name": "Soccer Clicker 2D",
+			"urls": ["https://www.crazygames.com/game/football-soccer-clicker"]
 		},
 		{
 			"name": "Soccer Dash",
@@ -27463,11 +28669,14 @@
 			"urls": ["https://www.crazygames.com/game/tiktok-vsco-girls"]
 		},
 		{
+			"name": "Social Solitaire",
+			"urls": ["https://www.crazygames.com/game/social-solitaire"]
+		},
+		{
 			"name": "Soft Girls Winter Aesthetics",
 			"urls": ["https://www.crazygames.com/game/soft-girls-winter-aesthetics"]
 		},
 		{ "name": "Sokoban", "urls": ["https://www.crazygames.com/game/sokoban"] },
-		{ "name": "Sol Wars", "urls": ["https://www.crazygames.com/game/solwars"] },
 		{
 			"name": "Solar System Scope",
 			"urls": ["https://www.crazygames.com/game/solar-system-scope"]
@@ -27479,10 +28688,6 @@
 		{
 			"name": "Solitaire Definitive Edition",
 			"urls": ["https://www.crazygames.com/game/solitaire-definitive-edition"]
-		},
-		{
-			"name": "Solitaire Farm Seasons 2",
-			"urls": ["https://www.crazygames.com/game/solitaire-farm-seasons-2"]
 		},
 		{
 			"name": "Solitaire FRVR",
@@ -27497,16 +28702,8 @@
 			"urls": ["https://www.crazygames.com/game/solitaire-reverse"]
 		},
 		{
-			"name": "Solitaire Social",
-			"urls": ["https://www.crazygames.com/game/solitaire-social"]
-		},
-		{
-			"name": "Solitaire Story TriPeaks 3",
-			"urls": ["https://www.crazygames.com/game/solitaire-story-tripeaks-3"]
-		},
-		{
-			"name": "Solitaire Story TriPeaks 4",
-			"urls": ["https://www.crazygames.com/game/solitaire-story-tripeaks-4"]
+			"name": "Solitaire: The Great Journey",
+			"urls": ["https://www.crazygames.com/game/solitaire-the-great-journey"]
 		},
 		{
 			"name": "Solitr",
@@ -27567,8 +28764,16 @@
 			"urls": ["https://www.crazygames.com/game/space-flight"]
 		},
 		{
+			"name": "Space Hex: War Merge Shooter",
+			"urls": ["https://www.crazygames.com/game/space-hex-war-merge-shooter"]
+		},
+		{
 			"name": "Space Museum Escape",
 			"urls": ["https://www.crazygames.com/game/space-museum-escape"]
+		},
+		{
+			"name": "Space Pizza",
+			"urls": ["https://www.crazygames.com/game/space-pizza-ydi"]
 		},
 		{
 			"name": "Space Racing 3D: Void",
@@ -27595,8 +28800,8 @@
 			"urls": ["https://www.crazygames.com/game/space-waves"]
 		},
 		{
-			"name": "Spacecraft I",
-			"urls": ["https://www.crazygames.com/game/spacecraft-i"]
+			"name": "Space.io",
+			"urls": ["https://www.crazygames.com/game/space-io-vft"]
 		},
 		{
 			"name": "SpaceCraft Noob: Return to Earth",
@@ -27616,10 +28821,6 @@
 		{
 			"name": "Spark Chess",
 			"urls": ["https://www.crazygames.com/game/sparkchess"]
-		},
-		{
-			"name": "SPECTRUM",
-			"urls": ["https://www.crazygames.com/game/spectrum"]
 		},
 		{ "name": "Speed", "urls": ["https://www.crazygames.com/game/speed"] },
 		{
@@ -27711,6 +28912,10 @@
 			"urls": ["https://www.crazygames.com/game/sport-minibattles"]
 		},
 		{
+			"name": "Spotti: Find the Differences",
+			"urls": ["https://www.crazygames.com/game/spotti-find-the-differences"]
+		},
+		{
 			"name": "Spring Tiles Matching",
 			"urls": ["https://www.crazygames.com/game/spring-tiles-matching"]
 		},
@@ -27723,8 +28928,16 @@
 			"urls": ["https://www.crazygames.com/game/sprout-valley"]
 		},
 		{
+			"name": "Sprunki",
+			"urls": ["https://www.crazygames.com/game/sprunki-itn"]
+		},
+		{
 			"name": "Spy Highway",
 			"urls": ["https://www.crazygames.com/game/shotgun-highway"]
+		},
+		{
+			"name": "Squad Assembler: Red vs Blue",
+			"urls": ["https://www.crazygames.com/game/squad-assembler-red-vs-blue"]
 		},
 		{
 			"name": "SquadBlast",
@@ -27752,6 +28965,10 @@
 			"urls": ["https://www.crazygames.com/game/squirrel-with-a-gun"]
 		},
 		{
+			"name": "Squish",
+			"urls": ["https://www.crazygames.com/game/squish-uwy"]
+		},
+		{
 			"name": "Squishy Fruits",
 			"urls": ["https://www.crazygames.com/game/squishy-fruits"]
 		},
@@ -27769,6 +28986,10 @@
 			"urls": ["https://www.crazygames.com/game/stack-colors"]
 		},
 		{
+			"name": "Stack Fall",
+			"urls": ["https://www.crazygames.com/game/stack-fall-xsv"]
+		},
+		{
 			"name": "STACK.it",
 			"urls": ["https://www.crazygames.com/game/stack-it"]
 		},
@@ -27779,6 +29000,10 @@
 		{
 			"name": "Stacky Bird",
 			"urls": ["https://www.crazygames.com/game/stacky-bird"]
+		},
+		{
+			"name": "Star Stuff",
+			"urls": ["https://www.crazygames.com/game/star-stuff"]
 		},
 		{
 			"name": "Starbase Gunship",
@@ -27809,6 +29034,10 @@
 			"urls": ["https://www.crazygames.com/game/steam-city"]
 		},
 		{
+			"name": "Steam Heart",
+			"urls": ["https://www.crazygames.com/game/steam-heart-nqh"]
+		},
+		{
 			"name": "Stellar Mines: Space Miner",
 			"urls": ["https://www.crazygames.com/game/stellar-mines-space-miner"]
 		},
@@ -27835,10 +29064,6 @@
 		{
 			"name": "Stick Epic Fighter",
 			"urls": ["https://www.crazygames.com/game/stick-epic-fighter"]
-		},
-		{
-			"name": "Stick Fighter",
-			"urls": ["https://www.crazygames.com/game/stick-fighter"]
 		},
 		{
 			"name": "Stick Fighter vs Zombies",
@@ -27899,12 +29124,12 @@
 			"urls": ["https://www.crazygames.com/game/stickman-army-the-resistance"]
 		},
 		{
-			"name": "Stickman Battle Fight Warriors",
-			"urls": ["https://www.crazygames.com/game/stickman-supreme-duelist-2"]
-		},
-		{
 			"name": "Stickman Beach Volleyball",
 			"urls": ["https://www.crazygames.com/game/stickman-beach-volleyball"]
+		},
+		{
+			"name": "Stickman Bow",
+			"urls": ["https://www.crazygames.com/game/stickman-bow"]
 		},
 		{
 			"name": "Stickman Bullet Warriors",
@@ -27915,16 +29140,16 @@
 			"urls": ["https://www.crazygames.com/game/stickman-challenge"]
 		},
 		{
+			"name": "Stickman Clash",
+			"urls": ["https://www.crazygames.com/game/stickman-clash"]
+		},
+		{
 			"name": "Stickman Clicker",
 			"urls": ["https://www.crazygames.com/game/stickman-clicker"]
 		},
 		{
 			"name": "Stickman Counter Terror Strike",
 			"urls": ["https://www.crazygames.com/game/stickman-counter-terror-strike"]
-		},
-		{
-			"name": "Stickman Crowd Fight",
-			"urls": ["https://www.crazygames.com/game/cartoon-crowd-clash"]
 		},
 		{
 			"name": "Stickman Destruction 3 Heroes",
@@ -27957,6 +29182,10 @@
 		{
 			"name": "Stickman History Battle",
 			"urls": ["https://www.crazygames.com/game/stickman-history-battle"]
+		},
+		{
+			"name": "Stickman King",
+			"urls": ["https://www.crazygames.com/game/stickman-king"]
 		},
 		{
 			"name": "Stickman Miners Wars",
@@ -27999,6 +29228,10 @@
 			"urls": ["https://www.crazygames.com/game/stickman-that-one-level"]
 		},
 		{
+			"name": "Stickman Tower Defense Idle 3D",
+			"urls": ["https://www.crazygames.com/game/stickman-tower-defense-idle-3d"]
+		},
+		{
 			"name": "Stickman vs Villager: Save the Girl",
 			"urls": [
 				"https://www.crazygames.com/game/stickman-vs-villager-save-the-girl"
@@ -28031,7 +29264,7 @@
 			]
 		},
 		{
-			"name": "Stickman Zombie: Motorcycle",
+			"name": "Stickman Zombie: Motorcycle ",
 			"urls": ["https://www.crazygames.com/game/stickman-zombie-motorcycle"]
 		},
 		{
@@ -28047,8 +29280,16 @@
 			"urls": ["https://www.crazygames.com/game/sticky-fruits"]
 		},
 		{
+			"name": "Stone Grass: Mowing Simulator",
+			"urls": ["https://www.crazygames.com/game/stone-grass-mowing-simulator"]
+		},
+		{
 			"name": "Stone Idle",
 			"urls": ["https://www.crazygames.com/game/stone-idle"]
+		},
+		{
+			"name": "Stone Puzzle Games",
+			"urls": ["https://www.crazygames.com/game/stone-puzzle-games"]
 		},
 		{
 			"name": "Store Manager",
@@ -28087,12 +29328,12 @@
 			"urls": ["https://www.crazygames.com/game/street-fighter-simulator"]
 		},
 		{
-			"name": "Street Freekick 3D",
-			"urls": ["https://www.crazygames.com/game/street-freekick-3d"]
+			"name": "Street Food Simulator",
+			"urls": ["https://www.crazygames.com/game/street-food-simulator"]
 		},
 		{
-			"name": "Street Hawk",
-			"urls": ["https://www.crazygames.com/game/street-hawk"]
+			"name": "Street Freekick 3D",
+			"urls": ["https://www.crazygames.com/game/street-freekick-3d"]
 		},
 		{
 			"name": "Street Life",
@@ -28101,6 +29342,10 @@
 		{
 			"name": "Street Race Fury",
 			"urls": ["https://www.crazygames.com/game/street-race-fury"]
+		},
+		{
+			"name": "Street Racer 2",
+			"urls": ["https://www.crazygames.com/game/street-racer-2"]
 		},
 		{
 			"name": "Street Racers Nitro Extreme",
@@ -28127,6 +29372,10 @@
 			"urls": ["https://www.crazygames.com/game/striker-dummies"]
 		},
 		{
+			"name": "Stronghold Dude",
+			"urls": ["https://www.crazygames.com/game/stronghold-dude"]
+		},
+		{
 			"name": "Struckd - 3D Game Creator",
 			"urls": ["https://www.crazygames.com/game/struckd---3d-game-creator"]
 		},
@@ -28138,6 +29387,10 @@
 		{
 			"name": "Stunt Mania 3D",
 			"urls": ["https://www.crazygames.com/game/stunt-mania-3d"]
+		},
+		{
+			"name": "Stunt Paradise",
+			"urls": ["https://www.crazygames.com/game/stunt-paradise"]
 		},
 		{
 			"name": "Stupid Zombies",
@@ -28208,10 +29461,6 @@
 			"urls": ["https://www.crazygames.com/game/sunset-bike-racing"]
 		},
 		{
-			"name": "Super Auto Pets",
-			"urls": ["https://www.crazygames.com/game/super-auto-pets"]
-		},
-		{
 			"name": "Super Bandit RIP",
 			"urls": ["https://www.crazygames.com/game/super-bandit-rip"]
 		},
@@ -28280,12 +29529,20 @@
 			"urls": ["https://www.crazygames.com/game/super-robo-adventure"]
 		},
 		{
+			"name": "Super Slime",
+			"urls": ["https://www.crazygames.com/game/super-slime-mqf"]
+		},
+		{
 			"name": "Super Smash Flash",
 			"urls": ["https://www.crazygames.com/game/super-smash-flash"]
 		},
 		{
 			"name": "Super Spin",
 			"urls": ["https://www.crazygames.com/game/super-spin"]
+		},
+		{
+			"name": "Super Squirrel Blaster",
+			"urls": ["https://www.crazygames.com/game/super-squirrel-blaster"]
 		},
 		{
 			"name": "Super Star Car",
@@ -28312,6 +29569,14 @@
 			"urls": ["https://www.crazygames.com/game/super-tic-tac-toe"]
 		},
 		{
+			"name": "Super Utilizer",
+			"urls": ["https://www.crazygames.com/game/super-utilizer"]
+		},
+		{
+			"name": "Superball",
+			"urls": ["https://www.crazygames.com/game/superball-neg"]
+		},
+		{
 			"name": "SuperHero BMX Space Rider",
 			"urls": ["https://www.crazygames.com/game/superhero-bmx-space-rider"]
 		},
@@ -28320,18 +29585,18 @@
 			"urls": ["https://www.crazygames.com/game/superhero-race"]
 		},
 		{
-			"name": "Superhero Taxi",
-			"urls": [
-				"https://www.crazygames.com/game/super-hero-off-road-taxi-driving"
-			]
-		},
-		{
 			"name": "SuperHot",
 			"urls": ["https://www.crazygames.com/game/super-hot"]
 		},
 		{
 			"name": "Supermarket Empire",
 			"urls": ["https://www.crazygames.com/game/supermarket-empire"]
+		},
+		{
+			"name": "Supermarket Simulator: Store Manager",
+			"urls": [
+				"https://www.crazygames.com/game/supermarket-simulator-cashier-game"
+			]
 		},
 		{
 			"name": "Supermarket Sort: Grocery Game",
@@ -28368,6 +29633,7 @@
 			"urls": ["https://www.crazygames.com/game/sure-shot"]
 		},
 		{ "name": "SURF", "urls": ["https://www.crazygames.com/game/surf"] },
+		{ "name": "Survev.io", "urls": ["https://www.crazygames.com/game/survev"] },
 		{
 			"name": "Survival Craft Adventure",
 			"urls": ["https://www.crazygames.com/game/survival-craft-adventure"]
@@ -28385,6 +29651,10 @@
 			"urls": ["https://www.crazygames.com/game/survival-runners"]
 		},
 		{
+			"name": "Survival Rush!",
+			"urls": ["https://www.crazygames.com/game/survival-rush"]
+		},
+		{
 			"name": "Survive In The Forest",
 			"urls": ["https://www.crazygames.com/game/survive-in-the-forest"]
 		},
@@ -28395,6 +29665,10 @@
 		{
 			"name": "Survivor: Space Battle",
 			"urls": ["https://www.crazygames.com/game/survivor-space-battle"]
+		},
+		{
+			"name": "SURVIVORZ: Bullets & Brains",
+			"urls": ["https://www.crazygames.com/game/bullets-brains"]
 		},
 		{
 			"name": "Sushi Break Dash",
@@ -28409,6 +29683,10 @@
 			"urls": ["https://www.crazygames.com/game/sushi-factory"]
 		},
 		{
+			"name": "Sushi Go",
+			"urls": ["https://www.crazygames.com/game/sushi-go"]
+		},
+		{
 			"name": "Sushi Go Round",
 			"urls": ["https://www.crazygames.com/game/sushi-go-round"]
 		},
@@ -28421,16 +29699,16 @@
 			"urls": ["https://www.crazygames.com/game/sweet-shop-3d"]
 		},
 		{
-			"name": "Sweety Ludo",
-			"urls": ["https://www.crazygames.com/game/sweety-ludo"]
-		},
-		{
 			"name": "Swimming Pool Romance",
 			"urls": ["https://www.crazygames.com/game/swimming-pool-romance"]
 		},
 		{
 			"name": "Swing Monkey",
 			"urls": ["https://www.crazygames.com/game/swing-monkey"]
+		},
+		{
+			"name": "Swing Monster: Decisive Battle",
+			"urls": ["https://www.crazygames.com/game/swing-monster-decisive-battle"]
 		},
 		{
 			"name": "Switch Wheel: Race Master",
@@ -28448,6 +29726,10 @@
 		{
 			"name": "Sword Merging Simulator",
 			"urls": ["https://www.crazygames.com/game/sword-merging-simulator"]
+		},
+		{
+			"name": "Sworded io - Spin and Rub",
+			"urls": ["https://www.crazygames.com/game/sworded-io---spin-and-rub"]
 		},
 		{
 			"name": "Swords & Souls",
@@ -28468,6 +29750,10 @@
 		{
 			"name": "Sydney Shark",
 			"urls": ["https://www.crazygames.com/game/sydney-shark"]
+		},
+		{
+			"name": "SYNTAXIA",
+			"urls": ["https://www.crazygames.com/game/syntaxia"]
 		},
 		{
 			"name": "Table Tennis World Tour",
@@ -28502,6 +29788,10 @@
 			"urls": ["https://www.crazygames.com/game/taiga-car-driver"]
 		},
 		{
+			"name": "Tailed Demon Slayer",
+			"urls": ["https://www.crazygames.com/game/tailed-demon-slayer"]
+		},
+		{
 			"name": "Take Photo",
 			"urls": ["https://www.crazygames.com/game/take-photo"]
 		},
@@ -28513,6 +29803,10 @@
 		{
 			"name": "Taming.io",
 			"urls": ["https://www.crazygames.com/game/taming-io"]
+		},
+		{
+			"name": "Tangle Master",
+			"urls": ["https://www.crazygames.com/game/tangle-master"]
 		},
 		{
 			"name": "Tangled Ropes",
@@ -28531,20 +29825,16 @@
 			"urls": ["https://www.crazygames.com/game/tank-merge-royal"]
 		},
 		{
-			"name": "Tank Off",
-			"urls": ["https://www.crazygames.com/game/tank-off"]
-		},
-		{
-			"name": "Tank Off 2",
-			"urls": ["https://www.crazygames.com/game/tank-off-2"]
-		},
-		{
 			"name": "Tank Wars",
 			"urls": ["https://www.crazygames.com/game/tank-wars-iaw"]
 		},
 		{
 			"name": "TankCraft",
 			"urls": ["https://www.crazygames.com/game/tankcraft"]
+		},
+		{
+			"name": "Tankgank",
+			"urls": ["https://www.crazygames.com/game/tankgank-com"]
 		},
 		{
 			"name": "Tanko.io",
@@ -28558,6 +29848,10 @@
 		{
 			"name": "Tanks 2D: War and Heroes!",
 			"urls": ["https://www.crazygames.com/game/tanks-2d-war-and-heroes"]
+		},
+		{
+			"name": "Tanks 3D",
+			"urls": ["https://www.crazygames.com/game/tanks-3d"]
 		},
 		{
 			"name": "Tanks Arena io: Craft & Combat",
@@ -28592,16 +29886,20 @@
 			"urls": ["https://www.crazygames.com/game/tap-n-cut"]
 		},
 		{
+			"name": "Tap 3D Wood Block Away",
+			"urls": ["https://www.crazygames.com/game/tap-3d-wood-block-away"]
+		},
+		{
+			"name": "Tap Reveal",
+			"urls": ["https://www.crazygames.com/game/tap-reveal"]
+		},
+		{
 			"name": "Tap Supermarket",
 			"urls": ["https://www.crazygames.com/game/tap-supermarket"]
 		},
 		{
 			"name": "Tap Tap Goose",
 			"urls": ["https://www.crazygames.com/game/tap-tap-goose"]
-		},
-		{
-			"name": "Tap to Ball",
-			"urls": ["https://www.crazygames.com/game/tap-to-ball"]
 		},
 		{
 			"name": "Tap-Tap Shots",
@@ -28624,6 +29922,10 @@
 			"urls": ["https://www.crazygames.com/game/tavern-rumble-roguelike-card"]
 		},
 		{
+			"name": "Tavern Simulator",
+			"urls": ["https://www.crazygames.com/game/tavern-simulator"]
+		},
+		{
 			"name": "Taxi Driver: Master",
 			"urls": ["https://www.crazygames.com/game/taxi-driver-master"]
 		},
@@ -28638,6 +29940,10 @@
 		{
 			"name": "Taz Mechanic Simulator",
 			"urls": ["https://www.crazygames.com/game/taz-mechanic-simulator"]
+		},
+		{
+			"name": "TDP4: Team Battle",
+			"urls": ["https://www.crazygames.com/game/tdp4-team-battle"]
 		},
 		{
 			"name": "Teacher Simulator",
@@ -28662,6 +29968,14 @@
 		{
 			"name": "Teleport Jumper",
 			"urls": ["https://www.crazygames.com/game/teleport-jumper"]
+		},
+		{
+			"name": "Temple of Fire",
+			"urls": ["https://www.crazygames.com/game/temple-of-fire"]
+		},
+		{
+			"name": "Tenkyu Ball",
+			"urls": ["https://www.crazygames.com/game/tenkyu-ball"]
 		},
 		{
 			"name": "Tennis Game",
@@ -28689,6 +30003,10 @@
 			"urls": ["https://www.crazygames.com/game/tetrix-2"]
 		},
 		{
+			"name": "That's My Recipe",
+			"urls": ["https://www.crazygames.com/game/thats-my-recipe"]
+		},
+		{
 			"name": "The Best Russian Billiards",
 			"urls": ["https://www.crazygames.com/game/the-best-russian-billiards"]
 		},
@@ -28697,16 +30015,16 @@
 			"urls": ["https://www.crazygames.com/game/the-binding-of-isaac-demo"]
 		},
 		{
+			"name": "The Bottle Boy",
+			"urls": ["https://www.crazygames.com/game/the-bottle-boy"]
+		},
+		{
 			"name": "The Box of Secrets",
 			"urls": ["https://www.crazygames.com/game/the-box-of-secrets"]
 		},
 		{
 			"name": "The Cargo",
 			"urls": ["https://www.crazygames.com/game/the-cargo"]
-		},
-		{
-			"name": "The Castle and The Right Path",
-			"urls": ["https://www.crazygames.com/game/the-castle-and-the-right-path"]
 		},
 		{
 			"name": "The Chick Chase",
@@ -28787,8 +30105,16 @@
 			"urls": ["https://www.crazygames.com/game/the-impossible-quiz"]
 		},
 		{
+			"name": "The Ink Studio",
+			"urls": ["https://www.crazygames.com/game/ink-shop-dress-tattoo-games"]
+		},
+		{
 			"name": "The Island",
 			"urls": ["https://www.crazygames.com/game/the-island"]
+		},
+		{
+			"name": "The Last Light of Lyra",
+			"urls": ["https://www.crazygames.com/game/the-last-light-of-lyra"]
 		},
 		{
 			"name": "The Last Stand",
@@ -28801,10 +30127,6 @@
 		{
 			"name": "The Last Tater",
 			"urls": ["https://www.crazygames.com/game/the-last-tater-demo"]
-		},
-		{
-			"name": "The Last Warrior - Dark Knight",
-			"urls": ["https://www.crazygames.com/game/the-last-warrior-dark-knight"]
 		},
 		{
 			"name": "The Legendary Assassin Ninja KAL",
@@ -28821,6 +30143,10 @@
 			"urls": ["https://www.crazygames.com/game/the-milk-quest"]
 		},
 		{
+			"name": "The Most Addicting Sheep Game",
+			"urls": ["https://www.crazygames.com/game/the-most-addicting-sheep-game"]
+		},
+		{
 			"name": "The Owner Is Dead",
 			"urls": ["https://www.crazygames.com/game/the-owner-is-dead"]
 		},
@@ -28829,8 +30155,16 @@
 			"urls": ["https://www.crazygames.com/game/the-pillar"]
 		},
 		{
+			"name": "The Prank King",
+			"urls": ["https://www.crazygames.com/game/prankster-3d"]
+		},
+		{
 			"name": "The Prison Maze",
 			"urls": ["https://www.crazygames.com/game/the-prison-maze"]
+		},
+		{
+			"name": "The Quest",
+			"urls": ["https://www.crazygames.com/game/the-quest-hcv"]
 		},
 		{
 			"name": "The Range 3D",
@@ -28955,16 +30289,16 @@
 			"urls": ["https://www.crazygames.com/game/this-is-the-only-level"]
 		},
 		{
+			"name": "Thread Master: ASMR Embroidery",
+			"urls": ["https://www.crazygames.com/game/thread-master--asmr-embroidery"]
+		},
+		{
 			"name": "Three Goblets",
 			"urls": ["https://www.crazygames.com/game/three-goblets"]
 		},
 		{
 			"name": "Tic Tac Toe Online",
 			"urls": ["https://www.crazygames.com/game/tic-tac-toe"]
-		},
-		{
-			"name": "Tic Tac Toe Soccer",
-			"urls": ["https://www.crazygames.com/game/tic-tac-toe-soccer"]
 		},
 		{
 			"name": "Tictoc Catwalk Fashion",
@@ -29011,6 +30345,10 @@
 			"urls": ["https://www.crazygames.com/game/tile-journey"]
 		},
 		{
+			"name": "Tile Jumper 3D",
+			"urls": ["https://www.crazygames.com/game/tile-jumper-3d"]
+		},
+		{
 			"name": "TileMan.io",
 			"urls": ["https://www.crazygames.com/game/tileman-io"]
 		},
@@ -29048,8 +30386,24 @@
 			"urls": ["https://www.crazygames.com/game/time-to-park"]
 		},
 		{
+			"name": "Time Walker: Survive",
+			"urls": ["https://www.crazygames.com/game/time-walker-survive"]
+		},
+		{
+			"name": "TimeWarriors",
+			"urls": ["https://www.crazygames.com/game/timewarriors"]
+		},
+		{
+			"name": "Tiny Auto Knights",
+			"urls": ["https://www.crazygames.com/game/tiny-auto-knight"]
+		},
+		{
 			"name": "Tiny Fishing",
 			"urls": ["https://www.crazygames.com/game/tiny-fishing"]
+		},
+		{
+			"name": "Tiny Sails",
+			"urls": ["https://www.crazygames.com/game/tiny-sails"]
 		},
 		{
 			"name": "TNTcraft",
@@ -29069,9 +30423,10 @@
 			"urls": ["https://www.crazygames.com/game/toodee-and-topdee-demo"]
 		},
 		{
-			"name": "Toon Off",
-			"urls": ["https://www.crazygames.com/game/toon-off"]
+			"name": "Toolbox Screw Jam Puzzle",
+			"urls": ["https://www.crazygames.com/game/toolbox-screw-jam-puzzle-you"]
 		},
+		{ "name": "Toonle", "urls": ["https://www.crazygames.com/game/toonle"] },
 		{
 			"name": "Top Outpost",
 			"urls": ["https://www.crazygames.com/game/top-outpost"]
@@ -29109,6 +30464,12 @@
 			"urls": ["https://www.crazygames.com/game/tower-archer"]
 		},
 		{
+			"name": "Tower Bastion: Zombie Defense",
+			"urls": [
+				"https://www.crazygames.com/game/tower-bastion-zombie-defense-ufh"
+			]
+		},
+		{
 			"name": "Tower Crash 3D",
 			"urls": ["https://www.crazygames.com/game/tower-crush-3d"]
 		},
@@ -29129,10 +30490,6 @@
 			"urls": ["https://www.crazygames.com/game/tower-defense-io"]
 		},
 		{
-			"name": "Tower Fall",
-			"urls": ["https://www.crazygames.com/game/tower-fall"]
-		},
-		{
 			"name": "Tower Jam 3D",
 			"urls": ["https://www.crazygames.com/game/tower-jam-3d"]
 		},
@@ -29143,6 +30500,14 @@
 		{
 			"name": "Tower Swap",
 			"urls": ["https://www.crazygames.com/game/tower-swap"]
+		},
+		{
+			"name": "Tower vs Goblins",
+			"urls": ["https://www.crazygames.com/game/tower-vs-goblins"]
+		},
+		{
+			"name": "Towering Trials",
+			"urls": ["https://www.crazygames.com/game/towering-trials-div"]
 		},
 		{
 			"name": "TowerWatch - PVP Battle",
@@ -29158,12 +30523,12 @@
 		},
 		{ "name": "TRACE", "urls": ["https://www.crazygames.com/game/trace"] },
 		{
-			"name": "Tractor Trial",
-			"urls": ["https://www.crazygames.com/game/tractor-trial"]
+			"name": "Tracesoccer",
+			"urls": ["https://www.crazygames.com/game/tracesoccer-ubc"]
 		},
 		{
-			"name": "Tractor Trial 2",
-			"urls": ["https://www.crazygames.com/game/tractor-trial-2"]
+			"name": "Trading Card Store Simulator",
+			"urls": ["https://www.crazygames.com/game/trading-card-store-simulator"]
 		},
 		{
 			"name": "Traffic Cop 3D",
@@ -29174,8 +30539,12 @@
 			"urls": ["https://www.crazygames.com/game/traffic-loop"]
 		},
 		{
-			"name": "Traffic Tour",
-			"urls": ["https://www.crazygames.com/game/traffic-tour"]
+			"name": "Traffic Parking",
+			"urls": ["https://www.crazygames.com/game/traffic-parking"]
+		},
+		{
+			"name": "Traffic Rider",
+			"urls": ["https://www.crazygames.com/game/traffic-rider-vvq"]
 		},
 		{
 			"name": "Train Adventure",
@@ -29188,10 +30557,6 @@
 		{
 			"name": "Train Master",
 			"urls": ["https://www.crazygames.com/game/train-master"]
-		},
-		{
-			"name": "Train Taxi",
-			"urls": ["https://www.crazygames.com/game/train-taxi"]
 		},
 		{
 			"name": "Transporter Hot Pursuit",
@@ -29219,6 +30584,10 @@
 			"urls": ["https://www.crazygames.com/game/trappersquares-io"]
 		},
 		{
+			"name": "Trash Cafe",
+			"urls": ["https://www.crazygames.com/game/trash-cafe"]
+		},
+		{
 			"name": "Trash Factory",
 			"urls": ["https://www.crazygames.com/game/trash-factory"]
 		},
@@ -29229,6 +30598,12 @@
 		{
 			"name": "Travel with Me: ASMR Edition",
 			"urls": ["https://www.crazygames.com/game/travel-with-me-asmr-edition"]
+		},
+		{
+			"name": "Treasure Champion: Chest Capture",
+			"urls": [
+				"https://www.crazygames.com/game/treasure-champion---chest-capture"
+			]
 		},
 		{
 			"name": "Treasure Hunt Idle",
@@ -29255,16 +30630,16 @@
 			"urls": ["https://www.crazygames.com/game/trial-bike-epic-stunts"]
 		},
 		{
+			"name": "Trial Mania",
+			"urls": ["https://www.crazygames.com/game/trial-mania"]
+		},
+		{
 			"name": "Trials Ice Ride",
 			"urls": ["https://www.crazygames.com/game/trail-ice-ride"]
 		},
 		{
 			"name": "Trials Ride",
 			"urls": ["https://www.crazygames.com/game/trials-ride"]
-		},
-		{
-			"name": "Trials Ride 2",
-			"urls": ["https://www.crazygames.com/game/trials-ride-2"]
 		},
 		{
 			"name": "Trim FRVR",
@@ -29339,6 +30714,10 @@
 			"urls": ["https://www.crazygames.com/game/tuggowar"]
 		},
 		{
+			"name": "Tung Tung Sahur: Obby Challenge",
+			"urls": ["https://www.crazygames.com/game/tung-tung-sahur-obby-challenge"]
+		},
+		{
 			"name": "Tunnel 54",
 			"urls": ["https://www.crazygames.com/game/tunnel-54"]
 		},
@@ -29363,6 +30742,10 @@
 			"urls": ["https://www.crazygames.com/game/turbo-stars---rival-racing"]
 		},
 		{
+			"name": "Turnfight",
+			"urls": ["https://www.crazygames.com/game/turnfight-com-uap"]
+		},
+		{
 			"name": "TV Invasion",
 			"urls": ["https://www.crazygames.com/game/tv-invasion"]
 		},
@@ -29370,6 +30753,20 @@
 		{
 			"name": "Twist Hit",
 			"urls": ["https://www.crazygames.com/game/twist-hit"]
+		},
+		{
+			"name": "Twisted Blocks",
+			"urls": ["https://www.crazygames.com/game/twisted-blocks-ewo"]
+		},
+		{
+			"name": "Twisted Tangle",
+			"urls": ["https://www.crazygames.com/game/twisted-tangle-nmt"]
+		},
+		{
+			"name": "Two Sides of Hell: Portable Edition",
+			"urls": [
+				"https://www.crazygames.com/game/two-sides-of-hell-portable-edition-unn"
+			]
 		},
 		{
 			"name": "Two-Timin' Towers",
@@ -29380,10 +30777,6 @@
 			"urls": ["https://www.crazygames.com/game/tyran-io"]
 		},
 		{ "name": "Tzared", "urls": ["https://www.crazygames.com/game/tzared"] },
-		{
-			"name": "UFO Jigsaw Puzzle",
-			"urls": ["https://www.crazygames.com/game/ufo-jigsaw"]
-		},
 		{
 			"name": "Ultimate Flying Car",
 			"urls": ["https://www.crazygames.com/game/ultimate-flying-car"]
@@ -29415,8 +30808,30 @@
 			"urls": ["https://www.crazygames.com/game/ultimo-games-2019-gifts"]
 		},
 		{
+			"name": "Uncle Hit: Punch the Dummy",
+			"urls": ["https://www.crazygames.com/game/uncle-hit-punch-the-dummy"]
+		},
+		{
+			"name": "Undead Broadcast",
+			"urls": ["https://www.crazygames.com/game/undead-broadcast"]
+		},
+		{
+			"name": "Underbite: Rat Rumble Idle War",
+			"urls": ["https://www.crazygames.com/game/underbite-rat-rumble-idle-war"]
+		},
+		{
 			"name": "Undercroft Warriors",
 			"urls": ["https://www.crazygames.com/game/undercroft-warriors"]
+		},
+		{
+			"name": "Underwater Adventures: Match 3",
+			"urls": [
+				"https://www.crazygames.com/game/underwater-adventures-match-3-utk"
+			]
+		},
+		{
+			"name": "Underwater Hunting",
+			"urls": ["https://www.crazygames.com/game/underwater-hunting"]
 		},
 		{
 			"name": "Underwater Survival: Deep Dive",
@@ -29447,6 +30862,10 @@
 			"urls": ["https://www.crazygames.com/game/unicycle-mayhem"]
 		},
 		{
+			"name": "Unique Flavors",
+			"urls": ["https://www.crazygames.com/game/unique-flavors"]
+		},
+		{
 			"name": "Unpuzzle: Tap Away Puzzle Game",
 			"urls": ["https://www.crazygames.com/game/unpuzzle-tap-away-puzzle-game"]
 		},
@@ -29459,6 +30878,10 @@
 			"urls": ["https://www.crazygames.com/game/unscrew-jam-3d"]
 		},
 		{
+			"name": "UpRunner",
+			"urls": ["https://www.crazygames.com/game/uprunner"]
+		},
+		{
 			"name": "Urban Outfits Fashion",
 			"urls": ["https://www.crazygames.com/game/tiktok-urban-outfits"]
 		},
@@ -29467,10 +30890,6 @@
 			"urls": ["https://www.crazygames.com/game/used-car-dealer-tycoon"]
 		},
 		{ "name": "UVSU", "urls": ["https://www.crazygames.com/game/uvsu"] },
-		{
-			"name": "Vacation Summer Dress Up",
-			"urls": ["https://www.crazygames.com/game/vacation-summer-dress-up"]
-		},
 		{
 			"name": "Vacuum Hero: Mafia Murder",
 			"urls": ["https://www.crazygames.com/game/vacuum-hero-mafia-murder"]
@@ -29484,8 +30903,16 @@
 			"urls": ["https://www.crazygames.com/game/valentine-s-day-couple-date"]
 		},
 		{
+			"name": "Valentine's Day Proposal",
+			"urls": ["https://www.crazygames.com/game/valentine-s-day-proposal"]
+		},
+		{
 			"name": "Valentine's Makeup Trends",
 			"urls": ["https://www.crazygames.com/game/valentine-s-makeup-trends"]
+		},
+		{
+			"name": "Vampire Master",
+			"urls": ["https://www.crazygames.com/game/vampire-master-nkk"]
 		},
 		{
 			"name": "Vampire Pixel Survivors",
@@ -29503,24 +30930,9 @@
 			"name": "Vehicle Masters",
 			"urls": ["https://www.crazygames.com/game/vehicle-masters"]
 		},
-		{ "name": "Vex 3", "urls": ["https://www.crazygames.com/game/vex-3"] },
-		{
-			"name": "Vex 3 Xmas",
-			"urls": ["https://www.crazygames.com/game/vex-3-xmas"]
-		},
-		{ "name": "Vex 7", "urls": ["https://www.crazygames.com/game/vex-7"] },
-		{ "name": "Vex 8", "urls": ["https://www.crazygames.com/game/vex-8"] },
-		{
-			"name": "VEX Challenges",
-			"urls": ["https://www.crazygames.com/game/vex-challenges"]
-		},
 		{
 			"name": "Video Studio Escape",
 			"urls": ["https://www.crazygames.com/game/video-studio-escape"]
-		},
-		{
-			"name": "Vikings Puzzle Quest",
-			"urls": ["https://www.crazygames.com/game/vikings-puzzle-quest"]
 		},
 		{
 			"name": "Vikings: An Archer's Journey",
@@ -29571,6 +30983,10 @@
 			"urls": ["https://www.crazygames.com/game/volley-random"]
 		},
 		{
+			"name": "Vortex 9",
+			"urls": ["https://www.crazygames.com/game/vortex-9-ubs"]
+		},
+		{
 			"name": "Vortex.io",
 			"urls": ["https://www.crazygames.com/game/vortex-io"]
 		},
@@ -29599,6 +31015,10 @@
 			"urls": ["https://www.crazygames.com/game/war-brokers-io"]
 		},
 		{
+			"name": "War Groups",
+			"urls": ["https://www.crazygames.com/game/war-groups"]
+		},
+		{
 			"name": "War Lands",
 			"urls": ["https://www.crazygames.com/game/war-lands"]
 		},
@@ -29611,10 +31031,24 @@
 			"urls": ["https://www.crazygames.com/game/war-nations-io"]
 		},
 		{
+			"name": "War of Mine",
+			"urls": ["https://www.crazygames.com/game/war-of-mine"]
+		},
+		{
 			"name": "War of Tanks",
 			"urls": ["https://www.crazygames.com/game/war-of-tanks"]
 		},
 		{ "name": "War Sea", "urls": ["https://www.crazygames.com/game/war-sea"] },
+		{
+			"name": "War State IO: Conquer Battles",
+			"urls": [
+				"https://www.crazygames.com/game/war-state-io---conquer-battles-znz"
+			]
+		},
+		{
+			"name": "War V: Survivor",
+			"urls": ["https://www.crazygames.com/game/war-v-survivor"]
+		},
 		{
 			"name": "WarCall.io",
 			"urls": ["https://www.crazygames.com/game/warcall-io"]
@@ -29644,6 +31078,14 @@
 			"urls": ["https://www.crazygames.com/game/warlords-2-rise-of-demonds"]
 		},
 		{
+			"name": "Warrior Bee Apocalypse",
+			"urls": ["https://www.crazygames.com/game/warrior-bee-apocalypse"]
+		},
+		{
+			"name": "Warrior Clash",
+			"urls": ["https://www.crazygames.com/game/warrior-clash-pzu"]
+		},
+		{
 			"name": "Warzone Armor",
 			"urls": ["https://www.crazygames.com/game/warzone-armor-gtb"]
 		},
@@ -29654,10 +31096,6 @@
 		{
 			"name": "Water Pool Heroes.io",
 			"urls": ["https://www.crazygames.com/game/water-pool-heroes-io"]
-		},
-		{
-			"name": "Water Wars",
-			"urls": ["https://www.crazygames.com/game/water-wars"]
 		},
 		{
 			"name": "Watermelon Balls",
@@ -29680,8 +31118,16 @@
 			"urls": ["https://www.crazygames.com/game/weapon-tester"]
 		},
 		{
+			"name": "Weapons and Ragdolls",
+			"urls": ["https://www.crazygames.com/game/weapons-and-ragdolls"]
+		},
+		{
 			"name": "Weapons Journey",
 			"urls": ["https://www.crazygames.com/game/weapons-journey"]
+		},
+		{
+			"name": "Weapons Ragdoll Arena",
+			"urls": ["https://www.crazygames.com/game/weapons-ragdoll-arena"]
 		},
 		{
 			"name": "Weaponsmith Idle",
@@ -29690,10 +31136,6 @@
 		{
 			"name": "Web Slinging Race",
 			"urls": ["https://www.crazygames.com/game/web-slinging-race"]
-		},
-		{
-			"name": "Wedding Bride Dress Up",
-			"urls": ["https://www.crazygames.com/game/wedding-games-bride-dress-up"]
 		},
 		{
 			"name": "Wedding Coloring Dress Up Game",
@@ -29716,6 +31158,14 @@
 			"urls": ["https://www.crazygames.com/game/wendy-soft-girl-makeup"]
 		},
 		{
+			"name": "Wendy: Mansion Mystery",
+			"urls": ["https://www.crazygames.com/game/wendy-mansion-mystery"]
+		},
+		{
+			"name": "Western Farm",
+			"urls": ["https://www.crazygames.com/game/western-farm"]
+		},
+		{
 			"name": "Western Shooter: Battle Gun Duel",
 			"urls": [
 				"https://www.crazygames.com/game/western-shooter-battle-gun-duel"
@@ -29730,8 +31180,16 @@
 			"urls": ["https://www.crazygames.com/game/what-id-wear-if-i-were-a"]
 		},
 		{
+			"name": "What is it?",
+			"urls": ["https://www.crazygames.com/game/what-is-it"]
+		},
+		{
 			"name": "What's The Difference?",
 			"urls": ["https://www.crazygames.com/game/what-s-the-difference-online"]
+		},
+		{
+			"name": "Wheel of Felines",
+			"urls": ["https://www.crazygames.com/game/wheel-of-felines-kwm"]
 		},
 		{
 			"name": "Wheelie Up",
@@ -29769,6 +31227,10 @@
 			"urls": ["https://www.crazygames.com/game/wild-castle-td-grow-empire"]
 		},
 		{
+			"name": "Wild Hunter 3D",
+			"urls": ["https://www.crazygames.com/game/wild-hunter-3d"]
+		},
+		{
 			"name": "Wild Ranch: Business Simulator",
 			"urls": ["https://www.crazygames.com/game/wild-ranch-business-simulator"]
 		},
@@ -29802,6 +31264,10 @@
 		{
 			"name": "Witchy Sacrifices",
 			"urls": ["https://www.crazygames.com/game/witchy-sacrifices"]
+		},
+		{
+			"name": "Wizard Masters",
+			"urls": ["https://www.crazygames.com/game/wizard-masters"]
 		},
 		{
 			"name": "Wizard.io",
@@ -29855,6 +31321,14 @@
 			"urls": ["https://www.crazygames.com/game/wood-farmer"]
 		},
 		{
+			"name": "Wood Screw: Bolts Puzzle",
+			"urls": ["https://www.crazygames.com/game/wood-screw-bolts-puzzle"]
+		},
+		{
+			"name": "Word Art - Color Book Puzzle",
+			"urls": ["https://www.crazygames.com/game/paint-by-words"]
+		},
+		{
 			"name": "Word Chef",
 			"urls": ["https://www.crazygames.com/game/word-chef"]
 		},
@@ -29865,6 +31339,10 @@
 		{
 			"name": "Word Duel",
 			"urls": ["https://www.crazygames.com/game/word-duel"]
+		},
+		{
+			"name": "Word Fishing",
+			"urls": ["https://www.crazygames.com/game/word-fishing"]
 		},
 		{
 			"name": "Word Scramble",
@@ -29881,6 +31359,10 @@
 		{
 			"name": "Word Shift",
 			"urls": ["https://www.crazygames.com/game/word-shift"]
+		},
+		{
+			"name": "Word String Puzzle",
+			"urls": ["https://www.crazygames.com/game/word-string-puzzle"]
 		},
 		{
 			"name": "Word Swipe",
@@ -29907,6 +31389,10 @@
 		{
 			"name": "World Battle of the Future",
 			"urls": ["https://www.crazygames.com/game/world-battle-of-the-future"]
+		},
+		{
+			"name": "World Conqueror",
+			"urls": ["https://www.crazygames.com/game/clash-of-ages-dzl"]
 		},
 		{
 			"name": "World Cup Penalty",
@@ -30109,6 +31595,10 @@
 			"urls": ["https://www.crazygames.com/game/zombie-hunter-rro"]
 		},
 		{
+			"name": "ZARCANE: A Zombie Apocalypse",
+			"urls": ["https://www.crazygames.com/game/zarcane-a-zombie-apocalypse"]
+		},
+		{
 			"name": "Zena: Trial of the Gods",
 			"urls": ["https://www.crazygames.com/game/zena-trial-of-gods"]
 		},
@@ -30117,8 +31607,16 @@
 			"urls": ["https://www.crazygames.com/game/zeppelin-assault"]
 		},
 		{
+			"name": "Zom Strike",
+			"urls": ["https://www.crazygames.com/game/zom-strike-vvq"]
+		},
+		{
 			"name": "Zombie Arena",
 			"urls": ["https://www.crazygames.com/game/zombie-arena"]
+		},
+		{
+			"name": "Zombie Car Racing",
+			"urls": ["https://www.crazygames.com/game/zombie-car-racing"]
 		},
 		{
 			"name": "Zombie Clash 3D: Halloween",
@@ -30129,12 +31627,16 @@
 			"urls": ["https://www.crazygames.com/game/zombie-coming-roguelike-siege"]
 		},
 		{
-			"name": "Zombie Derbies 3D",
-			"urls": ["https://www.crazygames.com/game/zombie-derby-kte"]
+			"name": "Zombie Crusher",
+			"urls": ["https://www.crazygames.com/game/zombie-crusher-ooz"]
 		},
 		{
 			"name": "Zombie Drive Survivor",
 			"urls": ["https://www.crazygames.com/game/zombie-drive-survivor"]
+		},
+		{
+			"name": "Zombie Horde: Build & Survive",
+			"urls": ["https://www.crazygames.com/game/zombie-horde-build-survive"]
 		},
 		{
 			"name": "Zombie Hunter",
@@ -30149,8 +31651,8 @@
 			"urls": ["https://www.crazygames.com/game/zombie-island-survival"]
 		},
 		{
-			"name": "Zombie Match",
-			"urls": ["https://www.crazygames.com/game/zombie-match"]
+			"name": "Zombie Mayhem",
+			"urls": ["https://www.crazygames.com/game/zombie-mayhem-djc"]
 		},
 		{
 			"name": "Zombie Mayhem Online",
@@ -30165,6 +31667,10 @@
 			"urls": ["https://www.crazygames.com/game/zombie-raft"]
 		},
 		{
+			"name": "Zombie Space Episode 2",
+			"urls": ["https://www.crazygames.com/game/zombie-space-episode-2-ajp"]
+		},
+		{
 			"name": "Zombie Survival",
 			"urls": ["https://www.crazygames.com/game/zombie-defense"]
 		},
@@ -30175,6 +31681,10 @@
 		{
 			"name": "Zombie World",
 			"urls": ["https://www.crazygames.com/game/zombie-world"]
+		},
+		{
+			"name": "Zombie World Escape",
+			"urls": ["https://www.crazygames.com/game/zombie-world-escape-fqd"]
 		},
 		{
 			"name": "ZombieCraft",
@@ -30224,7 +31734,14 @@
 			"name": "Zoo Island",
 			"urls": ["https://www.crazygames.com/game/zoo-island"]
 		},
-		{ "name": "ZooCraft", "urls": ["https://www.crazygames.com/game/zoocraft"] }
+		{
+			"name": "ZooCraft",
+			"urls": ["https://www.crazygames.com/game/zoocraft"]
+		},
+		{
+			"name": "Zooma Marble Quest 3D",
+			"urls": ["https://www.crazygames.com/game/zooma-marble-quest-3d"]
+		}
 	],
 	"Poki": [
 		{

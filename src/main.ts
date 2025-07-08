@@ -1,10 +1,5 @@
 import { GROUPED_OUTPUT_LOCATION, UNGROUPED_OUTPUT_LOCATION } from "@config";
-import {
-	FileSystem,
-	HttpClient,
-	HttpClientRequest,
-	HttpClientResponse,
-} from "@effect/platform";
+import { FileSystem, HttpClient, HttpClientRequest } from "@effect/platform";
 import {
 	NodeFileSystem,
 	NodeHttpClient,
@@ -17,15 +12,11 @@ import {
 	Layer,
 	pipe,
 	Console,
-	Either,
-	Schedule,
 	Context,
 	Ref,
 	Clock,
-	HashSet,
 	HashMap,
 	Option,
-	Logger,
 } from "effect";
 import { format } from "prettier";
 
@@ -170,7 +161,9 @@ export class HttpService extends Effect.Service<HttpService>()("HttpService", {
 				yield* Ref.update(throttle, HashMap.set(domain, false));
 
 				const fetchTime = yield* Clock.currentTimeMillis;
-				yield* Console.log(`fetching ${request.url} at ${fetchTime}`);
+				yield* Console.log(
+					`fetching ${request.url} with ${request.urlParams} at ${fetchTime}`
+				);
 
 				const response = yield* client.execute(request);
 
@@ -203,47 +196,26 @@ const deduplicateAndMerge = (arr: Game[]): Game[] =>
 			a.name.toLowerCase().localeCompare(b.name.toLowerCase())
 		);
 
+export const logGame = (game: Game) =>
+	Console.log(`Game added: ${game.name}, ${JSON.stringify(game.urls)}`).pipe(
+		Effect.as(game)
+	);
+
 Effect.gen(function* () {
 	yield* Console.log("starting");
-	// yield* Clock.sleep("5 seconds");
-	// const httpService = yield* HttpService;
-	// const response = yield* httpService
-	// 	.get(HttpClientRequest.get("https://www.google.com"))
-	// 	.pipe(
-	// 		Effect.zip(
-	// 			httpService.get(
-	// 				HttpClientRequest.get("https://www.google.com")
-	// 			),
-	// 			{ concurrent: true }
-	// 		)
-	// 	);
-	// const text = yield* response[0].text;
-	// yield* Console.log(text);
-	// const effects = [1, 1].map((i) =>
-	// 	httpService.get(HttpClientRequest.get("https://www.google.com")).pipe(
-	// 		Effect.andThen((x) => x.text),
-	// 		Effect.andThen((x) => Console.log(x))
-	// 	)
-	// );
-	// const a = yield* Effect.all(effects, { concurrency: "unbounded" });
-	const effects = Object.values(sites)
+	const entries = Object.values(sites)
 		.filter((site) => enabledSites.includes(site.displayName))
-		.map((site) =>
-			site.run.pipe(
-				Effect.map((result) => [site.displayName, result] as const)
-			)
-		);
+		.map((site) => [site.displayName, site.run] as const);
+	const effects = Object.fromEntries(entries);
+
 	const results = yield* Effect.all(effects, { concurrency: "unbounded" });
-	const merged = results.map(([name, games]) => [
-		name,
-		deduplicateAndMerge(games),
-	]);
-	const grouped = Object.fromEntries(merged);
+	const merged = _.mapValues(results, (games) => deduplicateAndMerge(games));
 	const writer = yield* ResultsWriter;
-	yield* writer.write(grouped);
+	yield* writer.write(merged);
 	yield* Console.log("done");
 }).pipe(
 	Effect.provide(ResultsWriter.Default),
 	Effect.provide(HttpService.Default),
-	NodeRuntime.runMain
+	NodeRuntime.runMain,
 );
+

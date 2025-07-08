@@ -1,4 +1,4 @@
-import { HttpService, type Game } from "../main";
+import { HttpService, logGame, type Game } from "../main";
 import { Console, Effect, Schema } from "effect";
 import { HttpClientRequest, HttpClientResponse } from "@effect/platform";
 
@@ -72,11 +72,6 @@ const formatUrls = (subdomain: string, name: string): string[] => {
 // 			)
 // 	)
 // );
-
-const logGame = (game: Game) =>
-	Console.log(`Game added: ${game.name}, ${JSON.stringify(game.urls)}`).pipe(
-		Effect.as(game)
-	);
 
 export const run = Effect.gen(function* () {
 	yield* Console.log("starting coolmath");
