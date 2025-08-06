@@ -4,7 +4,7 @@
 	"description": "A script to scrape game websites",
 	"type": "module",
 	"scripts": {
-		"start": "node dist/bundle.js",
+		"start": "bun src/main.ts",
 		"build": "webpack",
 		"export": "webpack --mode production --devtool false",
 		"lint": "eslint .",
@@ -15,28 +15,6 @@
 	},
 	"author": "",
 	"license": "ISC",
-	"devDependencies": {
-		"@eslint/eslintrc": "^3.3.1",
-		"@eslint/js": "^9.30.1",
-		"@total-typescript/ts-reset": "^0.6.1",
-		"@types/lodash": "^4.17.20",
-		"@types/node": "^24.0.10",
-		"@types/webpack": "^5.28.5",
-		"@types/webpack-node-externals": "^3.0.4",
-		"@typescript-eslint/parser": "^8.36.0",
-		"eslint": "9.30.1",
-		"eslint-config-prettier": "^10.1.5",
-		"eslint-import-resolver-typescript": "^4.4.4",
-		"eslint-plugin-import-x": "^4.16.1",
-		"eslint-plugin-unicorn": "^59.0.1",
-		"ts-loader": "^9.5.2",
-		"tsconfig-paths-webpack-plugin": "^4.2.0",
-		"typescript": "^5.8.3",
-		"typescript-eslint": "^8.36.0",
-		"webpack": "^5.99.9",
-		"webpack-cli": "^6.0.1",
-		"webpack-node-externals": "^3.0.0"
-	},
 	"dependencies": {
 		"@effect/platform": "^0.87.10",
 		"@effect/platform-node": "^0.89.2",
@@ -44,5 +22,25 @@
 		"effect": "^3.16.12",
 		"lodash": "^4.17.21",
 		"prettier": "^3.6.2"
-	}
+	},
+	"devDependencies": {
+		"@eslint/eslintrc": "^3.3.1",
+		"@eslint/js": "^9.30.1",
+		"@total-typescript/ts-reset": "^0.6.1",
+		"@types/lodash": "^4.17.20",
+		"@types/node": "^24.0.10",
+		"@typescript-eslint/parser": "^8.36.0",
+		"eslint": "9.30.1",
+		"eslint-config-prettier": "^10.1.5",
+		"eslint-import-resolver-typescript": "^4.4.4",
+		"eslint-plugin-import-x": "^4.16.1",
+		"eslint-plugin-unicorn": "^59.0.1",
+		"typescript": "^5.8.3",
+		"typescript-eslint": "^8.36.0"
+	},
+	"trustedDependencies": [
+		"@parcel/watcher",
+		"unrs-resolver"
+	]
 }
+

@@ -65,9 +65,7 @@ class JsonParseError extends Data.TaggedError("JsonParseError")<{
 	err: string;
 }> {}
 
-const parseJsonSafe = (
-	s: string
-): Effect.Effect<unknown, JsonParseError> =>
+const parseJsonSafe = (s: string): Effect.Effect<unknown, JsonParseError> =>
 	Effect.try({
 		try: () => JSON.parse(s),
 		catch: (err) => new JsonParseError({ err: String(err) }),
@@ -205,12 +203,16 @@ export const logGame = (game: Game) =>
 
 Effect.gen(function* () {
 	yield* Console.log("starting");
-	const entries = Object.values(sites)
-		.filter((site) => enabledSites.includes(site.displayName))
-		.map((site) => [site.displayName, site.run] as const);
-	const effects = Object.fromEntries(entries);
 
-	const results = yield* Effect.all(effects, { concurrency: "unbounded" });
+	const filtered = _.pickBy(sites, (site) =>
+		enabledSites.includes(site.displayName)
+	);
+	const mapped = _.mapKeys(filtered, (site) => site.displayName);
+	const processedSites = _.mapValues(mapped, (site) => site.run);
+
+	const results = yield* Effect.all(processedSites, {
+		concurrency: "unbounded",
+	});
 	const merged = _.mapValues(results, (games) => deduplicateAndMerge(games));
 	const writer = yield* ResultsWriter;
 	yield* writer.write(merged);
@@ -218,6 +220,6 @@ Effect.gen(function* () {
 }).pipe(
 	Effect.provide(ResultsWriter.Default),
 	Effect.provide(HttpService.Default),
-	NodeRuntime.runMain,
+	NodeRuntime.runMain
 );
 
