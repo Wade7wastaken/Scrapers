@@ -1,47 +1,29 @@
-import { ResultAsync } from "neverthrow";
-import { z } from "zod";
+import { Console, Effect } from "effect";
+import { HttpService } from "../main";
+import { HttpClientRequest } from "@effect/platform";
+import { load } from "cheerio";
 
-import type { Game, SiteFunction } from "@types";
-import type { Context } from "@utils/context";
+export const run = Effect.gen(function* () {
+	const client = yield* HttpService;
+	const request = HttpClientRequest.get("https://poki.com/en/categories");
+	const response = yield* client.get(request);
+	const text = yield* response.text;
 
-import { warn } from "@utils/misc";
-import { newGame } from "@utils/newGame";
-import { fetchAndParse } from "@utils/smartFetch";
+	const $ = load(text);
 
-const CATEGORY_BASE_URL = "https://api.poki.com/category/";
-const CATEGORY_URL = CATEGORY_BASE_URL + "categories";
-const CATEGORY_PARAMS = { site: 3 };
-const CATEGORY_SCHEMA = z.object({
-	related_categories: z.array(z.object({ slug: z.string() })),
+	const categories = $(".DIxbY_Wd8M99mMzbD9Jz.Ll7V72dm63WTr1buD4lg")
+		.map((i, el) => {
+			const href = el.attribs.href;
+			const text = $(el).text();
+			return href === undefined
+				? Effect.fail("No href")
+				: Effect.succeed([text, href]);
+		})
+		.toArray();
+
+	yield* Console.log(categories.length);
+	return [];
 });
-
-const GAME_BASE_URL = "https://poki.com/en/g/";
-const GAME_PARAMS = { site: 3, limit: 200 };
-const GAME_SCHEMA = z.object({
-	games: z.array(z.object({ slug: z.string(), title: z.string() })),
-});
-
-const processCategory = (
-	ctx: Context,
-	slug: string
-): ResultAsync<Game[], never> =>
-	fetchAndParse(ctx, CATEGORY_BASE_URL + slug, GAME_SCHEMA, GAME_PARAMS)
-		.map(({ games }) =>
-			games.map(({ slug, title }) =>
-				newGame(ctx, title, GAME_BASE_URL + slug)
-			)
-		)
-		.orElse(warn(ctx, `Error on category ${slug}`, []))
-		.andTee((games) => {
-			ctx.info(`Category ${slug} had ${games.length} games`);
-		});
-
-export const run: SiteFunction = (ctx) =>
-	fetchAndParse(ctx, CATEGORY_URL, CATEGORY_SCHEMA, CATEGORY_PARAMS)
-		.map(({ related_categories }) =>
-			related_categories.map(({ slug }) => processCategory(ctx, slug))
-		)
-		.andThen((categoryResults) => ResultAsync.combine(categoryResults))
-		.map((games) => games.flat());
 
 export const displayName = "Poki";
+
